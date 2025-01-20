@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AuthSession from "@/components/providers/SessionProvider";
-import Header from "@/components/Home/Header";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="trancy-ko sm:w-[390px] w-full mx-auto">
+    <html
+      lang="ko"
+      className="trancy-ko sm:w-[390px] w-full mx-auto h-screen bg-red-50"
+    >
       <AuthSession>
-        <body className={`antialiased`}>
+        <body className={`antialiased h-full`}>
           <Header />
           {children}
         </body>
