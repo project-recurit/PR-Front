@@ -1,27 +1,43 @@
 name: Deployment Notification to Discord
 
 on:
+  push:
+    branches:
+      - main
   deployment_status:
+    types: [success, failure]
 
 jobs:
   notify-discord:
-    name: Notify Discord on Deployment Status
+    name: Deployment Notification to Discord
     runs-on: ubuntu-latest
-    if: github.event.deployment_status.state == 'success' || github.event.deployment_status.state == 'failure'
 
     steps:
-      - name: Notify Discord
+      - name: commit info
+        if: github.event_name == 'push'
+        id: commit_info
+        run: |
+          COMMITTER="${{ github.event.pusher.name }}"
+          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+          echo "COMMITTER=$COMMITTER" >> $GITHUB_ENV
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+
+      - name: discord
+        if: github.event_name == 'deployment_status'
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-            run: |
+        run: |
           STATUS="${{ github.event.deployment_status.state }}"
           ENVIRONMENT="${{ github.event.deployment.environment }}"
           URL="${{ github.event.deployment_status.target_url }}"
-          COMMITTER="${{ github.event.deployment.committer.name }}"
-          COMMIT_MESSAGE="${{ github.event.deployment.commit.message }}"
-          MESSAGE="🚀 배포 상태: $STATUS 🚀\n\
+          COMMITTER="${{ github.actor }}"  # 커밋한 사람
+          COMMIT_MESSAGE="${{ github.event.deployment.commit_message }}"
+
+          MESSAGE="🚀 배포 결과 $STATUS \n\
           배포 주소: $URL\n\
-          커밋 내용: $COMMIT_MESSAGE\n"
+          작성자: $COMMITTER\n\
+          커밋 내용: $COMMIT_MESSAGE"
+
           curl -H "Content-Type: application/json" \
-               -d "{\"content\": \"$MESSAGE\"}" \
+               -d "{\"content\":\"$MESSAGE\"}" \
                $DISCORD_WEBHOOK_URL
