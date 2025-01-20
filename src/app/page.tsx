@@ -1,9 +1,9 @@
-import Kakao from "@/components/Kakao";
+import ActionTap from "@/components/Home/ActionTap";
 
 export default function Home() {
   return (
-    <div>
-      <Kakao />
+    <div className="flex flex-col">
+      <ActionTap />
     </div>
   );
 }
