@@ -1,8 +1,8 @@
-import { filterMenu } from "@/category";
+import { filterMenu } from "@/type/category";
 
 const Filter = () => {
   return (
-    <div className="flex py-[16px] gap-x-[8px]">
+    <div className="flex gap-x-[8px]">
       {filterMenu.map((m) => (
         <button
           key={m}

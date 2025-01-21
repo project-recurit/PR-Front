@@ -1,18 +1,18 @@
 "use client";
 
-import { mainCategory } from "@/category";
-import React, { useState } from "react";
+import useCategoryStore from "@/store/categoryStore";
+import { mainCategory } from "@/type/category";
 
 const ActionTap = () => {
-  const [selectedTap, setSelectedTap] = useState("전체");
+  const { selectMenu, selectedMenu } = useCategoryStore();
   return (
     <div className="flex gap-x-[20px] border-b">
       {mainCategory.map((c) => (
         <button
-          onClick={() => setSelectedTap(c)}
+          onClick={() => selectMenu(c)}
           key={c}
           className={`pb-[10px] border-b-[3px] min-w-fit ${
-            selectedTap === c
+            selectedMenu === c
               ? " border-green-700 text-green-700"
               : "border-transparent"
           }`}
