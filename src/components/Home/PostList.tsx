@@ -3,6 +3,8 @@
 import { PJpost, PRpost } from "@/type/type";
 import { useFilteredPosts } from "@/utils/postFilter";
 import { useSearchParams } from "next/navigation";
+import PJCard from "../PJCard";
+import PRCard from "../PRCard";
 
 const PostList = ({ posts }: { posts?: (PRpost | PJpost)[] }) => {
   const params = useSearchParams();
@@ -10,10 +12,14 @@ const PostList = ({ posts }: { posts?: (PRpost | PJpost)[] }) => {
   const viewPosts = useFilteredPosts(posts, query);
 
   return (
-    <main className="bg-gray-100 w-full px-[20px]">
-      {viewPosts?.map((p) => (
-        <div key={p.id}>이러면 되나</div>
-      ))}
+    <main className="bg-gray-100 w-full px-[20px] flex flex-col gap-y-[20px] py-[20px]">
+      {viewPosts?.map((p) => {
+        if ("content" in p) {
+          return <PJCard post={p} key={p.id} />;
+        } else {
+          return <PRCard key={p.id} post={p} />;
+        }
+      })}
     </main>
   );
 };
