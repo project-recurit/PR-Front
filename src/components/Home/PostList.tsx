@@ -1,10 +1,11 @@
 "use client";
 
 import { PJpost, PRpost } from "@/type/type";
-import { useFilteredPosts } from "@/utils/postFilter";
+
 import { useSearchParams } from "next/navigation";
 import PJCard from "../ui/PJCard";
 import PRCard from "../ui/PRCard";
+import { useFilteredPosts } from "@/hooks/postFilter";
 
 const PostList = ({ posts }: { posts?: (PRpost | PJpost)[] }) => {
   const params = useSearchParams();

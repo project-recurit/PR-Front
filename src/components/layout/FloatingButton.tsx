@@ -1,9 +1,26 @@
 "use client";
 
+import { useModalControl } from "@/hooks/modalControl";
+import FloatingModal from "./FloatingModal";
+import { useRef } from "react";
+
 const FloatingButton = () => {
+  const { isModalOpen, openModal, closeModal } = useModalControl();
+  const buttonRef = useRef<HTMLDivElement | null>(null);
   return (
     <div className="w-full fixed bottom-0 main-contain">
-      <div className=" absolute rounded-full w-[50px] h-[50px] bg-black bottom-[75px] right-[10px]"></div>
+      <div
+        ref={buttonRef}
+        onClick={openModal}
+        className="absolute rounded-full w-[50px] h-[50px] bg-black bottom-[75px] right-[10px]"
+      ></div>
+      {isModalOpen && (
+        <FloatingModal
+          onClose={closeModal}
+          isOpen={isModalOpen}
+          buttonRef={buttonRef}
+        />
+      )}
     </div>
   );
 };
