@@ -8,12 +8,10 @@ import { Suspense } from "react";
 export default async function Home() {
   const posts = await fetchAllPosts();
   return (
-    <div className="flex flex-col">
-      <div className="px-[20px] flex flex-col gap-y-[16px] mb-[16px]">
-        <ActionTap />
-        <SearchBar />
-        <Filter />
-      </div>
+    <div className="flex flex-col gap-y-[20px]">
+      <ActionTap />
+      <SearchBar />
+      <Filter />
       <Suspense>
         <PostList posts={posts} />
       </Suspense>

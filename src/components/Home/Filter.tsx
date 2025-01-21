@@ -2,7 +2,7 @@ import { filterMenu } from "@/type/category";
 
 const Filter = () => {
   return (
-    <div className="flex gap-x-[8px]">
+    <div className="flex gap-x-[8px] px-[20px]">
       {filterMenu.map((m) => (
         <button
           key={m}

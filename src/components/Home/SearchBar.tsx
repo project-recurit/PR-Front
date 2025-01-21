@@ -16,7 +16,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="w-full flex justify-between gap-x-[12px]">
+    <div className="w-full flex justify-between gap-x-[12px] px-[20px]">
       <input
         placeholder="제목과 내용으로 검색해보세요"
         className="w-full border-b-2"

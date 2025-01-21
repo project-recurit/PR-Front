@@ -6,7 +6,7 @@ import { mainCategory } from "@/type/category";
 const ActionTap = () => {
   const { selectMenu, selectedMenu } = useCategoryStore();
   return (
-    <div className="flex gap-x-[20px] border-b">
+    <div className="flex gap-x-[20px] border-b sticky top-[58px] z-10 bg-white px-[20px]">
       {mainCategory.map((c) => (
         <button
           onClick={() => selectMenu(c)}
