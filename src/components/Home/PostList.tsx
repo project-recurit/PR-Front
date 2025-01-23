@@ -13,7 +13,7 @@ const PostList = ({ posts }: { posts?: (PRpost | PJpost)[] }) => {
   const viewPosts = useFilteredPosts(posts, query);
 
   return (
-    <main className="bg-gray-100 w-full px-[20px] flex flex-col gap-y-[20px] py-[20px] mb-[60px]">
+    <main className="w-full px-[20px] flex flex-col gap-y-[20px] py-[20px] mb-[60px]">
       {viewPosts?.map((p) => {
         if ("content" in p) {
           return <PJCard post={p} key={p.id} />;

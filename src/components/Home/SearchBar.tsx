@@ -16,10 +16,10 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="w-full flex justify-between gap-x-[12px] px-[20px]">
+    <div className="w-full flex justify-between gap-x-[12px] px-[16px] border-b border-light-gray py-[12px]">
       <input
-        placeholder="제목과 내용으로 검색해보세요"
-        className="w-full border-b-2"
+        placeholder="제목, 글 내용을 검색해보세요."
+        className="w-full border-[1px] border-pr-gray rounded-lg body-14-r p-[16px]"
         onChange={(e) => setQuery(e.target.value)}
         value={query}
         onKeyDown={(e) => {

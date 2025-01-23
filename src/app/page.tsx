@@ -1,4 +1,3 @@
-import ActionTap from "@/components/Home/ActionTap";
 import Filter from "@/components/Home/Filter";
 import PostList from "@/components/Home/PostList";
 import SearchBar from "@/components/Home/SearchBar";
@@ -8,10 +7,11 @@ import { Suspense } from "react";
 export default async function Home() {
   const posts = await fetchAllPosts();
   return (
-    <div className="flex flex-col gap-y-[20px]">
-      <ActionTap />
-      <SearchBar />
-      <Filter />
+    <div className="flex flex-col overflow-hidden bg-background">
+      <div className="bg-white">
+        <SearchBar />
+        <Filter />
+      </div>
       <Suspense>
         <PostList posts={posts} />
       </Suspense>

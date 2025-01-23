@@ -8,9 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        pretendard: ["var(--font-pretendard)"],
+      },
       colors: {
-        background: "var(--background)",
+        background: "#F5F5F5",
         foreground: "var(--foreground)",
+        "deep-gray": "#BFBFBF",
+        "light-gray": "#D9D9D9",
+        "text-gray": "#A6A6A6",
       },
     },
   },

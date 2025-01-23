@@ -5,13 +5,12 @@ import FloatingModal from "./FloatingModal";
 import { useRef } from "react";
 
 const FloatingButton = () => {
-  const { isModalOpen, openModal, closeModal } = useModalControl();
+  const { isModalOpen, toggleModal, closeModal } = useModalControl();
   const buttonRef = useRef<HTMLDivElement | null>(null);
   return (
     <div className="w-full fixed bottom-0 main-contain">
       <div
-        ref={buttonRef}
-        onClick={openModal}
+        onClick={toggleModal}
         className="absolute rounded-full w-[50px] h-[50px] bg-black bottom-[75px] right-[10px]"
       ></div>
       {isModalOpen && (
