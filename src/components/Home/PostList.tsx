@@ -1,6 +1,6 @@
 "use client";
 
-import { PJpost, PRpost } from "@/type/type";
+import { PJpost, PRpost } from "@/types/type";
 
 import { useSearchParams } from "next/navigation";
 import PJCard from "../ui/PJCard";
@@ -13,7 +13,7 @@ const PostList = ({ posts }: { posts?: (PRpost | PJpost)[] }) => {
   const viewPosts = useFilteredPosts(posts, query);
 
   return (
-    <main className="w-full px-[20px] flex flex-col gap-y-[20px] py-[20px] mb-[60px]">
+    <main className="w-full px-20 flex flex-col gap-y-20 py-20 mb-60">
       {viewPosts?.map((p) => {
         if ("content" in p) {
           return <PJCard post={p} key={p.id} />;

@@ -16,7 +16,7 @@ const CenterModal = ({
       onClick={handleClose}
       className="w-screen h-screen bg-black/50 blur-md fixed z-10 flex justify-center items-center"
     >
-      <div className="bg-white px-[24px] py-[20px]">{children}</div>
+      <div className="bg-white px-24 py-20">{children}</div>
     </div>
   );
 };

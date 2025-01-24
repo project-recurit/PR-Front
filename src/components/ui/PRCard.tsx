@@ -1,15 +1,17 @@
-import { PRpost } from "@/type/type";
+import { PRpost } from "@/types/type";
 import Card from "./Card";
+import CardLabel from "./CardLabel";
+import StackLabel from "./StackLabel";
 
 const PRCard = ({ post }: { post: PRpost }) => {
   return (
     <Card>
       <p className="body-16-s overflow-line2">{post.title}</p>
-      <p className="text-sm overflow-line2overflow-line2">{post.username}</p>
-      <div className="flex gap-x-[8px] text-sm">
-        {post.techStacks.map((s) => (
-          <p key={s}>{s}</p>
-        ))}
+      <div className="grid grid-cols-[70px_1fr] caption-r items-center gap-y-10 ">
+        <CardLabel title="포지션" value="프론트엔드" />
+        <StackLabel stacks={post.techStacks} />
+        <CardLabel title="선호 방식" value="오프라인" />
+        <CardLabel title="선호 기간" value="3개월" />
       </div>
     </Card>
   );

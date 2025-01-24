@@ -1,5 +1,5 @@
 import { apiClient } from "@/lib/apiClient";
-import { PJres, PRres } from "@/type/type";
+import { PJres, PRres } from "@/types/type";
 
 export const fetchAllPosts = async () => {
   try {

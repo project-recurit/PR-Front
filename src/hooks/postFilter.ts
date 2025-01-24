@@ -1,5 +1,5 @@
 import useCategoryStore from "@/store/categoryStore";
-import { PJpost, PRpost } from "@/type/type";
+import { PJpost, PRpost } from "@/types/type";
 
 export const useFilteredPosts = (
   posts?: (PRpost | PJpost)[],
