@@ -4279,11 +4279,6 @@ svgo@^3.0.2:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
-tailwindcss-preset-px-to-rem@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/tailwindcss-preset-px-to-rem/-/tailwindcss-preset-px-to-rem-1.2.1.tgz#88f99099a61a02518d8cf1318b6b873a743b3b59"
-  integrity sha512-m3GHwciFiXZviaN7WvOiiMjRBT7razJxgPTY6h2KcOvzvkOTysOV6gN3HkejfXUyL4DKx6YjiPcLCqv6yMeXHw==
-
 tailwindcss@*:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.0.0.tgz#1f275ed16eb4127cb70bf5e9f53fb8eb7b72be3c"
