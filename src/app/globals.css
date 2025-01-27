@@ -94,4 +94,7 @@ body {
   .caption-s {
     @apply font-pretendard text-[12px] font-semibold leading-[1];
   }
+  .caption-10 {
+    @apply font-pretendard text-[10px] font-semibold leading-[1];
+  }
 }

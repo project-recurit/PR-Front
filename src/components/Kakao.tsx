@@ -40,7 +40,7 @@ const Kakao = () => {
       </button>
       <button
         disabled={!session}
-        className=" disabled:text-gray-500"
+        className=" disabled:black-400-500"
         onClick={() => signOut()}
       >
         로그아웃
