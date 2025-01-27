@@ -19,14 +19,30 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account }) {
-      console.log('Social Provider:', account.provider);
-      console.log('Provider Account:', account);
-      console.log('API URL:', process.env.API_BASE_URL);
-      try {
-        const registerUrl = `${process.env.API_BASE_URL}/api/v1/users/register`;
-        console.log('Attempting register at:', registerUrl);
-        const response = await fetch(`${process.env.API_BASE_URL}/api/v1/users/register`, {
+  async signIn({ user, account }) {
+    console.log(account);
+    try {
+      // 1. 먼저 로그인 시도
+      const loginResponse = await fetch(`${process.env.API_BASE_URL}/api/v1/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: user.email,
+          socialId: account.providerAccountId,
+          provider: account.provider
+        })
+      });
+
+      // 2. 로그인 성공
+      if (loginResponse.ok) {
+        const data = await loginResponse.json();
+        account.access_token = data.token;
+        return true;
+      }
+
+      // 3. 로그인 실패 시 (401 등) 회원가입 진행
+      if (loginResponse.status === 401) {
+        const registerResponse = await fetch(`${process.env.API_BASE_URL}/api/v1/users/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -38,27 +54,39 @@ const handler = NextAuth({
           })
         });
 
-        if (!response.ok) {
-          const loginResponse = await fetch(`${process.env.API_BASE_URL}/api/v1/auth/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: user.email,
-              socialId: account.providerAccountId,
-              provider: account.provider
-            })
-          });
-          if (loginResponse.ok) {
-            const data = await loginResponse.json();
-            user.accessToken = data.token; // 또는 필요한 토큰/데이터 저장
-            return true;
-          }
+        // 4. 회원가입 실패 처리 (409: 이미 존재하는 회원인 경우)
+        if (registerResponse.status === 409) {
+          console.log('이미 존재하는 회원, 재로그인 시도');
+          return await this.signIn({ user, account }); // 재로그인 시도
         }
-        return true;
-      } catch (error) {
-        console.error('Error during sign in:', error);
-        return false;
+
+        if (!registerResponse.ok) {
+          console.error('회원가입 실패');
+          return false;
+        }
+
+        // 5. 회원가입 성공 후 재로그인
+        console.log('회원가입 성공, 재로그인 시도');
+        return await this.signIn({ user, account }); // 재로그인 시도
       }
+
+      return false;
+    } catch (error) {
+      console.error('Error:', error);
+      return false;
+    }
+  },
+    async jwt({ token, account }) {
+      if (account) {
+        token.access_token = account.access_token;
+      }
+      return token;
+    },
+
+    // 세션 콜백: JWT 토큰의 데이터를 세션에 추가
+    async session({ session, token }) {
+      session.accessToken = token.access_token;
+      return session;
     }
   },
   secret: process.env.NEXTAUTH_SECRET,
