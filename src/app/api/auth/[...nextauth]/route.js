@@ -25,53 +25,29 @@ const handler = NextAuth({
   ],
   callbacks: {
     async signIn({ user, account }) {
-      console.log("🔵 구글 로그인 디버그:", { user, account });
+      console.log("소셜 로그인 디버그:", { user, account });
 
       const nickname = user?.name || user?.email?.split('@')[0] || "Unknown";
 
       try {
         // 로그인 시도
-        const tryLogin = async () => {
-          const response = await fetch(`${process.env.API_BASE_URL}/api/v1/auth/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: user?.email,
-              socialId: account.providerAccountId,
-              provider: account.provider.toUpperCase()
-            })
-          });
+        const response = await fetch(`${process.env.API_BASE_URL}/api/v1/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: user?.email,
+            socialId: account.providerAccountId,
+            nickname: nickname,
+            provider: account.provider.toUpperCase()
+          })
+        });
 
-          if (response.ok) {
-            const data = await response.json();
-            account.access_token = data.token;
-            return true;
-          }
-          return false;
-        };
-
-        // 첫 번째 로그인 시도
-        let loginSuccess = await tryLogin();
-
-        // 로그인 실패시 회원가입 진행
-        if (!loginSuccess) {
-          const registerResponse = await fetch(`${process.env.API_BASE_URL}/api/v1/users/register`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: user?.email,
-              username: user?.email,
-              nickname: nickname,
-              socialId: account.providerAccountId,
-              socialProvider: account.provider.toUpperCase()
-            })
-          });
-
-          if (registerResponse.ok) {
-            // 회원가입 성공 후 다시 로그인 시도
-            loginSuccess = await tryLogin();
-          }
+        if (response.ok) {
+          const data = await response.json();
+          account.access_token = data.token;
+          return true;
         }
+        return false;
 
         return loginSuccess;
 
