@@ -8,5 +8,5 @@ export const NAV_MENU = [
   { title: "모임", Component: Users, route: "/" },
   { title: "채팅", Component: Chat, route: "/chat" },
   { title: "현황", Component: LineHeart, route: "/dashboard" },
-  { title: "마이", Component: MyUser, route: "mypage" },
+  { title: "마이", Component: MyUser, route: "/mypage" },
 ];
