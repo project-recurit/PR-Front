@@ -32,7 +32,7 @@ body {
 
 @layer components {
   .main-contain {
-    @apply max-w-[540px] min-w-[320px] mx-auto;
+    @apply max-w-[375px] min-w-[320px] mx-auto;
   }
 }
 
