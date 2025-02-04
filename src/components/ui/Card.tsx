@@ -6,7 +6,7 @@ const Card = ({ children }: { children: React.ReactNode }) => {
     <section className="w-full bg-white rounded-xl border shadow-sm flex flex-col gap-y-12  py-12  px-20 ">
       <CardProfile />
       {children}
-      <hr className=" bg-light-gray" />
+      <hr className=" bg-black-200" />
       <CardFooter />
     </section>
   );

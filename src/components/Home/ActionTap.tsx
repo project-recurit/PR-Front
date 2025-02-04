@@ -1,13 +1,13 @@
 "use client";
 
+import { MAIN_CATEGORY } from "@/assets/constantData";
 import useCategoryStore from "@/store/categoryStore";
-import { mainCategory } from "@/types/category";
 
 const ActionTap = () => {
   const { selectMenu, selectedMenu } = useCategoryStore();
   return (
-    <div className="flex gap-x-20 px-20 border-b-1 sticky top-58 z-10 border-deep-gray">
-      {mainCategory.map((c) => (
+    <div className="flex gap-x-20 px-20 border-b-1 sticky top-58 z-10 border-black-300">
+      {MAIN_CATEGORY.map((c) => (
         <button
           onClick={() => selectMenu(c)}
           key={c}
