@@ -1,4 +1,8 @@
+import FirstStep from "@/app/sign-up/components/FirstStep";
+import SecondStep from "@/app/sign-up/components/SecondStep";
+import ThirdStep from "@/app/sign-up/components/ThirdStep";
 import { Chat, LineHeart, MyUser, Users } from "@/assets/icons";
+import { FC } from "react";
 
 export const MAIN_CATEGORY = ["전체", "PJ", "PR"];
 
@@ -10,3 +14,11 @@ export const NAV_MENU = [
   { title: "현황", Component: LineHeart, route: "/dashboard" },
   { title: "마이", Component: MyUser, route: "/mypage" },
 ];
+
+export const HIDDEN_PATH = ["/login", "/sign-up"];
+
+export const STEP_COMPONENTS: Record<number, FC> = {
+  0: FirstStep,
+  1: SecondStep,
+  2: ThirdStep,
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { NAV_MENU } from "@/assets/constantData";
+import { HIDDEN_PATH, NAV_MENU } from "@/assets/constantData";
 import { usePathname, useRouter } from "next/navigation";
 
 const NavigationBar = () => {
@@ -8,7 +8,11 @@ const NavigationBar = () => {
   const route = useRouter();
 
   return (
-    <nav className="fixed bottom-0 w-full bg-white h-56  main-contain flex px-40 py-8 justify-between">
+    <nav
+      className={`fixed bottom-0 w-full bg-white h-56  main-contain flex px-40 py-8 justify-between ${
+        HIDDEN_PATH.includes(path) && "hidden"
+      }`}
+    >
       {NAV_MENU.map((m) => (
         <button
           key={m.title}

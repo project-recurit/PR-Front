@@ -2,11 +2,17 @@
 
 import { MAIN_CATEGORY } from "@/assets/constantData";
 import useCategoryStore from "@/store/categoryStore";
+import { usePathname } from "next/navigation";
 
 const ActionTap = () => {
+  const path = usePathname();
   const { selectMenu, selectedMenu } = useCategoryStore();
   return (
-    <div className="flex gap-x-20 px-20 border-b-1 sticky top-58 z-10 border-black-300">
+    <div
+      className={`flex gap-x-20 px-20 border-b-1 z-10 sticky border-black-300 pt-13 ${
+        path !== "/" && "hidden"
+      }`}
+    >
       {MAIN_CATEGORY.map((c) => (
         <button
           onClick={() => selectMenu(c)}

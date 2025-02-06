@@ -23,13 +23,18 @@ const px0_200 = Array.from(Array(201), (_, i) => [`${i}`, `${i}px`]).reduce(
   {} as { [key: string]: string }
 );
 export default {
+  mode: "jit",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "391px",
+    },
     extend: {
+      borderRadius: px0_100,
       borderWidth: px0_10,
       fontSize: px0_100,
       lineHeight: px0_100,

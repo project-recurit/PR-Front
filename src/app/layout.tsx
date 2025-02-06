@@ -24,9 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`trancy-ko ${pretendard.variable}`}>
+    <html
+      lang="ko"
+      className={`trancy-ko ${pretendard.variable} bg-white px-16 sm:px-0`}
+    >
       <AuthSession>
-        <body className={`antialiased main-contain`}>
+        <body
+          className={`antialiased main-contain bg-black-100 h-screen text-black-1000`}
+        >
           <Header />
           {children}
           <FloatingButton />

@@ -70,6 +70,12 @@ body {
   .title-18-m {
     @apply font-pretendard text-[18px] font-medium leading-[1.2];
   }
+  .title-18-m {
+    @apply font-pretendard text-[18px] font-normal leading-[1.2];
+  }
+  .body-16-b {
+    @apply font-pretendard text-[16px] font-bold leading-[1.35];
+  }
   .body-16-s {
     @apply font-pretendard text-[16px] font-semibold leading-[1.35];
   }
