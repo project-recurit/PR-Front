@@ -9,6 +9,7 @@ import GoogleIcon from "./google.svg";
 import KakaoIcon from "./kakao.svg";
 import GithubIcon from "./github.svg";
 import Search from "./search.svg";
+import ChevronDown from "./chevron-down.svg";
 
 export {
   BookMark,
@@ -22,4 +23,5 @@ export {
   KakaoIcon,
   GithubIcon,
   Search,
+  ChevronDown,
 };

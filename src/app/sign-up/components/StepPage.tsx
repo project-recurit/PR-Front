@@ -5,6 +5,7 @@ import { useStep } from "@/hooks/signupStep";
 import StepLabel from "./StepLabel";
 import Button from "@/components/common/Button";
 import { useRouter } from "next/navigation";
+import DropDown from "@/components/common/DropDown";
 
 const StepPage = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const StepPage = () => {
     <div>
       <StepLabel step={step} />
       <Component />
+      <DropDown> 직무 선택</DropDown>
       <Button size="m" onClick={handleStep}>
         {step === 2 ? "시작하기" : "계속"}
       </Button>
