@@ -22,7 +22,7 @@ const StepPage = () => {
   };
 
   return (
-    <div className="h-full py-34 grid grid-rows-[20px_auto_50px] sm:max-h-[700px]">
+    <div className="w-full h-full py-34 grid grid-rows-[20px_auto_50px] sm:max-h-[700px]">
       <StepLabel step={step} />
       <Component />
       <Button size="m" onClick={handleStep}>
