@@ -2,7 +2,7 @@ import StepPage from "./components/StepPage";
 
 const page = () => {
   return (
-    <div className="w-full h-full bg-white flex items-center justify-center">
+    <div className="flex items-center justify-center w-full h-full px-16 bg-white">
       <StepPage />
     </div>
   );

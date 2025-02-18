@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`trancy-ko ${pretendard.variable} bg-white px-16 sm:px-0`}
+      className={`trancy-ko ${pretendard.variable} bg-white sm:px-0`}
     >
       <AuthSession>
         <body
