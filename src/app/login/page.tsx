@@ -2,8 +2,8 @@ import SocialLogin from "./components/SocialLogin";
 
 const page = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full px-16 bg-white pb-40">
-      <p className="font-pretendard font-bold text-40 ">LOGO</p>
+    <div className="flex flex-col items-center justify-center w-full h-full px-16 bg-white">
+      <p className="font-bold font-pretendard text-40 ">LOGO</p>
       <div className="text-center mt-94 mb-188">
         <p className="title-24-b">환영합니다!</p>
         <p className="body-16-r mt-18">
