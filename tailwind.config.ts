@@ -1,10 +1,11 @@
 import type { Config } from "tailwindcss";
+
 const px0_10 = Array.from(Array(11), (_, i) => [`${i}`, `${i}px`]).reduce(
   (acc, [key, value]) => {
     acc[key] = value;
     return acc;
   },
-  {} as { [key: string]: string }
+  {} as { [key: string]: string },
 );
 
 const px0_100 = Array.from(Array(101), (_, i) => [`${i}`, `${i}px`]).reduce(
@@ -12,7 +13,7 @@ const px0_100 = Array.from(Array(101), (_, i) => [`${i}`, `${i}px`]).reduce(
     acc[key] = value;
     return acc;
   },
-  {} as { [key: string]: string }
+  {} as { [key: string]: string },
 );
 
 const px0_200 = Array.from(Array(201), (_, i) => [`${i}`, `${i}px`]).reduce(
@@ -20,7 +21,7 @@ const px0_200 = Array.from(Array(201), (_, i) => [`${i}`, `${i}px`]).reduce(
     acc[key] = value;
     return acc;
   },
-  {} as { [key: string]: string }
+  {} as { [key: string]: string },
 );
 export default {
   mode: "jit",

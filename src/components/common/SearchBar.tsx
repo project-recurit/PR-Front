@@ -1,18 +1,11 @@
 import { Search } from "@/assets/icons";
 
-const SearchBar = ({
-  label,
-  placeholder,
-}: {
-  label: string;
-  placeholder: string;
-}) => {
+const SearchBar = ({ label, placeholder }: { label: string; placeholder: string }) => {
   return (
     <>
-      {label && <p className="mb-12 body-16-b">{label}</p>}
+      {label && <p className="body-16-b mb-12">{label}</p>}
       <div
-        className={`group items-center flex flex-row justify-between px-16 w-full h-fit relative body-16-r border-1 border-black-400 rounded-8 
-    }`}
+        className={`body-16-r } group relative flex h-fit w-full flex-row items-center justify-between rounded-8 border-1 border-black-400 px-16`}
       >
         <input
           className="w-full py-14 focus:outline-none"

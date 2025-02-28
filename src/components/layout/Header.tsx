@@ -1,21 +1,15 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import ActionTap from "../Home/ActionTap";
 import { HIDDEN_PATH } from "@/assets/constantData";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const path = usePathname();
 
   return (
-    <header
-      className={`flex flex-col sticky top-0 z-10 bg-white ${
-        HIDDEN_PATH.includes(path) && "hidden"
-      }`}
-    >
-      <div className="font-pretendard font-black text-24 px-20 py-9 leading-tight">
-        LOGO
-      </div>
+    <header className={`sticky top-0 z-10 flex flex-col bg-white ${HIDDEN_PATH.includes(path) && "hidden"}`}>
+      <div className="px-20 py-9 font-pretendard text-24 font-black leading-tight">LOGO</div>
       <ActionTap />
     </header>
   );

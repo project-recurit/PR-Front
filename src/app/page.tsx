@@ -4,7 +4,7 @@ import SearchBar from "@/components/Home/SearchBar";
 import { fetchAllPosts } from "@/services/postServices";
 import { Suspense } from "react";
 
-export default async function Home() {
+const Home = async () => {
   const posts = await fetchAllPosts();
   return (
     <div className="flex flex-col overflow-hidden">
@@ -17,4 +17,6 @@ export default async function Home() {
       </Suspense>
     </div>
   );
-}
+};
+
+export default Home;

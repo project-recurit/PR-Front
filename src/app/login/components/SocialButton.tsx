@@ -9,20 +9,14 @@ const icons: { [key: string]: React.ElementType } = {
   Github: GithubIcon,
 };
 
-const SocialButton = ({
-  title,
-  classname,
-}: {
-  title: string;
-  classname?: string;
-}) => {
+const SocialButton = ({ title, classname }: { title: string; classname?: string }) => {
   const upperTitle = title[0].toUpperCase() + title.slice(1, title.length);
   const Component = icons[upperTitle];
 
   return (
     <button
       onClick={() => signIn(title)}
-      className={`flex items-center justify-center w-full py-12 rounded-12 body-16-b  ${classname}`}
+      className={`body-16-b flex w-full items-center justify-center rounded-12 py-12 ${classname}`}
     >
       <Component />
       <span>{upperTitle} 로그인</span>

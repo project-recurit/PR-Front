@@ -9,14 +9,14 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className={`fixed bottom-0 w-full bg-white h-56  main-contain flex px-40 py-8 justify-between ${
+      className={`main-contain fixed bottom-0 flex h-56 w-full justify-between bg-white px-40 py-8 ${
         HIDDEN_PATH.includes(path) && "hidden"
       }`}
     >
       {NAV_MENU.map((m) => (
         <button
           key={m.title}
-          className={`flex flex-col justify-center items-center gap-y-4 ${
+          className={`flex flex-col items-center justify-center gap-y-4 ${
             path === m.route ? "text-black-1000" : "text-black-400"
           }`}
           onClick={() => route.push(m.route)}
