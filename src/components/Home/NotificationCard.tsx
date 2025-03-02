@@ -1,9 +1,10 @@
 "use client";
 
+import type { NOTIFICATION_TYPE } from "@/assets/constantData";
 import { FaceNeutral, FaceSmile, MessageCircle, MessageSquare } from "@/assets/icons";
 
 interface NotificationCardProps {
-  notificationType: "ACCEPT" | "REJECT" | "COMMENT" | "CHAT";
+  notificationType: NOTIFICATION_TYPE;
   read?: boolean;
   subject: string;
 }

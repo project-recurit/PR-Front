@@ -74,3 +74,10 @@ export const STEP_COMPONENTS: Record<number, FC> = {
 };
 
 export const DUTY_CATEGORY = ["게임", "기획", "디자인", "모바일/APP", "백엔드", "프론트엔드"];
+
+export enum NOTIFICATION_TYPE {
+  accept = "ACCEPT",
+  reject = "REJECT",
+  comment = "COMMENT",
+  chat = "CHAT",
+}
