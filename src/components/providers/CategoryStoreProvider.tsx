@@ -1,21 +1,29 @@
-"use client";
+'use client';
 
-import { createCategoryStore } from "@/stores/categoryStore";
-import type { CategoryStoreApi } from "@/types/categoryTypes";
-import { createContext, useRef } from "react";
+import { createCategoryStore } from '@/stores/categoryStore';
+import type { CategoryStoreApi } from '@/types/filterTypes';
+import { createContext, useRef } from 'react';
 
-export const CategoryStoreContext = createContext<CategoryStoreApi | undefined>(undefined);
+export const CategoryStoreContext = createContext<CategoryStoreApi | undefined>(
+  undefined
+);
 
-type Props = {
+interface CategoryStoreProviderProps {
   children: React.ReactNode;
-};
+}
 
-export const CategoryStoreProvider = ({ children }: Props) => {
+export const CategoryStoreProvider = ({
+  children,
+}: CategoryStoreProviderProps) => {
   const storeRef = useRef<CategoryStoreApi>(null);
 
   if (!storeRef.current) {
     storeRef.current = createCategoryStore();
   }
 
-  return <CategoryStoreContext.Provider value={storeRef.current}>{children}</CategoryStoreContext.Provider>;
+  return (
+    <CategoryStoreContext.Provider value={storeRef.current}>
+      {children}
+    </CategoryStoreContext.Provider>
+  );
 };
