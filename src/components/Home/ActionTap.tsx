@@ -1,21 +1,24 @@
 "use client";
 
-import useCategoryStore from "@/store/categoryStore";
-import { mainCategory } from "@/types/category";
+import { MAIN_CATEGORY } from "@/assets/constantData";
+import { useCategoryStore } from "@/hooks/zustandContext/useCategoryStore";
+import { usePathname } from "next/navigation";
 
 const ActionTap = () => {
-  const { selectMenu, selectedMenu } = useCategoryStore();
+  const path = usePathname();
+  const { selectedMenu, selectMenu } = useCategoryStore((state) => state);
+
   return (
-    <div className="flex gap-x-20 px-20 border-b-1 sticky top-58 z-10 border-deep-gray">
-      {mainCategory.map((c) => (
+    <div className={`sticky z-10 flex gap-x-20 border-b-1 border-black-300 px-20 pt-13 ${path !== "/" && "hidden"}`}>
+      {MAIN_CATEGORY.map((c) => (
         <button
           onClick={() => selectMenu(c)}
           key={c}
-          className={`min-w-fit flex-col flex items-center body-14-s mb-4`}
+          className={`body-14-s mb-4 flex min-w-fit flex-col items-center`}
         >
           {c}
           <div
-            className={`h-3 w-39 rounded-full absolute -bottom-2 ${
+            className={`absolute -bottom-2 h-3 w-39 rounded-full ${
               selectedMenu === c ? "bg-green-600" : "bg-transparent"
             }`}
           ></div>

@@ -15,7 +15,7 @@ export interface PJpost {
   id: number;
   title: string;
   content: string;
-  techStacks: string[];
+  techStack1s: string[];
   expectedPeriod: string;
   fileUrl: string;
   contact: string;

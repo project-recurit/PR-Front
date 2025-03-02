@@ -1,12 +1,6 @@
 "use client";
 
-const CenterModal = ({
-  onClose,
-  children,
-}: {
-  onClose: () => void;
-  children: React.ReactNode;
-}) => {
+const CenterModal = ({ onClose, children }: { onClose: () => void; children: React.ReactNode }) => {
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     onClose();
@@ -14,7 +8,7 @@ const CenterModal = ({
   return (
     <div
       onClick={handleClose}
-      className="w-screen h-screen bg-black/50 blur-md fixed z-10 flex justify-center items-center"
+      className="fixed z-10 flex h-screen w-screen items-center justify-center bg-black/50 blur-md"
     >
       <div className="bg-white px-24 py-20">{children}</div>
     </div>
