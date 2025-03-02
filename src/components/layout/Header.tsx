@@ -1,17 +1,34 @@
 "use client";
 
 import ActionTap from "../Home/ActionTap";
+import NotificationSheet from "../Home/NotificationSheet";
+import Modal from "../Modal";
 import { HIDDEN_PATH } from "@/assets/constantData";
+import { Bell } from "@/assets/icons";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const Header = () => {
   const path = usePathname();
+  const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
 
   return (
-    <header className={`sticky top-0 z-10 flex flex-col bg-white ${HIDDEN_PATH.includes(path) && "hidden"}`}>
-      <div className="px-20 py-9 font-pretendard text-24 font-black leading-tight">LOGO</div>
-      <ActionTap />
-    </header>
+    <>
+      <header className={`sticky top-0 z-10 flex flex-col bg-white ${HIDDEN_PATH.includes(path) && "hidden"}`}>
+        <div className="flex justify-between px-20 py-9">
+          <span className="text-24 font-black leading-tight">LOGO</span>
+          <button onClick={() => setIsAlertOpen(true)}>
+            <Bell />
+          </button>
+        </div>
+        <ActionTap />
+      </header>
+      {isAlertOpen && (
+        <Modal>
+          <NotificationSheet setIsAlertOpen={setIsAlertOpen} />
+        </Modal>
+      )}
+    </>
   );
 };
 

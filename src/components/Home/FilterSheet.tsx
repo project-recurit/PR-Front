@@ -14,13 +14,13 @@ const FilterSheet = ({ setIsFilterOpen }: FilterSheetProps) => {
   const [selectedFilter, setSelectedFilter] = useState<Set<string>>(activeFilters);
 
   return (
-    <div className="fixed left-0 top-0 z-50 h-screen w-screen bg-white">
-      <div className="flex">
+    <div className="z-50 h-screen w-screen bg-white">
+      <header className="flex">
         <button onClick={() => setIsFilterOpen(false)}>
           <ChevronLeft />
         </button>
         <h2>필터</h2>
-      </div>
+      </header>
       <FilterMenu
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
