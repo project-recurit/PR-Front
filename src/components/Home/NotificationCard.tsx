@@ -7,6 +7,7 @@ interface NotificationCardProps {
   notificationType: NOTIFICATION_TYPE;
   read?: boolean;
   subject: string;
+  receivedAt: string;
 }
 
 const notificationIcons = {
@@ -16,12 +17,13 @@ const notificationIcons = {
   CHAT: { icon: MessageCircle, message: (subject: string) => `\`${subject}\`님과 새로운 채팅이 시작됐어요.` },
 };
 
-const NotificationCard = ({ notificationType, subject }: NotificationCardProps) => {
+const NotificationCard = ({ notificationType, subject, receivedAt }: NotificationCardProps) => {
   const { icon: Icon, message } = notificationIcons[notificationType];
   return (
     <div>
       <Icon />
       <span>{message(subject)}</span>
+      <span>{receivedAt}</span>
     </div>
   );
 };

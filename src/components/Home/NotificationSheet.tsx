@@ -19,7 +19,7 @@ const NotificationSheet = ({ setIsAlertOpen }: NotificationSheetProps) => {
       <div>
         <div>
           <h3>새로운 알림</h3>
-          {/* <NotificationCard /> */}
+          <NotificationCard />
         </div>
         <div>
           <h3>지난 알림</h3>
