@@ -1,6 +1,6 @@
-import type { createCategoryStore } from '@/stores/categoryStore';
+import type { createCategoryStore } from "@/stores/categoryStore";
 
-export type CategoryMenu = '전체' | 'PJ' | 'PR';
+export type CategoryMenu = "전체" | "PJ" | "PR";
 
 export type CategoryState = {
   selectedMenu: CategoryMenu;

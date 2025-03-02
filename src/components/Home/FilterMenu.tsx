@@ -1,7 +1,7 @@
-import { FILTER_MENU } from '@/assets/constantData';
-import { ChevronDown, ChevronUp } from '@/assets/icons';
-import { useState } from 'react';
-import FilterChip from '../Common/FilterChip';
+import FilterChip from "../Common/FilterChip";
+import { FILTER_MENU } from "@/assets/constantData";
+import { ChevronDown, ChevronUp } from "@/assets/icons";
+import { useState } from "react";
 
 interface FilterMenuProps {
   selectedFilter: Set<string>;
@@ -11,7 +11,7 @@ interface FilterMenuProps {
 const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
   const [isShowChips, setIsShowChips] = useState<Record<string, boolean>>({
     포지션: true,
-    '기술 스택': true,
+    "기술 스택": true,
     진행방식: true,
     진행기간: true,
   });
@@ -29,7 +29,7 @@ const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
       {FILTER_MENU.map(({ category, chips }) => (
         <div key={category}>
           <button
-            className='w-full flex justify-between'
+            className="flex w-full justify-between"
             name={category}
             onClick={(e) => toggleChips(e)}
           >

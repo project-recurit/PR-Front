@@ -1,25 +1,21 @@
-'use client';
+"use client";
 
-import { ChevronLeft } from '@/assets/icons';
-import { useCategoryStore } from '@/hooks/zustandContext/useCategoryStore';
-
-import FilterMenu from './FilterMenu';
-import { useState } from 'react';
+import FilterMenu from "./FilterMenu";
+import { ChevronLeft } from "@/assets/icons";
+import { useCategoryStore } from "@/hooks/zustandContext/useCategoryStore";
+import { useState } from "react";
 
 interface FilterSheetProps {
   setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const FilterSheet = ({ setIsFilterOpen }: FilterSheetProps) => {
-  const { activeFilters, applyFilter, resetFilter } = useCategoryStore(
-    (state) => state
-  );
-  const [selectedFilter, setSelectedFilter] =
-    useState<Set<string>>(activeFilters);
+  const { activeFilters, applyFilter, resetFilter } = useCategoryStore((state) => state);
+  const [selectedFilter, setSelectedFilter] = useState<Set<string>>(activeFilters);
 
   return (
-    <div className='fixed left-0 top-0 z-50 h-screen w-screen bg-white'>
-      <div className='flex'>
+    <div className="fixed left-0 top-0 z-50 h-screen w-screen bg-white">
+      <div className="flex">
         <button onClick={() => setIsFilterOpen(false)}>
           <ChevronLeft />
         </button>
