@@ -1,10 +1,10 @@
 "use client";
 
 import { MAIN_CATEGORY } from "@/assets/constantData";
-import { useCategoryStore } from "@/hooks/zustandContext/useCategoryStore";
+import { useCategoryStore } from "@/hooks/State/useCategoryStore";
 import { usePathname } from "next/navigation";
 
-const ActionTap = () => {
+const CategoryTab = () => {
   const path = usePathname();
   const { selectedMenu, selectMenu } = useCategoryStore((state) => state);
 
@@ -28,4 +28,4 @@ const ActionTap = () => {
   );
 };
 
-export default ActionTap;
+export default CategoryTab;

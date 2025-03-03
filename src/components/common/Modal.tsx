@@ -8,14 +8,14 @@ interface ModalProps {
 }
 
 const Modal = ({ children }: ModalProps) => {
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const modalRoot = document.getElementById("modal-root");
 
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
-  if (!mounted || !modalRoot) return null;
+  if (!isMounted || !modalRoot) return null;
 
   return createPortal(<>{children}</>, modalRoot);
 };

@@ -1,8 +1,8 @@
 "use client";
 
-import ActionTap from "../Home/ActionTap";
-import NotificationSheet from "../Home/NotificationSheet";
-import Modal from "../Modal";
+import Modal from "../Common/Modal";
+import CategoryTab from "../Home/FilterPanel/CategoryTab";
+import NotificationSheet from "../Home/Notification/NotificationSheet";
 import { HIDDEN_PATH } from "@/assets/constantData";
 import { Bell } from "@/assets/icons";
 import { usePathname } from "next/navigation";
@@ -21,7 +21,7 @@ const Header = () => {
             <Bell />
           </button>
         </div>
-        <ActionTap />
+        <CategoryTab />
       </header>
       {isAlertOpen && (
         <Modal>

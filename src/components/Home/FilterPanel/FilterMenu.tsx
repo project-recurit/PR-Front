@@ -1,4 +1,4 @@
-import FilterChip from "../Common/FilterChip";
+import SelectChip from "../../Common/SelectChip";
 import { FILTER_MENU } from "@/assets/constantData";
 import { ChevronDown, ChevronUp } from "@/assets/icons";
 import { useState } from "react";
@@ -25,23 +25,23 @@ const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
   };
 
   return (
-    <>
+    <div className="overflow-y-auto">
       {FILTER_MENU.map(({ category, chips }) => (
         <div key={category}>
           <button
-            className="flex w-full justify-between"
+            className="flex w-full justify-between border-y-[0.5px] p-16"
             name={category}
             onClick={(e) => toggleChips(e)}
           >
-            <h3>{category}</h3>
+            <h3 className="body-16-s">{category}</h3>
             {isShowChips[category] ? <ChevronUp /> : <ChevronDown />}
           </button>
           {isShowChips[category] && (
-            <div>
+            <div className="flex w-full flex-wrap gap-10 bg-black-50 px-16 pb-18 pt-12">
               {chips.map((chip) => (
-                <FilterChip
+                <SelectChip
                   key={chip}
-                  large
+                  size="m"
                   active={selectedFilter.has(chip)}
                   onClick={() => {
                     setSelectedFilter((prev) => {
@@ -61,7 +61,7 @@ const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
           )}
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@
 import StepLabel from "./StepLabel";
 import { STEP_COMPONENTS } from "@/assets/constantData";
 import { ChevronLeft, XClose } from "@/assets/icons";
-import Button from "@/components/common/Button";
+import Button from "@/components/Common/Button";
 import { useStep } from "@/hooks/signupStep";
 import { useRouter } from "next/navigation";
 

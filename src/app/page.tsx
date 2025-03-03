@@ -1,6 +1,6 @@
-import Filter from "@/components/Home/Filter";
-import HomeSearchBar from "@/components/Home/HomeSearchBar";
-import PostList from "@/components/Home/PostList";
+import Filter from "@/components/Home/FilterPanel/Filter";
+import HomeSearchBar from "@/components/Home/FilterPanel/HomeSearchBar";
+import PostList from "@/components/Home/Post/PostList";
 import { fetchAllPosts } from "@/services/postServices";
 import { Suspense } from "react";
 
