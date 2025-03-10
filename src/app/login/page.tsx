@@ -1,27 +1,17 @@
-import SocialLogin from "@/components/signup/SocialLogin";
+import SocialLogin from "./components/SocialLogin";
 
-const LoginPage = () => {
+const page = () => {
   return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
-        <div className="w-full max-w-md space-y-8">
-          {/* 로고 */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold">LOGO</h1>
-          </div>
-
-          {/* 환영 메시지 */}
-          <div className="text-center space-y-2 mb-16">
-            <h2 className="text-2xl font-bold">환영합니다!</h2>
-            <p className="text-gray-600">
-              사이드 프로젝트를 찾는 가장 쉬운 방법!
-            </p>
-          </div>
-
-          {/* 소셜 로그인 컴포넌트 */}
-          <SocialLogin />
-        </div>
+    <div className="flex h-full w-full flex-col items-center justify-center bg-white px-16 pb-40">
+      <p className="font-pretendard text-40 font-bold">LOGO</p>
+      <div className="mb-188 mt-94 text-center">
+        <p className="title-24-b">환영합니다!</p>
+        <p className="body-16-r mt-18">사이드 프로젝트를 찾는 가장 쉬운 방법!</p>
       </div>
+
+      <SocialLogin />
+    </div>
   );
 };
 
-export default LoginPage;
+export default page;

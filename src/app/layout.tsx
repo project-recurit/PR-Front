@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import AuthSession from "@/components/providers/SessionProvider";
-import Header from "@/components/layout/Header";
-import NavigationBar from "@/components/layout/NavigationBar";
-import FloatingButton from "@/components/layout/FloatingButton";
+import FloatingButton from "@/components/Layout/FloatingButton";
+import Header from "@/components/Layout/Header";
+import NavigationBar from "@/components/Layout/NavigationBar";
+import { CategoryStoreProvider } from "@/providers/CategoryStoreProvider";
+import QueryProvider from "@/providers/QueryProvider";
+import AuthSession from "@/providers/SessionProvider";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 export const metadata: Metadata = {
@@ -18,21 +20,31 @@ const pretendard = localFont({
   variable: "--font-pretendard",
 });
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
-    <html lang="ko" className={`trancy-ko ${pretendard.variable}`}>
+    <html
+      lang="ko"
+      className={`trancy-ko ${pretendard.variable} bg-white sm:px-0`}
+    >
       <AuthSession>
-        <body className={`antialiased main-contain`}>
-          <Header />
-          {children}
-          <FloatingButton />
-          <NavigationBar />
+        <body className={`main-contain h-screen bg-black-100 text-black-1000 antialiased`}>
+          <div id="modal-root"></div>
+          <QueryProvider>
+            <CategoryStoreProvider>
+              <Header />
+              {children}
+              <FloatingButton />
+              <NavigationBar />
+            </CategoryStoreProvider>
+          </QueryProvider>
         </body>
       </AuthSession>
     </html>
   );
-}
+};
+
+export default RootLayout;
