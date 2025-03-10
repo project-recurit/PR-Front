@@ -9,7 +9,7 @@ import Comment from "./comment.svg";
 import Eye from "./eye.svg";
 import FaceNeutral from "./face-neutral.svg";
 import FaceSmile from "./face-smile.svg";
-import FilterSort from "./filter-sort.svg";
+import FilterFunnel from "./filter-funnel.svg";
 import GithubIcon from "./github.svg";
 import GoogleIcon from "./google.svg";
 import HomeSearch from "./home-search.svg";
@@ -18,6 +18,7 @@ import LineHeart from "./line-heart.svg";
 import MessageCircle from "./message-circle.svg";
 import MessageSquare from "./message-square.svg";
 import MyUser from "./my-user.svg";
+import Plus from "./plus.svg";
 import Search from "./search.svg";
 import Users from "./users.svg";
 import XClose from "./x-close.svg";
@@ -39,11 +40,12 @@ export {
   XClose,
   ChevronLeft,
   ChipXClose,
-  FilterSort,
+  FilterFunnel,
   HomeSearch,
   Bell,
   MessageCircle,
   MessageSquare,
   FaceNeutral,
   FaceSmile,
+  Plus,
 };

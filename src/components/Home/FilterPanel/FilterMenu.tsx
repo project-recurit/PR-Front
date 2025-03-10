@@ -34,7 +34,7 @@ const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
             onClick={(e) => toggleChips(e)}
           >
             <h3 className="body-16-s">{category}</h3>
-            {isShowChips[category] ? <ChevronUp /> : <ChevronDown />}
+            {isShowChips[category] ? <ChevronUp /> : <ChevronDown className="h-24 w-24" />}
           </button>
           {isShowChips[category] && (
             <div className="flex w-full flex-wrap gap-10 bg-black-50 px-16 pb-18 pt-12">

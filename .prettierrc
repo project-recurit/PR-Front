@@ -4,5 +4,5 @@
   "tabWidth": 2,
   "printWidth": 120,
   "bracketSameLine": false,
-  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"]
 }

@@ -81,3 +81,8 @@ export enum NOTIFICATION_TYPE {
   comment = "COMMENT",
   chat = "CHAT",
 }
+
+export enum POST_TYPE {
+  project = "project",
+  profile = "profile",
+}

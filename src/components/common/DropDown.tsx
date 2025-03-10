@@ -19,7 +19,7 @@ const DropDown = ({ children, label, menu }: { children: string; label?: string;
           className="flex h-52 w-full items-center justify-between"
         >
           {children}
-          {isDropDownOpen ? <ChevronUp /> : <ChevronDown />}
+          {isDropDownOpen ? <ChevronUp /> : <ChevronDown className="h-24 w-24" />}
         </div>
         <div className="max-h-[357px] overflow-y-scroll">
           {isDropDownOpen &&
