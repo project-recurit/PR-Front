@@ -3,7 +3,7 @@
 import FilterActionBar from "./FilterActionBar";
 import FilterHeader from "./FilterHeader";
 import FilterMenu from "./FilterMenu";
-import { useCategoryStore } from "@/hooks/State/useCategoryStore";
+import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
 
 interface FilterSheetProps {

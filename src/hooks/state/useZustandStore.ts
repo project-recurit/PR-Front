@@ -1,4 +1,4 @@
-import { CategoryStoreContext } from "@/providers/CategoryStoreProvider";
+import { CategoryStoreContext } from "@/providers/ZustandStoreProvider";
 import type { CategoryStore } from "@/types/filterTypes";
 import { useContext } from "react";
 import { useStore } from "zustand";

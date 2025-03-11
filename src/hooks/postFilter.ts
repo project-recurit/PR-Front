@@ -1,4 +1,4 @@
-import { useCategoryStore } from "./State/useCategoryStore";
+import { useCategoryStore } from "./state/useZustandStore";
 import { PJpost, PRpost } from "@/types/type";
 
 export const useFilteredPosts = (posts?: (PRpost | PJpost)[], query?: string) => {
