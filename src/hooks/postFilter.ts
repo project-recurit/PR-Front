@@ -1,11 +1,8 @@
-import useCategoryStore from "@/store/categoryStore";
+import { useCategoryStore } from "./State/useCategoryStore";
 import { PJpost, PRpost } from "@/types/type";
 
-export const useFilteredPosts = (
-  posts?: (PRpost | PJpost)[],
-  query?: string
-) => {
-  const { selectedMenu } = useCategoryStore();
+export const useFilteredPosts = (posts?: (PRpost | PJpost)[], query?: string) => {
+  const { selectedMenu } = useCategoryStore((state) => state);
 
   const filteredPosts = posts?.filter((post) => {
     // 카테고리 필터
@@ -28,8 +25,7 @@ export const useFilteredPosts = (
         const lowerCaseQuery = query.toLowerCase();
         if ("content" in post) {
           return (
-            post.title.toLowerCase().includes(lowerCaseQuery) ||
-            post.content.toLowerCase().includes(lowerCaseQuery)
+            post.title.toLowerCase().includes(lowerCaseQuery) || post.content.toLowerCase().includes(lowerCaseQuery)
           );
         }
         return post.title.toLowerCase().includes(lowerCaseQuery);

@@ -1,7 +1,10 @@
 "use client";
 
-import { useModalControl } from "@/hooks/modalControl";
 import FloatingModal from "./FloatingModal";
+import { HIDDEN_PATH } from "@/assets/constantData";
+import { Plus } from "@/assets/icons";
+import { useModalControl } from "@/hooks/modalControl";
+import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { usePathname } from "next/navigation";
 import { HIDDEN_PATH } from "@/assets/constantData";
@@ -12,15 +15,13 @@ const FloatingButton = () => {
   const { isModalOpen, toggleModal, closeModal } = useModalControl();
   const buttonRef = useRef<HTMLDivElement | null>(null);
   return (
-    <div
-      className={`w-full fixed bottom-0 main-contain ${
-        HIDDEN_PATH.includes(path) && "hidden"
-      }`}
-    >
+    <div className={`main-contain fixed bottom-0 w-full ${HIDDEN_PATH.includes(path) && "hidden"}`}>
       <div
         onClick={toggleModal}
-        className="absolute rounded-full w-50 h-50 bg-black bottom-75  right-10 "
-      ></div>
+        className="absolute bottom-75 right-10 flex h-50 w-50 items-center justify-center rounded-full bg-black"
+      >
+        <Plus />
+      </div>
       {isModalOpen && (
         <FloatingModal
           onClose={closeModal}

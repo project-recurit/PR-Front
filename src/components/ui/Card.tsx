@@ -3,10 +3,10 @@ import CardProfile from "./CardProfile";
 
 const Card = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="w-full bg-white rounded-xl border shadow-sm flex flex-col gap-y-12  py-12  px-20 ">
+    <section className="flex w-full flex-col gap-y-12 rounded-xl border bg-white px-20 py-12 shadow-sm">
       <CardProfile />
       {children}
-      <hr className=" bg-black-200" />
+      <hr className="bg-black-200" />
       <CardFooter />
     </section>
   );

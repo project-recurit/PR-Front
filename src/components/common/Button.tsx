@@ -3,13 +3,13 @@
 const Button = ({
   onClick,
   disabled,
-  classname = "bg-black-1000 text-white",
+  className = "bg-black-1000 text-white",
   children,
   size,
 }: {
   onClick?: () => void;
   disabled?: boolean;
-  classname?: string;
+  className?: string;
   children: string;
   size: "m" | "s";
 }) => {
@@ -22,7 +22,7 @@ const Button = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`w-full ${classname} ${btnSize[size]}`}
+      className={`w-full ${className} ${btnSize[size]}`}
     >
       {children}
     </button>

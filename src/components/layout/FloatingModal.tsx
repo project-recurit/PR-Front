@@ -32,7 +32,7 @@ const FloatingModal = ({
   return (
     <div
       ref={modalRef}
-      className="absolute px-20  py-12  flex flex-col z-20 rounded-md bg-gray-200 bottom-130  right-15 "
+      className="absolute bottom-130 right-15 z-20 flex flex-col rounded-md bg-gray-200 px-20 py-12"
     >
       <p>프로젝트 팀원 구하기</p>
       <p>참여할 프로젝트 구하기</p>
