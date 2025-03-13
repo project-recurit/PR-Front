@@ -2,7 +2,7 @@ import type { CategoryMenu, CategoryState, CategoryStore } from "@/types/filterT
 import { createStore } from "zustand/vanilla";
 
 const initialState: CategoryState = {
-  selectedMenu: "전체",
+  selectedMenu: "PJ",
   activeFilters: new Set(),
 };
 

@@ -1,11 +1,11 @@
 import FirstStep from "@/app/sign-up/components/FirstStep";
 import SecondStep from "@/app/sign-up/components/SecondStep";
 import ThirdStep from "@/app/sign-up/components/ThirdStep";
-import { Chat, LineHeart, MyUser, Users } from "@/assets/icons";
+import { Chat, FaceNeutral, FaceSmile, LineHeart, MessageCircle, MessageSquare, MyUser, Users } from "@/assets/icons";
 import type { CategoryMenu } from "@/types/filterTypes";
 import { FC } from "react";
 
-export const MAIN_CATEGORY: CategoryMenu[] = ["전체", "PJ", "PR"];
+export const MAIN_CATEGORY: CategoryMenu[] = ["PJ", "PR"];
 
 export const FILTER_MENU = [
   {
@@ -75,12 +75,12 @@ export const STEP_COMPONENTS: Record<number, FC> = {
 
 export const DUTY_CATEGORY = ["게임", "기획", "디자인", "모바일/APP", "백엔드", "프론트엔드"];
 
-export enum NOTIFICATION_TYPE {
-  accept = "ACCEPT",
-  reject = "REJECT",
-  comment = "COMMENT",
-  chat = "CHAT",
-}
+export const NOTIFICATION_TYPE = {
+  accept: { icon: FaceSmile, message: (subject: string) => `\`${subject}\`에 수락됐어요.` },
+  reject: { icon: FaceNeutral, message: (subject: string) => `\`${subject}\`에 거절됐어요.` },
+  comment: { icon: MessageSquare, message: (subject: string) => `\`${subject}\`에 새로운 댓글이 달렸어요.` },
+  chat: { icon: MessageCircle, message: (subject: string) => `\`${subject}\`님과 새로운 채팅이 시작됐어요.` },
+};
 
 export enum POST_TYPE {
   project = "project",
