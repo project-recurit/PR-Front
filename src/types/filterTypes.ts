@@ -1,14 +1,14 @@
 import type { createCategoryStore } from "@/stores/categoryStore";
 
-export type CategoryMenu = "PJ" | "PR";
+export type MainCategory = "PJ" | "PR";
 
 export type CategoryState = {
-  selectedMenu: CategoryMenu;
+  selectedMenu: MainCategory;
   activeFilters: Set<string>;
 };
 
 export type CategoryActions = {
-  selectMenu: (menu: CategoryMenu) => void;
+  selectMenu: (menu: MainCategory) => void;
   applyFilter: (selectedFilter: Set<string>) => void;
   resetFilter: () => void;
 };

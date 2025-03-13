@@ -1,4 +1,4 @@
-import type { CategoryMenu, CategoryState, CategoryStore } from "@/types/filterTypes";
+import type { MainCategory, CategoryState, CategoryStore } from "@/types/filterTypes";
 import { createStore } from "zustand/vanilla";
 
 const initialState: CategoryState = {
@@ -9,7 +9,7 @@ const initialState: CategoryState = {
 export const createCategoryStore = () => {
   return createStore<CategoryStore>()((set, get) => ({
     ...initialState,
-    selectMenu: (menu: CategoryMenu) => set({ selectedMenu: menu }),
+    selectMenu: (menu: MainCategory) => set({ selectedMenu: menu }),
     applyFilter: (selectedFilter: Set<string>) => set({ activeFilters: selectedFilter }),
     resetFilter: () => {
       const { activeFilters } = get();

@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 const HomeSearchBar = () => {
-  const [query, setQuery] = useState("");
   const router = useRouter();
+  const [query, setQuery] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const searchEvent = (e: React.FormEvent<HTMLFormElement>) => {

@@ -2,10 +2,10 @@ import FirstStep from "@/app/sign-up/components/FirstStep";
 import SecondStep from "@/app/sign-up/components/SecondStep";
 import ThirdStep from "@/app/sign-up/components/ThirdStep";
 import { Chat, FaceNeutral, FaceSmile, LineHeart, MessageCircle, MessageSquare, MyUser, Users } from "@/assets/icons";
-import type { CategoryMenu } from "@/types/filterTypes";
+import type { MainCategory } from "@/types/filterTypes";
 import { FC } from "react";
 
-export const MAIN_CATEGORY: CategoryMenu[] = ["PJ", "PR"];
+export const MAIN_CATEGORY: MainCategory[] = ["PJ", "PR"];
 
 export const FILTER_MENU = [
   {
@@ -81,8 +81,3 @@ export const NOTIFICATION_TYPE = {
   comment: { icon: MessageSquare, message: (subject: string) => `\`${subject}\`에 새로운 댓글이 달렸어요.` },
   chat: { icon: MessageCircle, message: (subject: string) => `\`${subject}\`님과 새로운 채팅이 시작됐어요.` },
 };
-
-export enum POST_TYPE {
-  project = "project",
-  publicRelation = "publicRelation",
-}
