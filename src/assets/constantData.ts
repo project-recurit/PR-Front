@@ -84,5 +84,5 @@ export enum NOTIFICATION_TYPE {
 
 export enum POST_TYPE {
   project = "project",
-  profile = "profile",
+  publicRelation = "publicRelation",
 }

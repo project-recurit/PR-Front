@@ -3,9 +3,10 @@
 import type { POST_TYPE } from "@/assets/constantData";
 import { commonHeaders } from "@/config/commonHeaders";
 import { POST_API_URL } from "@/constants/apiEndpoints";
+import { handleError } from "@/utils/handleError";
 
 /** 게시물 리스트 요청 */
-export const getPJPosts = async (postType: POST_TYPE) => {
+export const getPosts = handleError(async (postType: POST_TYPE) => {
   const res = await fetch(POST_API_URL[postType], {
     method: "GET",
     headers: commonHeaders,
@@ -13,4 +14,4 @@ export const getPJPosts = async (postType: POST_TYPE) => {
   });
   const data = await res.json();
   return data;
-};
+});

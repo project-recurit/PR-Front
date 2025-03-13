@@ -7,15 +7,15 @@ import { createContext, useRef } from "react";
 export const CategoryStoreContext = createContext<CategoryStoreApi | undefined>(undefined);
 
 interface CategoryStoreProviderProps {
-  children: React.ReactNode;
+  children: Readonly<React.ReactNode>;
 }
 
 export const CategoryStoreProvider = ({ children }: CategoryStoreProviderProps) => {
-  const storeRef = useRef<CategoryStoreApi>(null);
+  const CategoryStoreRef = useRef<CategoryStoreApi>(null);
 
-  if (!storeRef.current) {
-    storeRef.current = createCategoryStore();
+  if (!CategoryStoreRef.current) {
+    CategoryStoreRef.current = createCategoryStore();
   }
 
-  return <CategoryStoreContext.Provider value={storeRef.current}>{children}</CategoryStoreContext.Provider>;
+  return <CategoryStoreContext.Provider value={CategoryStoreRef.current}>{children}</CategoryStoreContext.Provider>;
 };

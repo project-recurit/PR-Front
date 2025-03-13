@@ -6,6 +6,7 @@ import { Suspense } from "react";
 
 const Home = async () => {
   const posts = await fetchAllPosts();
+
   return (
     <div className="flex flex-col overflow-hidden">
       <div className="bg-white">
