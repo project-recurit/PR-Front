@@ -11,6 +11,7 @@ import { useState } from "react";
 
 const Header = () => {
   const path = usePathname();
+  const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
 
   const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
 
