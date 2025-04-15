@@ -1,6 +1,6 @@
 interface CardProfileProps {
-  userNickname: string;
-  modifiedAt: string;
+  userNickname?: string;
+  modifiedAt?: string;
 }
 
 const CardProfile = ({ userNickname, modifiedAt }: CardProfileProps) => {

@@ -3,8 +3,8 @@ import CardProfile from "./CardProfile";
 
 interface CardLayoutProps {
   children: React.ReactNode;
-  userNickname: string;
-  modifiedAt: string;
+  userNickname?: string;
+  modifiedAt?: string;
   viewCount: number;
   commentCount: number;
   favoriteCount: number;
