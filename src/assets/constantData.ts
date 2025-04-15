@@ -1,19 +1,11 @@
 import FirstStep from "@/app/sign-up/components/FirstStep";
 import SecondStep from "@/app/sign-up/components/SecondStep";
 import ThirdStep from "@/app/sign-up/components/ThirdStep";
-<<<<<<< HEAD
 import { Chat, FaceNeutral, FaceSmile, LineHeart, MessageCircle, MessageSquare, MyUser, Users } from "@/assets/icons";
 import type { MainCategory } from "@/types/filterTypes";
 import { FC } from "react";
 
 export const MAIN_CATEGORY: MainCategory[] = ["PJ", "PR"];
-=======
-import { Chat, LineHeart, MyUser, Users } from "@/assets/icons";
-import type { CategoryMenu } from "@/types/filterTypes";
-import { FC } from "react";
-
-export const MAIN_CATEGORY: CategoryMenu[] = ["전체", "PJ", "PR"];
->>>>>>> dev
 
 export const FILTER_MENU = [
   {
