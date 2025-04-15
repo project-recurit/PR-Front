@@ -1,14 +1,11 @@
 import { useCategoryStore } from "./state/useZustandStore";
-import { PJpost, PRpost } from "@/types/type";
+import { PJPost, PRPost } from "@/types/postTypes";
 
-export const useFilteredPosts = (posts?: (PRpost | PJpost)[], query?: string) => {
+export const useFilteredPosts = (posts?: (PRPost | PJPost)[], query?: string) => {
   const { selectedMenu } = useCategoryStore((state) => state);
 
   const filteredPosts = posts?.filter((post) => {
     // 카테고리 필터
-    if (selectedMenu === "전체") {
-      return true;
-    }
     if (selectedMenu === "PJ") {
       return "content" in post;
     }
