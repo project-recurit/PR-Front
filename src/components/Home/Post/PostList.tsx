@@ -1,7 +1,7 @@
 "use client";
 
-import PJCard from "../ui/PJCard";
-import PRCard from "../ui/PRCard";
+import PJCard from "../../UI/PJCard";
+import PRCard from "../../UI/PRCard";
 import { useFilteredPosts } from "@/hooks/postFilter";
 import { PJpost, PRpost } from "@/types/type";
 import { useSearchParams } from "next/navigation";
