@@ -1,7 +1,7 @@
 import Filter from "@/components/Home/FilterPanel/Filter";
 import HomeSearchBar from "@/components/Home/FilterPanel/HomeSearchBar";
-import PostList from "@/components/Home/Post/PostList";
-import { Suspense } from "react";
+import PostList from "@/components/Home/PostList";
+import FloatingButton from "@/components/Layout/FloatingButton";
 
 const Home = async () => {
   return (
@@ -10,9 +10,8 @@ const Home = async () => {
         <HomeSearchBar />
         <Filter />
       </div>
-      <Suspense>
-        <PostList />
-      </Suspense>
+      <PostList />
+      <FloatingButton />
     </div>
   );
 };

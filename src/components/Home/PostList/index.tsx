@@ -4,6 +4,7 @@ import PJCard from "@/components/UI/PJCard";
 import PRCard from "@/components/UI/PRCard";
 import { useGetPosts } from "@/hooks/queries/post/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 const PostList = () => {
@@ -12,7 +13,6 @@ const PostList = () => {
   // const viewPosts = useFilteredPosts(posts, query);
   const { selectedMenu } = useCategoryStore((state) => state);
   const { data: postData, isPending, isError, error } = useGetPosts(selectedMenu);
-  console.log(postData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>Loading...</div>;
@@ -22,16 +22,13 @@ const PostList = () => {
   return (
     <main className="mb-60 flex w-full flex-col gap-y-20 px-20 py-20">
       {postData.map((post) => {
-        return selectedMenu === "PJ" ? (
-          <PJCard
+        return (
+          <Link
+            href={`/post?postId=${post.id}`}
             key={post.id}
-            post={post}
-          />
-        ) : (
-          <PRCard
-            key={post.id}
-            post={post}
-          />
+          >
+            {selectedMenu === "PJ" ? <PJCard post={post} /> : <PRCard post={post} />}
+          </Link>
         );
       })}
     </main>

@@ -8,6 +8,7 @@ const NavigationBar = () => {
   const route = useRouter();
 
   return (
+    //REVIEW - hidden은 보이지만 않고 렌더링이 되므로 다른 방식이 더 좋을 것 같음
     <nav
       className={`main-contain fixed bottom-0 flex h-56 w-full justify-between bg-white px-40 py-8 ${
         HIDDEN_PATH.includes(path) && "hidden"

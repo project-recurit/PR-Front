@@ -13,8 +13,6 @@ const Header = () => {
   const path = usePathname();
   const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
 
-  const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
-
   return (
     <>
       <header className={`sticky top-0 z-10 flex flex-col bg-white ${HIDDEN_PATH.includes(path) && "hidden"}`}>

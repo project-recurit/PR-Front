@@ -1,10 +1,9 @@
 import "./globals.css";
-import FloatingButton from "@/components/Layout/FloatingButton";
 import Header from "@/components/Layout/Header";
 import NavigationBar from "@/components/Layout/NavigationBar";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthSession from "@/providers/SessionProvider";
-import { CategoryStoreProvider } from "@/providers/ZustandStoreProvider";
+import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
@@ -34,12 +33,11 @@ const RootLayout = ({
         <body className={`main-contain h-screen bg-black-100 text-black-1000 antialiased`}>
           <div id="modal-root"></div>
           <QueryProvider>
-            <CategoryStoreProvider>
+            <ZustandStoreProvider>
               <Header />
               {children}
-              <FloatingButton />
               <NavigationBar />
-            </CategoryStoreProvider>
+            </ZustandStoreProvider>
           </QueryProvider>
         </body>
       </AuthSession>

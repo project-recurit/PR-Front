@@ -10,7 +10,7 @@ const CardFooter = ({ viewCount, commentCount, favoriteCount }: CardFooterProps)
   const engagementData = [
     { icon: <Eye />, count: viewCount },
     { icon: <Comment />, count: commentCount },
-    { icon: <Heart />, count: '데이터 안 넘어옴' },
+    { icon: <Heart />, count: "데이터 안 넘어옴" },
   ];
 
   return (
