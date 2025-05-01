@@ -2,7 +2,7 @@ import queryKeys from "../queryKeys";
 import { getComments } from "@/actions/commentActions";
 import { useQuery } from "@tanstack/react-query";
 
-/** 게시물 상세 요청 쿼리 */
+/** 댓글 요청 쿼리 */
 export const useGetComments = ({ postId }: { postId: string }) => {
   return useQuery({
     queryKey: queryKeys.comments.root(postId),

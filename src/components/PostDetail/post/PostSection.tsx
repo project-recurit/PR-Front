@@ -17,7 +17,7 @@ const PostSection = ({ postType, postId }: PostSectionProps) => {
   console.log(" postData => ", postData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
-  if (isPending) return <div>Loading...</div>;
+  if (isPending) return <div>게시물을 불러오고 있습니다.</div>;
 
   if (isError) throw new Error(error.message);
 
