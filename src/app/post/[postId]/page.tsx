@@ -1,12 +1,14 @@
 import BottomFixedBar from "@/components/Layout/BottomFixedBar";
 import CommentSection from "@/components/PostDetail/comment/CommentSection";
 import PostSection from "@/components/PostDetail/post/PostSection";
+import ActionBotton from "@/components/UI/ActionBotton";
+import type { MainCategory } from "@/types/filterTypes";
 import { use } from "react";
 
 interface PostDetailPageProps {
   params: Promise<{ postId: string }>;
   searchParams: Promise<{
-    type: "pj" | "pr";
+    type: MainCategory;
   }>;
 }
 
@@ -15,9 +17,15 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
   const { type } = use(searchParams);
   return (
     <div className="bg-white">
-      <PostSection />
-      <CommentSection />
-      <BottomFixedBar postType={type} />
+      <PostSection
+        postId={postId}
+        postType={type}
+      />
+      <CommentSection postId={postId} />
+      <BottomFixedBar>
+        <ActionBotton label="채팅하기" />
+        <ActionBotton label="지원하기" />
+      </BottomFixedBar>
     </div>
   );
 };

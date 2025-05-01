@@ -34,9 +34,9 @@ const RootLayout = ({
           <div id="modal-root"></div>
           <QueryProvider>
             <ZustandStoreProvider>
-              <Header />
+              {/* <Header /> */}
               {children}
-              <NavigationBar />
+              {/* <NavigationBar /> */}
             </ZustandStoreProvider>
           </QueryProvider>
         </body>

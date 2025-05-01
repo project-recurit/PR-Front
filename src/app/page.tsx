@@ -1,6 +1,6 @@
 import Filter from "@/components/Home/FilterPanel/Filter";
 import HomeSearchBar from "@/components/Home/FilterPanel/HomeSearchBar";
-import PostList from "@/components/Home/PostList";
+import PostList from "@/components/Home/PostList/PostList";
 import FloatingButton from "@/components/Layout/FloatingButton";
 
 const Home = async () => {

@@ -2,7 +2,7 @@
 
 import PJCard from "@/components/UI/PJCard";
 import PRCard from "@/components/UI/PRCard";
-import { useGetPosts } from "@/hooks/queries/post/useGetPosts";
+import { useGetPostsQuery } from "@/hooks/queries/post/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -12,7 +12,7 @@ const PostList = () => {
   const query = params.get("search")?.toLowerCase();
   // const viewPosts = useFilteredPosts(posts, query);
   const { selectedMenu } = useCategoryStore((state) => state);
-  const { data: postData, isPending, isError, error } = useGetPosts(selectedMenu);
+  const { data: postData, isPending, isError, error } = useGetPostsQuery({ postType: selectedMenu });
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>Loading...</div>;
