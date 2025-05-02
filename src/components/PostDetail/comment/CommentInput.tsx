@@ -1,16 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useCreateComment } from "@/hooks/mutations/useCreateComment";
+import { useForm, type FieldValues } from "react-hook-form";
 
-const CommentInput = () => {
-  const [text, setText] = useState("");
-  console.log(' text => ', text);
+interface CommentInputProps {
+  postId: string;
+}
+
+const CommentInput = ({ postId }: CommentInputProps) => {
+  const { register, setValue, handleSubmit, formState } = useForm();
+  const { mutate: createCommentMutate } = useCreateComment({ postId });
+
+  const onSubmit = ({ comment }: FieldValues) => {
+    if (comment.trim() === "") {
+      setValue("comment", "");
+      return;
+    }
+    createCommentMutate(comment);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        placeholder="댓글을 입력하세요"
+        {...register("comment", {
+          required: true,
+          minLength: 1,
+          onBlur: (e) => setValue("comment", e.target.value.trim()),
+        })}
       />
       <button type="submit">등록</button>
     </form>

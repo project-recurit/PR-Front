@@ -4,7 +4,7 @@ import PostBody from "./PostBody";
 import PostTitle from "./PostTitle";
 import CardFooter from "@/components/UI/CardFooter";
 import CardProfile from "@/components/UI/CardProfile";
-import { useGetPostDetailQuery } from "@/hooks/queries/post/useGetPosts";
+import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
 import type { MainCategory } from "@/types/filterTypes";
 
 interface PostSectionProps {

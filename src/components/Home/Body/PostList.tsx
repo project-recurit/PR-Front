@@ -2,7 +2,7 @@
 
 import PJCard from "@/components/UI/PJCard";
 import PRCard from "@/components/UI/PRCard";
-import { useGetPostsQuery } from "@/hooks/queries/post/useGetPosts";
+import { useGetPostsQuery } from "@/hooks/queries/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";

@@ -2,7 +2,7 @@
 
 import Comment from "./Comment";
 import CommentInput from "./CommentInput";
-import { useGetComments } from "@/hooks/queries/comment/useGetComments";
+import { useGetComments } from "@/hooks/queries/useGetComments";
 
 interface CommentSectionProps {
   postId: string;
@@ -15,13 +15,13 @@ const CommentSection = ({ postId }: CommentSectionProps) => {
   if (isPending) return <div>댓글을 불러오는 중입니다.</div>;
 
   if (isError) throw new Error(error.message);
-
+console.log('render')
   return (
     <div>
       <div>
         <h3>댓글 {data.length}</h3>
       </div>
-      <CommentInput />
+      <CommentInput postId={postId} />
       <Comment commentData={data} />
     </div>
   );

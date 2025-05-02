@@ -1,4 +1,4 @@
-const queryKeys = {
+const QUERY_KEYS = {
   posts: {
     PJ: ["project"],
     PR: ["publicRelation"],
@@ -13,4 +13,4 @@ const queryKeys = {
   },
 } as const;
 
-export default queryKeys;
+export default QUERY_KEYS;
