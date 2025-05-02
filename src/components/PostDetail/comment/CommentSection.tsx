@@ -15,7 +15,7 @@ const CommentSection = ({ postId }: CommentSectionProps) => {
   if (isPending) return <div>댓글을 불러오는 중입니다.</div>;
 
   if (isError) throw new Error(error.message);
-console.log('render')
+
   return (
     <div>
       <div>

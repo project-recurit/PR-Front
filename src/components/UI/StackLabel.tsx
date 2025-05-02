@@ -10,10 +10,10 @@ const TechStackLabel = ({ stacks }: StackLabelProps) => {
       <p className="text-black-400">기술 스택</p>
       <div className="flex items-center">
         <div className="flex gap-x-4">
-          {stacks.slice(0, 3).map(({ techStackId, name }) => (
+          {stacks.slice(0, 3).map(({ id, name }) => (
             <div
               className="rounded-full bg-red-50 px-8 py-2"
-              key={techStackId}
+              key={id}
             >
               {name}
             </div>

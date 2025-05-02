@@ -4,7 +4,7 @@ export type Post = {
   userNickname: string;
   title: string;
   modifiedAt: string;
-  techStacks: { techStackId: number; name: string }[];
+  techStacks: { id: number; name: string }[];
   viewCount: number;
   commentCount: number;
   favoriteCount: number;

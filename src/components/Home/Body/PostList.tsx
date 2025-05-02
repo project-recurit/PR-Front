@@ -13,6 +13,7 @@ const PostList = () => {
   // const viewPosts = useFilteredPosts(posts, query);
   const { selectedMenu } = useCategoryStore((state) => state);
   const { data: postData, isPending, isError, error } = useGetPostsQuery({ postType: selectedMenu });
+  console.log(" postData => ", postData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>Loading...</div>;
@@ -24,7 +25,7 @@ const PostList = () => {
       {postData.map((post) => {
         return (
           <Link
-            href={`/post?postId=${post.id}`}
+            href={`/post/${post.id}?type=${selectedMenu}`}
             key={post.id}
           >
             {selectedMenu === "PJ" ? <PJCard post={post} /> : <PRCard post={post} />}

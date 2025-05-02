@@ -33,7 +33,7 @@ const PostSection = ({ postType, postId }: PostSectionProps) => {
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}
       />
-      <PostBody />
+      <PostBody content={postData.content} />
     </>
   );
 };

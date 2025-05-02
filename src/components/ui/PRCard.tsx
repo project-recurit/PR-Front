@@ -14,14 +14,14 @@ const PRCard = ({ post }: PRCardProps) => {
       <div className="caption-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="포지션"
-          value="프론트엔드"
+          value={post.position}
         />
         <TechStackLabel stacks={post.techStacks} />
         <CardLabel
           title="선호 방식"
-          value="오프라인"
+          value={post.workType}
         />
-      </div>
+      </div>  
     </Card>
   );
 };

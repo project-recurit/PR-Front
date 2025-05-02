@@ -6,7 +6,9 @@ import { useRef, useState } from "react";
 
 const HomeSearchBar = () => {
   const [searchInput, setSearchInput] = useState<string>("");
-  const { applySearchQuery } = usePostSearchStore((state) => state);
+  const { applySearchQuery,searchQuery } = usePostSearchStore((state) => state);
+  console.log(' searchQuery => ', searchQuery);
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const searchEvent = (e: React.FormEvent<HTMLFormElement>) => {

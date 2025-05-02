@@ -1,5 +1,5 @@
-const PostBody = () => {
-  return <div>PostBody</div>;
+const PostBody = ({ content }) => {
+  return <div>{content}</div>;
 };
 
 export default PostBody;
