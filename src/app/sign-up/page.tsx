@@ -1,9 +1,11 @@
 import StepPage from "./components/StepPage";
+import { fetchTechStacks } from "@/services/techStacksService";
 
-const page = () => {
+const page = async () => {
+  const techStacks = await fetchTechStacks();
   return (
-    <div className="flex h-full w-full items-center justify-center bg-white px-16">
-      <StepPage />
+    <div className="flex items-center justify-center w-full h-full px-16 bg-white">
+      <StepPage techStacks={techStacks} />
     </div>
   );
 };

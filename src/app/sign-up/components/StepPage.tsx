@@ -1,53 +1,63 @@
 "use client";
 
+import FirstStep from "./FirstStep";
+import SecondStep from "./SecondStep";
 import StepLabel from "./StepLabel";
-import { STEP_COMPONENTS } from "@/assets/constantData";
+import ThirdStep from "./ThirdStep";
 import { ChevronLeft, XClose } from "@/assets/icons";
 import Button from "@/components/Common/Button";
-import { useStep } from "@/hooks/signupStep";
-import { useRouter } from "next/navigation";
+import { useSignUp } from "@/hooks/signupStep";
+import { TechStack } from "@/types/type";
 
-const StepPage = () => {
-  const router = useRouter();
-  const { step, nextStep, prevStep } = useStep();
-  const Component = STEP_COMPONENTS[step];
-
-  const handleNextStep = () => {
-    if (step < 2) {
-      nextStep();
-      return;
-    } else {
-      router.push("/");
-      return;
-    }
-  };
-
-  const handelPrevStep = () => {
-    if (step > 0) {
-      prevStep();
-    } else if (step === 0) {
-      router.push("/login");
-    }
-  };
+const StepPage = ({ techStacks }: { techStacks: TechStack[] }) => {
+  const {
+    step,
+    handleNextStep,
+    handelPrevStep,
+    setValue,
+    positionValue,
+    controlDisabled,
+    techStackIds,
+    setTechStackIds,
+    nicknameValue,
+  } = useSignUp();
 
   return (
-    <div className="grid h-full w-full grid-rows-[90px_20px_auto_50px] pb-32 sm:max-h-[900px]">
-      <div className="flex h-48 items-center justify-between">
+    <form className="w-full h-full pb-32 grid grid-rows-[90px_20px_auto_50px] sm:max-h-[900px]">
+      <div className="flex items-center justify-between h-48">
         <ChevronLeft
           onClick={handelPrevStep}
-          className="cursor-pointer"
+          className="cursor-pointer "
         />
         <XClose className="w-32" />
       </div>
       <StepLabel step={step} />
-      <Component />
+      {step === 0 ? (
+        <FirstStep
+          position={positionValue}
+          setPosition={(v: string) => setValue("position", v)}
+        />
+      ) : step === 1 ? (
+        <SecondStep
+          stacks={techStacks}
+          techStackIds={techStackIds}
+          setTechStackIds={(stackId: number) => setTechStackIds(stackId)}
+        />
+      ) : (
+        <ThirdStep
+          nickname={nicknameValue}
+          setNickname={(e: React.ChangeEvent<HTMLInputElement>) => setValue("nickname", e.target.value)}
+        />
+      )}
       <Button
         size="m"
         onClick={handleNextStep}
+        type="button"
+        disabled={controlDisabled()}
       >
         {step === 2 ? "시작하기" : "계속"}
       </Button>
-    </div>
+    </form>
   );
 };
 

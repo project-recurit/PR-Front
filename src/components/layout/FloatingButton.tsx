@@ -6,8 +6,6 @@ import { Plus } from "@/assets/icons";
 import { useModalControl } from "@/hooks/modalControl";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
-import { usePathname } from "next/navigation";
-import { HIDDEN_PATH } from "@/assets/constantData";
 
 const FloatingButton = () => {
   const path = usePathname();
