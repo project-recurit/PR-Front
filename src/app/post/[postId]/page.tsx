@@ -1,6 +1,6 @@
 import BottomFixedBar from "@/components/layout/BottomFixedBar";
-import CommentSection from "@/components/postDetail/comment/CommentSection";
-import PostSection from "@/components/postDetail/post/PostSection";
+import CommentSection from "@/components/post-detail/comment/CommentSection";
+import PostSection from "@/components/post-detail/post/PostSection";
 import ActionBotton from "@/components/ui/ActionBotton";
 import type { MainCategory } from "@/types/filterTypes";
 import { use } from "react";

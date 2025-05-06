@@ -1,7 +1,8 @@
 "use client";
 
-import { useGetComments } from "@/hooks/queries/useGetComments";
+import Comment from "./Comment";
 import CommentInput from "./CommentInput";
+import { useGetComments } from "@/hooks/queries/useGetComments";
 
 interface CommentSectionProps {
   postId: string;
