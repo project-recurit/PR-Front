@@ -5,8 +5,8 @@ import SecondStep from "./SecondStep";
 import StepLabel from "./StepLabel";
 import ThirdStep from "./ThirdStep";
 import { ChevronLeft, XClose } from "@/assets/icons";
-import Button from "@/components/common/Button";
-import { useSignUp } from "@/hooks/signupStep";
+import Button from "@/components/common/ui/Button";
+import { useSignUp } from "@/hooks/sign-UpStep";
 import { TechStack } from "@/types/type";
 
 const StepPage = ({ techStacks }: { techStacks: TechStack[] }) => {

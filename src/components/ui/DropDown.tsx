@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp } from "@/assets/icons";
-import { useDropDownControl } from "@/hooks/DropDownControl";
+import { useDropDownControl } from "@/hooks/adropDownControl";
 
 const DropDown = ({
   children,

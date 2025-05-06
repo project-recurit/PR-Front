@@ -1,7 +1,7 @@
-import CardFooter from "./CardFooter";
-import CardProfile from "./CardProfile";
+import Engagement from "./Engagement";
+import PostProfile from "./PostProfile";
 
-interface CardLayoutProps {
+interface PostCardProps {
   children: React.ReactNode;
   userNickname?: string;
   modifiedAt?: string;
@@ -11,15 +11,15 @@ interface CardLayoutProps {
 }
 
 //TODO - 카드 스타일 상수화 후 카드 컴포넌트 삭제
-const Card = ({ children, userNickname, modifiedAt, viewCount, commentCount, favoriteCount }: CardLayoutProps) => {
+const PostCard = ({ children, userNickname, modifiedAt, viewCount, commentCount, favoriteCount }: PostCardProps) => {
   return (
     <section className="flex w-full flex-col gap-y-12 rounded-xl border bg-white px-20 py-12 shadow-sm">
-      <CardProfile
+      <PostProfile
         userNickname={userNickname}
         modifiedAt={modifiedAt}
       />
       {children}
-      <CardFooter
+      <Engagement
         viewCount={viewCount}
         commentCount={commentCount}
         favoriteCount={favoriteCount}
@@ -28,4 +28,4 @@ const Card = ({ children, userNickname, modifiedAt, viewCount, commentCount, fav
   );
 };
 
-export default Card;
+export default PostCard;

@@ -1,11 +1,12 @@
-import { userSignUp } from "@/actions/authActions";
+import { signUpAction } from "@/actions/authActions";
+import { signUpSchema } from "@/schema/authSchema";
+import type { SignupForm } from "@/types/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Session } from "next-auth";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 // 스텝 컨트롤 및 폼 관련 로직 훅 분리
 export const useSignUp = () => {
@@ -13,29 +14,13 @@ export const useSignUp = () => {
   const router = useRouter();
   const [step, setStep] = useState(0);
 
-  type SignupForm = z.infer<typeof signupSchema>;
-
-  const signupSchema = z.object({
-    socialId: z.number(),
-    position: z.string().nonempty({ message: "포지션을 선택해주세요." }),
-    techStackIds: z.array(z.number()).min(1, { message: "기술 스택을 최소 한가지 이상 선택해주세요." }),
-    nickname: z
-      .string()
-      .nonempty({ message: "닉네임을 입력해주세요." })
-      .min(3, { message: "3글자 이상 입력해주세요." })
-      .max(10, { message: "10글자 이하로 입력해주세요." })
-      .regex(/^[a-zA-Z0-9가-힣]+$/, {
-        message: "특수문자는 사용할 수 없습니다.",
-      }),
-  });
-
   const {
     handleSubmit,
     setValue,
     watch,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(signupSchema),
+    resolver: zodResolver(signUpSchema),
     mode: "all",
     defaultValues: {
       socialId: session?.socialId || 0,
@@ -71,7 +56,7 @@ export const useSignUp = () => {
       return;
     } else {
       handleSubmit(onSubmit)();
-      // router.push("/");
+      router.push("/");
       return;
     }
   };
@@ -81,7 +66,7 @@ export const useSignUp = () => {
       prevStep();
     } else if (step === 0) {
       await signOut({ redirect: false });
-      router.replace("/login");
+      router.replace("/sign-in");
     }
   };
 

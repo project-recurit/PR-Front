@@ -1,4 +1,4 @@
-import Input from "@/components/Common/Input";
+import Input from "@/components/common/ui/Input";
 
 const ThirdStep = ({
   nickname,

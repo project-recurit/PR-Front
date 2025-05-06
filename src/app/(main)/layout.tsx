@@ -1,5 +1,5 @@
-import Header from "@/components/layout/Header";
-import NavigationBar from "@/components/layout/NavigationBar";
+import MainHeader from "@/components/common/layout/MainHeader";
+import NavigationBar from "@/components/common/layout/NavigationBar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ const MainLayout = ({
 }>) => {
   return (
     <>
-      <Header />
+      <MainHeader />
       {children}
       <NavigationBar />
     </>

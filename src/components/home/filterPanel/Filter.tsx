@@ -1,9 +1,9 @@
 "use client";
 
-import Modal from "../../common/Modal";
-import SelectChip from "../../common/SelectChip";
+import Modal from "@/components/modal/Modal";
 import FilterSheet from "./FilterSheet";
 import { ChevronDown, FilterFunnel } from "@/assets/icons";
+import SelectChip from "@/components/ui/SelectChip";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
 

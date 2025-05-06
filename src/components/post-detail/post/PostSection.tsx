@@ -1,8 +1,8 @@
 "use client";
 
 import PostBody from "./PostBody";
-import CardFooter from "@/components/ui/CardFooter";
-import CardProfile from "@/components/ui/CardProfile";
+import CardFooter from "@/components/common/layout/CardFooter";
+import CardProfile from "@/components/common/layout/CardProfile";
 import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
 import type { MainCategory } from "@/types/filterTypes";
 

@@ -1,9 +1,9 @@
-interface CardProfileProps {
+interface PostProfileProps {
   userNickname?: string;
   modifiedAt?: string;
 }
 
-const CardProfile = ({ userNickname, modifiedAt }: CardProfileProps) => {
+const PostProfile = ({ userNickname, modifiedAt }: PostProfileProps) => {
   return (
     <div className="flex items-center gap-x-12">
       <div className="h-40 w-40 rounded-full bg-gray-300" />
@@ -15,4 +15,4 @@ const CardProfile = ({ userNickname, modifiedAt }: CardProfileProps) => {
   );
 };
 
-export default CardProfile;
+export default PostProfile;

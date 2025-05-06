@@ -1,6 +1,7 @@
-import SelectChip from "../../common/SelectChip";
+
 import { FILTER_MENU } from "@/assets/constantData";
 import { ChevronDown, ChevronUp } from "@/assets/icons";
+import SelectChip from "@/components/ui/SelectChip";
 import { useState } from "react";
 
 interface FilterMenuProps {
