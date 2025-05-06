@@ -1,6 +1,5 @@
 "use client";
 
-import NotificationCard from "./NotificationCard";
 import { ChevronLeft } from "@/assets/icons";
 
 interface NotificationSheetProps {

@@ -1,10 +1,10 @@
 "use client";
 
-import FilterActionBar from "./FilterActionBar";
-import FilterHeader from "./FilterHeader";
-import FilterMenu from "./FilterMenu";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
+import FilterHeader from "./FilterHeader";
+import FilterMenu from "./FilterMenu";
+import FilterActionBar from "./FilterActionBar";
 
 interface FilterSheetProps {
   setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;

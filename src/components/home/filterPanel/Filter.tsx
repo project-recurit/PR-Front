@@ -1,7 +1,7 @@
 "use client";
 
-import Modal from "../../Common/Modal";
-import SelectChip from "../../Common/SelectChip";
+import Modal from "../../common/Modal";
+import SelectChip from "../../common/SelectChip";
 import FilterSheet from "./FilterSheet";
 import { ChevronDown, FilterFunnel } from "@/assets/icons";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";

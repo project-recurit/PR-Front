@@ -1,9 +1,9 @@
-import "./globals.css";
-import Header from "@/components/Layout/Header";
-import NavigationBar from "@/components/Layout/NavigationBar";
+import Header from "@/components/layout/Header";
+import NavigationBar from "@/components/layout/NavigationBar";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 

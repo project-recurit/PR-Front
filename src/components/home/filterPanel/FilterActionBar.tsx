@@ -1,4 +1,4 @@
-import Button from "@/components/Common/Button";
+import Button from "@/components/common/Button";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 interface FilterActionBarProps {

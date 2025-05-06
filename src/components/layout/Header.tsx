@@ -1,8 +1,8 @@
 "use client";
 
-import Modal from "../Common/Modal";
-import CategoryTab from "../Home/FilterPanel/CategoryTab";
-import NotificationSheet from "../Home/Notification/NotificationSheet";
+import Modal from "../common/Modal";
+import CategoryTab from "../home/filterPanel/CategoryTab";
+import NotificationSheet from "../home/notification/NotificationSheet";
 import { HIDDEN_PATH } from "@/assets/constantData";
 import { Bell } from "@/assets/icons";
 import Link from "next/link";

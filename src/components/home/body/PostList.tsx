@@ -1,7 +1,7 @@
 "use client";
 
-import PJCard from "@/components/UI/PJCard";
-import PRCard from "@/components/UI/PRCard";
+import PJCard from "@/components/ui/PJCard";
+import PRCard from "@/components/ui/PRCard";
 import { useGetPostsQuery } from "@/hooks/queries/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import Link from "next/link";

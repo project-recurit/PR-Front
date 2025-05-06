@@ -1,10 +1,9 @@
 "use client";
 
-import PJCard from "@/components/UI/PJCard";
-import PRCard from "@/components/UI/PRCard";
-import { useGetPostsQuery } from "@/hooks/queries/useGetPosts";
+import PJCard from "@/components/ui/PJCard";
+import PRCard from "@/components/ui/PRCard";
+import { useGetPosts } from "@/hooks/queries/post/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 const PostList = () => {
@@ -12,8 +11,8 @@ const PostList = () => {
   const query = params.get("search")?.toLowerCase();
   // const viewPosts = useFilteredPosts(posts, query);
   const { selectedMenu } = useCategoryStore((state) => state);
-  const { data: postData, isPending, isError, error } = useGetPostsQuery({ postType: selectedMenu });
-  console.log(" postData => ", postData);
+  const { data: postData, isPending, isError, error } = useGetPosts(selectedMenu);
+  console.log(postData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>Loading...</div>;
@@ -23,13 +22,16 @@ const PostList = () => {
   return (
     <main className="mb-60 flex w-full flex-col gap-y-20 px-20 py-20">
       {postData.map((post) => {
-        return (
-          <Link
-            href={`/post/${post.id}?type=${selectedMenu}`}
+        return selectedMenu === "PJ" ? (
+          <PJCard
             key={post.id}
-          >
-            {selectedMenu === "PJ" ? <PJCard post={post} /> : <PRCard post={post} />}
-          </Link>
+            post={post}
+          />
+        ) : (
+          <PRCard
+            key={post.id}
+            post={post}
+          />
         );
       })}
     </main>

@@ -1,4 +1,4 @@
-import SelectChip from "../../Common/SelectChip";
+import SelectChip from "../../common/SelectChip";
 import { FILTER_MENU } from "@/assets/constantData";
 import { ChevronDown, ChevronUp } from "@/assets/icons";
 import { useState } from "react";
