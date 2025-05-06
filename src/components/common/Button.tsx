@@ -6,12 +6,14 @@ const Button = ({
   className = "bg-black-1000 text-white",
   children,
   size,
+  type,
 }: {
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
   children: string;
   size: "m" | "s";
+  type?: "button" | "submit" | "reset";
 }) => {
   const btnSize: Record<string, string> = {
     m: "title-18-r py-14 rounded-12",
@@ -20,6 +22,7 @@ const Button = ({
 
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={disabled}
       className={`w-full ${className} ${btnSize[size]}`}

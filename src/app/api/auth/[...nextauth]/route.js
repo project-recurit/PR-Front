@@ -1,10 +1,10 @@
-import { apiClient } from "@/lib/apiClient";
 import NextAuth from "next-auth";
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Kakao from "next-auth/providers/kakao";
 
-const handler = NextAuth({
+// [...nextauth].ts 또는 [...nextauth].js
+export const authOptions = {
   providers: [
     Kakao({
       clientId: process.env.KAKAO_CLIENT_ID,
@@ -26,56 +26,49 @@ const handler = NextAuth({
   ],
   callbacks: {
     async signIn({ user, account }) {
-      console.log("소셜 로그인 디버그:", { user, account });
-
-      const nickname = user?.name || user?.email?.split("@")[0] || "Unknown";
-
       try {
-        // 로그인 시도
-        const response = await apiClient.post("/api/v1/auth/login", {
-          email: user?.email,
-          socialId: account.providerAccountId,
-          nickname: nickname,
-          provider: account.provider.toUpperCase(),
+        const response = await fetch(`${process.env.API_BASE_URL}/api/v1/auth/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user.email,
+            provider: account.provider.toUpperCase(),
+            socialId: account.providerAccountId,
+            nickname: user.name || user.email.split("@")[0] || "Unknown",
+          }),
         });
-        //  await fetch(
-        //   `${process.env.API_BASE_URL}/api/v1/auth/login`,
-        //   {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({
-        //       email: user?.email,
-        //       socialId: account.providerAccountId,
-        //       nickname: nickname,
-        //       provider: account.provider.toUpperCase(),
-        //     }),
-        //   }
-        // );
-
-        if (response.ok) {
-          const data = await response.json();
-          account.access_token = data.token;
+        const data = await response.json();
+        account.access_token = data.accessToken;
+        account.status = data.status;
+        if (data.status === "USER_INFO_UPDATE") {
           return true;
         } else {
-          return `/sign-up`;
+          return true;
         }
       } catch (error) {
-        console.error("🔴 로그인 에러:", error);
+        console.error(error);
         return false;
       }
     },
     async jwt({ token, account }) {
       if (account) {
-        token.access_token = account.access_token;
+        token.accessToken = account.access_token;
+        token.status = account.status;
+        token.socialId = account.providerAccountId;
       }
       return token;
     },
     async session({ session, token }) {
-      session.accessToken = token.access_token;
+      session.accessToken = token.accessToken;
+      session.status = token.status;
+      session.socialId = token.socialId;
       return session;
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
 
-export { handler as GET, handler as POST };
+export const GET = (req, res) => NextAuth(req, res, authOptions);
+export const POST = (req, res) => NextAuth(req, res, authOptions);
