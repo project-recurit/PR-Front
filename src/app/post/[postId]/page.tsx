@@ -24,8 +24,8 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
       />
       <CommentSection postId={postId} />
       <footer className={BOTTOM_FIEXED_BAR_STYLE}>
-        <ActionBotton label="채팅하기" />
-        <ActionBotton label="지원하기" />
+        {/* <ActionBotton label="채팅하기" />
+        <ActionBotton label="지원하기" onClick={}/> */}
       </footer>
     </div>
   );

@@ -2,13 +2,12 @@
 
 import FilterSheet from "./FilterSheet";
 import { ChevronDown, FilterFunnel } from "@/assets/svgs/icons";
-import Modal from "@/components/modal/Modal";
 import SelectChip from "@/components/ui/SelectChip";
+import { useModal } from "@/hooks/modal/useModal";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
-import { useState } from "react";
 
 const Filter = () => {
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const { Modal, isModalOpen, openModal, closeModal } = useModal();
   const { activeFilters, applyFilter } = useCategoryStore((state) => state);
 
   return (
@@ -28,7 +27,7 @@ const Filter = () => {
               );
             })}
         </div>
-        <button onClick={() => setIsFilterOpen(true)}>
+        <button onClick={openModal}>
           <FilterFunnel />
         </button>
       </div>
@@ -38,11 +37,9 @@ const Filter = () => {
           <ChevronDown className="h-16 w-16" />
         </button>
       </div>
-      {isFilterOpen && (
-        <Modal>
-          <FilterSheet setIsFilterOpen={setIsFilterOpen} />
-        </Modal>
-      )}
+      <Modal isModalOpen={isModalOpen}>
+        <FilterSheet closeModal={closeModal} />
+      </Modal>
     </>
   );
 };

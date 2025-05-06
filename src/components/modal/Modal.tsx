@@ -5,9 +5,10 @@ import { createPortal } from "react-dom";
 
 interface ModalProps {
   children: React.ReactNode;
+  isModalOpen: boolean;
 }
 
-const Modal = ({ children }: ModalProps) => {
+const Modal = ({ children, isModalOpen }: ModalProps) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const modalRoot = document.getElementById("modal-root");
 
@@ -17,7 +18,7 @@ const Modal = ({ children }: ModalProps) => {
 
   if (!isMounted || !modalRoot) return null;
 
-  return createPortal(<>{children}</>, modalRoot);
+  return isModalOpen ? createPortal(<>{children}</>, modalRoot) : null;
 };
 
 export default Modal;

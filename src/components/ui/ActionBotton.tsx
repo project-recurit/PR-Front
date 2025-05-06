@@ -2,7 +2,7 @@ interface ActionBottonProps {
   label: string;
   size?: "s" | "m" | "l";
   color?: "black" | "white";
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 const ActionBotton = ({ label, size = "s", color = "black", onClick }: ActionBottonProps) => {

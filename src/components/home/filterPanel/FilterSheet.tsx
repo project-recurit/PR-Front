@@ -7,22 +7,25 @@ import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
 
 interface FilterSheetProps {
-  setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
 }
 
-const FilterSheet = ({ setIsFilterOpen }: FilterSheetProps) => {
+const FilterSheet = ({ closeModal }: FilterSheetProps) => {
   const { activeFilters } = useCategoryStore((state) => state);
   const [selectedFilter, setSelectedFilter] = useState<Set<string>>(activeFilters);
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-white">
-      <Header heading="필터" backButtonEvent={()=>setIsFilterOpen(false)} />
+      <Header
+        heading="필터"
+        backButtonEvent={closeModal}
+      />
       <FilterMenu
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />
       <FilterActionBar
-        setIsFilterOpen={setIsFilterOpen}
+        closeModal={closeModal}
         selectedFilter={selectedFilter}
       />
     </div>
