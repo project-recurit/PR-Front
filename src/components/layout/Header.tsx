@@ -3,19 +3,16 @@
 import Modal from "../common/Modal";
 import CategoryTab from "../home/filterPanel/CategoryTab";
 import NotificationSheet from "../home/notification/NotificationSheet";
-import { HIDDEN_PATH } from "@/assets/constantData";
 import { Bell } from "@/assets/icons";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const Header = () => {
-  const path = usePathname();
   const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
 
   return (
     <>
-      <header className={`sticky top-0 z-10 flex flex-col bg-white ${HIDDEN_PATH.includes(path) && "hidden"}`}>
+      <header className="sticky top-0 z-10 flex flex-col bg-white">
         <div className="flex justify-between px-20 py-9">
           <Link
             href="/"

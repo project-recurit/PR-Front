@@ -65,8 +65,6 @@ export const NAV_MENU = [
   { title: "마이", Component: MyUser, route: "/mypage" },
 ];
 
-export const HIDDEN_PATH = ["/login", "/sign-up"];
-
 export const STEP_COMPONENTS: Record<number, FC> = {
   0: FirstStep,
   1: SecondStep,
