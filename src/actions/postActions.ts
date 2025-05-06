@@ -6,7 +6,7 @@ import type { MainCategory } from "@/types/filterTypes";
 import type { PJPost, PRPost } from "@/types/postTypes";
 import { handleError } from "@/utils/handleError";
 
-//TODO - 검색, 필터, 페이지네이션 기능 추가 필요
+//TODO - 검색, 필터, 페이지네이션 기능 추가
 /** 게시물 리스트 요청 액션 */
 export const getPosts = handleError(async ({ postType }: { postType: MainCategory }): Promise<PJPost[] | PRPost[]> => {
   const res = await fetch(POST_API_URL.list[postType], {
