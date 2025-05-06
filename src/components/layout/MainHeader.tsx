@@ -1,11 +1,11 @@
 "use client";
 
-import Modal from "../modal/Modal";
-import { Bell } from "@/assets/icons";
-import Link from "next/link";
-import { useState } from "react";
 import CategoryTab from "../home/filterPanel/CategoryTab";
 import NotificationSheet from "../home/notification/NotificationSheet";
+import Modal from "../modal/Modal";
+import { Bell } from "@/assets/svgs/icons";
+import Link from "next/link";
+import { useState } from "react";
 
 const MainHeader = () => {
   const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);

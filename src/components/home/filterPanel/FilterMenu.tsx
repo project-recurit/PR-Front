@@ -1,6 +1,5 @@
-
 import { FILTER_MENU } from "@/assets/constantData";
-import { ChevronDown, ChevronUp } from "@/assets/icons";
+import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
 import SelectChip from "@/components/ui/SelectChip";
 import { useState } from "react";
 

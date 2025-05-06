@@ -1,4 +1,4 @@
-import { ChipXClose } from "@/assets/icons";
+import { ChipXClose } from "@/assets/svgs/icons";
 
 interface FilterChipProps {
   size: "m" | "s";

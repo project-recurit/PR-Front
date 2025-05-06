@@ -1,6 +1,6 @@
 "use client";
 
-import { GithubIcon, GoogleIcon, KakaoIcon } from "@/assets/icons";
+import { GithubIcon, GoogleIcon, KakaoIcon } from "@/assets/svgs/icons";
 import { Session } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";

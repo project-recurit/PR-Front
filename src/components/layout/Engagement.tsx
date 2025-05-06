@@ -1,4 +1,4 @@
-import { Heart, Comment, Eye } from "@/assets/icons";
+import { Heart, Comment, Eye } from "@/assets/svgs/icons";
 
 interface EngagementProps {
   viewCount: number;

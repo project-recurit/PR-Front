@@ -1,10 +1,10 @@
 "use client";
 
+import FilterActionBar from "./FilterActionBar";
+import FilterMenu from "./FilterMenu";
+import Header from "@/components/layout/Header";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
-import FilterHeader from "./FilterHeader";
-import FilterMenu from "./FilterMenu";
-import FilterActionBar from "./FilterActionBar";
 
 interface FilterSheetProps {
   setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,7 +16,7 @@ const FilterSheet = ({ setIsFilterOpen }: FilterSheetProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-white">
-      <FilterHeader setIsFilterOpen={setIsFilterOpen} />
+      <Header heading="필터" backButtonEvent={()=>setIsFilterOpen(false)} />
       <FilterMenu
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}

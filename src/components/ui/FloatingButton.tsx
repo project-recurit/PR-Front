@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus } from "@/assets/icons";
+import { Plus } from "@/assets/svgs/icons";
 
 const FloatingButton = () => {
   return (
