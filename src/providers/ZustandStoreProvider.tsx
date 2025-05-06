@@ -1,21 +1,32 @@
 "use client";
 
 import { createCategoryStore } from "@/stores/categoryStore";
-import type { CategoryStoreApi } from "@/types/filterTypes";
+import { createPostSearchStore } from "@/stores/postSearchStore";
+import type { CategoryStoreApi, PostSearchStoreApi } from "@/types/filterTypes";
 import { createContext, useRef } from "react";
 
 export const CategoryStoreContext = createContext<CategoryStoreApi | undefined>(undefined);
+export const PostSearchStoreContext = createContext<PostSearchStoreApi | undefined>(undefined);
 
-interface CategoryStoreProviderProps {
+interface ZustandStoreProviderProps {
   children: Readonly<React.ReactNode>;
 }
 
-export const CategoryStoreProvider = ({ children }: CategoryStoreProviderProps) => {
-  const CategoryStoreRef = useRef<CategoryStoreApi>(null);
+export const ZustandStoreProvider = ({ children }: ZustandStoreProviderProps) => {
+  const categoryStoreRef = useRef<CategoryStoreApi>(null);
+  const postSearchStoreRef = useRef<PostSearchStoreApi>(null);
 
-  if (!CategoryStoreRef.current) {
-    CategoryStoreRef.current = createCategoryStore();
+  if (!categoryStoreRef.current) {
+    categoryStoreRef.current = createCategoryStore();
   }
 
-  return <CategoryStoreContext.Provider value={CategoryStoreRef.current}>{children}</CategoryStoreContext.Provider>;
+  if (!postSearchStoreRef.current) {
+    postSearchStoreRef.current = createPostSearchStore();
+  }
+
+  return (
+    <CategoryStoreContext.Provider value={categoryStoreRef.current}>
+      <PostSearchStoreContext.Provider value={postSearchStoreRef.current}>{children}</PostSearchStoreContext.Provider>
+    </CategoryStoreContext.Provider>
+  );
 };
