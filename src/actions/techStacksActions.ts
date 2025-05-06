@@ -1,7 +1,10 @@
+"use server";
+
+import { TECH_STACK_API_URL } from "@/constants/apiEndpoints";
+
 export const fetchTechStacks = async () => {
   try {
-    const BASE_URL = process.env.API_BASE_URL;
-    const res = await fetch(`${BASE_URL}/api/v1/tech-stack`, {
+    const res = await fetch(TECH_STACK_API_URL, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });

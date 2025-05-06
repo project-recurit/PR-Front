@@ -1,4 +1,4 @@
-import { userSignUp } from "@/services/userServices";
+import { userSignUp } from "@/actions/authActions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Session } from "next-auth";
 import { signOut, useSession } from "next-auth/react";

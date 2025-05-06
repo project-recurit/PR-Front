@@ -1,3 +1,5 @@
+"use server";
+
 import { commonHeaders } from "@/config/commonHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import { handleError } from "@/utils/handleError";

@@ -17,3 +17,9 @@ export const COMMENT_API_URL = {
   create: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comment`,
   modify: (commentId: string) => `${BASE_URL}/api/v1/recruitment/${commentId}`,
 } as const;
+
+export const AUTH_API_URL = {
+  signUp: `${BASE_URL}/api/v1/users/register`,
+};
+
+export const TECH_STACK_API_URL = `${BASE_URL}/api/v1/tech-stack`;
