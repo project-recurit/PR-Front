@@ -1,7 +1,7 @@
 const queryKeys = {
   post: {
-    project: () => ["project"],
-    profile: () => ["profile"],
+    PJ: () => ["project"],
+    PR: () => ["publicRelation"],
   },
 } as const;
 

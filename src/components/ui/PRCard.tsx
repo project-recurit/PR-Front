@@ -1,9 +1,13 @@
 import Card from "./Card";
 import CardLabel from "./CardLabel";
-import StackLabel from "./StackLabel";
-import { PRpost } from "@/types/type";
+import TechStackLabel from "./StackLabel";
+import { PRPost } from "@/types/postTypes";
 
-const PRCard = ({ post }: { post: PRpost }) => {
+interface PRCardProps {
+  post: PRPost;
+}
+
+const PRCard = ({ post }: PRCardProps) => {
   return (
     <Card>
       <p className="body-16-s overflow-line2">{post.title}</p>
@@ -12,14 +16,10 @@ const PRCard = ({ post }: { post: PRpost }) => {
           title="포지션"
           value="프론트엔드"
         />
-        <StackLabel stacks={post.techStacks} />
+        <TechStackLabel stacks={post.techStacks} />
         <CardLabel
           title="선호 방식"
           value="오프라인"
-        />
-        <CardLabel
-          title="선호 기간"
-          value="3개월"
         />
       </div>
     </Card>

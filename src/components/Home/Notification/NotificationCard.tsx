@@ -1,24 +1,16 @@
 "use client";
 
-import type { NOTIFICATION_TYPE } from "@/assets/constantData";
-import { FaceNeutral, FaceSmile, MessageCircle, MessageSquare } from "@/assets/icons";
+import { NOTIFICATION_TYPE } from "@/assets/constantData";
 
 interface NotificationCardProps {
-  notificationType: NOTIFICATION_TYPE;
+  notificationType: keyof typeof NOTIFICATION_TYPE;
   read?: boolean;
   subject: string;
   receivedAt: string;
 }
 
-const notificationIcons = {
-  ACCEPT: { icon: FaceSmile, message: (subject: string) => `\`${subject}\`에 수락됐어요.` },
-  REJECT: { icon: FaceNeutral, message: (subject: string) => `\`${subject}\`에 거절됐어요.` },
-  COMMENT: { icon: MessageSquare, message: (subject: string) => `\`${subject}\`에 새로운 댓글이 달렸어요.` },
-  CHAT: { icon: MessageCircle, message: (subject: string) => `\`${subject}\`님과 새로운 채팅이 시작됐어요.` },
-};
-
 const NotificationCard = ({ notificationType, subject, receivedAt }: NotificationCardProps) => {
-  const { icon: Icon, message } = notificationIcons[notificationType];
+  const { icon: Icon, message } = NOTIFICATION_TYPE[notificationType];
   return (
     <div>
       <Icon />

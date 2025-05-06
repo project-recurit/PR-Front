@@ -1,5 +1,5 @@
 import Button from "@/components/Common/Button";
-import { useCategoryStore } from "@/hooks/State/useCategoryStore";
+import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 interface FilterActionBarProps {
   setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;

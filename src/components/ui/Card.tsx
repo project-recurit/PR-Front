@@ -1,13 +1,28 @@
 import CardFooter from "./CardFooter";
 import CardProfile from "./CardProfile";
 
-const Card = ({ children }: { children: React.ReactNode }) => {
+interface CardLayoutProps {
+  children: React.ReactNode;
+  userNickname?: string;
+  modifiedAt?: string;
+  viewCount: number;
+  commentCount: number;
+  favoriteCount: number;
+}
+
+const Card = ({ children, userNickname, modifiedAt, viewCount, commentCount, favoriteCount }: CardLayoutProps) => {
   return (
     <section className="flex w-full flex-col gap-y-12 rounded-xl border bg-white px-20 py-12 shadow-sm">
-      <CardProfile />
+      <CardProfile
+        userNickname={userNickname}
+        modifiedAt={modifiedAt}
+      />
       {children}
-      <hr className="bg-black-200" />
-      <CardFooter />
+      <CardFooter
+        viewCount={viewCount}
+        commentCount={commentCount}
+        favoriteCount={favoriteCount}
+      />
     </section>
   );
 };

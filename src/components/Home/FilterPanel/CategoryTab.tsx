@@ -1,7 +1,7 @@
 "use client";
 
 import { MAIN_CATEGORY } from "@/assets/constantData";
-import { useCategoryStore } from "@/hooks/State/useCategoryStore";
+import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { usePathname } from "next/navigation";
 
 const CategoryTab = () => {

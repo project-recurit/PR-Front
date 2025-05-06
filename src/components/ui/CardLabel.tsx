@@ -1,4 +1,9 @@
-const CardLabel = ({ title, value }: { title: string; value: string }) => {
+interface CardLabelProps {
+  title: string;
+  value: string;
+}
+
+const CardLabel = ({ title, value }: CardLabelProps) => {
   return (
     <>
       <p className="caption-r text-black-400">{title}</p>

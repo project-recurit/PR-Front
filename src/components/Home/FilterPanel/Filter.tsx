@@ -4,7 +4,7 @@ import Modal from "../../Common/Modal";
 import SelectChip from "../../Common/SelectChip";
 import FilterSheet from "./FilterSheet";
 import { ChevronDown, FilterFunnel } from "@/assets/icons";
-import { useCategoryStore } from "@/hooks/State/useCategoryStore";
+import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
 
 const Filter = () => {

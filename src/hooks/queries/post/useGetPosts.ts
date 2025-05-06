@@ -1,12 +1,12 @@
 import queryKeys from "../queryKeys";
-import { getPJPosts } from "@/actions/postActions";
-import type { POST_TYPE } from "@/assets/constantData";
-import { handleError } from "@/utils/handleError";
+import { getPosts } from "@/actions/postActions";
+import type { MainCategory } from "@/types/filterTypes";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGetPosts = (postType: POST_TYPE) => {
+/** 게시물 리스트 요청 쿼리 */
+export const useGetPosts = (postType: MainCategory) => {
   return useQuery({
     queryKey: queryKeys.post[postType](),
-    queryFn: () => handleError(getPJPosts)(postType),
+    queryFn: () => getPosts(postType),
   });
 };

@@ -2,9 +2,9 @@ import "./globals.css";
 import FloatingButton from "@/components/Layout/FloatingButton";
 import Header from "@/components/Layout/Header";
 import NavigationBar from "@/components/Layout/NavigationBar";
-import { CategoryStoreProvider } from "@/providers/CategoryStoreProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthSession from "@/providers/SessionProvider";
+import { CategoryStoreProvider } from "@/providers/ZustandStoreProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
