@@ -1,5 +1,3 @@
-import Header from "@/components/layout/Header";
-import NavigationBar from "@/components/layout/NavigationBar";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
@@ -29,18 +27,16 @@ const RootLayout = ({
       lang="ko"
       className={`trancy-ko ${pretendard.variable} bg-white sm:px-0`}
     >
-      <AuthSession>
-        <body className={`main-contain h-screen bg-black-100 text-black-1000 antialiased`}>
-          <div id="modal-root"></div>
+      <body className={`main-contain h-screen bg-black-100 text-black-1000 antialiased`}>
+        <AuthSession>
           <QueryProvider>
             <ZustandStoreProvider>
-              <Header />
+              <div id="modal-root"></div>
               {children}
-              <NavigationBar />
             </ZustandStoreProvider>
           </QueryProvider>
-        </body>
-      </AuthSession>
+        </AuthSession>
+      </body>
     </html>
   );
 };
