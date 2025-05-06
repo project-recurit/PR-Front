@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft } from "@/assets/icons";
+import { ChevronLeft } from "@/assets/svgs/icons";
 
 interface NotificationSheetProps {
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;

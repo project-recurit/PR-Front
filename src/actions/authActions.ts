@@ -1,16 +1,16 @@
 "use server";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { commonHeaders } from "@/config/commonHeaders";
+import { COMMON_HEADERS } from "@/config/commonHeaders";
 import { AUTH_API_URL } from "@/constants/apiEndpoints";
 import { SignupForm } from "@/types/type";
 import { getServerSession } from "next-auth";
 
-export const userSignUp = async (data: SignupForm) => {
+export const signUpAction = async (data: SignupForm) => {
   try {
     const res = await fetch(AUTH_API_URL.signUp, {
       method: "POST",
-      headers: commonHeaders,
+      headers: COMMON_HEADERS,
       body: JSON.stringify(data),
     });
 

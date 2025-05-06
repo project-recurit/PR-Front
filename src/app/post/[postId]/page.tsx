@@ -1,7 +1,8 @@
-import BottomFixedBar from "@/components/layout/BottomFixedBar";
+
 import CommentSection from "@/components/post-detail/comment/CommentSection";
 import PostSection from "@/components/post-detail/post/PostSection";
 import ActionBotton from "@/components/ui/ActionBotton";
+import { BOTTOM_FIEXED_BAR_STYLE } from "@/styles/tailwindStyles";
 import type { MainCategory } from "@/types/filterTypes";
 import { use } from "react";
 
@@ -22,10 +23,10 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
         postType={type}
       />
       <CommentSection postId={postId} />
-      <BottomFixedBar>
+      <footer className={BOTTOM_FIEXED_BAR_STYLE}>
         <ActionBotton label="채팅하기" />
         <ActionBotton label="지원하기" />
-      </BottomFixedBar>
+      </footer>
     </div>
   );
 };

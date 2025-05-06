@@ -1,7 +1,7 @@
 "use client";
 
-import { ChevronDown, ChevronUp } from "@/assets/icons";
-import { useDropDownControl } from "@/hooks/DropDownControl";
+import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
+import { useDropDownControl } from "@/hooks/adropDownControl";
 
 const DropDown = ({
   children,
@@ -42,18 +42,27 @@ const DropDown = ({
           }`}
         >
           {value ? value : children}
-          <ChevronDown width="24" height="24"/>
+          <ChevronDown
+            width="24"
+            height="24"
+          />
         </div>
         {isDropDownOpen && (
           <div
             className={`h-[357px] py-14 absolute top-0 bg-white w-full flex flex-col justify-between left-0 rounded-8 px-16 border-1 border-black-400`}
           >
-            <div onClick={handleResetValue} className="flex justify-between">
+            <div
+              onClick={handleResetValue}
+              className="flex justify-between"
+            >
               {children}
               <ChevronUp />
             </div>
             {menu.map((c) => (
-              <div key={c} onClick={() => handleDropdownValue(c)}>
+              <div
+                key={c}
+                onClick={() => handleDropdownValue(c)}
+              >
                 {c}
               </div>
             ))}

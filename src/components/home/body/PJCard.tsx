@@ -1,6 +1,6 @@
-import Card from "./Card";
-import CardLabel from "./CardLabel";
-import TechStackLabel from "./StackLabel";
+import CardLabel from "@/components/layout/CardLabel";
+import PostCard from "@/components/layout/PostCard";
+import TechStackLabel from "@/components/ui/StackLabel";
 import type { PJPost } from "@/types/postTypes";
 
 interface PJCardProps {
@@ -16,7 +16,7 @@ const PJCard = ({ post }: PJCardProps) => {
     favoriteCount: post.favoriteCount,
   };
   return (
-    <Card {...cardProps}>
+    <PostCard {...cardProps}>
       <p className="body-16-s overflow-line2">{post.title}</p>
       <div className="caption-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
@@ -41,7 +41,7 @@ const PJCard = ({ post }: PJCardProps) => {
           value={"데이터 안 넘어옴"}
         />
       </div>
-    </Card>
+    </PostCard>
   );
 };
 

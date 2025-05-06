@@ -1,13 +1,13 @@
 "use client";
 
-import { HomeSearch } from "@/assets/icons";
+import { HomeSearch } from "@/assets/svgs/icons";
 import { usePostSearchStore } from "@/hooks/state/useZustandStore";
 import { useRef, useState } from "react";
 
 const HomeSearchBar = () => {
   const [searchInput, setSearchInput] = useState<string>("");
-  const { applySearchQuery,searchQuery } = usePostSearchStore((state) => state);
-  console.log(' searchQuery => ', searchQuery);
+  const { applySearchQuery, searchQuery } = usePostSearchStore((state) => state);
+  console.log(" searchQuery => ", searchQuery);
 
   const inputRef = useRef<HTMLInputElement>(null);
 

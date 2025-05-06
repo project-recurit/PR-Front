@@ -1,9 +1,16 @@
+import Header from "@/components/layout/Header";
+
 interface PostDetailLayoutProps {
   children: Readonly<React.ReactNode>;
 }
 
 const PostDetailLayout = ({ children }: PostDetailLayoutProps) => {
-  return <>{children}</>;
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 };
 
 export default PostDetailLayout;

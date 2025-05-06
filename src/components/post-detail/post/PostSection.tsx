@@ -1,8 +1,8 @@
 "use client";
 
 import PostBody from "./PostBody";
-import CardFooter from "@/components/ui/CardFooter";
-import CardProfile from "@/components/ui/CardProfile";
+import Engagement from "@/components/layout/Engagement";
+import PostProfile from "@/components/layout/PostProfile";
 import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
 import type { MainCategory } from "@/types/filterTypes";
 
@@ -22,12 +22,12 @@ const PostSection = ({ postType, postId }: PostSectionProps) => {
 
   return (
     <>
-      <CardProfile
+      <PostProfile
         userNickname={postData.userNickname}
         modifiedAt={postData.modifiedAt}
       />
       {postData.title}
-      <CardFooter
+      <Engagement
         viewCount={postData.viewCount}
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}

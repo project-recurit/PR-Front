@@ -1,4 +1,4 @@
-import { Search } from "@/assets/icons";
+import { Search } from "@/assets/svgs/icons";
 
 const SearchBar = ({
   label,

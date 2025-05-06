@@ -1,5 +1,5 @@
 import SkillBadge from "./SkillBadge";
-import SearchBar from "@/components/Common/SearchBar";
+import SearchBar from "@/components/common/ui/SearchBar";
 import { TechStack } from "@/types/type";
 import { useState } from "react";
 

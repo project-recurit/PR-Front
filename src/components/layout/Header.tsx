@@ -1,37 +1,22 @@
 "use client";
 
-import Modal from "../common/Modal";
-import CategoryTab from "../home/filterPanel/CategoryTab";
-import NotificationSheet from "../home/notification/NotificationSheet";
-import { Bell } from "@/assets/icons";
-import Link from "next/link";
-import { useState } from "react";
+import { ChevronLeft } from "@/assets/svgs/icons";
+import { useRouter } from "next/navigation";
 
-const Header = () => {
-  const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
+interface HeaderProps {
+  heading?: string;
+  backButtonEvent?: () => void;
+}
 
+const Header = ({ heading, backButtonEvent }: HeaderProps) => {
+  const router = useRouter();
   return (
-    <>
-      <header className="sticky top-0 z-10 flex flex-col bg-white">
-        <div className="flex justify-between px-20 py-9">
-          <Link
-            href="/"
-            className="text-24 font-black leading-tight"
-          >
-            LOGO
-          </Link>
-          <button onClick={() => setIsAlertOpen(true)}>
-            <Bell />
-          </button>
-        </div>
-        <CategoryTab />
-      </header>
-      {isAlertOpen && (
-        <Modal>
-          <NotificationSheet setIsAlertOpen={setIsAlertOpen} />
-        </Modal>
-      )}
-    </>
+    <header className="title-20-s flex h-48 w-full items-center px-16 py-9 bg-white">
+      <button onClick={backButtonEvent ?? router.back}>
+        <ChevronLeft />
+      </button>
+      <h1>{heading}</h1>
+    </header>
   );
 };
 

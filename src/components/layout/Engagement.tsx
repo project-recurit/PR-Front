@@ -1,12 +1,12 @@
-import { Heart, Comment, Eye } from "@/assets/icons";
+import { Heart, Comment, Eye } from "@/assets/svgs/icons";
 
-interface CardFooterProps {
+interface EngagementProps {
   viewCount: number;
   commentCount: number;
   favoriteCount: number;
 }
 
-const CardFooter = ({ viewCount, commentCount, favoriteCount }: CardFooterProps) => {
+const Engagement = ({ viewCount, commentCount, favoriteCount }: EngagementProps) => {
   const engagementData = [
     { icon: <Eye />, count: viewCount },
     { icon: <Comment />, count: commentCount },
@@ -31,4 +31,4 @@ const CardFooter = ({ viewCount, commentCount, favoriteCount }: CardFooterProps)
   );
 };
 
-export default CardFooter;
+export default Engagement;
