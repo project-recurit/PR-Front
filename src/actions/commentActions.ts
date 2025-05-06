@@ -1,6 +1,6 @@
 "use server";
 
-import { commonHeaders } from "@/config/commonHeaders";
+import { COMMON_HEADERS } from "@/config/commonHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import { handleError } from "@/utils/handleError";
 
@@ -9,7 +9,7 @@ import { handleError } from "@/utils/handleError";
 export const getComments = handleError(async ({ postId }: { postId: string }): Promise<[]> => {
   const res = await fetch(COMMENT_API_URL.root(postId), {
     method: "GET",
-    headers: commonHeaders,
+    headers: COMMON_HEADERS,
     cache: "no-store",
   });
   const {
@@ -22,7 +22,7 @@ export const getComments = handleError(async ({ postId }: { postId: string }): P
 export const createComment = handleError(async ({ postId, comment }: { postId: string; comment: string }) => {
   const res = await fetch(COMMENT_API_URL.create(postId), {
     method: "POST",
-    headers: commonHeaders,
+    headers: COMMON_HEADERS,
     cache: "no-store",
     body: JSON.stringify({ content: comment }),
   });

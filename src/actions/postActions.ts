@@ -1,6 +1,6 @@
 "use server";
 
-import { commonHeaders } from "@/config/commonHeaders";
+import { COMMON_HEADERS } from "@/config/commonHeaders";
 import { POST_API_URL } from "@/constants/apiEndpoints";
 import type { MainCategory } from "@/types/filterTypes";
 import type { PJPost, PRPost } from "@/types/postTypes";
@@ -11,7 +11,7 @@ import { handleError } from "@/utils/handleError";
 export const getPosts = handleError(async ({ postType }: { postType: MainCategory }): Promise<PJPost[] | PRPost[]> => {
   const res = await fetch(POST_API_URL.list[postType], {
     method: "GET",
-    headers: commonHeaders,
+    headers: COMMON_HEADERS,
     cache: "no-store",
   });
   const {
@@ -25,11 +25,11 @@ export const getPostDetail = handleError(
   async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<PJPost | PRPost> => {
     const res = await fetch(POST_API_URL.detail[postType](postId), {
       method: "GET",
-      headers: commonHeaders,
+      headers: COMMON_HEADERS,
       cache: "no-store",
     });
     const { data } = await res.json();
-    console.log(' data => ', data);
+    console.log(" data => ", data);
     return data;
   },
 );
