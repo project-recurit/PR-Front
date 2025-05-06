@@ -1,7 +1,6 @@
 "use client";
 
 import PostBody from "./PostBody";
-import PostTitle from "./PostTitle";
 import CardFooter from "@/components/UI/CardFooter";
 import CardProfile from "@/components/UI/CardProfile";
 import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
