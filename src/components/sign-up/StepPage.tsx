@@ -5,7 +5,7 @@ import SecondStep from "./SecondStep";
 import StepLabel from "./StepLabel";
 import ThirdStep from "./ThirdStep";
 import { ChevronLeft, XClose } from "@/assets/icons";
-import Button from "@/components/Common/Button";
+import Button from "@/components/common/Button";
 import { useSignUp } from "@/hooks/signupStep";
 import { TechStack } from "@/types/type";
 
