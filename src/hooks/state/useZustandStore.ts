@@ -1,5 +1,5 @@
-import { CategoryStoreContext } from "@/providers/ZustandStoreProvider";
-import type { CategoryStore } from "@/types/filterTypes";
+import { CategoryStoreContext, PostSearchStoreContext } from "@/providers/ZustandStoreProvider";
+import type { CategoryStore, PostSearchStore } from "@/types/filterTypes";
 import { useContext } from "react";
 import { useStore } from "zustand";
 
@@ -11,4 +11,14 @@ export const useCategoryStore = <T>(selector: (store: CategoryStore) => T): T =>
   }
 
   return useStore(categoryStoreContext, selector);
+};
+
+export const usePostSearchStore = <T>(selector: (store: PostSearchStore) => T): T => {
+  const postSearchStoreContext = useContext(PostSearchStoreContext);
+
+  if (!postSearchStoreContext) {
+    throw new Error("검색어를 가져오지 못했습니다.");
+  }
+
+  return useStore(postSearchStoreContext, selector);
 };

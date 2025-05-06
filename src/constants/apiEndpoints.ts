@@ -6,14 +6,14 @@ export const POST_API_URL = {
     PR: `${BASE_URL}/api/v1/post/pr`,
   },
   detail: {
-    PJ: (postId: string) => `${BASE_URL}/api/v1/project/${postId}`,
+    PJ: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}`,
     PR: (postId: string) => `${BASE_URL}/api/v1/post/pr/${postId}`,
   },
 } as const;
 
 export const COMMENT_API_URL = {
   root: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comments`,
-  reply: (parentId: string) => `${BASE_URL}/api/v1/comment/${parentId}/reply`,
+  reply: (parentId: string) => `${BASE_URL}/api/v1/recruitment/${parentId}/reply`,
   create: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comment`,
-  modify: (commentId: string) => `${BASE_URL}/api/v1/comment/${commentId}`,
+  modify: (commentId: string) => `${BASE_URL}/api/v1/recruitment/${commentId}`,
 } as const;
