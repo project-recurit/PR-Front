@@ -1,5 +1,4 @@
 import Bell from "./bell.svg";
-import BookMark from "./book-mark.svg";
 import Chat from "./chat.svg";
 import ChevronDown from "./chevron-down.svg";
 import ChevronLeft from "./chevron-left.svg";
@@ -12,6 +11,7 @@ import FaceSmile from "./face-smile.svg";
 import FilterFunnel from "./filter-funnel.svg";
 import GithubIcon from "./github.svg";
 import GoogleIcon from "./google.svg";
+import Heart from "./heart.svg";
 import HomeSearch from "./home-search.svg";
 import KakaoIcon from "./kakao.svg";
 import LineHeart from "./line-heart.svg";
@@ -24,7 +24,7 @@ import Users from "./users.svg";
 import XClose from "./x-close.svg";
 
 export {
-  BookMark,
+  Heart,
   Chat,
   Comment,
   Eye,

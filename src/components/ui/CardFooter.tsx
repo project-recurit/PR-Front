@@ -1,12 +1,33 @@
-import { BookMark, Comment, Eye } from "@/assets/icons";
+import { Heart, Comment, Eye } from "@/assets/icons";
 
-const CardFooter = () => {
+interface CardFooterProps {
+  viewCount: number;
+  commentCount: number;
+  favoriteCount: number;
+}
+
+const CardFooter = ({ viewCount, commentCount, favoriteCount }: CardFooterProps) => {
+  const engagementData = [
+    { icon: <Eye />, count: viewCount },
+    { icon: <Comment />, count: commentCount },
+    { icon: <Heart />, count: "데이터 안 넘어옴" },
+  ];
+
   return (
-    <div className="flex gap-x-20 text-black-500">
-      <Eye />
-      <Comment />
-      <BookMark />
-    </div>
+    <>
+      <hr className="bg-black-200" />
+      <div className="flex gap-x-20 text-black-500">
+        {engagementData.map((stat, index) => (
+          <span
+            key={index}
+            className="flex items-center gap-x-2"
+          >
+            {stat.icon}
+            {stat.count}
+          </span>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -1,14 +1,15 @@
 import type { createCategoryStore } from "@/stores/categoryStore";
+import type { createPostSearchStore } from "@/stores/postSearchStore";
 
-export type CategoryMenu = "전체" | "PJ" | "PR";
+export type MainCategory = "PJ" | "PR";
 
 export type CategoryState = {
-  selectedMenu: CategoryMenu;
+  selectedMenu: MainCategory;
   activeFilters: Set<string>;
 };
 
 export type CategoryActions = {
-  selectMenu: (menu: CategoryMenu) => void;
+  selectMenu: (menu: MainCategory) => void;
   applyFilter: (selectedFilter: Set<string>) => void;
   resetFilter: () => void;
 };
@@ -16,3 +17,16 @@ export type CategoryActions = {
 export type CategoryStore = CategoryState & CategoryActions;
 
 export type CategoryStoreApi = ReturnType<typeof createCategoryStore>;
+
+export type PostSearchState = {
+  searchQuery: string;
+};
+
+export type PostSearchActions = {
+  applySearchQuery: (searchKeyword: string) => void;
+  clearSearchQuery: () => void;
+};
+
+export type PostSearchStore = PostSearchState & PostSearchActions;
+
+export type PostSearchStoreApi = ReturnType<typeof createPostSearchStore>;

@@ -1,22 +1,25 @@
 "use client";
 
-import Modal from "../Common/Modal";
-import CategoryTab from "../Home/FilterPanel/CategoryTab";
-import NotificationSheet from "../Home/Notification/NotificationSheet";
-import { HIDDEN_PATH } from "@/assets/constantData";
+import Modal from "../common/Modal";
+import CategoryTab from "../home/filterPanel/CategoryTab";
+import NotificationSheet from "../home/notification/NotificationSheet";
 import { Bell } from "@/assets/icons";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 
 const Header = () => {
-  const path = usePathname();
   const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
 
   return (
     <>
-      <header className={`sticky top-0 z-10 flex flex-col bg-white ${HIDDEN_PATH.includes(path) && "hidden"}`}>
+      <header className="sticky top-0 z-10 flex flex-col bg-white">
         <div className="flex justify-between px-20 py-9">
-          <span className="text-24 font-black leading-tight">LOGO</span>
+          <Link
+            href="/"
+            className="text-24 font-black leading-tight"
+          >
+            LOGO
+          </Link>
           <button onClick={() => setIsAlertOpen(true)}>
             <Bell />
           </button>
