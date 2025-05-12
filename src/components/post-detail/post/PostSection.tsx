@@ -1,6 +1,7 @@
 "use client";
 
-import PostBody from "./PostBody";
+import PJPostBody from "./PJPostBody";
+import PRPostBody from "./PRPostBody";
 import Engagement from "@/components/layout/Engagement";
 import PostProfile from "@/components/layout/PostProfile";
 import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
@@ -9,9 +10,10 @@ import type { MainCategory } from "@/types/filterTypes";
 interface PostSectionProps {
   postType: MainCategory;
   postId: string;
+  isPJPost: boolean;
 }
 
-const PostSection = ({ postType, postId }: PostSectionProps) => {
+const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   const { data: postData, isPending, isError, error } = useGetPostDetailQuery({ postType, postId });
   console.log(" postData => ", postData);
 
@@ -32,7 +34,7 @@ const PostSection = ({ postType, postId }: PostSectionProps) => {
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}
       />
-      <PostBody content={postData.content} />
+      {isPJPost ? <PJPostBody content={postData.content} /> : <PRPostBody content={postData.content} />}
     </>
   );
 };

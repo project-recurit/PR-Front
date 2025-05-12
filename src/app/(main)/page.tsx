@@ -3,7 +3,7 @@ import Filter from "@/components/home/filterPanel/Filter";
 import HomeSearchBar from "@/components/home/filterPanel/HomeSearchBar";
 import FloatingButton from "@/components/ui/FloatingButton";
 
-const Home = async () => {
+const HomePage = async () => {
   return (
     <div className="flex flex-col">
       <div className="bg-white">
@@ -16,4 +16,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default HomePage;
