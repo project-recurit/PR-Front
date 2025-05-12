@@ -1,7 +1,8 @@
 "use client";
 
-import PJCard from "@/components/home/body/PJCard";
-import PRCard from "@/components/home/body/PRCard";
+import PJLabel from "@/components/home/body/PJLabel";
+import PRLabel from "@/components/home/body/PRLabel";
+import PostInfo from "@/components/layout/PostInfo";
 import { useGetPostsQuery } from "@/hooks/queries/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import type { PJPost, PRPost } from "@/types/postTypes";
@@ -24,12 +25,21 @@ const PostList = () => {
   return (
     <main className="mb-60 flex w-full flex-col gap-y-20 px-20 py-20">
       {postData.map((post) => {
+        const postInfo = {
+          userNickname: post.userNickname,
+          modifiedAt: post.modifiedAt,
+          viewCount: post.viewCount,
+          commentCount: post.commentCount,
+          favoriteCount: post.favoriteCount,
+        };
         return (
           <Link
             href={`/post/${post.id}?type=${selectedMenu}`}
             key={post.id}
           >
-            {selectedMenu === "PJ" ? <PJCard post={post as PJPost} /> : <PRCard post={post as PRPost} />}
+            <PostInfo {...postInfo}>
+              {selectedMenu === "PJ" ? <PJLabel post={post as PJPost} /> : <PRLabel post={post as PRPost} />}
+            </PostInfo>
           </Link>
         );
       })}

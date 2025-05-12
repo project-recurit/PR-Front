@@ -30,7 +30,7 @@ const ApplyProject = ({ closeModal }: ApplyProjectProps) => {
           <span className={selected ? "text-black" : isDropdownOpen ? "text-black" : "text-black-400"}>
             {selected ?? "직무 선택"}
           </span>
-          <ChevronDown />
+          <ChevronDown className="w-24 h-24"/>
         </button>
         {isDropdownOpen && (
           <ul>

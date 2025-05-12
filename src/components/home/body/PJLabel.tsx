@@ -1,23 +1,15 @@
-import PostCard from "@/components/layout/PostCard";
 import CardLabel from "@/components/ui/CardLabel";
 import TechStackLabel from "@/components/ui/StackLabel";
 import type { PJPost } from "@/types/postTypes";
 
-interface PJCardProps {
+interface PJLabelProps {
   post: PJPost;
 }
 
-const PJCard = ({ post }: PJCardProps) => {
-  const cardProps = {
-    userNickname: post.userNickname,
-    modifiedAt: post.modifiedAt,
-    viewCount: post.viewCount,
-    commentCount: post.commentCount,
-    favoriteCount: post.favoriteCount,
-  };
+const PJLabel = ({ post }: PJLabelProps) => {
   return (
-    <PostCard {...cardProps}>
-      <p className="body-16-s overflow-line2">{post.title}</p>
+    <>
+      <h3 className="body-16-s overflow-line2">{post.title}</h3>
       <div className="caption-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="모집 인원"
@@ -41,8 +33,8 @@ const PJCard = ({ post }: PJCardProps) => {
           value={"데이터 안 넘어옴"}
         />
       </div>
-    </PostCard>
+    </>
   );
 };
 
-export default PJCard;
+export default PJLabel;
