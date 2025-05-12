@@ -9,6 +9,11 @@ export const POST_API_URL = {
     PJ: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}`,
     PR: (postId: string) => `${BASE_URL}/api/v1/post/pr/${postId}`,
   },
+  application: {
+    apply: (pjId: string) => `${BASE_URL}/api/v1/recruitment/${pjId}/applicant`,
+    modify: (pjId: string, applicationId: string) =>
+      `${BASE_URL}/api/v1/recruitment/${pjId}/applicant/${applicationId}`,
+  },
 } as const;
 
 export const COMMENT_API_URL = {

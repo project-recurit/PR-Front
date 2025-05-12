@@ -2,13 +2,12 @@
 
 import CategoryTab from "../home/filterPanel/CategoryTab";
 import NotificationSheet from "../home/notification/NotificationSheet";
-import Modal from "../modal/Modal";
 import { Bell } from "@/assets/svgs/icons";
+import { useModal } from "@/hooks/modal/useModal";
 import Link from "next/link";
-import { useState } from "react";
 
 const MainHeader = () => {
-  const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
+  const { Modal, isModalOpen, openModal,closeModal } = useModal();
 
   return (
     <>
@@ -20,17 +19,16 @@ const MainHeader = () => {
           >
             LOGO
           </Link>
-          <button onClick={() => setIsAlertOpen(true)}>
+          <button onClick={openModal}>
             <Bell />
           </button>
         </div>
         <CategoryTab />
       </header>
-      {isAlertOpen && (
-        <Modal>
-          <NotificationSheet setIsAlertOpen={setIsAlertOpen} />
-        </Modal>
-      )}
+
+      <Modal isModalOpen={isModalOpen}>
+        <NotificationSheet closeModal={closeModal} />
+      </Modal>
     </>
   );
 };

@@ -13,16 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://snaproad.co.kr',
-    siteName: 'Snap Road',
+    // url: 'https://snaproad.co.kr',
+    siteName: 'DAMO',
     title: '다모',
     description: '프로젝트 구하기',
-    images: 'https://www.snaproad.co.kr/images/ogImage/og_image.jpg',
+    // images: 'https://www.snaproad.co.kr/images/ogImage/og_image.jpg',
   },
   icons: {
-    icon: '/favicon.ico',
+    // icon: '/favicon.ico',
   },
-  manifest: '/manifest.ts',
+  // manifest: '/manifest.ts',
 };
 
 const pretendard = localFont({

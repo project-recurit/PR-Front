@@ -1,20 +1,15 @@
 "use client";
 
-import { ChevronLeft } from "@/assets/svgs/icons";
+import Header from "@/components/layout/Header";
 
 interface NotificationSheetProps {
-  setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
 }
 
-const NotificationSheet = ({ setIsAlertOpen }: NotificationSheetProps) => {
+const NotificationSheet = ({ closeModal }: NotificationSheetProps) => {
   return (
     <div className="z-50 h-screen w-screen bg-white">
-      <header className="flex h-48 w-full">
-        <button onClick={() => setIsAlertOpen(false)}>
-          <ChevronLeft />
-        </button>
-        <h2>알림</h2>
-      </header>
+      <Header backButtonEvent={closeModal} />
       <div>
         <div>
           <h3>새로운 알림</h3>
