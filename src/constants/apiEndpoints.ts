@@ -1,21 +1,33 @@
 import { BASE_URL } from "@/config/env";
 
 export const POST_API_URL = {
-  list: {
-    PJ: `${BASE_URL}/api/v1/recruitment`,
-    PR: `${BASE_URL}/api/v1/post/pr`,
-  },
+  PJ: `${BASE_URL}/api/v1/recruitment`,
+  PR: `${BASE_URL}/api/v1/post/pr`,
   detail: {
     PJ: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}`,
     PR: (postId: string) => `${BASE_URL}/api/v1/post/pr/${postId}`,
   },
+  application: {
+    apply: (pjId: string) => `${BASE_URL}/api/v1/recruitment/${pjId}/applicant`,
+    modify: (pjId: string, applicationId: string) =>
+      `${BASE_URL}/api/v1/recruitment/${pjId}/applicant/${applicationId}`,
+  },
 } as const;
 
 export const COMMENT_API_URL = {
-  root: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comments`,
-  reply: (parentId: string) => `${BASE_URL}/api/v1/recruitment/${parentId}/reply`,
-  create: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comment`,
-  modify: (commentId: string) => `${BASE_URL}/api/v1/recruitment/${commentId}`,
+  PJ: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comments`,
+  PR: (postId: string) => `${BASE_URL}/api/v1/prs/${postId}/comments`,
+  reply: {
+    PJ: (parentId: string) => `${BASE_URL}/api/v1/recruitment/${parentId}/reply`,
+  },
+  create: {
+    PJ: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comment`,
+    PR: (postId: string) => `${BASE_URL}/api/v1/prs/${postId}/comments`,
+  },
+  modify: {
+    PJ: (commentId: string) => `${BASE_URL}/api/v1/recruitment/${commentId}`,
+    PR: (postId: string, commentId: string) => `${BASE_URL}/api/v1/prs/${postId}/comments/${commentId}`,
+  },
 } as const;
 
 export const AUTH_API_URL = {

@@ -2,11 +2,11 @@ import Button from "@/components/ui/Button";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 interface FilterActionBarProps {
-  setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
   selectedFilter: Set<string>;
 }
 
-const FilterActionBar = ({ setIsFilterOpen, selectedFilter }: FilterActionBarProps) => {
+const FilterActionBar = ({ closeModal, selectedFilter }: FilterActionBarProps) => {
   const { applyFilter, resetFilter } = useCategoryStore((state) => state);
   return (
     <div className="flex w-full items-center gap-24 px-16 py-8 leading-24 tracking-[0.15px] shadow-[0_-1px_3px_0_#141414]">
@@ -14,7 +14,7 @@ const FilterActionBar = ({ setIsFilterOpen, selectedFilter }: FilterActionBarPro
         className="whitespace-nowrap text-14 text-black-600"
         onClick={() => {
           resetFilter();
-          setIsFilterOpen(false);
+          closeModal();
         }}
       >
         선택 초기화
@@ -24,7 +24,7 @@ const FilterActionBar = ({ setIsFilterOpen, selectedFilter }: FilterActionBarPro
         className="h-52 bg-black p-10 text-18 text-white"
         onClick={() => {
           applyFilter(selectedFilter);
-          setIsFilterOpen(false);
+          closeModal();
         }}
       >
         적용하기

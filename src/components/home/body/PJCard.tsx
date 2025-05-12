@@ -1,5 +1,5 @@
-import CardLabel from "@/components/layout/CardLabel";
 import PostCard from "@/components/layout/PostCard";
+import CardLabel from "@/components/ui/CardLabel";
 import TechStackLabel from "@/components/ui/StackLabel";
 import type { PJPost } from "@/types/postTypes";
 

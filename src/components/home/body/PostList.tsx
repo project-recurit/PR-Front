@@ -4,6 +4,7 @@ import PJCard from "@/components/home/body/PJCard";
 import PRCard from "@/components/home/body/PRCard";
 import { useGetPostsQuery } from "@/hooks/queries/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
+import type { PJPost, PRPost } from "@/types/postTypes";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -28,7 +29,7 @@ const PostList = () => {
             href={`/post/${post.id}?type=${selectedMenu}`}
             key={post.id}
           >
-            {selectedMenu === "PJ" ? <PJCard post={post} /> : <PRCard post={post} />}
+            {selectedMenu === "PJ" ? <PJCard post={post as PJPost} /> : <PRCard post={post as PRPost} />}
           </Link>
         );
       })}
