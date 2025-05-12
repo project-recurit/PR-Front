@@ -1,7 +1,7 @@
 import Engagement from "./Engagement";
 import PostProfile from "./PostProfile";
 
-interface PostCardProps {
+interface PostInfoProps {
   children: React.ReactNode;
   userNickname?: string;
   modifiedAt?: string;
@@ -11,7 +11,7 @@ interface PostCardProps {
 }
 
 //TODO - 카드 스타일 상수화 후 카드 컴포넌트 삭제
-const PostCard = ({ children, userNickname, modifiedAt, viewCount, commentCount, favoriteCount }: PostCardProps) => {
+const PostInfo = ({ children, userNickname, modifiedAt, viewCount, commentCount, favoriteCount }: PostInfoProps) => {
   return (
     <section className="flex w-full flex-col gap-y-12 rounded-xl border bg-white px-20 py-12 shadow-sm">
       <PostProfile
@@ -28,4 +28,4 @@ const PostCard = ({ children, userNickname, modifiedAt, viewCount, commentCount,
   );
 };
 
-export default PostCard;
+export default PostInfo;

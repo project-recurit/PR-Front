@@ -4,16 +4,27 @@ export type Post = {
   userNickname: string;
   title: string;
   modifiedAt: string;
-  techStacks: { id: number; name: string }[];
   viewCount: number;
   commentCount: number;
   favoriteCount: number;
 };
 
 export type PJPost = Post & {
-  content: string;
+  recruitmentCategory: string;
+  commercial: boolean;
+  techStacks: {
+    id: number;
+    name: string;
+  }[];
 };
 
 export type PRPost = Post & {
+  profileUrl: string;
   workType: string;
+  position: string;
+  techStacks: {
+    id: number;
+    name: string;
+    level: number;
+  }[];
 };
