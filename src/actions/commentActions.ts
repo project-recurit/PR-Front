@@ -4,9 +4,8 @@ import { COMMON_HEADERS } from "@/config/commonHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import type { Comment } from "@/types/commentTypes";
 import type { MainCategory } from "@/types/filterTypes";
-import { handleError } from "@/utils/handleError";
+import { handleError } from "@/utils/errorHandler";
 
-//TODO - 댓글 타입 지정
 /** 댓글 요청 액션 */
 export const getComments = handleError(
   async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {

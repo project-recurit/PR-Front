@@ -1,7 +1,10 @@
+"use server";
+
 import { COMMON_HEADERS } from "@/config/commonHeaders";
 import { POST_API_URL } from "@/constants/apiEndpoints";
-import { handleError } from "@/utils/handleError";
+import { handleError } from "@/utils/errorHandler";
 
+/** 지원서 작성 액션 */
 export const applayProject = handleError(async ({ pjId, position }) => {
   const res = await fetch(POST_API_URL.application.apply(pjId), {
     method: "POST",

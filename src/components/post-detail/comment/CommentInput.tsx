@@ -8,7 +8,7 @@ interface CommentInputProps {
 }
 
 const CommentInput = ({ postId }: CommentInputProps) => {
-  const { register, setValue, handleSubmit, formState } = useForm();
+  const { register, setValue, handleSubmit } = useForm();
   const { mutate: createCommentMutate } = useCreateComment({ postId });
 
   const onSubmit = ({ comment }: FieldValues) => {

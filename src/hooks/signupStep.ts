@@ -1,4 +1,3 @@
-import { signUpAction } from "@/actions/authActions";
 import { signUpSchema } from "@/schema/authSchema";
 import type { SignupForm } from "@/types/type";
 import { zodResolver } from "@hookform/resolvers/zod";

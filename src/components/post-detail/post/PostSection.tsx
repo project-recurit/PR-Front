@@ -22,7 +22,7 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   if (isError) throw new Error(error.message);
 
   return (
-    <>
+    <section>
       <PostProfile
         userNickname={postData.userNickname}
         modifiedAt={postData.modifiedAt}
@@ -33,8 +33,8 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}
       />
-      {isPJPost ? <PJPostBody content={postData.content} /> : <PRPostBody content={postData.content} />}
-    </>
+      {isPJPost ? <PJPostBody /> : <PRPostBody />}
+    </section>
   );
 };
 
