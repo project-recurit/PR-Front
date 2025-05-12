@@ -22,7 +22,7 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   if (isError) throw new Error(error.message);
 
   return (
-    <section>
+    <section className="px-16">
       <PostProfile
         userNickname={postData.userNickname}
         modifiedAt={postData.modifiedAt}

@@ -3,7 +3,6 @@ import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 
 //TODO - 수정
 export const metadata: Metadata = {
@@ -31,11 +30,8 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html
-      lang="ko"
-      className="bg-white sm:px-0"
-    >
-      <body className={`main-contain h-screen bg-black-100 text-black-1000 antialiased`}>
+    <html lang="ko">
+      <body>
         <AuthSession>
           <QueryProvider>
             <ZustandStoreProvider>

@@ -19,7 +19,7 @@ const CommentSection = ({ postType, postId }: CommentSectionProps) => {
   if (isError) throw new Error(error.message);
 
   return (
-    <section className="pt-24 flex flex-col gap-24">
+    <section className="pt-24 flex flex-col gap-24 border-t border-t-black-200 px-16">
       <div>댓글 {commentsData.length}</div>
       <CommentInput postId={postId} />
       {commentsData.length === 0 ? (

@@ -20,8 +20,12 @@ const CommentInput = ({ postId }: CommentInputProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex w-full h-52 border border-black-400 rounded-8 px-16 py-8 items-center"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <input
+        className="flex-1 placeholder:text-black-400"
         type="text"
         placeholder="댓글을 입력하세요"
         {...register("comment", {
@@ -30,7 +34,12 @@ const CommentInput = ({ postId }: CommentInputProps) => {
           onBlur: (e) => setValue("comment", e.target.value.trim()),
         })}
       />
-      <button type="submit">등록</button>
+      <button
+        className="text-[#F6C789]"
+        type="submit"
+      >
+        등록
+      </button>
     </form>
   );
 };

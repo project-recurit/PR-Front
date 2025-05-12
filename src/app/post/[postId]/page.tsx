@@ -16,20 +16,18 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
   const { type: postType } = use(searchParams);
   const isPJPost = postType === "PJ";
   return (
-    <>
-      <div className="bg-white px-16">
-        <PostSection
-          postId={postId}
-          postType={postType}
-          isPJPost={isPJPost}
-        />
-        <CommentSection
-          postType={postType}
-          postId={postId}
-        />
-      </div>
+    <div className="bg-white">
+      <PostSection
+        postId={postId}
+        postType={postType}
+        isPJPost={isPJPost}
+      />
+      <CommentSection
+        postType={postType}
+        postId={postId}
+      />
       <PostDetailBottomBar isPJPost={isPJPost} />
-    </>
+    </div>
   );
 };
 
