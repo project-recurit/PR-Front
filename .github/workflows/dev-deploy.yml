@@ -28,7 +28,7 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@main
 
         env:
-          API_TOKEN_GITHUB: ${{ secrets.AUTO_ACTIONS }}
+          API_TOKEN_GITHUB: ${{ secrets.AUTO_DEPLOY_ACTIONS }}
 
         with:
           source-directory: "output"
@@ -37,7 +37,7 @@ jobs:
 
           destination-repository-name: DAMO
 
-          user-email: ${{ secrets.EMAIL }}
+          user-email: ${{ secrets.DEPLOY_EMAIL }}
 
           commit-message: ${{ github.event.commits[0].message }}
 
