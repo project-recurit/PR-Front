@@ -31,8 +31,13 @@ export const COMMENT_API_URL = {
   },
 } as const;
 
+export const ALERT_API_URL = (notificationId?: string) =>
+  notificationId
+    ? (`${BASE_URL}api/v1/notifications/${notificationId}` as const)
+    : (`${BASE_URL}api/v1/notifications` as const);
+
 export const AUTH_API_URL = {
   signUp: `${BASE_URL}/api/v1/users/register`,
-};
+} as const;
 
-export const TECH_STACK_API_URL = `${BASE_URL}/api/v1/tech-stack`;
+export const TECH_STACK_API_URL = `${BASE_URL}/api/v1/tech-stack` as const;

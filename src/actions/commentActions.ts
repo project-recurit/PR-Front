@@ -1,6 +1,6 @@
 "use server";
 
-import { COMMON_HEADERS } from "@/config/commonHeaders";
+import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import type { Comment } from "@/types/commentTypes";
 import type { MainCategory } from "@/types/filterTypes";
@@ -44,7 +44,7 @@ export const createComment = handleError(
 
     const res = await fetch(COMMENT_API_URL.create[postType](postId), {
       method: "POST",
-      headers: { ...COMMON_HEADERS, Authorization: `Bearer ${token}` },
+      headers: AUTHORIZATION_HEADERS(token),
       cache: "no-store",
       body,
     });

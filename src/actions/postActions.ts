@@ -1,6 +1,6 @@
 "use server";
 
-import { COMMON_HEADERS } from "@/config/commonHeaders";
+import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { POST_API_URL } from "@/constants/apiEndpoints";
 import type { MainCategory } from "@/types/filterTypes";
 import type { PJPost, PRPost } from "@/types/postTypes";
