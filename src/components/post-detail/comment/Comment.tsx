@@ -1,7 +1,7 @@
 "use client";
 
 import type { Comment } from "@/types/commentTypes";
-import { getRelativeTime } from "@/utils/relativeTime";
+import { getRelativeTime } from "@/utils/timeCalculation";
 
 interface CommentProps {
   commentData: Comment;
@@ -11,7 +11,7 @@ const Comment = ({ commentData }: CommentProps) => {
   console.log(" commentData => ", commentData);
   const realativeTime = getRelativeTime(commentData.createdAt);
   return (
-    <div className="flex flex-row gap-12">
+    <div className="flex flex-row gap-12 border-b border-b-black-200 px-16 py-18">
       <img
         className="w-40 h-40 rounded-full"
         src={commentData.profileUrl}
@@ -23,7 +23,7 @@ const Comment = ({ commentData }: CommentProps) => {
           <span>{realativeTime}</span>
         </div>
         <div>{commentData.content}</div>
-        <button>답글</button>
+        <button className="flex">답글</button>
         {commentData.replyCount > 0 && <button>댓글 {commentData.replyCount}개 더보기</button>}
       </div>
     </div>

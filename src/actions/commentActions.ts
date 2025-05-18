@@ -36,12 +36,15 @@ export const createComment = handleError(
   }) => {
     const body = JSON.stringify({
       content: comment,
-      ...(parentId !== undefined && { parentId }),
+      ...(parentId && { parentId }),
     });
+
+    const token =
+      "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMiLCJhdXRoIjoiVVNFUiIsInN0YXR1cyI6IkFDVElWRV9VU0VSIiwiZXhwIjozNTM4Mzg2MDAxLCJpYXQiOjE3MzgzODYwMDF9.51cif7fTuSNUeVNGsKLwcA5QPg-iIfnfc4zF5JLPaSU";
 
     const res = await fetch(COMMENT_API_URL.create[postType](postId), {
       method: "POST",
-      headers: COMMON_HEADERS,
+      headers: { ...COMMON_HEADERS, Authorization: `Bearer ${token}` },
       cache: "no-store",
       body,
     });

@@ -16,7 +16,7 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
   const { type: postType } = use(searchParams);
   const isPJPost = postType === "PJ";
   return (
-    <div className="bg-white">
+    <div className="">
       <PostSection
         postId={postId}
         postType={postType}
