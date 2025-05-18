@@ -1,5 +1,6 @@
 "use server";
 
+import { tempAccessToken } from "@/assets/tempAccessToken";
 import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import type { Comment } from "@/types/commentTypes";
@@ -39,12 +40,9 @@ export const createComment = handleError(
       ...(parentId && { parentId }),
     });
 
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMiLCJhdXRoIjoiVVNFUiIsInN0YXR1cyI6IkFDVElWRV9VU0VSIiwiZXhwIjozNTM4Mzg2MDAxLCJpYXQiOjE3MzgzODYwMDF9.51cif7fTuSNUeVNGsKLwcA5QPg-iIfnfc4zF5JLPaSU";
-
     const res = await fetch(COMMENT_API_URL.create[postType](postId), {
       method: "POST",
-      headers: AUTHORIZATION_HEADERS(token),
+      headers: AUTHORIZATION_HEADERS(tempAccessToken),
       cache: "no-store",
       body,
     });

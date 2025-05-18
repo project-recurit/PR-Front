@@ -31,7 +31,7 @@ export const COMMENT_API_URL = {
   },
 } as const;
 
-export const ALERT_API_URL = (notificationId?: string) =>
+export const NOTIFICATION_API_URL = (notificationId?: string) =>
   notificationId
     ? (`${BASE_URL}api/v1/notifications/${notificationId}` as const)
     : (`${BASE_URL}api/v1/notifications` as const);
