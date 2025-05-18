@@ -1,7 +1,7 @@
 "use server";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { COMMON_HEADERS } from "@/config/commonHeaders";
+import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { AUTH_API_URL } from "@/constants/apiEndpoints";
 import { SignupForm } from "@/types/type";
 import { getServerSession } from "next-auth";
