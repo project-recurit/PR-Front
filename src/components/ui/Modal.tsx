@@ -19,7 +19,7 @@ const Modal = ({ children, isModalOpen }: ModalProps) => {
   if (!isMounted || !modalRoot || !isModalOpen) return null;
 
   return createPortal(
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">{children}</div>,
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">{children}</div>,
     modalRoot,
   );
 };

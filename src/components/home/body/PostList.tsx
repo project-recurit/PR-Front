@@ -3,8 +3,8 @@
 import PJLabel from "@/components/home/body/PJLabel";
 import PRLabel from "@/components/home/body/PRLabel";
 import PostInfo from "@/components/layout/PostInfo";
-import { useGetPostsQuery } from "@/hooks/queries/useGetPosts";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
+import { useGetPostsQuery } from "@/hooks/tanstack/queries/useGetPosts";
 import type { PJPost, PRPost } from "@/types/postTypes";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";

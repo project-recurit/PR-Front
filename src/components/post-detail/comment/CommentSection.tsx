@@ -2,7 +2,7 @@
 
 import Comment from "./Comment";
 import CommentInput from "./CommentInput";
-import { useGetComments } from "@/hooks/queries/useGetComments";
+import { useGetComments } from "@/hooks/tanstack/queries/useGetComments";
 import type { MainCategory } from "@/types/filterTypes";
 
 interface CommentSectionProps {

@@ -4,7 +4,8 @@ import PJPostBody from "./PJPostBody";
 import PRPostBody from "./PRPostBody";
 import Engagement from "@/components/layout/Engagement";
 import PostProfile from "@/components/layout/PostProfile";
-import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
+import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
+
 import type { MainCategory } from "@/types/filterTypes";
 
 interface PostSectionProps {

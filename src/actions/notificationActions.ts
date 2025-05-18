@@ -1,14 +1,16 @@
+"use server";
+
 import { tempAccessToken } from "@/assets/tempAccessToken";
 import { AUTHORIZATION_HEADERS } from "@/config/httpRequestHeaders";
 import { NOTIFICATION_API_URL } from "@/constants/apiEndpoints";
+import { Notification } from "@/types/notificationTypes";
 import { handleError } from "@/utils/errorHandler";
 
-export const getNotification = handleError(async (): Promise<[]> => {
+export const getNotification = handleError(async (): Promise<Notification[]> => {
   const res = await fetch(NOTIFICATION_API_URL(), {
     method: "GET",
     headers: AUTHORIZATION_HEADERS(tempAccessToken),
     cache: "no-store",
   });
-  const data = await res.json();
-  return data;
+  return await res.json();
 });
