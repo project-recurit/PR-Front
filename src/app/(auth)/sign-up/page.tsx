@@ -1,5 +1,5 @@
-import StepPage from "@/components/sign-up/StepPage";
 import { fetchTechStacks } from "@/actions/techStacksActions";
+import StepPage from "@/components/auth/sign-up/StepPage";
 
 const page = async () => {
   const techStacks = await fetchTechStacks();

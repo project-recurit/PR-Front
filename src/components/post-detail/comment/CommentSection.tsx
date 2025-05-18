@@ -11,7 +11,7 @@ interface CommentSectionProps {
 }
 
 const CommentSection = ({ postType, postId }: CommentSectionProps) => {
-  const { data, isPending, isError, error } = useGetComments({ postType, postId });
+  const { data: commentsData, isPending, isError, error } = useGetComments({ postType, postId });
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>댓글을 불러오는 중입니다.</div>;
@@ -19,13 +19,24 @@ const CommentSection = ({ postType, postId }: CommentSectionProps) => {
   if (isError) throw new Error(error.message);
 
   return (
-    <div>
-      <div>
-        <h3>댓글 {data.length}</h3>
-      </div>
-      <CommentInput postId={postId} />
-      <Comment commentData={data} />
-    </div>
+    <section className="flex flex-col border-t border-t-black-200">
+      <div className="py-24 px-16">댓글 {commentsData.length}</div>
+      <CommentInput
+        postType={postType}
+        postId={postId}
+      />
+
+      {commentsData.length === 0 ? (
+        <div>댓글이 없습니다.</div>
+      ) : (
+        commentsData.map((comment) => (
+          <Comment
+            key={comment.commentId}
+            commentData={comment}
+          />
+        ))
+      )}
+    </section>
   );
 };
 

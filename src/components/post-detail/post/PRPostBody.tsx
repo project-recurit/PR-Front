@@ -1,5 +1,5 @@
-const PRPostBody = ({ content }) => {
-  return <div>{content}</div>;
+const PRPostBody = () => {
+  return <div>PRPostBody</div>;
 };
 
 export default PRPostBody;

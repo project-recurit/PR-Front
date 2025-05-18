@@ -15,7 +15,6 @@ const Engagement = ({ viewCount, commentCount, favoriteCount }: EngagementProps)
 
   return (
     <>
-      <hr className="bg-black-200" />
       <div className="flex gap-x-20 text-black-500">
         {engagementData.map((stat, index) => (
           <span

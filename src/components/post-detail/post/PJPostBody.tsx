@@ -1,5 +1,5 @@
-const PJPostBody = ({ content }) => {
-  return <div>{content}</div>;
+const PJPostBody = () => {
+  return <div>PJPostBody</div>;
 };
 
 export default PJPostBody;

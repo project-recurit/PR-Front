@@ -11,7 +11,7 @@ interface HeaderProps {
 const Header = ({ heading, backButtonEvent }: HeaderProps) => {
   const router = useRouter();
   return (
-    <header className="title-20-s flex h-48 w-full items-center px-16 py-9 bg-white">
+    <header className="sticky top-0 title-20-s flex h-48 w-full items-center px-16 py-9 bg-white">
       <button onClick={backButtonEvent ?? router.back}>
         <ChevronLeft />
       </button>

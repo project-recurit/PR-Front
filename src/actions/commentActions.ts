@@ -2,13 +2,13 @@
 
 import { COMMON_HEADERS } from "@/config/commonHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
+import type { Comment } from "@/types/commentTypes";
 import type { MainCategory } from "@/types/filterTypes";
-import { handleError } from "@/utils/handleError";
+import { handleError } from "@/utils/errorHandler";
 
-//TODO - 댓글 타입 지정
 /** 댓글 요청 액션 */
 export const getComments = handleError(
-  async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<[]> => {
+  async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {
     const res = await fetch(COMMENT_API_URL[postType](postId), {
       method: "GET",
       headers: COMMON_HEADERS,
@@ -36,12 +36,15 @@ export const createComment = handleError(
   }) => {
     const body = JSON.stringify({
       content: comment,
-      ...(parentId !== undefined && { parentId }),
+      ...(parentId && { parentId }),
     });
+
+    const token =
+      "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMiLCJhdXRoIjoiVVNFUiIsInN0YXR1cyI6IkFDVElWRV9VU0VSIiwiZXhwIjozNTM4Mzg2MDAxLCJpYXQiOjE3MzgzODYwMDF9.51cif7fTuSNUeVNGsKLwcA5QPg-iIfnfc4zF5JLPaSU";
 
     const res = await fetch(COMMENT_API_URL.create[postType](postId), {
       method: "POST",
-      headers: COMMON_HEADERS,
+      headers: { ...COMMON_HEADERS, Authorization: `Bearer ${token}` },
       cache: "no-store",
       body,
     });

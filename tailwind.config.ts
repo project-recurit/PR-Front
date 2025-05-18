@@ -23,6 +23,7 @@ const px0_200 = Array.from(Array(201), (_, i) => [`${i}`, `${i}px`]).reduce(
   },
   {} as { [key: string]: string },
 );
+
 export default {
   mode: "jit",
   content: [
@@ -48,7 +49,7 @@ export default {
       width: px0_200,
       height: px0_200,
       fontFamily: {
-        pretendard: ["var(--font-pretendard)"],
+        pretendard: ["Pretendard"],
       },
       colors: {
         background: "#F5F5F5",
@@ -66,6 +67,9 @@ export default {
         "black-1000": "#121212",
       },
     },
+  },
+  future: {
+    hoverOnlyWhenSupported: true, // 모바일 호버 해제
   },
   plugins: [],
 } satisfies Config;

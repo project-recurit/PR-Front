@@ -19,6 +19,7 @@ export const COMMENT_API_URL = {
   PR: (postId: string) => `${BASE_URL}/api/v1/prs/${postId}/comments`,
   reply: {
     PJ: (parentId: string) => `${BASE_URL}/api/v1/recruitment/${parentId}/reply`,
+    PR: (postId: string, parentId: string) => `${BASE_URL}/api/v1/prs/${postId}/comments/${parentId}/reply`,
   },
   create: {
     PJ: (postId: string) => `${BASE_URL}/api/v1/recruitment/${postId}/comment`,

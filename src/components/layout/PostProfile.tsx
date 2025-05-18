@@ -1,4 +1,4 @@
-import { getRelativeTime } from "@/utils/\bgetRelativeTime";
+import { getRelativeTime } from "@/utils/timeCalculation";
 
 interface PostProfileProps {
   userNickname: string;

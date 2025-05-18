@@ -15,7 +15,7 @@ interface PostSectionProps {
 
 const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   const { data: postData, isPending, isError, error } = useGetPostDetailQuery({ postType, postId });
-  console.log(" postData => ", postData);
+  console.log(' postData => ', postData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>게시물을 불러오고 있습니다.</div>;
@@ -23,7 +23,7 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   if (isError) throw new Error(error.message);
 
   return (
-    <>
+    <section className="px-16">
       <PostProfile
         userNickname={postData.userNickname}
         modifiedAt={postData.modifiedAt}
@@ -34,8 +34,8 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}
       />
-      {isPJPost ? <PJPostBody content={postData.content} /> : <PRPostBody content={postData.content} />}
-    </>
+      {isPJPost ? <PJPostBody /> : <PRPostBody />}
+    </section>
   );
 };
 
