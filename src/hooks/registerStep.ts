@@ -43,13 +43,9 @@ export const useRegister = () => {
     // await userSignUp(data);
   };
 
-  const nextStep = () => {
-    setStep(step + 1);
-  };
-  const prevStep = () => {
-    setStep(step - 1);
-  };
-
+  const nextStep = () => setStep(step + 1);
+  const prevStep = () => setStep(step - 1);
+  
   const handleNextStep = () => {
     if (step < 2) {
       nextStep();
