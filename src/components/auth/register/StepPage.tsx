@@ -4,7 +4,7 @@ import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import StepLabel from "./StepLabel";
 import ThirdStep from "./ThirdStep";
-import { ChevronLeft, XClose } from "@/assets/svgs/icons";
+import Header from "@/components/layout/Header";
 import Botton from "@/components/ui/Botton";
 import { useRegister } from "@/hooks/registerStep";
 import { TechStack } from "@/types/type";
@@ -24,14 +24,7 @@ const StepPage = ({ techStacks }: { techStacks: TechStack[] }) => {
 
   return (
     <form className="w-full h-full pb-32 grid grid-rows-[90px_20px_auto_50px] sm:max-h-[900px]">
-      {/* FIXME - 공통 헤더 컴포넌트 사용 */}
-      <div className="flex items-center justify-between h-48">
-        <ChevronLeft
-          onClick={handelPrevStep}
-          className="cursor-pointer "
-        />
-        <XClose className="w-32" />
-      </div>
+      <Header backButtonEvent={handelPrevStep} />
 
       <StepLabel step={step} />
 
