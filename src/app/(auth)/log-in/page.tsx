@@ -1,6 +1,6 @@
-import SocialLogin from "@/components/auth/sign-in/SocialLogin";
+import SocialLogin from "@/components/auth/log-in/SocialLogin";
 
-const page = () => {
+const LogInPage = () => {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center bg-white px-16 pb-40">
       <p className="text-40 font-bold">LOGO</p>
@@ -14,4 +14,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LogInPage;

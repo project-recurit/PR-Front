@@ -1,7 +1,7 @@
 import { fetchTechStacks } from "@/actions/techStacksActions";
-import StepPage from "@/components/auth/sign-up/StepPage";
+import StepPage from "@/components/auth/register/StepPage";
 
-const page = async () => {
+const RegisterPage = async () => {
   const techStacks = await fetchTechStacks();
   return (
     <div className="flex items-center justify-center w-full h-full px-16 bg-white">
@@ -10,4 +10,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default RegisterPage;
