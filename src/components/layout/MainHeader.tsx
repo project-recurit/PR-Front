@@ -7,15 +7,15 @@ import { useModal } from "@/hooks/modal/useModal";
 import Link from "next/link";
 
 const MainHeader = () => {
-  const { Modal, isModalOpen, openModal,closeModal } = useModal();
+  const { Modal, isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <>
-      <header className="sticky top-0 z-10 flex flex-col bg-white">
+      <header className="sticky top-0 z-10 bg-white flex flex-col">
         <div className="flex justify-between px-20 py-9">
           <Link
             href="/"
-            className="text-24 font-black leading-tight"
+            className="font-black leading-tight text-24"
           >
             LOGO
           </Link>

@@ -9,7 +9,7 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className="fixed bottom-0 flex h-56 w-full justify-between bg-white px-40 py-8 
+      className="fixed bg-white bottom-0 flex h-56 w-full justify-between px-40 py-8 
       "
     >
       {NAV_MENU.map((m) => (

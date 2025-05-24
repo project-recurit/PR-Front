@@ -1,4 +1,4 @@
-import { signUpSchema } from "@/schema/authSchema";
+import { signUpSchema } from "@/schemas/authSchema";
 import type { SignupForm } from "@/types/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Session } from "next-auth";

@@ -23,7 +23,7 @@ const PostList = () => {
   if (isError) throw new Error(error.message);
 
   return (
-    <main className="mb-60 flex w-full flex-col gap-y-20 px-20 py-20">
+    <section className="flex w-full flex-col gap-y-20 px-20 py-20">
       {postData.map((post) => {
         const postInfo = {
           userNickname: post.userNickname,
@@ -43,7 +43,7 @@ const PostList = () => {
           </Link>
         );
       })}
-    </main>
+    </section>
   );
 };
 
