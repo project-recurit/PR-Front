@@ -33,7 +33,7 @@ const Filter = () => {
       </div>
       <div className="flex justify-end bg-black-100 px-16 py-12">
         <button className="flex items-center gap-4 p-8">
-          <span className="caption-s">최신순</span>
+          <span className="caption-12-s">최신순</span>
           <ChevronDown className="h-16 w-16" />
         </button>
       </div>
