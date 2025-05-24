@@ -22,7 +22,7 @@ const NavigationBar = () => {
           onClick={() => route.push(m.route)}
         >
           <m.Component />
-          <p className="caption-10">{m.title}</p>
+          <p className="caption-10-s">{m.title}</p>
         </button>
       ))}
     </nav>

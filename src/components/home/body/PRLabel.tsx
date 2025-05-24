@@ -10,7 +10,7 @@ const PRLabel = ({ post }: PRLabelProps) => {
   return (
     <>
       <p className="body-16-s overflow-line2">{post.title}</p>
-      <div className="caption-r grid grid-cols-[70px_1fr] items-center gap-y-10">
+      <div className="caption-12-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="포지션"
           value={post.position}
