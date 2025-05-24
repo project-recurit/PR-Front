@@ -1,3 +1,4 @@
+import ROUTES from "@/constants/routes";
 import { signUpSchema } from "@/schemas/authSchema";
 import type { SignupForm } from "@/types/type";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -55,7 +56,7 @@ export const useRegister = () => {
       return;
     } else {
       handleSubmit(onSubmit)();
-      router.push("/");
+      router.push(ROUTES.home);
       return;
     }
   };
@@ -65,7 +66,7 @@ export const useRegister = () => {
       prevStep();
     } else if (step === 0) {
       await signOut({ redirect: false });
-      router.replace("/register");
+      router.replace(ROUTES.register);
     }
   };
 

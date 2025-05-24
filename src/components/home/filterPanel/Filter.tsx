@@ -2,12 +2,13 @@
 
 import FilterSheet from "./FilterSheet";
 import { ChevronDown, FilterFunnel } from "@/assets/svgs/icons";
+import Modal from "@/components/ui/Modal";
 import SelectChip from "@/components/ui/SelectChip";
-import { useModal } from "@/hooks/modal/useModal";
+import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 const Filter = () => {
-  const { Modal, isModalOpen, openModal, closeModal } = useModal();
+  const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure();
   const { activeFilters, applyFilter } = useCategoryStore((state) => state);
 
   return (
