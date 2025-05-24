@@ -10,7 +10,7 @@ const PJLabel = ({ post }: PJLabelProps) => {
   return (
     <>
       <h3 className="body-16-s overflow-line2">{post.title}</h3>
-      <div className="caption-r grid grid-cols-[70px_1fr] items-center gap-y-10">
+      <div className="caption-12-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="모집 인원"
           value={"데이터 안 넘어옴"}

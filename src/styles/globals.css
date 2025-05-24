@@ -127,15 +127,15 @@
   }
 
   /* 캡션 스타일 */
-  .caption-r {
+  .caption-12-r {
     @apply text-[12px] font-normal leading-[1];
   }
 
-  .caption-s {
+  .caption-12-s {
     @apply text-[12px] font-semibold leading-[1];
   }
 
-  .caption-10 {
+  .caption-10-s {
     @apply text-[10px] font-semibold leading-[1];
   }
 }
