@@ -1,6 +1,6 @@
 "use client";
 
-import ActionBotton from "../ui/ActionBotton";
+import Botton from "../ui/Botton";
 import { applayProject } from "@/actions/applyProjectActions";
 import { ChevronDown } from "@/assets/svgs/icons";
 import { useState } from "react";
@@ -50,15 +50,13 @@ const ApplyProject = ({ closeModal }: ApplyProjectProps) => {
         )}
       </div>
       <div className="flex gap-16 mt-24">
-        <ActionBotton
-          label="취소하기"
+        <Botton
           color="white"
           onClick={closeModal}
-        />
-        <ActionBotton
-          label="지원하기"
-          onClick={() => applayProject(selected)}
-        />
+        >
+          취소하기
+        </Botton>
+        <Botton onClick={() => applayProject(selected)}>지원하기</Botton>
       </div>
     </div>
   );

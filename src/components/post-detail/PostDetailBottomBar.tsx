@@ -1,6 +1,6 @@
 "use client";
 
-import ActionBotton from "../ui/ActionBotton";
+import Botton from "../ui/Botton";
 import ApplyProject from "./ApplyProject";
 import { useModal } from "@/hooks/modal/useModal";
 import { BOTTOM_FIEXED_BAR_STYLE } from "@/styles/tailwindStyles";
@@ -14,18 +14,20 @@ const PostDetailBottomBar = () => {
   return (
     <>
       <footer className={BOTTOM_FIEXED_BAR_STYLE}>
-        <ActionBotton
-          label="채팅하기"
-          size={isPJPost ? "m" : "l"}
+        <Botton
+          size={isPJPost ? "medium" : "large"}
           color={isPJPost ? "white" : "black"}
           onClick={() => {}}
-        />
+        >
+          채팅하기
+        </Botton>
         {isPJPost && (
-          <ActionBotton
-            label="지원하기"
-            size="m"
+          <Botton
+            size="medium"
             onClick={openModal}
-          />
+          >
+            지원하기
+          </Botton>
         )}
       </footer>
       <Modal isModalOpen={isModalOpen}>

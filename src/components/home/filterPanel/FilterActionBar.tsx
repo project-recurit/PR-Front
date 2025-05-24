@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import Botton from "@/components/ui/Botton";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 interface FilterActionBarProps {
@@ -19,8 +19,8 @@ const FilterActionBar = ({ closeModal, selectedFilter }: FilterActionBarProps) =
       >
         선택 초기화
       </button>
-      <Button
-        size="m"
+      <Botton
+        size="large"
         className="h-52 bg-black p-10 text-18 text-white"
         onClick={() => {
           applyFilter(selectedFilter);
@@ -28,7 +28,7 @@ const FilterActionBar = ({ closeModal, selectedFilter }: FilterActionBarProps) =
         }}
       >
         적용하기
-      </Button>
+      </Botton>
     </div>
   );
 };

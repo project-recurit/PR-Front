@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 // 스텝 컨트롤 및 폼 관련 로직 훅 분리
-export const useSignUp = () => {
+export const useRegister = () => {
   const session = useSession().data as Session & { socialId: number };
   const router = useRouter();
   const [step, setStep] = useState(0);
@@ -65,7 +65,7 @@ export const useSignUp = () => {
       prevStep();
     } else if (step === 0) {
       await signOut({ redirect: false });
-      router.replace("/sign-in");
+      router.replace("/register");
     }
   };
 
