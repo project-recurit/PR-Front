@@ -16,7 +16,7 @@ const StepPage = ({ techStacks }: { techStacks: TechStack[] }) => {
     handelPrevStep,
     setValue,
     positionValue,
-    controlDisabled,
+    // controlDisabled,
     techStackIds,
     setTechStackIds,
     nicknameValue,
@@ -50,7 +50,7 @@ const StepPage = ({ techStacks }: { techStacks: TechStack[] }) => {
         size="large"
         onClick={handleNextStep}
         type="button"
-        disabled={controlDisabled()}
+        // disabled={controlDisabled()}
       >
         {step === 2 ? "시작하기" : "계속"}
       </Botton>

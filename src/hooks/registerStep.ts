@@ -35,8 +35,10 @@ export const useRegister = () => {
   }
 
   const positionValue = watch("position");
+  console.log(' positionValue => ', positionValue);
   const techStackIds = watch("techStackIds");
   const nicknameValue = watch("nickname");
+  console.log(' nicknameValue => ', nicknameValue);
 
   const onSubmit = async (data: SignupForm) => {
     console.log(data);
@@ -45,7 +47,7 @@ export const useRegister = () => {
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
-  
+
   const handleNextStep = () => {
     if (step < 2) {
       nextStep();
