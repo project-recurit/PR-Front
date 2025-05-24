@@ -3,16 +3,13 @@
 import PJLabel from "@/components/home/body/PJLabel";
 import PRLabel from "@/components/home/body/PRLabel";
 import PostInfo from "@/components/layout/PostInfo";
+import ROUTES from "@/constants/routes";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useGetPostsQuery } from "@/hooks/tanstack/queries/useGetPosts";
 import type { PJPost, PRPost } from "@/types/postTypes";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 const PostList = () => {
-  const params = useSearchParams();
-  const query = params.get("search")?.toLowerCase();
-  // const viewPosts = useFilteredPosts(posts, query);
   const { selectedMenu } = useCategoryStore((state) => state);
   const { data: postData, isPending, isError, error } = useGetPostsQuery({ postType: selectedMenu });
   console.log(" postData => ", postData);
@@ -34,7 +31,7 @@ const PostList = () => {
         };
         return (
           <Link
-            href={`/post/${post.id}?type=${selectedMenu}`}
+            href={ROUTES.postDetail(post.id, selectedMenu)}
             key={post.id}
           >
             <PostInfo {...postInfo}>

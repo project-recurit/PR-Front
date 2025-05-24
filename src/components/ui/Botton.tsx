@@ -1,3 +1,5 @@
+"use client";
+
 interface Botton {
   children: string | React.ReactNode;
   size?: "small" | "medium" | "large";
@@ -8,15 +10,7 @@ interface Botton {
   onClick: () => void;
 }
 
-const Botton = ({
-  children,
-  size = "small",
-  color = "black",
-  className,
-  type,
-  disabled,
-  onClick,
-}: Botton) => {
+const Botton = ({ children, size = "small", color = "black", className, type, disabled, onClick }: Botton) => {
   const buttonSize = {
     small: "w-128",
     medium: "w-164",
