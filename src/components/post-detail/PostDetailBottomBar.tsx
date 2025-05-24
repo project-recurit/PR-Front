@@ -4,13 +4,13 @@ import ActionBotton from "../ui/ActionBotton";
 import ApplyProject from "./ApplyProject";
 import { useModal } from "@/hooks/modal/useModal";
 import { BOTTOM_FIEXED_BAR_STYLE } from "@/styles/tailwindStyles";
+import { useSearchParams } from "next/navigation";
 
-interface PostDetailBottomBarProps {
-  isPJPost: boolean;
-}
-
-const PostDetailBottomBar = ({ isPJPost }: PostDetailBottomBarProps) => {
+const PostDetailBottomBar = () => {
   const { Modal, isModalOpen, openModal, closeModal } = useModal();
+  const searchParams = useSearchParams();
+  const isPJPost = searchParams.get("type") === "PJ";
+
   return (
     <>
       <footer className={BOTTOM_FIEXED_BAR_STYLE}>

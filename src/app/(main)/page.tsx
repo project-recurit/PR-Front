@@ -3,16 +3,14 @@ import Filter from "@/components/home/filterPanel/Filter";
 import HomeSearchBar from "@/components/home/filterPanel/HomeSearchBar";
 import FloatingButton from "@/components/ui/FloatingButton";
 
-const HomePage = async () => {
+const HomePage = () => {
   return (
-    <div className="flex flex-col">
-      <div className="bg-white">
-        <HomeSearchBar />
-        <Filter />
-      </div>
+    <main className="flex flex-col mb-56">
+      <HomeSearchBar />
+      <Filter />
       <PostList />
       <FloatingButton />
-    </div>
+    </main>
   );
 };
 

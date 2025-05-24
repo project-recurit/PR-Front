@@ -22,7 +22,22 @@ export const getComments = handleError(
   },
 );
 
-/** 댓글 작성 요청 액션 */
+/** 대댓글 요청 액션 */
+export const getReplyComments = handleError(
+  async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {
+    const res = await fetch(COMMENT_API_URL.reply[postType](postId), {
+      method: "GET",
+      headers: COMMON_HEADERS,
+      cache: "no-store",
+    });
+    const {
+      data: { content },
+    } = await res.json();
+    return content;
+  },
+);
+
+/** 댓글 작성 액션 */
 export const createComment = handleError(
   async ({
     postType,

@@ -12,7 +12,7 @@ const NotificationSheet = ({ closeModal }: NotificationSheetProps) => {
   console.log(" notificationData => ", notificationData);
 
   return (
-    <div className="h-screen w-screen bg-white">
+    <div className="w-screen h-screen bg-white">
       <Header backButtonEvent={closeModal} />
       <div>
         <div>
