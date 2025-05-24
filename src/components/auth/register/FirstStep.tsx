@@ -1,5 +1,5 @@
-import { DUTY_CATEGORY } from "@/assets/constantData";
 import DropDown from "@/components/ui/DropDown";
+import { DUTY_CATEGORY } from "@/data/categoryData";
 
 const FirstStep = ({ position, setPosition }: { position: string; setPosition: (position: string) => void }) => {
   return (

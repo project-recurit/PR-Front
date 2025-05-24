@@ -42,10 +42,7 @@ const DropDown = ({
           }`}
         >
           {value ? value : children}
-          <ChevronDown
-            width="24"
-            height="24"
-          />
+          <ChevronDown className="h-24 w-24" />
         </div>
         {isDropDownOpen && (
           <div
@@ -69,30 +66,6 @@ const DropDown = ({
           </div>
         )}
       </div>
-      {/* /* <div
-        className={`px-16 w-full relative body-16-r  border-1 border-black-400 rounded-8 ${
-          isDropDownOpen ? "text-black-1000" : "text-black-400"
-        }`}
-      >
-        <div
-          onClick={toggleDropDown}
-          className="flex h-52 w-full items-center justify-between"
-        >
-          {children}
-          {isDropDownOpen ? <ChevronUp /> : <ChevronDown className="h-24 w-24" />}
-        </div>
-        <div className="max-h-[357px] overflow-y-scroll">
-          {isDropDownOpen &&
-            menu.map((c) => (
-              <div
-                className="py-14"
-                key={c}
-              >
-                {c}
-              </div>
-            ))}
-        </div>
-      </div> */}
     </>
   );
 };
