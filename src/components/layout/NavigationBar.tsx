@@ -1,6 +1,7 @@
 "use client";
 
-import { NAV_MENU } from "@/assets/constantData";
+
+import { NAV_MENU } from "@/data/navMenu";
 import { usePathname, useRouter } from "next/navigation";
 
 const NavigationBar = () => {

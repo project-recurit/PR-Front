@@ -30,7 +30,7 @@ const SearchBar = ({
           className="w-full py-14 focus:outline-none"
           placeholder={placeholder}
           onKeyDown={handleKeyDown}
-        ></input>
+        />
         <Search className="min-w-fit text-black-400 group-focus-within:text-black-1000" />
       </div>
       {children}

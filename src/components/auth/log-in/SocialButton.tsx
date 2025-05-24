@@ -1,6 +1,7 @@
 "use client";
 
 import { GithubIcon, GoogleIcon, KakaoIcon } from "@/assets/svgs/icons";
+import ROUTES from "@/constants/routes";
 import { Session } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -22,9 +23,9 @@ const SocialButton = ({ title, classname }: { title: string; classname?: string 
     const resirect = async () => {
       if (session) {
         if ((session as CustomSession).status === "USER_INFO_UPDATE") {
-          router.replace("/sign-up");
+          router.replace(ROUTES.register);
         } else {
-          router.replace("/");
+          router.replace(ROUTES.home);
         }
       }
     };

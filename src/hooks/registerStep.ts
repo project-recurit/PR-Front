@@ -1,3 +1,4 @@
+import ROUTES from "@/constants/routes";
 import { signUpSchema } from "@/schemas/authSchema";
 import type { SignupForm } from "@/types/type";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +9,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 // 스텝 컨트롤 및 폼 관련 로직 훅 분리
-export const useSignUp = () => {
+export const useRegister = () => {
   const session = useSession().data as Session & { socialId: number };
   const router = useRouter();
   const [step, setStep] = useState(0);
@@ -34,20 +35,18 @@ export const useSignUp = () => {
   }
 
   const positionValue = watch("position");
+  console.log(' positionValue => ', positionValue);
   const techStackIds = watch("techStackIds");
   const nicknameValue = watch("nickname");
+  console.log(' nicknameValue => ', nicknameValue);
 
   const onSubmit = async (data: SignupForm) => {
     console.log(data);
     // await userSignUp(data);
   };
 
-  const nextStep = () => {
-    setStep(step + 1);
-  };
-  const prevStep = () => {
-    setStep(step - 1);
-  };
+  const nextStep = () => setStep(step + 1);
+  const prevStep = () => setStep(step - 1);
 
   const handleNextStep = () => {
     if (step < 2) {
@@ -55,7 +54,7 @@ export const useSignUp = () => {
       return;
     } else {
       handleSubmit(onSubmit)();
-      router.push("/");
+      router.push(ROUTES.home);
       return;
     }
   };
@@ -65,7 +64,7 @@ export const useSignUp = () => {
       prevStep();
     } else if (step === 0) {
       await signOut({ redirect: false });
-      router.replace("/sign-in");
+      router.replace(ROUTES.register);
     }
   };
 

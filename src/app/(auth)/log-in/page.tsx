@@ -1,0 +1,17 @@
+import SocialLogin from "@/components/auth/log-in/SocialLogin";
+
+const LogInPage = () => {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center bg-white px-16 pb-40">
+      <span className="text-40 font-bold">LOGO</span>
+      <div className="mb-188 mt-94 text-center">
+        <span className="title-24-b">환영합니다!</span>
+        <span className="body-16-r mt-18">사이드 프로젝트를 찾는 가장 쉬운 방법!</span>
+      </div>
+
+      <SocialLogin />
+    </div>
+  );
+};
+
+export default LogInPage;

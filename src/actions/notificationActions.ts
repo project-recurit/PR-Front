@@ -1,8 +1,8 @@
 "use server";
 
-import { tempAccessToken } from "@/assets/tempAccessToken";
 import { AUTHORIZATION_HEADERS } from "@/config/httpRequestHeaders";
 import { NOTIFICATION_API_URL } from "@/constants/apiEndpoints";
+import { tempAccessToken } from "@/data/tempAccessToken";
 import { Notification } from "@/types/notificationTypes";
 import { handleError } from "@/utils/errorHandler";
 
