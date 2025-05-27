@@ -1,4 +1,4 @@
-import { fetchTechStacks } from "@/actions/techStacksActions";
+import { fetchTechStacks } from "@/apis/techStacksApis";
 import StepPage from "@/components/auth/register/StepPage";
 
 const RegisterPage = async () => {

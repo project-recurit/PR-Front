@@ -1,5 +1,3 @@
-"use server";
-
 import { AUTHORIZATION_HEADERS } from "@/config/httpRequestHeaders";
 import { NOTIFICATION_API_URL } from "@/constants/apiEndpoints";
 import { tempAccessToken } from "@/data/tempAccessToken";
