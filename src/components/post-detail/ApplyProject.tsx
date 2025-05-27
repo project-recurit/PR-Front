@@ -1,7 +1,7 @@
 "use client";
 
 import Botton from "../ui/Botton";
-import { applayProject } from "@/actions/applyProjectActions";
+import { applayProject } from "@/apis/applyProjectApis";
 import { ChevronDown } from "@/assets/svgs/icons";
 import { useState } from "react";
 
