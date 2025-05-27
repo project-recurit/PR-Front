@@ -1,6 +1,6 @@
 "use client";
 
-import { HomeSearch } from "@/assets/svgs/icons";
+import { Search } from "@/assets/svgs/icons";
 import { usePostSearchStore } from "@/hooks/state/useZustandStore";
 import { useRef, useState } from "react";
 
@@ -32,7 +32,7 @@ const HomeSearchBar = () => {
         onChange={(e) => setSearchInput(e.target.value)}
         value={searchInput}
       />
-      <HomeSearch className="pointer-events-none absolute right-32 top-1/2 -translate-y-1/2" />
+      <Search className="pointer-events-none absolute right-32 top-1/2 -translate-y-1/2" />
     </form>
   );
 };

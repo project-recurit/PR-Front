@@ -2,12 +2,13 @@
 
 import FilterSheet from "./FilterSheet";
 import { ChevronDown, FilterFunnel } from "@/assets/svgs/icons";
+import Modal from "@/components/ui/Modal";
 import SelectChip from "@/components/ui/SelectChip";
-import { useModal } from "@/hooks/modal/useModal";
+import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 const Filter = () => {
-  const { Modal, isModalOpen, openModal, closeModal } = useModal();
+  const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure();
   const { activeFilters, applyFilter } = useCategoryStore((state) => state);
 
   return (
@@ -33,7 +34,7 @@ const Filter = () => {
       </div>
       <div className="flex justify-end bg-black-100 px-16 py-12">
         <button className="flex items-center gap-4 p-8">
-          <span className="caption-s">최신순</span>
+          <span className="caption-12-s">최신순</span>
           <ChevronDown className="h-16 w-16" />
         </button>
       </div>

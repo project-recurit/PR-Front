@@ -1,6 +1,6 @@
 "use client";
 
-import { NOTIFICATION_TYPE } from "@/assets/constantData";
+import { NOTIFICATION_TYPE } from "@/data/notificationData";
 
 interface NotificationCardProps {
   notificationType: keyof typeof NOTIFICATION_TYPE;

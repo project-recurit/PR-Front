@@ -12,7 +12,6 @@ import FilterFunnel from "./filter-funnel.svg";
 import GithubIcon from "./github.svg";
 import GoogleIcon from "./google.svg";
 import Heart from "./heart.svg";
-import HomeSearch from "./home-search.svg";
 import KakaoIcon from "./kakao.svg";
 import LineHeart from "./line-heart.svg";
 import MessageCircle from "./message-circle.svg";
@@ -41,7 +40,6 @@ export {
   ChevronLeft,
   ChipXClose,
   FilterFunnel,
-  HomeSearch,
   Bell,
   MessageCircle,
   MessageSquare,

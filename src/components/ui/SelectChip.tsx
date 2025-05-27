@@ -15,7 +15,7 @@ const SelectChip = ({ size, active, onClick, content }: FilterChipProps) => {
 
   return (
     <button
-      className={`caption-r flex flex-row items-center whitespace-nowrap ${chipSize[size]} ${size === "m" && active && "font-bold"}`}
+      className={`caption-12-r flex flex-row items-center whitespace-nowrap ${chipSize[size]} ${size === "m" && active && "font-bold"}`}
       onClick={onClick}
     >
       {content}
