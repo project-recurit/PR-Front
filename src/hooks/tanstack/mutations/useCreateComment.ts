@@ -1,5 +1,5 @@
 import COMMENT_QUERY_KEYS from "../queryKeys/commentQueryKeys";
-import { createComment } from "@/actions/commentActions";
+import { createComment } from "@/apis/commentApis";
 import type { MainCategory } from "@/types/filterTypes";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 

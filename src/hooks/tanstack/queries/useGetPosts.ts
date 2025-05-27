@@ -1,5 +1,5 @@
 import POST_QUERY_KEYS from "../queryKeys/postQueryKeys";
-import { getPostDetail, getPosts } from "@/actions/postActions";
+import { getPostDetail, getPosts } from "@/apis/postApis";
 import type { MainCategory } from "@/types/filterTypes";
 import { useQuery } from "@tanstack/react-query";
 

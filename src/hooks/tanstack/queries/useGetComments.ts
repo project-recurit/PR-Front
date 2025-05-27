@@ -1,5 +1,5 @@
 import COMMENT_QUERY_KEYS from "../queryKeys/commentQueryKeys";
-import { getReplyComments } from "@/actions/commentActions";
+import { getReplyComments } from "@/apis/commentApis";
 import type { MainCategory } from "@/types/filterTypes";
 import { useQuery } from "@tanstack/react-query";
 
