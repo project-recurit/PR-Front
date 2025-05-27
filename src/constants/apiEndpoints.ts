@@ -20,7 +20,7 @@ export const COMMENT_API_URL = {
   PR: (postId: string) => `${BASE_URL_V1}/prs/${postId}/comments`,
   reply: {
     PJ: (parentId: string) => `${BASE_URL_V1}/recruitment/${parentId}/reply`,
-    PR: (postId: string, parentId: string) => `${BASE_URL_V1}/prs/${postId}/comments/${parentId}/reply`,
+    PR: (parentId: string) => `${BASE_URL_V1}/prs/comment/${parentId}/reply`,
   },
   create: {
     PJ: (postId: string) => `${BASE_URL_V1}/recruitment/${postId}/comment`,
@@ -28,7 +28,7 @@ export const COMMENT_API_URL = {
   },
   modify: {
     PJ: (commentId: string) => `${BASE_URL_V1}/recruitment/${commentId}`,
-    PR: (postId: string, commentId: string) => `${BASE_URL_V1}/prs/${postId}/comments/${commentId}`,
+    PR: (commentId: string) => `${BASE_URL_V1}prs/comment/${commentId}`,
   },
 } as const;
 
