@@ -1,17 +1,17 @@
-import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
-import { POST_API_URL } from "@/constants/apiEndpoints";
-import type { MainCategory } from "@/types/filterTypes";
-import type { PJPost, PRPost } from "@/types/postTypes";
-import { handleError } from "@/utils/errorHandler";
+import { COMMON_HEADERS } from '@/config/httpRequestHeaders';
+import { POST_API_URL } from '@/constants/apiEndpoints';
+import type { MainCategory } from '@/types/filterTypes';
+import type { PJPost, PRPost } from '@/types/postTypes';
+import { handleError } from '@/utils/handleError';
 
 //TODO - 검색, 필터, 페이지네이션 기능 추가
 /** 게시물 리스트 요청 액션 */
 export const getPosts = handleError(
-  async <T extends MainCategory>({ postType }: { postType: T }): Promise<T extends "PJ" ? PJPost[] : PRPost[]> => {
+  async <T extends MainCategory>({ postType }: { postType: T }): Promise<T extends 'PJ' ? PJPost[] : PRPost[]> => {
     const res = await fetch(POST_API_URL[postType], {
-      method: "GET",
+      method: 'GET',
       headers: COMMON_HEADERS,
-      cache: "no-store",
+      cache: 'no-store',
     });
     const {
       data: { content },
@@ -28,14 +28,14 @@ export const getPostDetail = handleError(
   }: {
     postType: T;
     postId: string;
-  }): Promise<T extends "PJ" ? PJPost : PRPost> => {
+  }): Promise<T extends 'PJ' ? PJPost : PRPost> => {
     const res = await fetch(POST_API_URL.detail[postType](postId), {
-      method: "GET",
+      method: 'GET',
       headers: COMMON_HEADERS,
-      cache: "no-store",
+      cache: 'no-store',
     });
     const { data } = await res.json();
-    console.log(" data => ", data);
+    console.log(' data => ', data);
     return data;
   },
 );

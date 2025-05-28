@@ -1,8 +1,9 @@
 import { COMMON_HEADERS } from '@/config/httpRequestHeaders';
 import { AUTH_API_URL } from '@/constants/apiEndpoints';
 import type { SocialLogInApiParams, SocialLogInResponse } from '@/types/authTypes';
+import { handleError } from '@/utils/handleError';
 
-export const socialLogInApi = async ({ user, account }: SocialLogInApiParams): SocialLogInResponse => {
+export const socialLogInApi = handleError(async ({ user, account }: SocialLogInApiParams): SocialLogInResponse => {
   const res = await fetch(AUTH_API_URL.logIn, {
     method: 'POST',
     headers: COMMON_HEADERS,
@@ -14,4 +15,4 @@ export const socialLogInApi = async ({ user, account }: SocialLogInApiParams): S
     }),
   });
   return await res.json();
-};
+});

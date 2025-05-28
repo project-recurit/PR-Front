@@ -1,17 +1,17 @@
-import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from "@/config/httpRequestHeaders";
-import { COMMENT_API_URL } from "@/constants/apiEndpoints";
-import { tempAccessToken } from "@/data/tempAccessToken";
-import type { Comment } from "@/types/commentTypes";
-import type { MainCategory } from "@/types/filterTypes";
-import { handleError } from "@/utils/errorHandler";
+import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from '@/config/httpRequestHeaders';
+import { COMMENT_API_URL } from '@/constants/apiEndpoints';
+import { tempAccessToken } from '@/data/tempAccessToken';
+import type { Comment } from '@/types/commentTypes';
+import type { MainCategory } from '@/types/filterTypes';
+import { handleError } from '@/utils/handleError';
 
 /** 댓글 요청 액션 */
 export const getComments = handleError(
   async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {
     const res = await fetch(COMMENT_API_URL[postType](postId), {
-      method: "GET",
+      method: 'GET',
       headers: COMMON_HEADERS,
-      cache: "no-store",
+      cache: 'no-store',
     });
     const {
       data: { content },
@@ -24,9 +24,9 @@ export const getComments = handleError(
 export const getReplyComments = handleError(
   async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {
     const res = await fetch(COMMENT_API_URL.reply[postType](postId), {
-      method: "GET",
+      method: 'GET',
       headers: COMMON_HEADERS,
-      cache: "no-store",
+      cache: 'no-store',
     });
     const {
       data: { content },
@@ -54,9 +54,9 @@ export const createComment = handleError(
     });
 
     const res = await fetch(COMMENT_API_URL.create[postType](postId), {
-      method: "POST",
+      method: 'POST',
       headers: AUTHORIZATION_HEADERS(tempAccessToken),
-      cache: "no-store",
+      cache: 'no-store',
       body,
     });
   },
