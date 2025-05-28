@@ -1,4 +1,4 @@
-import { socialLogInApi } from '@/apis/authApis';
+import { socialLogInApi } from "@/apis/authApis";
 import {
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
@@ -7,12 +7,12 @@ import {
   KAKAO_CLIENT_ID,
   KAKAO_CLIENT_SECRET,
   NEXTAUTH_SECRET,
-} from '@/config/env';
-import NextAuth from 'next-auth';
-import type { NextAuthOptions } from 'next-auth';
-import GitHubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
-import KakaoProvider from 'next-auth/providers/kakao';
+} from "@/config/env";
+import NextAuth from "next-auth";
+import type { NextAuthOptions } from "next-auth";
+import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
+import KakaoProvider from "next-auth/providers/kakao";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
   callbacks: {
     async signIn({ user, account }) {
@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
       }
 
       const data = await socialLogInApi({ user, account });
-      if (data.status === 'USER_INFO_UPDATE' || data.status === 'LOGIN_SUCCESS') {
+      if (data.status === "USER_INFO_UPDATE" || data.status === "LOGIN_SUCCESS") {
         account.access_token = data.data.accessToken;
         account.status = data.status;
         return true;
@@ -56,7 +56,7 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    
+
     async session({ session, token }) {
       session.accessToken = token.accessToken;
       session.status = token.status;
