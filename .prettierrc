@@ -1,8 +1,9 @@
 {
   "trailingComma": "all",
+  "singleQuote": true,
+  "bracketSameLine": false,
   "singleAttributePerLine": true,
   "tabWidth": 2,
   "printWidth": 120,
-  "bracketSameLine": false,
   "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"]
 }

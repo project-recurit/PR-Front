@@ -19,18 +19,18 @@ const SocialButton = ({ title, classname }: { title: string; classname?: string 
   const router = useRouter();
   const { data: session } = useSession();
 
-  useEffect(() => {
-    const resirect = async () => {
-      if (session) {
-        if ((session as CustomSession).status === "USER_INFO_UPDATE") {
-          router.replace(ROUTES.register);
-        } else {
-          router.replace(ROUTES.home);
-        }
-      }
-    };
-    resirect();
-  }, [session, router]);
+  // useEffect(() => {
+  //   const resirect = async () => {
+  //     if (session) {
+  //       if ((session as CustomSession).status === "USER_INFO_UPDATE") {
+  //         router.replace(ROUTES.register);
+  //       } else {
+  //         router.replace(ROUTES.home);
+  //       }
+  //     }
+  //   };
+  //   resirect();
+  // }, [session, router]);
 
   const handleLogin = async () => {
     await signIn(title.toLowerCase(), { redirect: false });
