@@ -11,12 +11,13 @@ interface ModalProps {
 
 const Modal = ({ children, isModalOpen }: ModalProps) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const modalRoot = document.getElementById("modal-root");
-  useLockBodyScroll(isModalOpen)
+  useLockBodyScroll(isModalOpen);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const modalRoot = document.getElementById("modal-root");
 
   if (!isMounted || !modalRoot || !isModalOpen) return null;
 
