@@ -1,5 +1,5 @@
 import COMMENT_QUERY_KEYS from "../queryKeys/commentQueryKeys";
-import { createComment } from "@/apis/commentApis";
+import { createCommentApi } from "@/apis/commentApis";
 import type { MainCategory } from "@/types/filterTypes";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -7,7 +7,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 export const useCreateComment = ({ postType, postId }: { postType: MainCategory; postId: string }) => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ comment }: { comment: string }) => createComment({ postType, postId, comment }),
+    mutationFn: ({ comment }: { comment: string }) => createCommentApi({ postType, postId, comment }),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: COMMENT_QUERY_KEYS[postType](postId),

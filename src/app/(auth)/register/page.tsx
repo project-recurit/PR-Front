@@ -1,8 +1,8 @@
-import { fetchTechStacks } from "@/apis/techStacksApis";
+import { getTeckStacksApi } from "@/apis/techStacksApis";
 import StepPage from "@/components/auth/register/StepPage";
 
 const RegisterPage = async () => {
-  const techStacks = await fetchTechStacks();
+  const techStacks = await getTeckStacksApi();
 
   return (
     <div className="flex items-center justify-center w-full h-full px-16 bg-white">

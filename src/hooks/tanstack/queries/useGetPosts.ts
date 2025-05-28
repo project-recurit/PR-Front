@@ -1,5 +1,5 @@
 import POST_QUERY_KEYS from "../queryKeys/postQueryKeys";
-import { getPostDetail, getPosts } from "@/apis/postApis";
+import { getPostDetailApi, getPostsApi } from "@/apis/postApis";
 import type { MainCategory } from "@/types/filterTypes";
 import { useQuery } from "@tanstack/react-query";
 
@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 export const useGetPostsQuery = ({ postType }: { postType: MainCategory }) => {
   return useQuery({
     queryKey: POST_QUERY_KEYS[postType],
-    queryFn: () => getPosts({ postType }),
+    queryFn: () => getPostsApi({ postType }),
   });
 };
 
@@ -15,6 +15,6 @@ export const useGetPostsQuery = ({ postType }: { postType: MainCategory }) => {
 export const useGetPostDetailQuery = ({ postType, postId }: { postType: MainCategory; postId: string }) => {
   return useQuery({
     queryKey: POST_QUERY_KEYS.detail[postType](postId),
-    queryFn: () => getPostDetail({ postType, postId }),
+    queryFn: () => getPostDetailApi({ postType, postId }),
   });
 };
