@@ -6,9 +6,9 @@ import { AUTH_API_URL } from "@/constants/apiEndpoints";
 import { SignupForm } from "@/types/type";
 import { getServerSession } from "next-auth";
 
-export const signUpAction = async (data: SignupForm) => {
+export const registerAction = async (data: SignupForm) => {
   try {
-    const res = await fetch(AUTH_API_URL.signUp, {
+    const res = await fetch(AUTH_API_URL.register, {
       method: "POST",
       headers: COMMON_HEADERS,
       body: JSON.stringify(data),

@@ -1,11 +1,11 @@
-export interface TechStack {
+export type TechStack = {
   techStackId: number;
   name: string;
-}
+};
 
-export interface SignupForm {
+export type SignupForm = {
   socialId: number;
   position: string;
   techStackIds: number[];
   nickname: string;
-}
+};
