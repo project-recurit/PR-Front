@@ -38,7 +38,8 @@ export const NOTIFICATION_API_URL = (notificationId?: string) =>
     : (`${BASE_URL_V1}/notifications` as const);
 
 export const AUTH_API_URL = {
-  signUp: `${BASE_URL_V1}/users/register`,
+  logIn: `${BASE_URL_V1}/auth/login`,
+  register: `${BASE_URL_V1}/users/register`,
 } as const;
 
 export const TECH_STACK_API_URL = `${BASE_URL_V1}/tech-stack` as const;

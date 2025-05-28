@@ -1,7 +1,8 @@
 import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { TECH_STACK_API_URL } from "@/constants/apiEndpoints";
+import { handleError } from "@/utils/handleError";
 
-export const fetchTechStacks = async () => {
+export const fetchTechStacks = handleError(async () => {
   try {
     const res = await fetch(TECH_STACK_API_URL, {
       method: "GET",
@@ -14,4 +15,4 @@ export const fetchTechStacks = async () => {
     console.error(error);
     return;
   }
-};
+});
