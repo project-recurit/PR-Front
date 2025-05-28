@@ -1,5 +1,6 @@
 "use client";
 
+import type { TechStack } from "@/types/commonTypes";
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import StepLabel from "./StepLabel";
@@ -7,7 +8,6 @@ import ThirdStep from "./ThirdStep";
 import Header from "@/components/layout/Header";
 import Botton from "@/components/ui/Botton";
 import { useRegister } from "@/hooks/registerStep";
-import { TechStack } from "@/types/type";
 
 const StepPage = ({ techStacks }: { techStacks: TechStack[] }) => {
   const {

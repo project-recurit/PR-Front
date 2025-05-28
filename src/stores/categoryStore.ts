@@ -10,7 +10,7 @@ export const createCategoryStore = () => {
   return createStore<CategoryStore>()((set, get) => ({
     ...initialState,
     selectMenu: (menu: MainCategory) => set({ selectedMenu: menu }),
-    applyFilter: (selectedFilter: Set<string>) => set({ activeFilters: selectedFilter }),
+    applyFilter: (selectedFilter) => set({ activeFilters: selectedFilter }),
     resetFilter: () => {
       const { activeFilters } = get();
       activeFilters.clear();

@@ -9,6 +9,7 @@ interface AuthSessionProps {
   children: ReactNode;
 }
 
+//TODO - 수정
 const AuthSession = ({ session, children }: AuthSessionProps) => {
   return <SessionProvider session={session}>{children}</SessionProvider>;
 };

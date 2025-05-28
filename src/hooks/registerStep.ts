@@ -1,6 +1,6 @@
 import ROUTES from "@/constants/routes";
 import { signUpSchema } from "@/schemas/authSchema";
-import type { SignupForm } from "@/types/type";
+import type { SignupForm } from "@/types/commoTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Session } from "next-auth";
 import { signOut, useSession } from "next-auth/react";
@@ -35,10 +35,10 @@ export const useRegister = () => {
   }
 
   const positionValue = watch("position");
-  console.log(' positionValue => ', positionValue);
+  console.log(" positionValue => ", positionValue);
   const techStackIds = watch("techStackIds");
   const nicknameValue = watch("nickname");
-  console.log(' nicknameValue => ', nicknameValue);
+  console.log(" nicknameValue => ", nicknameValue);
 
   const onSubmit = async (data: SignupForm) => {
     console.log(data);

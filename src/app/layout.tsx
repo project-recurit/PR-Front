@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   // manifest: '/manifest.ts',
 };
 
-const RootLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+interface RootLayoutProps {
+  children: Readonly<React.ReactNode>;
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="ko">
       <body>

@@ -1,15 +1,17 @@
-import type { ApiResponse } from './apiTypes';
-import type { signUpSchema } from '@/schemas/authSchema';
-import type { Account, User } from 'next-auth';
-import type { AdapterUser } from 'next-auth/adapters';
-import type { z } from 'zod';
+import type { TechStack } from "./commonTypes";
+import type { ApiResponse, ValueOf } from "./utils";
+import type { signUpSchema } from "@/schemas/authSchema";
+import type { createRegisterStore } from "@/stores/registerStore";
+import type { Account, User } from "next-auth";
+import type { AdapterUser } from "next-auth/adapters";
+import type { z } from "zod";
 
 export type SignupForm = z.infer<typeof signUpSchema>;
 
 export type SocialLogInApiParams = { user: User | AdapterUser; account: Account };
 
 export type SocialLogInResponse = ApiResponse<{
-  status: 'LOGIN_SUCCESS' | 'USER_INFO_UPDATE';
+  status: "LOGIN_SUCCESS" | "USER_INFO_UPDATE";
   data: {
     id: string;
     accessToken: string;
@@ -17,3 +19,19 @@ export type SocialLogInResponse = ApiResponse<{
     isSignUpSuccess: boolean;
   };
 }>;
+
+export type RegisterState = {
+  socialId: string;
+  position: string;
+  techStackIds: Set<TechStack>;
+  nickname: string;
+};
+
+export type RegisterActions = {
+  setMembershipInfo: ({ target, info }: { target: keyof RegisterState; info: ValueOf<RegisterState> }) => void;
+  resetMembershipInfo: () => void;
+};
+
+export type RegisterStore = RegisterState & RegisterActions;
+
+export type RegisterStoreApi = ReturnType<typeof createRegisterStore>;
