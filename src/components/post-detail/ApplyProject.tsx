@@ -1,7 +1,7 @@
 "use client";
 
 import Botton from "../ui/Botton";
-import { applayProject } from "@/apis/applyProjectApis";
+import { applayProjectApi } from "@/apis/applyProjectApis";
 import { ChevronDown } from "@/assets/svgs/icons";
 import { useState } from "react";
 
@@ -56,7 +56,7 @@ const ApplyProject = ({ closeModal }: ApplyProjectProps) => {
         >
           취소하기
         </Botton>
-        <Botton onClick={() => applayProject(selected)}>지원하기</Botton>
+        <Botton onClick={() => applayProjectApi(selected)}>지원하기</Botton>
       </div>
     </div>
   );
