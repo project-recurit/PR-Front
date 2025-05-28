@@ -1,6 +1,5 @@
 {
   "trailingComma": "all",
-  "singleQuote": true,
   "bracketSameLine": false,
   "singleAttributePerLine": true,
   "tabWidth": 2,

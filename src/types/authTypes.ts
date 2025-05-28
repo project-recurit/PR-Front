@@ -8,9 +8,7 @@ export type SignupForm = z.infer<typeof signUpSchema>;
 
 export type SocialLogInApiParams = { user: User | AdapterUser; account: Account };
 
-export type SocialLogInResponse = ApiResponse<SocialLogInSuccessResponse>;
-
-export type SocialLogInSuccessResponse = {
+export type SocialLogInResponse = ApiResponse<{
   status: 'LOGIN_SUCCESS' | 'USER_INFO_UPDATE';
   data: {
     id: string;
@@ -18,4 +16,4 @@ export type SocialLogInSuccessResponse = {
     refreshToken: string;
     isSignUpSuccess: boolean;
   };
-};
+}>;

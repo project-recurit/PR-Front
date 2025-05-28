@@ -1,3 +1,4 @@
+import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +11,12 @@ interface LogInLayoutProps {
 }
 
 const LogInLayout = ({ children }: LogInLayoutProps) => {
-  return <>{children}</>;
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 };
 
 export default LogInLayout;

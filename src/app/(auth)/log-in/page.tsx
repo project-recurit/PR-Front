@@ -2,13 +2,10 @@ import SocialLogin from "@/components/auth/log-in/SocialLogin";
 
 const LogInPage = () => {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center bg-white px-16 pb-40">
-      <span className="text-40 font-bold">LOGO</span>
-      <div className="mb-188 mt-94 text-center">
-        <span className="title-24-b">환영합니다!</span>
-        <span className="body-16-r mt-18">사이드 프로젝트를 찾는 가장 쉬운 방법!</span>
-      </div>
-
+    <div className="flex flex-col items-center">
+      <h2 className="caption-24-b mt-46">다들모여!</h2>
+      <h1 className="caption-40-b mt-86">DAMO</h1>
+      <span className="caption-16-r mt-12 mb-128">다들 모여줘서 고마워 😘</span>
       <SocialLogin />
     </div>
   );
