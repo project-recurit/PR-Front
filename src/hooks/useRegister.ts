@@ -9,7 +9,7 @@ import { useState } from "react";
 export const useRegister = () => {
   const session = useSession().data as Session & { socialId: number };
   const router = useRouter();
-  const [step, setStep] = useState<number>(1);
+  const [step, setStep] = useState<number>(2);
   const [registerData, setRegisterData] = useState<RegisterData>({
     socialId: 0,
     position: "",
