@@ -57,14 +57,24 @@ export const useRegister = () => {
     return true;
   };
 
-  const setTechStackId = (stackId: number) => {
+  const selectTechStackId = (stackId: number) => {
     if (registerData.techStackIds.has(stackId)) {
-      registerData.techStackIds.delete(stackId);
-      setRegisterData({ ...registerData, techStackIds: registerData.techStackIds });
       return;
     }
-    registerData.techStackIds.add(stackId);
-    setRegisterData({ ...registerData, techStackIds: registerData.techStackIds });
+
+    const updatedTechStackIds = new Set(registerData.techStackIds);
+    updatedTechStackIds.add(stackId);
+    setRegisterData({ ...registerData, techStackIds: updatedTechStackIds });
+  };
+
+  const removeTechStackId = (stackId: number) => {
+    if (!registerData.techStackIds.has(stackId)) {
+      return;
+    }
+
+    const updatedTechStackIds = new Set(registerData.techStackIds);
+    updatedTechStackIds.delete(stackId);
+    setRegisterData({ ...registerData, techStackIds: updatedTechStackIds });
   };
 
   return {
@@ -74,6 +84,7 @@ export const useRegister = () => {
     nextStep,
     prevStep,
     controlDisabled,
-    setTechStackId,
+    selectTechStackId,
+    removeTechStackId,
   };
 };

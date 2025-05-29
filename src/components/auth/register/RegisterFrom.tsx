@@ -14,11 +14,19 @@ interface RegisterFormProps {
 }
 
 const RegisterForm = ({ allTechStacks }: RegisterFormProps) => {
-  const { step, registerData, nextStep, prevStep, createRegisterDataHandler, setTechStackId, controlDisabled } =
-    useRegister();
+  const {
+    step,
+    registerData,
+    nextStep,
+    prevStep,
+    createRegisterDataHandler,
+    selectTechStackId,
+    removeTechStackId,
+    controlDisabled,
+  } = useRegister();
 
   return (
-    <form className="w-full h-full pb-32 grid grid-rows-[90px_20px_auto_50px] sm:max-h-[900px]">
+    <main className="w-full h-full pb-32 grid grid-rows-[90px_20px_auto_50px] sm:max-h-[900px]">
       <Header backButtonEvent={prevStep} />
 
       <StepLabel step={step} />
@@ -32,7 +40,8 @@ const RegisterForm = ({ allTechStacks }: RegisterFormProps) => {
         <TechStackStep
           allTechStacks={allTechStacks}
           selectedStacks={registerData.techStackIds}
-          setTechStackId={setTechStackId}
+          selectTechStackId={selectTechStackId}
+          removeTechStackId={removeTechStackId}
         />
       ) : (
         <NicknameStep
@@ -49,7 +58,7 @@ const RegisterForm = ({ allTechStacks }: RegisterFormProps) => {
       >
         {step === 2 ? "시작하기" : "계속"}
       </Botton>
-    </form>
+    </main>
   );
 };
 

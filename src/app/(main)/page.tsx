@@ -3,7 +3,7 @@
 import PostList from "@/components/home/body/PostList";
 import Filter from "@/components/home/filterPanel/Filter";
 import FloatingButton from "@/components/ui/FloatingButton";
-import SearchBar from "@/components/ui/SearchBar";
+import ReactHookFormSearchBar from "@/components/ui/ReactHookFormSearchBar";
 import { useForm } from "react-hook-form";
 
 const HomePage = () => {
@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <main className="flex flex-col mb-56">
       <div className="h-72 w-full border-b border-black-200 px-16 py-12">
-        <SearchBar
+        <ReactHookFormSearchBar
           inputName="homeSearch"
           placeholder="제목, 글 내용을 검색해보세요."
           register={register}

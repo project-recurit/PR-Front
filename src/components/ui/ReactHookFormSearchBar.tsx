@@ -10,7 +10,7 @@ import {
   type UseFormSetValue,
 } from "react-hook-form";
 
-interface SearchBarProps {
+interface ReactHookFormSearchBarProps {
   inputName: string;
   placeholder?: string;
   searchEvent: (query: string) => void;
@@ -21,7 +21,7 @@ interface SearchBarProps {
   setFocus: UseFormSetFocus<FieldValues>;
 }
 
-const SearchBar = ({
+const ReactHookFormSearchBar = ({
   inputName,
   placeholder,
   searchEvent,
@@ -30,7 +30,7 @@ const SearchBar = ({
   handleSubmit,
   resetField,
   setFocus,
-}: SearchBarProps) => {
+}: ReactHookFormSearchBarProps) => {
   const onSubmit = ({ searchTerm }: FieldValues) => {
     if (!searchTerm.trim()) {
       setValue(inputName, "");
@@ -42,11 +42,11 @@ const SearchBar = ({
 
   return (
     <form
-      className="group border-1 border-black-400 flex h-fit w-full flex-row items-center rounded-8 justify-between p-16"
+      className="group border-1 border-black-400 flex h-fit w-full flex-row items-center rounded-8 p-16"
       onSubmit={handleSubmit(onSubmit)}
     >
       <input
-        className="w-full body-14-r focus:outline-none"
+        className="w-full h-full caption-16-r focus:outline-none"
         type="text"
         placeholder={placeholder}
         {...register(inputName, {
@@ -63,4 +63,4 @@ const SearchBar = ({
   );
 };
 
-export default SearchBar;
+export default ReactHookFormSearchBar;

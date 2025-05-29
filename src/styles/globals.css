@@ -135,6 +135,10 @@
     @apply text-24 font-bold leading-[1];
   }
 
+  .caption-16-b {
+    @apply text-16 font-bold leading-[1];
+  }
+
   .caption-12-s {
     @apply text-12 font-semibold leading-[1];
   }
@@ -145,6 +149,10 @@
 
   .caption-16-r {
     @apply text-16 font-normal leading-[1];
+  }
+
+  .caption-14-r {
+    @apply text-14 font-normal leading-[1];
   }
 
   .caption-12-r {
