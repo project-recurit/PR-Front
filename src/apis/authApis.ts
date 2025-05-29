@@ -1,7 +1,7 @@
 import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { AUTH_API_URL } from "@/constants/apiEndpoints";
 import type { SocialLogInApiParams, SocialLogInResponse } from "@/types/authTypes";
-import { handleError } from "@/utils/handleError";
+import { handleError } from "@/utils/errorUtils";
 
 /** 소셜로그인 api */
 export const socialLogInApi = handleError(async ({ user, account }: SocialLogInApiParams): SocialLogInResponse => {

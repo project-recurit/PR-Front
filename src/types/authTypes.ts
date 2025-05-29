@@ -1,5 +1,5 @@
 import type { TechStack } from "./commonTypes";
-import type { ApiResponse, ValueOf } from "./utils";
+import type { ApiResponse } from "./utils";
 import type { signUpSchema } from "@/schemas/authSchema";
 import type { createRegisterStore } from "@/stores/registerStore";
 import type { Account, User } from "next-auth";
@@ -20,6 +20,13 @@ export type SocialLogInResponse = ApiResponse<{
   };
 }>;
 
+export type RegisterData = {
+  socialId: number;
+  position: string;
+  techStackIds: Set<number>;
+  nickname: string;
+};
+
 export type RegisterState = {
   socialId: string;
   position: string;
@@ -28,7 +35,7 @@ export type RegisterState = {
 };
 
 export type RegisterActions = {
-  setMembershipInfo: ({ target, info }: { target: keyof RegisterState; info: ValueOf<RegisterState> }) => void;
+  setMembershipInfo: <K extends keyof RegisterState>(params: { target: K; info: RegisterState[K] }) => void;
   resetMembershipInfo: () => void;
 };
 

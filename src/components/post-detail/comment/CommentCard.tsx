@@ -1,7 +1,7 @@
 "use client";
 
 import type { Comment } from "@/types/commentTypes";
-import { getRelativeTime } from "@/utils/timeCalculation";
+import { getRelativeTime } from "@/utils/timeUtils";
 
 interface CommentCardProps {
   commentData: Comment;

@@ -1,31 +1,34 @@
 "use client";
 
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
-import { useDropDownControl } from "@/hooks/dropDownControl";
+import { useCallback } from "react";
 
 interface DropDownProps {
   children: string;
+  isDropDownOpen: boolean;
+  openDropDown: () => void;
+  closeDropDown: () => void;
   options: string[];
   value?: string;
-  setValue?: (v: string) => void;
+  setValue: (v: string) => void;
 }
 
-const DropDown = ({ children, options, value, setValue }: DropDownProps) => {
-  const { isDropDownOpen, closeDropDown, openDropDown } = useDropDownControl();
-
-  const handleDropdownValue = (v: string) => {
-    if (setValue) {
-      setValue(v);
-    }
-    closeDropDown();
-  };
-
-  const handleResetValue = () => {
-    if (setValue) {
-      setValue("");
-    }
-    closeDropDown();
-  };
+const DropDown = ({
+  children,
+  isDropDownOpen,
+  openDropDown,
+  closeDropDown,
+  options,
+  value,
+  setValue,
+}: DropDownProps) => {
+  const handleValue = useCallback(
+    (value: string) => {
+      setValue(value);
+      closeDropDown();
+    },
+    [closeDropDown, setValue],
+  );
 
   return (
     <div className="relative w-full body-16-r">
@@ -35,8 +38,8 @@ const DropDown = ({ children, options, value, setValue }: DropDownProps) => {
         >
           <li>
             <button
-              onClick={handleResetValue}
-              className="flex justify-between"
+              onClick={() => handleValue("")}
+              className="flex w-full justify-between"
             >
               {children}
               <ChevronUp />
@@ -46,7 +49,7 @@ const DropDown = ({ children, options, value, setValue }: DropDownProps) => {
           {options.map((option) => (
             <li
               key={option}
-              onClick={() => handleDropdownValue(option)}
+              onClick={() => handleValue(option)}
             >
               {option}
             </li>

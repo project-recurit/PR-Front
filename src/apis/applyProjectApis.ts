@@ -1,6 +1,6 @@
 import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { POST_API_URL } from "@/constants/apiEndpoints";
-import { handleError } from "@/utils/handleError";
+import { handleError } from "@/utils/errorUtils";
 
 /** 지원서 작성 api */
 export const applayProjectApi = handleError(async ({ pjId, position }) => {

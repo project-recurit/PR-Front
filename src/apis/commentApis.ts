@@ -3,7 +3,7 @@ import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import { tempAccessToken } from "@/data/tempAccessToken";
 import type { Comment } from "@/types/commentTypes";
 import type { MainCategory } from "@/types/filterTypes";
-import { handleError } from "@/utils/handleError";
+import { handleError } from "@/utils/errorUtils";
 
 /** 댓글 요청 api */
 export const getCommentsApi = handleError(

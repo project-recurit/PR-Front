@@ -1,12 +1,12 @@
 import { getTeckStacksApi } from "@/apis/techStacksApis";
-import StepPage from "@/components/auth/register/StepPage";
+import RegisterForm from "@/components/auth/register/RegisterFrom";
 
 const RegisterPage = async () => {
-  const techStacks = await getTeckStacksApi();
+  const allTechStacks = await getTeckStacksApi();
 
   return (
     <div className="flex items-center justify-center w-full h-full px-16 bg-white">
-      <StepPage techStacks={techStacks} />
+      <RegisterForm allTechStacks={allTechStacks} />
     </div>
   );
 };
