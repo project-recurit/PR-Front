@@ -2,11 +2,13 @@ import { getTeckStacksApi } from "@/apis/techStacksApis";
 import RegisterForm from "@/components/auth/register/RegisterFrom";
 
 const RegisterPage = async () => {
-  const allTechStacks = await getTeckStacksApi();
-  console.log("[㏒] allTechStacks =>", allTechStacks);
+  const allTechStacks = (await getTeckStacksApi()) || [
+    { name: "리액트", id: 1 },
+    { name: "자바스크립트", id: 2 },
+  ];
 
   return (
-    <div className="flex items-center justify-center w-full h-full px-16 bg-white">
+    <div className="flex h-full w-full items-center justify-center bg-white px-16">
       <RegisterForm allTechStacks={allTechStacks} />
     </div>
   );

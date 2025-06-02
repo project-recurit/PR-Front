@@ -1,6 +1,6 @@
 "use client";
 
-import TechStackSearchBar from "./AutocompleteSearchBar";
+import TechStackSearchBar from "./TechStackSearchBar";
 import type { TechStack } from "@/types/commonTypes";
 
 interface TechStackStepProps {

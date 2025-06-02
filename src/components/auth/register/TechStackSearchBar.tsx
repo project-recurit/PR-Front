@@ -1,3 +1,5 @@
+"use client";
+
 import { Search } from "@/assets/svgs/icons";
 import type { TechStack } from "@/types/commonTypes";
 import { useMemo, useRef, useState } from "react";
@@ -40,10 +42,11 @@ const TechStackSearchBar = ({ allTechStacks, addTechStack }: TechStackSearchBarP
           className="min-w-fit text-black-400 group-focus-within:text-black-1000"
         />
       </form>
-      {searchTerm &&
-        (suggestions.length > 0 ? (
-          <ol className="flex max-h-[312px] w-full flex-col overflow-y-scroll">
-            {suggestions.map((suggestion) => (
+
+      <ol className="flex max-h-[312px] w-full flex-col overflow-y-scroll">
+        {searchTerm &&
+          (suggestions.length > 0 ? (
+            suggestions.map((suggestion) => (
               <li
                 className="px-16 py-14"
                 key={suggestion.id}
@@ -51,11 +54,11 @@ const TechStackSearchBar = ({ allTechStacks, addTechStack }: TechStackSearchBarP
               >
                 {suggestion.name}
               </li>
-            ))}
-          </ol>
-        ) : (
-          <li className="w-full p-14">결과가 없습니다.</li>
-        ))}
+            ))
+          ) : (
+            <li className="px-16 py-14">결과가 없습니다.</li>
+          ))}
+      </ol>
     </div>
   );
 };
