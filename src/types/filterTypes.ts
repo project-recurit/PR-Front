@@ -1,6 +1,6 @@
+import type { TechStack } from "./commonTypes";
 import type { createCategoryStore } from "@/stores/categoryStore";
 import type { createPostSearchStore } from "@/stores/postSearchStore";
-import type { TechStack } from "./commonTypes";
 
 export type MainCategory = "PJ" | "PR";
 

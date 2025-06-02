@@ -23,7 +23,7 @@ export type SocialLogInResponse = ApiResponse<{
 export type RegisterData = {
   socialId: number;
   position: string;
-  techStackIds: Set<number>;
+  techStacks: TechStack[];
   nickname: string;
 };
 

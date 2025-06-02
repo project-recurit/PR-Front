@@ -8,7 +8,7 @@ import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 const Filter = () => {
-  const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure( );
+  const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure();
   const { activeFilters, applyFilter } = useCategoryStore((state) => state);
 
   return (

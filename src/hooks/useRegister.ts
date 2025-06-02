@@ -1,5 +1,6 @@
 import ROUTES from "@/constants/routes";
 import type { RegisterData } from "@/types/authTypes";
+import type { TechStack } from "@/types/commonTypes";
 import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -13,10 +14,10 @@ export const useRegister = () => {
   const [registerData, setRegisterData] = useState<RegisterData>({
     socialId: 0,
     position: "",
-    techStackIds: new Set<number>(),
+    techStacks: [],
     nickname: "",
   });
-  console.log("[㏒] registerData =>", registerData.techStackIds);
+  console.log("[㏒] registerData =>", registerData.techStacks);
 
   const createRegisterDataHandler = <K extends keyof RegisterData>(key: K) => {
     return (value: RegisterData[K]) => {
@@ -48,7 +49,7 @@ export const useRegister = () => {
     if (step === 1 && !!registerData.position) {
       return false;
     }
-    if (step === 2 && registerData.techStackIds.size === 0) {
+    if (step === 2 && registerData.techStacks.length === 0) {
       return false;
     }
     if (step === 3 && !!registerData.nickname) {
@@ -57,24 +58,23 @@ export const useRegister = () => {
     return true;
   };
 
-  const selectTechStackId = (stackId: number) => {
-    if (registerData.techStackIds.has(stackId)) {
+  const addTechStack = (newTechStack: TechStack) => {
+    if (registerData.techStacks.some((selectedTechStack) => selectedTechStack.id === newTechStack.id)) {
       return;
     }
 
-    const updatedTechStackIds = new Set(registerData.techStackIds);
-    updatedTechStackIds.add(stackId);
-    setRegisterData({ ...registerData, techStackIds: updatedTechStackIds });
+    setRegisterData({ ...registerData, techStacks: [...registerData.techStacks, newTechStack] });
   };
 
-  const removeTechStackId = (stackId: number) => {
-    if (!registerData.techStackIds.has(stackId)) {
+  const removeTechStack = (newTechStack: TechStack) => {
+    if (!registerData.techStacks.some((selectedTechStack) => selectedTechStack.id === newTechStack.id)) {
       return;
     }
 
-    const updatedTechStackIds = new Set(registerData.techStackIds);
-    updatedTechStackIds.delete(stackId);
-    setRegisterData({ ...registerData, techStackIds: updatedTechStackIds });
+    const updatedTechStackIds = registerData.techStacks.filter(
+      (selectedTechStack) => selectedTechStack.id !== newTechStack.id,
+    );
+    setRegisterData({ ...registerData, techStacks: updatedTechStackIds });
   };
 
   return {
@@ -84,7 +84,7 @@ export const useRegister = () => {
     nextStep,
     prevStep,
     controlDisabled,
-    selectTechStackId,
-    removeTechStackId,
+    addTechStack,
+    removeTechStack,
   };
 };

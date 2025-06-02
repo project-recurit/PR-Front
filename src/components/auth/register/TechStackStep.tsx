@@ -1,17 +1,16 @@
 "use client";
 
 import TechStackSearchBar from "./AutocompleteSearchBar";
-import SkillBadge from "./SkillBadge";
 import type { TechStack } from "@/types/commonTypes";
 
 interface TechStackStepProps {
   allTechStacks: TechStack[];
-  selectedStacks: Set<number>;
-  selectTechStackId: (stackId: number) => void;
-  removeTechStackId: (stackId: number) => void;
+  selectedStacks: TechStack[];
+  addTechStack: (techStack: TechStack) => void;
+  removeTechStack: (techStack: TechStack) => void;
 }
 
-const TechStackStep = ({ allTechStacks, selectedStacks, selectTechStackId, removeTechStackId }: TechStackStepProps) => {
+const TechStackStep = ({ allTechStacks, selectedStacks, addTechStack, removeTechStack }: TechStackStepProps) => {
   console.count("lender");
   return (
     <div className="mt-18">
@@ -19,16 +18,16 @@ const TechStackStep = ({ allTechStacks, selectedStacks, selectTechStackId, remov
         <div>보유하고 있는</div>
         <div>스킬을 등록해주세요.</div>
       </div>
-      <span className="mb-12 caption-16-b">보유하신 스킬을 등록해주세요</span>
+      <span className="caption-16-b mb-12">보유하신 스킬을 등록해주세요</span>
       <div>
         <TechStackSearchBar
           allTechStacks={allTechStacks}
-          selectTechStackId={selectTechStackId}
+          addTechStack={addTechStack}
         />
       </div>
       <div className="mt-18">
-        <span className="mb-12 body-14-m">선택한 스킬</span>
-        <div className="flex flex-wrap w-full gap-x-8 gap-y-8">
+        <span className="body-14-m mb-12">선택한 스킬</span>
+        <div className="flex w-full flex-wrap gap-x-8 gap-y-8">
           {/* {[...selectedStacks].map((s) => (
             <SkillBadge
               onClick={() => {

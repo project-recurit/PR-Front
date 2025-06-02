@@ -4,15 +4,16 @@ import { useMemo, useRef, useState } from "react";
 
 interface TechStackSearchBarProps {
   allTechStacks: TechStack[];
-  selectTechStackId: (stackId: number) => void;
+  addTechStack: (techStack: TechStack) => void;
 }
 
-const TechStackSearchBar = ({ allTechStacks, selectTechStackId }: TechStackSearchBarProps) => {
+const TechStackSearchBar = ({ allTechStacks, addTechStack }: TechStackSearchBarProps) => {
+  console.log("[㏒] allTechStacks =>", allTechStacks);
   const [searchTerm, setSearchTerm] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const filteredSuggestions = useMemo(() => {
-    return allTechStacks.filter((suggestion) => suggestion.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const suggestions = useMemo(() => {
+    return allTechStacks.filter((techStack) => techStack.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }, [allTechStacks, searchTerm]);
 
   const focusInput = () => {
@@ -40,13 +41,13 @@ const TechStackSearchBar = ({ allTechStacks, selectTechStackId }: TechStackSearc
         />
       </form>
       {searchTerm &&
-        (filteredSuggestions.length > 0 ? (
-          <ol className="overflow-y-scroll max-h-[312px] w-full flex flex-col">
-            {filteredSuggestions.map((suggestion) => (
+        (suggestions.length > 0 ? (
+          <ol className="flex max-h-[312px] w-full flex-col overflow-y-scroll">
+            {suggestions.map((suggestion) => (
               <li
-                className="py-14 px-16"
+                className="px-16 py-14"
                 key={suggestion.id}
-                onClick={() => selectTechStackId(suggestion.id)}
+                onClick={() => addTechStack(suggestion)}
               >
                 {suggestion.name}
               </li>

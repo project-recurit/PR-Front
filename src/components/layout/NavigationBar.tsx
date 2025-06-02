@@ -1,6 +1,5 @@
 "use client";
 
-
 import { NAV_MENU } from "@/data/navMenuData";
 import { usePathname, useRouter } from "next/navigation";
 

@@ -20,13 +20,13 @@ const RegisterForm = ({ allTechStacks }: RegisterFormProps) => {
     nextStep,
     prevStep,
     createRegisterDataHandler,
-    selectTechStackId,
-    removeTechStackId,
+    addTechStack,
+    removeTechStack,
     controlDisabled,
   } = useRegister();
 
   return (
-    <main className="w-full h-full pb-32 grid grid-rows-[90px_20px_auto_50px] sm:max-h-[900px]">
+    <main className="grid h-full w-full grid-rows-[90px_20px_auto_50px] pb-32 sm:max-h-[900px]">
       <Header backButtonEvent={prevStep} />
 
       <StepLabel step={step} />
@@ -39,9 +39,9 @@ const RegisterForm = ({ allTechStacks }: RegisterFormProps) => {
       ) : step === 2 ? (
         <TechStackStep
           allTechStacks={allTechStacks}
-          selectedStacks={registerData.techStackIds}
-          selectTechStackId={selectTechStackId}
-          removeTechStackId={removeTechStackId}
+          selectedStacks={registerData.techStacks}
+          addTechStack={addTechStack}
+          removeTechStack={removeTechStack}
         />
       ) : (
         <NicknameStep
