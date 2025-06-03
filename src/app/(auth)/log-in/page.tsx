@@ -1,4 +1,4 @@
-import SocialLogin from "@/components-temp/auth/log-in/SocialLogin";
+import SocialLogin from "@/components/auth/log-in/SocialLogin";
 
 const LogInPage = () => {
   return (
