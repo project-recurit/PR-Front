@@ -9,7 +9,6 @@ interface SocialLogInButtonProps {
 
 const SocialLogInButton = ({ provider }: SocialLogInButtonProps) => {
   const { icon: Icon, style, label } = SOCIAL_META[provider];
-
   return (
     <>
       <button

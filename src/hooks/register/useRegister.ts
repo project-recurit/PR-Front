@@ -15,7 +15,6 @@ export const useRegister = () => {
     techStacks: [],
     nickname: "",
   });
-  console.log("[㏒] registerData =>", registerData);
 
   const createRegisterDataHandler = createObjectKeySetter(setRegisterData);
 

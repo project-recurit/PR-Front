@@ -1,12 +1,11 @@
 "use server";
 
 import { registerApi } from "@/apis/authApis";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { auth } from "@/auth";
 import type { RegisterApiResponse, RegisterFormData } from "@/types/authTypes";
-import { getServerSession } from "next-auth";
 
 export const registerAction = async (registerFormData: RegisterFormData): Promise<RegisterApiResponse | void> => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
   if (!session) {
     return;
   }
@@ -14,6 +13,6 @@ export const registerAction = async (registerFormData: RegisterFormData): Promis
   return await registerApi({
     ...registerFormData,
     techStackIds: registerFormData.techStacks.map((techStack) => techStack.id),
-    socialId: session.socialId,
+    socialId: session.user.socialId,
   });
 };
