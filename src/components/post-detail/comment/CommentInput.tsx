@@ -14,7 +14,7 @@ const CommentInput = ({ postType, postId }: CommentInputProps) => {
   const { mutate: createCommentMutate } = useCreateComment({ postType, postId });
 
   const onSubmit = ({ comment }: FieldValues) => {
-    if (comment.trim() === "") {
+    if (!comment.trim()) {
       setValue("comment", "");
       return;
     }

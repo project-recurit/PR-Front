@@ -9,17 +9,16 @@ interface SocialLogInButtonProps {
 
 const SocialLogInButton = ({ provider }: SocialLogInButtonProps) => {
   const { icon: Icon, style, label } = SOCIAL_META[provider];
-
   return (
     <>
       <button
         onClick={() =>
           signIn(
             provider,
-            // { callbackUrl: "/",redirect: false }
+            // { callbackUrl: "/", redirect: false }
           )
         }
-        className={`body-16-b flex w-full items-center justify-center rounded-12 py-8 px-20 ${style}`}
+        className={`body-16-b flex w-full items-center justify-center rounded-12 px-20 py-8 ${style}`}
       >
         <Icon />
         <span>{label} 로그인</span>

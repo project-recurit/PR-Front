@@ -4,11 +4,11 @@ import "next-auth/jwt";
 declare module "next-auth" {
   interface Session {
     accessToken?: string;
-    user: {
-      email?: string;
-      name?: string;
-      image?: string;
-    };
+    expires: string;
+    status: string;
+  }
+  interface User {
+    socialId: string;
   }
 }
 
