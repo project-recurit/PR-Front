@@ -1,7 +1,7 @@
 "use client";
 
+import Header from "@/components/layout/Header";
 import { useGetNotifications } from "@/hooks/tanstack/queries/useGetNotifications";
-import Header from "@/temp/layout/Header";
 
 interface NotificationSheetProps {
   closeModal: () => void;

@@ -1,12 +1,12 @@
 "use client";
 
+import NicknameStep from "@/components/auth/register/NicknameStep";
+import PositionStep from "@/components/auth/register/PositionStep";
+import StepLabel from "@/components/auth/register/StepLabel";
+import TechStackStep from "@/components/auth/register/TechStackStep";
+import Header from "@/components/layout/Header";
+import Botton from "@/components/ui/Botton";
 import { useRegister } from "@/hooks/register/useRegister";
-import NicknameStep from "@/temp/auth/register/NicknameStep";
-import PositionStep from "@/temp/auth/register/PositionStep";
-import StepLabel from "@/temp/auth/register/StepLabel";
-import TechStackStep from "@/temp/auth/register/TechStackStep";
-import Header from "@/temp/layout/Header";
-import Botton from "@/temp/ui/Botton";
 
 const RegisterPage = () => {
   const {

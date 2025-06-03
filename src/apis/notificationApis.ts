@@ -1,6 +1,6 @@
 import { AUTHORIZATION_HEADERS } from "@/config/httpRequestHeaders";
 import { NOTIFICATION_API_URL } from "@/constants/apiEndpoints";
-import { tempAccessToken } from "@/constants/tempAccessToken";
+import { tempAccessToken } from "@/constants/componentsAccessToken";
 import { Notification } from "@/types/notificationTypes";
 import { handleError } from "@/utils/handleError";
 

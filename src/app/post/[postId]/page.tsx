@@ -1,5 +1,5 @@
-import CommentSection from "@/temp/post-detail/comment/CommentSection";
-import PostSection from "@/temp/post-detail/post/PostSection";
+import CommentSection from "@/components/post-detail/comment/CommentSection";
+import PostSection from "@/components/post-detail/post/PostSection";
 import type { PostType } from "@/types/postTypes";
 import { use } from "react";
 

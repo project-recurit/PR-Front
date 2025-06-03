@@ -1,7 +1,7 @@
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
+import SelectChip from "@/components/ui/SelectChip";
 import { createFilterMenus } from "@/constants/filterOptions";
 import { useTechStacksContext } from "@/hooks/state/useContext";
-import SelectChip from "@/temp/ui/SelectChip";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface FilterMenuProps {

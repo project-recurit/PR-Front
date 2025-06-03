@@ -2,9 +2,9 @@
 
 import PJPostBody from "./PJPostBody";
 import PRPostBody from "./PRPostBody";
+import Engagement from "@/components/layout/Engagement";
+import PostProfile from "@/components/layout/PostProfile";
 import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
-import Engagement from "@/temp/layout/Engagement";
-import PostProfile from "@/temp/layout/PostProfile";
 import type { PostType } from "@/types/postTypes";
 
 interface PostSectionProps {

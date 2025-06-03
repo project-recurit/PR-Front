@@ -1,5 +1,5 @@
-import CardLabel from "@/temp/ui/CardLabel";
-import TechStackLabel from "@/temp/ui/StackLabel";
+import CardLabel from "@/components/ui/CardLabel";
+import TechStackLabel from "@/components/ui/StackLabel";
 import type { PJPost } from "@/types/postTypes";
 
 interface PJLabelProps {
