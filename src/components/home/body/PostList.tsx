@@ -23,7 +23,7 @@ const PostList = () => {
     <section className="flex w-full flex-col gap-y-20 px-20 py-20">
       {postData.map((post) => {
         const postInfo = {
-          userNickname: post.userNickname,
+          nickname: post.nickname,
           modifiedAt: post.modifiedAt,
           viewCount: post.viewCount,
           commentCount: post.commentCount,
