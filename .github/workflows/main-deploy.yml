@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install OpenSSH
+        run: sudo apt-get update && sudo apt-get install -y openssh-client
+
       - name: Install mustache (to update the date)
 
         run: apk add ruby && gem install mustache
