@@ -17,6 +17,13 @@ jobs:
 
         run: apk add ruby && gem install mustache
 
+      - name: Configure SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
       - name: creates output
 
         run: sh ./build.sh
