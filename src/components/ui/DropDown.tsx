@@ -31,10 +31,10 @@ const DropDown = ({
   );
 
   return (
-    <div className="relative w-full body-16-r">
+    <div className="body-16-r relative w-full">
       {isDropDownOpen ? (
         <ol
-          className={`h-[357px] py-14 absolute top-0 bg-white w-full flex flex-col justify-between left-0 rounded-8 px-16 border-1 border-black-400`}
+          className={`h-357 absolute left-0 top-0 flex w-full flex-col justify-between rounded-8 border-1 border-black-400 bg-white px-16 py-14`}
         >
           <li>
             <button
@@ -58,7 +58,7 @@ const DropDown = ({
       ) : (
         <button
           onClick={openDropDown}
-          className={`px-16 w-full h-52 flex justify-between items-center body-16-r  border-1 border-black-400 rounded-8 ${
+          className={`body-16-r flex h-52 w-full items-center justify-between rounded-8 border-1 border-black-400 px-16 ${
             isDropDownOpen || value ? "text-black-1000" : "text-black-400"
           }`}
         >

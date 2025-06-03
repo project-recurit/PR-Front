@@ -20,12 +20,30 @@ export type SocialLogInResponse = ApiResponse<{
   };
 }>;
 
-export type RegisterData = {
-  socialId: number;
+type RegisterData = {
   position: string;
-  techStacks: TechStack[];
   nickname: string;
 };
+
+export type RegisterFormData = RegisterData & {
+  techStacks: TechStack[];
+};
+
+export type RegisterApiParams = RegisterData & {
+  socialId: number;
+  techStackIds: number[];
+};
+
+export type RegisterApiResponse = ApiResponse<{
+  status: "USER_INFO_UPDATE";
+  data: {
+    nickname: string;
+    position: string;
+    techStacks: string[];
+    accessToken: string;
+    refreshToken: string;
+  };
+}>;
 
 export type RegisterState = {
   socialId: string;

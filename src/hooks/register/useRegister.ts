@@ -1,41 +1,35 @@
+import { registerAction } from "@/app/actions/authActions";
 import ROUTES from "@/constants/routes";
-import type { RegisterData } from "@/types/authTypes";
+import type { RegisterFormData } from "@/types/authTypes";
 import type { TechStack } from "@/types/commonTypes";
-import { Session } from "next-auth";
-import { useSession } from "next-auth/react";
+import { createObjectKeySetter } from "@/utils/objectUtills";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 /** 회원가입 훅 */
 export const useRegister = () => {
-  const session = useSession().data as Session & { socialId: number };
   const router = useRouter();
-  const [step, setStep] = useState<number>(2);
-  const [registerData, setRegisterData] = useState<RegisterData>({
-    socialId: 0,
+  const [step, setStep] = useState<number>(1);
+  const [registerData, setRegisterData] = useState<RegisterFormData>({
     position: "",
     techStacks: [],
     nickname: "",
   });
-  console.log("[㏒] registerData =>", registerData.techStacks);
+  console.log("[㏒] registerData =>", registerData);
 
-  const createRegisterDataHandler = <K extends keyof RegisterData>(key: K) => {
-    return (value: RegisterData[K]) => {
-      setRegisterData({ ...registerData, [key]: value });
-    };
-  };
+  const createRegisterDataHandler = createObjectKeySetter(setRegisterData);
 
-  if (session && session.socialId) {
-    setRegisterData({ ...registerData, socialId: session.socialId });
-  }
-
-  const nextStep = () => {
+  const nextStep = async () => {
     if (step < 2) {
       setStep(step + 1);
       return;
     }
 
-    router.push(ROUTES.home);
+    const res = await registerAction(registerData);
+
+    if (res?.status === "USER_INFO_UPDATE") {
+      router.push(ROUTES.home);
+    }
   };
 
   const prevStep = () => {

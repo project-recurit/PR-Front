@@ -1,11 +1,11 @@
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
 import SelectChip from "@/components/ui/SelectChip";
 import { FILTER_MENU } from "@/data/categoryData";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface FilterMenuProps {
   selectedFilter: Set<string>;
-  setSelectedFilter: React.Dispatch<React.SetStateAction<Set<string>>>;
+  setSelectedFilter: Dispatch<SetStateAction<Set<string>>>;
 }
 
 const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {

@@ -13,7 +13,7 @@ const PositionStep = ({ position, setPosition }: { position: string; setPosition
         <div>업무 분야와 경력에 맞춰</div>
         <div>딱 맞는 정보를 추천해드릴게요!</div>
       </div>
-      <span className="mb-12 body-16-b">직무를 입력해주세요</span>
+      <span className="body-16-b mb-12">직무를 입력해주세요</span>
       <DropDown
         setValue={setPosition}
         value={position}

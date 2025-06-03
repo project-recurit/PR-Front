@@ -2,7 +2,7 @@ import { AUTHORIZATION_HEADERS } from "@/config/httpRequestHeaders";
 import { NOTIFICATION_API_URL } from "@/constants/apiEndpoints";
 import { tempAccessToken } from "@/data/tempAccessToken";
 import { Notification } from "@/types/notificationTypes";
-import { handleError } from "@/utils/errorUtils";
+import { handleError } from "@/utils/errorUtills";
 
 /** 알림 요청 api */
 export const getNotificationApi = handleError(async (): Promise<Notification[]> => {

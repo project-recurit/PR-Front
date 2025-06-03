@@ -6,7 +6,7 @@ import StepLabel from "@/components/auth/register/StepLabel";
 import TechStackStep from "@/components/auth/register/TechStackStep";
 import Header from "@/components/layout/Header";
 import Botton from "@/components/ui/Botton";
-import { useRegister } from "@/hooks/useRegister";
+import { useRegister } from "@/hooks/register/useRegister";
 import type { TechStack } from "@/types/commonTypes";
 
 interface RegisterFormProps {
@@ -26,39 +26,42 @@ const RegisterForm = ({ allTechStacks }: RegisterFormProps) => {
   } = useRegister();
 
   return (
-    <main className="grid h-full w-full grid-rows-[90px_20px_auto_50px] pb-32 sm:max-h-[900px]">
+    <div className="flex h-screen flex-col">
       <Header backButtonEvent={prevStep} />
+      <main className="mt-42 flex flex-1 flex-col px-16">
+        <StepLabel step={step} />
 
-      <StepLabel step={step} />
-
-      {step === 1 ? (
-        <PositionStep
-          position={registerData.position}
-          setPosition={createRegisterDataHandler("position")}
-        />
-      ) : step === 2 ? (
-        <TechStackStep
-          allTechStacks={allTechStacks}
-          selectedStacks={registerData.techStacks}
-          addTechStack={addTechStack}
-          removeTechStack={removeTechStack}
-        />
-      ) : (
-        <NicknameStep
-          nickname={registerData.nickname}
-          setNickname={createRegisterDataHandler("nickname")}
-        />
-      )}
-
-      <Botton
-        size="large"
-        onClick={nextStep}
-        type="button"
-        disabled={controlDisabled()}
-      >
-        {step === 2 ? "시작하기" : "계속"}
-      </Botton>
-    </main>
+        {step === 1 ? (
+          <PositionStep
+            position={registerData.position}
+            setPosition={createRegisterDataHandler("position")}
+          />
+        ) : step === 2 ? (
+          <TechStackStep
+            allTechStacks={allTechStacks}
+            selectedStacks={registerData.techStacks}
+            addTechStack={addTechStack}
+            removeTechStack={removeTechStack}
+          />
+        ) : (
+          <NicknameStep
+            nickname={registerData.nickname}
+            setNickname={createRegisterDataHandler("nickname")}
+            nextStep={nextStep}
+          />
+        )}
+      </main>
+      <div className="fixed bottom-0 w-full px-16">
+        <Botton
+          size="large"
+          onClick={nextStep}
+          type="button"
+          disabled={controlDisabled()}
+        >
+          {step === 3 ? "시작하기" : "계속"}
+        </Botton>
+      </div>
+    </div>
   );
 };
 
