@@ -1,5 +1,5 @@
-import PostContainer from "@/components-temp/home/body/PostContainer";
-import FloatingButton from "@/components-temp/ui/FloatingButton";
+import PostContainer from "@/components/home/body/PostContainer";
+import FloatingButton from "@/components/ui/FloatingButton";
 
 const HomePage = () => {
   return (

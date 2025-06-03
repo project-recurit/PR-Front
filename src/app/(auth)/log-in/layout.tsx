@@ -1,4 +1,4 @@
-import Header from "@/components-temp/layout/Header";
+import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
