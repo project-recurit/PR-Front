@@ -43,7 +43,7 @@ export const {
 
       const data = await socialLogInApi({ user, account });
       if (data.status === "USER_INFO_UPDATE" || data.status === "LOGIN_SUCCESS") {
-        account.access_token = data.data.accessToken;
+        account.accessToken = data.data.accessToken;
         account.status = data.status;
         return true;
       }
@@ -52,7 +52,7 @@ export const {
     },
     async jwt({ token, account }) {
       if (account) {
-        token.accessToken = account.access_token;
+        token.accessToken = account.accessToken;
         token.status = account.status;
         token.socialId = account.providerAccountId;
       }
