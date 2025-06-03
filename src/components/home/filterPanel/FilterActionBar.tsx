@@ -1,19 +1,20 @@
 import Botton from "@/components/ui/Botton";
-import { useCategoryStore } from "@/hooks/state/useZustandStore";
+import { Dispatch, SetStateAction } from "react";
 
 interface FilterActionBarProps {
   closeModal: () => void;
-  selectedFilter: Set<string>;
+  appliedFilters: Set<string>;
+  setSelectedFilter: Dispatch<SetStateAction<Set<string>>>;
 }
 
-const FilterActionBar = ({ closeModal, selectedFilter }: FilterActionBarProps) => {
-  const { applyFilter, resetFilter } = useCategoryStore((state) => state);
+const FilterActionBar = ({ closeModal, appliedFilters, setSelectedFilter }: FilterActionBarProps) => {
   return (
     <div className="flex w-full items-center gap-24 px-16 py-8 leading-24 tracking-[0.15px] shadow-[0_-1px_3px_0_#141414]">
       <button
         className="whitespace-nowrap text-14 text-black-600"
         onClick={() => {
-          resetFilter();
+          appliedFilters.clear();
+          setSelectedFilter(new Set());
           closeModal();
         }}
       >
@@ -23,7 +24,7 @@ const FilterActionBar = ({ closeModal, selectedFilter }: FilterActionBarProps) =
         size="large"
         className="h-52 bg-black p-10 text-18 text-white"
         onClick={() => {
-          applyFilter(selectedFilter);
+          setSelectedFilter(appliedFilters);
           closeModal();
         }}
       >

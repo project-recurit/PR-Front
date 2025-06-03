@@ -1,5 +1,5 @@
-import MainHeader from "@/components/layout/MainHeader";
-import NavigationBar from "@/components/layout/NavigationBar";
+import MainHeader from "@/components/main/layout/MainHeader";
+import NavigationBar from "@/components/main/layout/NavigationBar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

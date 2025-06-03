@@ -1,12 +1,12 @@
 import CommentSection from "@/components/post-detail/comment/CommentSection";
 import PostSection from "@/components/post-detail/post/PostSection";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 import { use } from "react";
 
 interface PostDetailPageProps {
   params: Promise<{ postId: string }>;
   searchParams: Promise<{
-    type: MainCategory;
+    type: PostType;
   }>;
 }
 

@@ -1,4 +1,6 @@
+import { getTechStacksApi } from "@/apis/techStacksApis";
 import { auth } from "@/auth";
+import ContextProvider from "@/providers/ContextProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
@@ -30,18 +32,20 @@ interface RootLayoutProps {
 }
 
 const RootLayout = async ({ children }: RootLayoutProps) => {
-  const session = await auth();
+  const [session, allTechStacks] = await Promise.all([auth(), getTechStacksApi()]);
 
   return (
     <html lang="ko">
       <body>
         <AuthSession session={session}>
-          <QueryProvider>
-            <ZustandStoreProvider>
-              <div id="modal-root"></div>
-              {children}
-            </ZustandStoreProvider>
-          </QueryProvider>
+          <ZustandStoreProvider>
+            <ContextProvider allStacks={allTechStacks}>
+              <QueryProvider>
+                <div id="modal-root"></div>
+                {children}
+              </QueryProvider>
+            </ContextProvider>
+          </ZustandStoreProvider>
         </AuthSession>
       </body>
     </html>

@@ -1,6 +1,7 @@
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
 import SelectChip from "@/components/ui/SelectChip";
-import { FILTER_MENU } from "@/data/categoryData";
+import { createFilterMenus } from "@/constants/filterOptions";
+import { useTechStacksContext } from "@/hooks/state/useContext";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface FilterMenuProps {
@@ -9,11 +10,12 @@ interface FilterMenuProps {
 }
 
 const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
+  const allTechStacks = useTechStacksContext();
   const [isShowChips, setIsShowChips] = useState<Record<string, boolean>>({
     포지션: true,
     "기술 스택": true,
-    진행방식: true,
-    진행기간: true,
+    "진행 방식": true,
+    "진행 기간": true,
   });
 
   const toggleChips = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,7 +28,7 @@ const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
 
   return (
     <div className="overflow-y-auto">
-      {FILTER_MENU.map(({ category, chips }) => (
+      {createFilterMenus(allTechStacks).map(({ category, chips }) => (
         <div key={category}>
           <button
             className="flex w-full justify-between border-y-[0.5px] p-16"

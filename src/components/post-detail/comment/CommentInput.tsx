@@ -1,11 +1,11 @@
 "use client";
 
 import { useCreateComment } from "@/hooks/tanstack/mutations/useCreateComment";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 import { useForm, type FieldValues } from "react-hook-form";
 
 interface CommentInputProps {
-  postType: MainCategory;
+  postType: PostType;
   postId: string;
 }
 
@@ -25,11 +25,11 @@ const CommentInput = ({ postType, postId }: CommentInputProps) => {
   return (
     <div className="px-16 pb-6">
       <form
-        className="flex w-full h-52 border border-black-400 rounded-8 px-16 py-8 items-center"
+        className="flex h-52 w-full items-center rounded-8 border border-black-400 px-16 py-8"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
-          className="flex-1 placeholder:text-black-400 outline-none"
+          className="flex-1 outline-none placeholder:text-black-400"
           type="text"
           placeholder="댓글을 입력하세요"
           {...register("comment", {

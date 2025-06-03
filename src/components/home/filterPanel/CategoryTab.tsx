@@ -1,23 +1,27 @@
 "use client";
 
-import { MAIN_CATEGORY } from "@/data/categoryData";
-import { useCategoryStore } from "@/hooks/state/useZustandStore";
+import { POST_TYPES } from "@/constants/filterOptions";
+import type { PostType } from "@/types/postTypes";
+import { Dispatch, SetStateAction } from "react";
 
-const CategoryTab = () => {
-  const { selectedMenu, selectMenu } = useCategoryStore((state) => state);
+interface CategoryTabProps {
+  selectedMenu: PostType;
+  setSelectedMenu: Dispatch<SetStateAction<PostType>>;
+}
 
+const CategoryTab = ({ selectedMenu, setSelectedMenu }: CategoryTabProps) => {
   return (
     <div className="sticky flex gap-x-20 border-b-1 border-black-300 px-20 pt-13">
-      {MAIN_CATEGORY.map((c) => (
+      {POST_TYPES.map((category) => (
         <button
-          onClick={() => selectMenu(c)}
-          key={c}
+          onClick={() => setSelectedMenu(category)}
+          key={category}
           className="body-14-s mb-4 flex min-w-fit flex-col items-center"
         >
-          {c}
+          {category}
           <div
             className={`absolute -bottom-2 h-3 w-39 rounded-full ${
-              selectedMenu === c ? "bg-green-600" : "bg-transparent"
+              selectedMenu === category ? "bg-green-600" : "bg-transparent"
             }`}
           ></div>
         </button>

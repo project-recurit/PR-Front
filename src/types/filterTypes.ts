@@ -1,17 +1,23 @@
 import type { TechStack } from "./commonTypes";
+import type { PostType } from "./postTypes";
 import type { createCategoryStore } from "@/stores/categoryStore";
 import type { createPostSearchStore } from "@/stores/postSearchStore";
 
-export type MainCategory = "PJ" | "PR";
+export type PostFilter = {
+  positions: string[];
+  techStacks: TechStack[];
+  modes: string[];
+  durations: string[];
+};
 
 export type CategoryState = {
-  selectedMenu: MainCategory;
-  activeFilters: Set<TechStack>;
+  selectedMenu: PostType;
+  activeFilters: TechStack[];
 };
 
 export type CategoryActions = {
-  selectMenu: (menu: MainCategory) => void;
-  applyFilter: (selectedFilter: Set<TechStack>) => void;
+  selectMenu: (menu: PostType) => void;
+  applyFilter: (selectedFilter: TechStack[]) => void;
   resetFilter: () => void;
 };
 

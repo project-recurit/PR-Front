@@ -1,13 +1,13 @@
 import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
-import { tempAccessToken } from "@/data/tempAccessToken";
+import { tempAccessToken } from "@/constants/tempAccessToken";
 import type { Comment } from "@/types/commentTypes";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 import { handleError } from "@/utils/handleError";
 
 /** 댓글 요청 api */
 export const getCommentsApi = handleError(
-  async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {
+  async ({ postType, postId }: { postType: PostType; postId: string }): Promise<Comment[]> => {
     const res = await fetch(COMMENT_API_URL[postType](postId), {
       method: "GET",
       headers: COMMON_HEADERS,
@@ -22,7 +22,7 @@ export const getCommentsApi = handleError(
 
 /** 대댓글 요청 api */
 export const getReplyCommentsApi = handleError(
-  async ({ postType, postId }: { postType: MainCategory; postId: string }): Promise<Comment[]> => {
+  async ({ postType, postId }: { postType: PostType; postId: string }): Promise<Comment[]> => {
     const res = await fetch(COMMENT_API_URL.reply[postType](postId), {
       method: "GET",
       headers: COMMON_HEADERS,
@@ -43,7 +43,7 @@ export const createCommentApi = handleError(
     comment,
     parentId,
   }: {
-    postType: MainCategory;
+    postType: PostType;
     postId: string;
     comment: string;
     parentId?: number;

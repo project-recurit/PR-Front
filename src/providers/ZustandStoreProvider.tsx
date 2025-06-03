@@ -1,15 +1,14 @@
 "use client";
 
+import { CategoryStoreContext } from "@/contexts/CategoryStoreContext";
+import { PostSearchStoreContext } from "@/contexts/PostSearchStoreContext";
+import { RegisterStoreContext } from "@/contexts/RegisterStoreContext";
 import { createCategoryStore } from "@/stores/categoryStore";
 import { createPostSearchStore } from "@/stores/postSearchStore";
 import { createRegisterStore } from "@/stores/registerStore";
 import type { RegisterStoreApi } from "@/types/authTypes";
 import type { CategoryStoreApi, PostSearchStoreApi } from "@/types/filterTypes";
-import { createContext, useRef } from "react";
-
-export const CategoryStoreContext = createContext<CategoryStoreApi | undefined>(undefined);
-export const PostSearchStoreContext = createContext<PostSearchStoreApi | undefined>(undefined);
-export const RegisterStoreContext = createContext<RegisterStoreApi | undefined>(undefined);
+import { useRef } from "react";
 
 interface ZustandStoreProviderProps {
   children: Readonly<React.ReactNode>;

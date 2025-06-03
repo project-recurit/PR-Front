@@ -3,30 +3,30 @@
 import FilterActionBar from "./FilterActionBar";
 import FilterMenu from "./FilterMenu";
 import Header from "@/components/layout/Header";
-import { useCategoryStore } from "@/hooks/state/useZustandStore";
 import { useState } from "react";
 
 interface FilterSheetProps {
   closeModal: () => void;
+  appliedFilters: Set<string>;
 }
 
-const FilterSheet = ({ closeModal }: FilterSheetProps) => {
-  const { activeFilters } = useCategoryStore((state) => state);
-  const [selectedFilter, setSelectedFilter] = useState<Set<string>>(activeFilters);
+const FilterSheet = ({ closeModal, appliedFilters }: FilterSheetProps) => {
+  const [selectedFilters, setSelectedFilter] = useState<Set<string>>(appliedFilters);
 
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div className="flex h-screen w-screen flex-col">
       <Header
         heading="필터"
         backButtonEvent={closeModal}
       />
       <FilterMenu
-        selectedFilter={selectedFilter}
+        selectedFilter={selectedFilters}
         setSelectedFilter={setSelectedFilter}
       />
       <FilterActionBar
         closeModal={closeModal}
-        selectedFilter={selectedFilter}
+        appliedFilters={appliedFilters}
+        setSelectedFilter={setSelectedFilter}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { SOCIAL_META } from "@/data/socialData";
+import { SOCIAL_META } from "@/constants/socialMetas";
 import { signIn } from "next-auth/react";
 
 interface SocialLogInButtonProps {
