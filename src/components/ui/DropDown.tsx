@@ -1,42 +1,45 @@
 "use client";
 
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
-import { useDropDownControl } from "@/hooks/dropDownControl";
+import { useCallback } from "react";
 
 interface DropDownProps {
   children: string;
+  isDropDownOpen: boolean;
+  openDropDown: () => void;
+  closeDropDown: () => void;
   options: string[];
   value?: string;
-  setValue?: (v: string) => void;
+  setValue: (v: string) => void;
 }
 
-const DropDown = ({ children, options, value, setValue }: DropDownProps) => {
-  const { isDropDownOpen, closeDropDown, openDropDown } = useDropDownControl();
-
-  const handleDropdownValue = (v: string) => {
-    if (setValue) {
-      setValue(v);
-    }
-    closeDropDown();
-  };
-
-  const handleResetValue = () => {
-    if (setValue) {
-      setValue("");
-    }
-    closeDropDown();
-  };
+const DropDown = ({
+  children,
+  isDropDownOpen,
+  openDropDown,
+  closeDropDown,
+  options,
+  value,
+  setValue,
+}: DropDownProps) => {
+  const handleValue = useCallback(
+    (value: string) => {
+      setValue(value);
+      closeDropDown();
+    },
+    [closeDropDown, setValue],
+  );
 
   return (
-    <div className="relative w-full body-16-r">
+    <div className="body-16-r relative w-full">
       {isDropDownOpen ? (
         <ol
-          className={`h-[357px] py-14 absolute top-0 bg-white w-full flex flex-col justify-between left-0 rounded-8 px-16 border-1 border-black-400`}
+          className={`h-357 absolute left-0 top-0 flex w-full flex-col justify-between rounded-8 border-1 border-black-400 bg-white px-16 py-14`}
         >
           <li>
             <button
-              onClick={handleResetValue}
-              className="flex justify-between"
+              onClick={() => handleValue("")}
+              className="flex w-full justify-between"
             >
               {children}
               <ChevronUp />
@@ -46,7 +49,7 @@ const DropDown = ({ children, options, value, setValue }: DropDownProps) => {
           {options.map((option) => (
             <li
               key={option}
-              onClick={() => handleDropdownValue(option)}
+              onClick={() => handleValue(option)}
             >
               {option}
             </li>
@@ -55,7 +58,7 @@ const DropDown = ({ children, options, value, setValue }: DropDownProps) => {
       ) : (
         <button
           onClick={openDropDown}
-          className={`px-16 w-full h-52 flex justify-between items-center body-16-r  border-1 border-black-400 rounded-8 ${
+          className={`body-16-r flex h-52 w-full items-center justify-between rounded-8 border-1 border-black-400 px-16 ${
             isDropDownOpen || value ? "text-black-1000" : "text-black-400"
           }`}
         >

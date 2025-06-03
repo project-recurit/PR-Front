@@ -1,6 +1,6 @@
 import SkillBadge from "./SkillBadge";
 import SearchBar from "@/components/ui/SearchBar";
-import { TechStack } from "@/types/type";
+import type { TechStack } from "@/types/commonTypes";
 import { useState } from "react";
 
 const SecondStep = ({
@@ -19,7 +19,7 @@ const SecondStep = ({
   };
 
   const selectStack = (stack: TechStack) => {
-    setTechStackIds(stack.techStackId);
+    setTechStackIds(stack.id);
     if (selectedStacks.includes(stack)) {
       setSelectedStacks(selectedStacks.filter((s) => s !== stack));
     } else {
@@ -48,7 +48,7 @@ const SecondStep = ({
               {serchList().map((s) => (
                 <div
                   className="py-14 px-16"
-                  key={s.techStackId}
+                  key={s.id}
                   onClick={() => selectStack(s)}
                 >
                   {s.name}
@@ -70,7 +70,7 @@ const SecondStep = ({
                 selectStack(s);
                 setValue("");
               }}
-              key={s.techStackId}
+              key={s.id}
             >
               {s.name}
             </SkillBadge>

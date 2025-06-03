@@ -52,5 +52,3 @@ export const FILTER_MENU = [
     chips: ["3개월 미만", "3개월", "6개월", "9개월", "12개월"],
   },
 ];
-
-export const DUTY_CATEGORY = ["게임", "기획", "디자인", "모바일/APP", "백엔드", "프론트엔드"];

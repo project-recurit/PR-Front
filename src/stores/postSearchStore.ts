@@ -8,7 +8,7 @@ const initialState: PostSearchState = {
 export const createPostSearchStore = () => {
   return createStore<PostSearchStore>()((set) => ({
     ...initialState,
-    applySearchQuery: (searchQuery: string) => set({ searchQuery }),
-    clearSearchQuery: () => set({ searchQuery: "" }),
+    applySearchQuery: (searchQuery) => set({ searchQuery }),
+    clearSearchQuery: () => set(initialState),
   }));
 };

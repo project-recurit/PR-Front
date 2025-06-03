@@ -24,13 +24,17 @@ const px0_200 = Array.from(Array(201), (_, i) => [`${i}`, `${i}px`]).reduce(
   {} as { [key: string]: string },
 );
 
+const px0_500 = Array.from(Array(501), (_, i) => [`${i}`, `${i}px`]).reduce(
+  (acc, [key, value]) => {
+    acc[key] = value;
+    return acc;
+  },
+  {} as { [key: string]: string },
+);
+
 export default {
   mode: "jit",
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     screens: {
       sm: "391px",
@@ -47,7 +51,7 @@ export default {
       padding: px0_100,
       gap: px0_10,
       width: px0_200,
-      height: px0_200,
+      height: px0_500,
       fontFamily: {
         pretendard: ["Pretendard"],
       },

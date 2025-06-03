@@ -1,4 +1,5 @@
-import { CategoryStoreContext, PostSearchStoreContext } from "@/providers/ZustandStoreProvider";
+import { CategoryStoreContext, PostSearchStoreContext, RegisterStoreContext } from "@/providers/ZustandStoreProvider";
+import type { RegisterStore } from "@/types/authTypes";
 import type { CategoryStore, PostSearchStore } from "@/types/filterTypes";
 import { useContext } from "react";
 import { useStore } from "zustand";
@@ -21,4 +22,14 @@ export const usePostSearchStore = <T>(selector: (store: PostSearchStore) => T): 
   }
 
   return useStore(postSearchStoreContext, selector);
+};
+
+export const useRegisterStore = <T>(selector: (store: RegisterStore) => T): T => {
+  const registerStoreContext = useContext(RegisterStoreContext);
+
+  if (!registerStoreContext) {
+    throw new Error("회원 정보를 가져오지 못했습니다.");
+  }
+
+  return useStore(registerStoreContext, selector);
 };

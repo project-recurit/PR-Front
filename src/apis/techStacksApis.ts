@@ -4,16 +4,11 @@ import { handleError } from "@/utils/handleError";
 
 /** 기술 스택 요청 api */
 export const getTeckStacksApi = handleError(async () => {
-  try {
-    const res = await fetch(TECH_STACK_API_URL, {
-      method: "GET",
-      headers: COMMON_HEADERS,
-      cache: "no-store",
-    });
-    const data = await res.json();
-    return data.data;
-  } catch (error) {
-    console.error(error);
-    return;
-  }
+  const res = await fetch(TECH_STACK_API_URL, {
+    method: "GET",
+    headers: COMMON_HEADERS,
+    cache: "force-cache",
+  });
+  const { data } = await res.json();
+  return data;
 });

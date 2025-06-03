@@ -10,8 +10,7 @@ interface RegisterLatoutProps {
 }
 
 const RegisterLatout = ({ children }: RegisterLatoutProps) => {
-  return <>
-    {children}</>;
+  return <>{children}</>;
 };
 
 export default RegisterLatout;

@@ -21,12 +21,16 @@
     }
   } */
 
-  /* 스크롤바 숨김 */
-  ::-webkit-scrollbar {
-    display: none;
+  /* 기본 스타일 */
+  html,
+  body,
+  #__next {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
   }
 
-  /* 기본 스타일 */
   body {
     color: var(--foreground);
     background: var(--background);
@@ -135,6 +139,10 @@
     @apply text-24 font-bold leading-[1];
   }
 
+  .caption-16-b {
+    @apply text-16 font-bold leading-[1];
+  }
+
   .caption-12-s {
     @apply text-12 font-semibold leading-[1];
   }
@@ -145,6 +153,10 @@
 
   .caption-16-r {
     @apply text-16 font-normal leading-[1];
+  }
+
+  .caption-14-r {
+    @apply text-14 font-normal leading-[1];
   }
 
   .caption-12-r {
