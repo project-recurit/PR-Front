@@ -43,26 +43,24 @@ export const {
 
       const data = await socialLogInApi({ user, account });
       if (data.status === "USER_INFO_UPDATE" || data.status === "LOGIN_SUCCESS") {
-        account.access_token = data.data.accessToken;
-        account.status = data.status;
+        user.accessToken = data.data.accessToken as string;
+        user.status = data.status as string;
         return true;
       }
 
       return false;
     },
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token;
-        token.status = account.status;
-        token.socialId = account.providerAccountId;
+    async jwt({ token, user, account }) {
+      if (user && account) {
+        return { ...token, accessToken: user.accessToken, status: user.status, socialId: account.providerAccountId };
       }
       return token;
     },
     async session({ session, token }) {
       return {
         ...session,
-        user: { ...session.user, socialId: token.socialId },
-        status: token.status,
+        user: { ...session.user, socialId: token.socialId as string },
+        status: token.status as string,
       };
     },
   },

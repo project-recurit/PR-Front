@@ -30,7 +30,7 @@ export type RegisterFormData = RegisterData & {
 };
 
 export type RegisterApiParams = RegisterData & {
-  socialId: number;
+  socialId: string;
   techStackIds: number[];
 };
 

@@ -20,8 +20,8 @@ const Filter = () => {
               return (
                 <SelectChip
                   size="s"
-                  key={filter}
-                  content={filter}
+                  key={filter.id}
+                  content={filter.name}
                   active={true}
                   onClick={() => applyFilter(new Set([...activeFilters].filter((f) => f !== filter)))}
                 />
