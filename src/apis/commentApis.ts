@@ -1,6 +1,6 @@
 import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
-import { tempAccessToken } from "@/constants/componentsAccessToken";
+import { tempAccessToken } from "@/constants/tempAccessToken";
 import type { Comment } from "@/types/commentTypes";
 import type { PostType } from "@/types/postTypes";
 import { handleError } from "@/utils/handleError";
