@@ -13,12 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install OpenSSH
-        run: apt-get update && apt-get install -y openssh-client
-
       - name: Install mustache (to update the date)
-
         run: apk add ruby && gem install mustache
+
+      - name: Install OpenSSH (Alpine Linux)
+        run: apk add --no-cache openssh-client
 
       - name: Configure SSH Key
         run: |
@@ -28,31 +27,20 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: creates output
-
         run: sh ./build.sh
 
       - name: Pushes to another repository
-
         id: push_directory
-
         uses: cpina/github-action-push-to-another-repository@main
-
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-
         with:
           source-directory: "output"
-
           destination-github-username: ldcumg
-
           destination-repository-name: DAMO
-
           user-email: ${{ secrets.DEPLOY_EMAIL }}
-
           commit-message: ${{ github.event.commits[0].message }}
-
           target-branch: main
 
       - name: Test get variable exported by push-to-another-repository
-
         run: echo $DESTINATION_CLONED_DIRECTORY
