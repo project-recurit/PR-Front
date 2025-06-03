@@ -1,5 +1,5 @@
-import MainHeader from "@/temp/main/layout/MainHeader";
-import NavigationBar from "@/temp/main/layout/NavigationBar";
+import MainHeader from "@/components/main/layout/MainHeader";
+import NavigationBar from "@/components/main/layout/NavigationBar";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 

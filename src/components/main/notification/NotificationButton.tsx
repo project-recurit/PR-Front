@@ -2,8 +2,8 @@
 
 import NotificationSheet from "./NotificationSheet";
 import { Bell } from "@/assets/svgs/icons";
+import Modal from "@/components/ui/Modal";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
-import Modal from "@/temp/ui/Modal";
 
 const NotificationButton = () => {
   const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure();
