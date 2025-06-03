@@ -29,7 +29,7 @@ jobs:
         run: sh ./build.sh
 
       - name: Push to another repository
-        uses: cpina/github-action-push-to-another-repository@dev
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
