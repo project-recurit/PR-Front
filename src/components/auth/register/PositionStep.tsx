@@ -1,6 +1,6 @@
 "use client";
 
-import DropDown from "@/components-temp/ui/DropDown";
+import DropDown from "@/components/ui/DropDown";
 import { POSITIONS } from "@/constants/filterOptions";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 
