@@ -53,7 +53,7 @@ export const createCommentApi = handleError(
       ...(parentId && { parentId }),
     });
 
-    const res = await fetch(COMMENT_API_URL.create[postType](postId), {
+    return await fetch(COMMENT_API_URL.create[postType](postId), {
       method: "POST",
       headers: AUTHORIZATION_HEADERS(tempAccessToken),
       cache: "no-store",
