@@ -2,8 +2,8 @@
 
 import FilterSheet from "./FilterSheet";
 import { FilterFunnel } from "@/assets/svgs/icons";
-import Modal from "@/components-temp/ui/Modal";
-import SelectChip from "@/components-temp/ui/SelectChip";
+import Modal from "@/components/ui/Modal";
+import SelectChip from "@/components/ui/SelectChip";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 
 interface FilterSectionProps {
