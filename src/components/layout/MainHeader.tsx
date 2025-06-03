@@ -2,20 +2,22 @@
 
 import CategoryTab from "../home/filterPanel/CategoryTab";
 import NotificationSheet from "../home/notification/NotificationSheet";
+import Modal from "../ui/Modal";
 import { Bell } from "@/assets/svgs/icons";
-import { useModal } from "@/hooks/modal/useModal";
+import ROUTES from "@/constants/routes";
+import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 import Link from "next/link";
 
 const MainHeader = () => {
-  const { Modal, isModalOpen, openModal,closeModal } = useModal();
+  const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure();
 
   return (
     <>
-      <header className="sticky top-0 z-10 flex flex-col bg-white">
+      <header className="sticky top-0 z-10 bg-white flex flex-col">
         <div className="flex justify-between px-20 py-9">
           <Link
-            href="/"
-            className="text-24 font-black leading-tight"
+            href={ROUTES.home}
+            className="font-black leading-tight text-24"
           >
             LOGO
           </Link>

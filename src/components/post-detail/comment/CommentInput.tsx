@@ -1,6 +1,6 @@
 "use client";
 
-import { useCreateComment } from "@/hooks/mutations/useCreateComment";
+import { useCreateComment } from "@/hooks/tanstack/mutations/useCreateComment";
 import type { MainCategory } from "@/types/filterTypes";
 import { useForm, type FieldValues } from "react-hook-form";
 
@@ -14,7 +14,7 @@ const CommentInput = ({ postType, postId }: CommentInputProps) => {
   const { mutate: createCommentMutate } = useCreateComment({ postType, postId });
 
   const onSubmit = ({ comment }: FieldValues) => {
-    if (comment.trim() === "") {
+    if (!comment.trim()) {
       setValue("comment", "");
       return;
     }

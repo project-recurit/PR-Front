@@ -1,14 +1,18 @@
 "use client";
 
 import Header from "@/components/layout/Header";
+import { useGetNotifications } from "@/hooks/tanstack/queries/useGetNotifications";
 
 interface NotificationSheetProps {
   closeModal: () => void;
 }
 
 const NotificationSheet = ({ closeModal }: NotificationSheetProps) => {
+  const { data: notificationData } = useGetNotifications();
+  console.log(" notificationData => ", notificationData);
+
   return (
-    <div className="z-50 h-screen w-screen bg-white">
+    <div className="w-screen h-screen bg-white">
       <Header backButtonEvent={closeModal} />
       <div>
         <div>

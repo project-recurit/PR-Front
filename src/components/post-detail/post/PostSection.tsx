@@ -4,7 +4,7 @@ import PJPostBody from "./PJPostBody";
 import PRPostBody from "./PRPostBody";
 import Engagement from "@/components/layout/Engagement";
 import PostProfile from "@/components/layout/PostProfile";
-import { useGetPostDetailQuery } from "@/hooks/queries/useGetPosts";
+import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
 import type { MainCategory } from "@/types/filterTypes";
 
 interface PostSectionProps {
@@ -15,7 +15,7 @@ interface PostSectionProps {
 
 const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   const { data: postData, isPending, isError, error } = useGetPostDetailQuery({ postType, postId });
-  console.log(' postData => ', postData);
+  console.log(" postData => ", postData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>게시물을 불러오고 있습니다.</div>;
@@ -28,13 +28,15 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
         userNickname={postData.userNickname}
         modifiedAt={postData.modifiedAt}
       />
-      {postData.title}
+      <h2>{postData.title}</h2>
       <Engagement
         viewCount={postData.viewCount}
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}
       />
-      {isPJPost ? <PJPostBody /> : <PRPostBody />}
+      <div>{isPJPost ? <PJPostBody /> : <PRPostBody />}</div>
+      <hr className="-mx-16 border-black-200" />
+      <div className="py-24">댓글 {postData.commentCount}</div>
     </section>
   );
 };

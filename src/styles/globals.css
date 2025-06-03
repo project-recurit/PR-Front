@@ -21,12 +21,16 @@
     }
   } */
 
-  /* 스크롤바 숨김 */
-  ::-webkit-scrollbar {
-    display: none;
+  /* 기본 스타일 */
+  html,
+  body,
+  #__next {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
   }
 
-  /* 기본 스타일 */
   body {
     color: var(--foreground);
     background: var(--background);
@@ -50,93 +54,113 @@
 
   /* 제목 스타일 */
   .title-32-b {
-    @apply text-[32px] font-bold leading-[1.2];
+    @apply text-32 font-bold leading-[1.2];
   }
 
   .title-28-b {
-    @apply text-[28px] font-bold leading-[1.2];
+    @apply text-28 font-bold leading-[1.2];
   }
 
   .title-24-b {
-    @apply text-[24px] font-bold leading-[1.2];
+    @apply text-24 font-bold leading-[1.2];
   }
 
   .title-24-s {
-    @apply text-[24px] font-semibold leading-[1.2];
+    @apply text-24 font-semibold leading-[1.2];
   }
 
   .title-20-b {
-    @apply text-[20px] font-bold leading-[1.2];
+    @apply text-20 font-bold leading-[1.2];
   }
 
   .title-20-s {
-    @apply text-[20px] font-semibold leading-[1.2];
+    @apply text-20 font-semibold leading-[1.2];
   }
 
   .title-20-m {
-    @apply text-[20px] font-medium leading-[1.2];
+    @apply text-20 font-medium leading-[1.2];
   }
 
   .title-20-r {
-    @apply text-[20px] font-normal leading-[1.2];
+    @apply text-20 font-normal leading-[1.2];
   }
 
   .title-18-b {
-    @apply text-[18px] font-bold leading-[1.2];
+    @apply text-18 font-bold leading-[1.2];
   }
 
   .title-18-s {
-    @apply text-[18px] font-semibold leading-[1.2];
+    @apply text-18 font-semibold leading-[1.2];
   }
 
   .title-18-m {
-    @apply text-[18px] font-medium leading-[1.2];
+    @apply text-18 font-medium leading-[1.2];
   }
 
   .title-18-r {
-    @apply text-[18px] font-normal leading-[1.2];
+    @apply text-18 font-normal leading-[1.2];
   }
 
   /* 본문 스타일 */
   .body-16-b {
-    @apply text-[16px] font-bold leading-[1.35];
+    @apply text-16 font-bold leading-[1.35];
   }
 
   .body-16-s {
-    @apply text-[16px] font-semibold leading-[1.35];
+    @apply text-16 font-semibold leading-[1.35];
   }
 
   .body-16-m {
-    @apply text-[16px] font-medium leading-[1.35];
+    @apply text-16 font-medium leading-[1.35];
   }
 
   .body-16-r {
-    @apply text-[16px] font-normal leading-[1.35];
+    @apply text-16 font-normal leading-[1.35];
   }
 
   .body-14-s {
-    @apply text-[14px] font-semibold leading-[1.35];
+    @apply text-14 font-semibold leading-[1.35];
   }
 
   .body-14-m {
-    @apply text-[14px] font-medium leading-[1.35];
+    @apply text-14 font-medium leading-[1.35];
   }
 
   .body-14-r {
-    @apply text-[14px] font-normal leading-[1.35];
+    @apply text-14 font-normal leading-[1.35];
   }
 
   /* 캡션 스타일 */
-  .caption-r {
-    @apply text-[12px] font-normal leading-[1];
+  .caption-40-b {
+    @apply text-40 font-bold leading-[1];
   }
 
-  .caption-s {
-    @apply text-[12px] font-semibold leading-[1];
+  .caption-24-b {
+    @apply text-24 font-bold leading-[1];
   }
 
-  .caption-10 {
-    @apply text-[10px] font-semibold leading-[1];
+  .caption-16-b {
+    @apply text-16 font-bold leading-[1];
+  }
+
+  .caption-12-s {
+    @apply text-12 font-semibold leading-[1];
+  }
+
+  .caption-10-s {
+    @apply text-10 font-semibold leading-[1];
+  }
+
+  .caption-16-r {
+    @apply text-16 font-normal leading-[1];
+  }
+
+  .caption-14-r {
+    @apply text-14 font-normal leading-[1];
+  }
+
+  .caption-12-r {
+    @apply text-12 font-normal leading-[1];
   }
 }
 

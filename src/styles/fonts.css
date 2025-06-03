@@ -5,6 +5,6 @@
   font-style: normal;
 }
 
-body {
-  font-family: 'Pretendard';
+* {
+  font-family: 'Pretendard', Arial, sans-serif;
 }

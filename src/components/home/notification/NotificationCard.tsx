@@ -1,16 +1,16 @@
 "use client";
 
-import { NOTIFICATION_TYPE } from "@/assets/constantData";
+import { NOTIFICATION_TEMPLATE } from "@/data/notificationData";
 
 interface NotificationCardProps {
-  notificationType: keyof typeof NOTIFICATION_TYPE;
+  notificationType: keyof typeof NOTIFICATION_TEMPLATE;
   read?: boolean;
   subject: string;
   receivedAt: string;
 }
 
 const NotificationCard = ({ notificationType, subject, receivedAt }: NotificationCardProps) => {
-  const { icon: Icon, message } = NOTIFICATION_TYPE[notificationType];
+  const { icon: Icon, message } = NOTIFICATION_TEMPLATE[notificationType];
   return (
     <div>
       <Icon />

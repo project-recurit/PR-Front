@@ -1,20 +1,18 @@
 "use client";
 
-import { MAIN_CATEGORY } from "@/assets/constantData";
+import { MAIN_CATEGORY } from "@/data/categoryData";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
-import { usePathname } from "next/navigation";
 
 const CategoryTab = () => {
-  const path = usePathname();
   const { selectedMenu, selectMenu } = useCategoryStore((state) => state);
 
   return (
-    <div className={`sticky z-10 flex gap-x-20 border-b-1 border-black-300 px-20 pt-13 ${path !== "/" && "hidden"}`}>
+    <div className="sticky flex gap-x-20 border-b-1 border-black-300 px-20 pt-13">
       {MAIN_CATEGORY.map((c) => (
         <button
           onClick={() => selectMenu(c)}
           key={c}
-          className={`body-14-s mb-4 flex min-w-fit flex-col items-center`}
+          className="body-14-s mb-4 flex min-w-fit flex-col items-center"
         >
           {c}
           <div

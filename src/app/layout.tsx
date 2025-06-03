@@ -1,8 +1,11 @@
+import { auth } from "@/auth";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
+import { getToken } from "next-auth/jwt";
+import { cookies } from "next/headers";
 
 //TODO - 수정
 export const metadata: Metadata = {
@@ -24,15 +27,17 @@ export const metadata: Metadata = {
   // manifest: '/manifest.ts',
 };
 
-const RootLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+interface RootLayoutProps {
+  children: Readonly<React.ReactNode>;
+}
+
+const RootLayout = async ({ children }: RootLayoutProps) => {
+  const session = await auth();
+
   return (
     <html lang="ko">
       <body>
-        <AuthSession>
+        <AuthSession session={session}>
           <QueryProvider>
             <ZustandStoreProvider>
               <div id="modal-root"></div>

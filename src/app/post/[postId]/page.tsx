@@ -1,4 +1,3 @@
-import PostDetailBottomBar from "@/components/post-detail/PostDetailBottomBar";
 import CommentSection from "@/components/post-detail/comment/CommentSection";
 import PostSection from "@/components/post-detail/post/PostSection";
 import type { MainCategory } from "@/types/filterTypes";
@@ -16,7 +15,7 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
   const { type: postType } = use(searchParams);
   const isPJPost = postType === "PJ";
   return (
-    <div className="">
+    <main className="mb-68">
       <PostSection
         postId={postId}
         postType={postType}
@@ -26,8 +25,7 @@ const PostDetailPage = ({ params, searchParams }: PostDetailPageProps) => {
         postType={postType}
         postId={postId}
       />
-      <PostDetailBottomBar isPJPost={isPJPost} />
-    </div>
+    </main>
   );
 };
 

@@ -13,7 +13,7 @@ interface PostInfoProps {
 //TODO - 카드 스타일 상수화 후 카드 컴포넌트 삭제
 const PostInfo = ({ children, userNickname, modifiedAt, viewCount, commentCount, favoriteCount }: PostInfoProps) => {
   return (
-    <section className="flex w-full flex-col gap-y-12 rounded-xl border bg-white px-20 py-12 shadow-sm">
+    <section className="flex flex-col w-full px-20 py-12 bg-white border shadow-sm gap-y-12 rounded-xl">
       <PostProfile
         userNickname={userNickname}
         modifiedAt={modifiedAt}

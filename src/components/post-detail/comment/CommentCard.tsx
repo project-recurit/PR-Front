@@ -1,19 +1,19 @@
 "use client";
 
 import type { Comment } from "@/types/commentTypes";
-import { getRelativeTime } from "@/utils/timeCalculation";
+import { formatTimeAgo } from "@/utils/timeCalculation";
 
 interface CommentCardProps {
   commentData: Comment;
 }
 
 const CommentCard = ({ commentData }: CommentCardProps) => {
-  const realativeTime = getRelativeTime(commentData.createdAt);
+  const realativeTime = formatTimeAgo(commentData.createdAt);
 
   return (
-    <>
+    <div className="flex flex-row gap-12 border-b border-b-black-200 px-16 py-18">
       <img
-        className="w-40 h-40 rounded-full"
+        className="h-40 w-40 rounded-full"
         src={commentData.profileUrl}
         alt="profile image"
       />
@@ -24,8 +24,9 @@ const CommentCard = ({ commentData }: CommentCardProps) => {
         </div>
         <div>{commentData.content}</div>
         <button className="flex">답글</button>
+        {commentData.replyCount > 0 && <button>댓글 {commentData.replyCount}개 더보기</button>}
       </div>
-    </>
+    </div>
   );
 };
 
