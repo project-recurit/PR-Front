@@ -1,12 +1,10 @@
-import { getTechStacksApi } from "@/apis/techStacksApis";
 import PostContainer from "@/components/home/PostContainer";
 import FloatingButton from "@/components/ui/FloatingButton";
 
-const HomePage = async () => {
-  const allTechStacks = await getTechStacksApi();
+const HomePage = () => {
   return (
     <main className="mb-56 flex flex-col">
-      <PostContainer allTechStacks={allTechStacks} />
+      <PostContainer />
       <FloatingButton />
     </main>
   );

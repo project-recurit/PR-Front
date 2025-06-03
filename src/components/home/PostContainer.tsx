@@ -3,14 +3,9 @@
 import ReactHookFormSearchBar from "../ui/ReactHookFormSearchBar";
 import PostList from "./body/PostList";
 import Filter from "./filterPanel/Filter";
-import type { TechStack } from "@/types/commonTypes";
 import { useForm } from "react-hook-form";
 
-interface PostContainerProps {
-  allTechStacks: TechStack[];
-}
-
-const PostContainer = ({ allTechStacks }: PostContainerProps) => {
+const PostContainer = () => {
   const { register, setValue, handleSubmit, resetField, setFocus, getValues } = useForm();
   const searchQuery = getValues("homeSearch");
   console.log("searchQuery =", searchQuery);

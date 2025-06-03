@@ -6,13 +6,8 @@ import Modal from "@/components/ui/Modal";
 import SelectChip from "@/components/ui/SelectChip";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
-import type { TechStack } from "@/types/commonTypes";
 
-interface FilterProps {
-  allTechStacks: TechStack[];
-}
-
-const Filter = ({ allTechStacks }: FilterProps) => {
+const Filter = () => {
   const { isOpen: isModalOpen, open: openModal, close: closeModal } = useDisclosure();
   const { activeFilters, applyFilter } = useCategoryStore((state) => state);
 
@@ -45,7 +40,6 @@ const Filter = ({ allTechStacks }: FilterProps) => {
       </div>
       <Modal isModalOpen={isModalOpen}>
         <FilterSheet
-          allTechStacks={allTechStacks}
           closeModal={closeModal}
         />
       </Modal>

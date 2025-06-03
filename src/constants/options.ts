@@ -5,7 +5,7 @@ export const MAIN_CATEGORY: MainCategory[] = ["PJ", "PR"] as const;
 
 export const POSITIONS = ["게임", "기획", "디자인", "모바일/APP", "백엔드", "프론트엔드"];
 
-export const createFilterMenus = (allTechStacks: TechStack[]) => [
+export const createFilterMenus = (allTechStacks: Readonly<TechStack[]>) => [
   {
     category: "포지션",
     chips: POSITIONS,

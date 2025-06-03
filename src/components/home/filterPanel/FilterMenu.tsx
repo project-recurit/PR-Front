@@ -1,16 +1,17 @@
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
 import SelectChip from "@/components/ui/SelectChip";
 import { createFilterMenus } from "@/constants/options";
+import { useTechStacksContext } from "@/hooks/state/useContext";
 import type { TechStack } from "@/types/commonTypes";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface FilterMenuProps {
-  allTechStacks: TechStack[];
   selectedFilter: TechStack[];
   setSelectedFilter: Dispatch<SetStateAction<TechStack[]>>;
 }
 
-const FilterMenu = ({ allTechStacks, selectedFilter, setSelectedFilter }: FilterMenuProps) => {
+const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
+  const allTechStacks = useTechStacksContext();
   const [isShowChips, setIsShowChips] = useState<Record<string, boolean>>({
     포지션: true,
     "기술 스택": true,

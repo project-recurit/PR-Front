@@ -8,11 +8,10 @@ import type { TechStack } from "@/types/commonTypes";
 import { useState } from "react";
 
 interface FilterSheetProps {
-  allTechStacks: TechStack[];
   closeModal: () => void;
 }
 
-const FilterSheet = ({ allTechStacks, closeModal }: FilterSheetProps) => {
+const FilterSheet = ({ closeModal }: FilterSheetProps) => {
   const { activeFilters } = useCategoryStore((state) => state);
   const [selectedFilter, setSelectedFilter] = useState<TechStack[]>(activeFilters);
 
@@ -23,7 +22,6 @@ const FilterSheet = ({ allTechStacks, closeModal }: FilterSheetProps) => {
         backButtonEvent={closeModal}
       />
       <FilterMenu
-        allTechStacks={allTechStacks}
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />

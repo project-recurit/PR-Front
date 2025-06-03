@@ -5,13 +5,12 @@ import TechStackSearchBar from "./TechStackSearchBar";
 import type { TechStack } from "@/types/commonTypes";
 
 interface TechStackStepProps {
-  allTechStacks: TechStack[];
   selectedStacks: TechStack[];
   addTechStack: (techStack: TechStack) => void;
   removeTechStack: (techStack: TechStack) => void;
 }
 
-const TechStackStep = ({ allTechStacks, selectedStacks, addTechStack, removeTechStack }: TechStackStepProps) => {
+const TechStackStep = ({ selectedStacks, addTechStack, removeTechStack }: TechStackStepProps) => {
   console.count("lender");
   return (
     <div className="mt-18 flex h-full flex-col">
@@ -22,10 +21,7 @@ const TechStackStep = ({ allTechStacks, selectedStacks, addTechStack, removeTech
         </div>
         <span className="caption-16-b mb-12">보유하신 스킬을 등록해주세요</span>
         <div>
-          <TechStackSearchBar
-            allTechStacks={allTechStacks}
-            addTechStack={addTechStack}
-          />
+          <TechStackSearchBar addTechStack={addTechStack} />
         </div>
       </div>
 

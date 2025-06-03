@@ -1,16 +1,16 @@
 "use client";
 
 import { Search } from "@/assets/svgs/icons";
+import { useTechStacksContext } from "@/hooks/state/useContext";
 import type { TechStack } from "@/types/commonTypes";
 import { useMemo, useRef, useState } from "react";
 
 interface TechStackSearchBarProps {
-  allTechStacks: TechStack[];
   addTechStack: (techStack: TechStack) => void;
 }
 
-const TechStackSearchBar = ({ allTechStacks, addTechStack }: TechStackSearchBarProps) => {
-  console.log("[㏒] allTechStacks =>", allTechStacks);
+const TechStackSearchBar = ({ addTechStack }: TechStackSearchBarProps) => {
+  const allTechStacks = useTechStacksContext();
   const [searchTerm, setSearchTerm] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
