@@ -5,7 +5,7 @@ import PRPostBody from "./PRPostBody";
 import Engagement from "@/components/layout/Engagement";
 import PostProfile from "@/components/layout/PostProfile";
 import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 
 interface PostSectionProps {
   postType: PostType;
@@ -25,7 +25,7 @@ const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
   return (
     <section className="px-16">
       <PostProfile
-        userNickname={postData.userNickname}
+        nickname={postData.nickname}
         modifiedAt={postData.modifiedAt}
       />
       <h2>{postData.title}</h2>

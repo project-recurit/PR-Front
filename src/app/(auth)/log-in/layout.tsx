@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 interface LogInLayoutProps {
-  children: Readonly<React.ReactNode>;
+  children: Readonly<ReactNode>;
 }
 
 const LogInLayout = ({ children }: LogInLayoutProps) => {

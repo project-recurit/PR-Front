@@ -3,6 +3,7 @@
 import { ONE_HOUR_FOR_TANSTACK } from "@/constants/time";
 import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import type { ReactNode } from "react";
 
 const makeQueryClient = () => {
   return new QueryClient({
@@ -26,7 +27,7 @@ const getQueryClient = () => {
   }
 };
 
-const QueryProvider = ({ children }: { children: React.ReactNode }) => {
+const QueryProvider = ({ children }: { children: ReactNode }) => {
   const queryClient = getQueryClient();
 
   return (

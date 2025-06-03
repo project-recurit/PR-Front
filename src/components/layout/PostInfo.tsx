@@ -1,8 +1,9 @@
 import Engagement from "./Engagement";
 import PostProfile from "./PostProfile";
+import type { ReactNode } from "react";
 
 interface PostInfoProps {
-  children: React.ReactNode;
+  children: ReactNode;
   nickname: string;
   modifiedAt: string;
   viewCount: number;

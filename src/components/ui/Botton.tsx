@@ -1,7 +1,9 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 interface Botton {
-  children: string | React.ReactNode;
+  children: string | ReactNode;
   size?: "small" | "medium" | "large";
   color?: "black" | "white";
   className?: string;

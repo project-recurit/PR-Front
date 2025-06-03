@@ -8,7 +8,7 @@ interface DropDownProps {
   isDropDownOpen: boolean;
   openDropDown: () => void;
   closeDropDown: () => void;
-  options: string[];
+  options: Readonly<string[]>;
   value?: string;
   setValue: (v: string) => void;
 }
@@ -34,7 +34,7 @@ const DropDown = ({
     <div className="body-16-r relative w-full">
       {isDropDownOpen ? (
         <ol
-          className={`h-357 absolute left-0 top-0 flex w-full flex-col justify-between rounded-8 border-1 border-black-400 bg-white px-16 py-14`}
+          className={`absolute left-0 top-0 flex h-357 w-full flex-col justify-between rounded-8 border-1 border-black-400 bg-white px-16 py-14`}
         >
           <li>
             <button

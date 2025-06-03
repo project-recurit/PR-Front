@@ -1,6 +1,6 @@
 import COMMENT_QUERY_KEYS from "../queryKeys/commentQueryKeys";
 import { getReplyCommentsApi } from "@/apis/commentApis";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 import { useQuery } from "@tanstack/react-query";
 
 /** 댓글 요청 쿼리 */

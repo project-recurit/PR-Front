@@ -2,10 +2,11 @@
 
 import { TechStacksContext } from "@/contexts/TechStacksContext";
 import type { TechStack } from "@/types/commonTypes";
+import type { ReactNode } from "react";
 
 interface ContextProviderProps {
-  children: Readonly<React.ReactNode>;
-  allStacks: Readonly<TechStack[]>;
+  children: Readonly<ReactNode>;
+  allStacks: TechStack[];
 }
 
 const ContextProvider = ({ children, allStacks }: ContextProviderProps) => {

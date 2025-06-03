@@ -1,7 +1,7 @@
 "use client";
 
 import { useCreateComment } from "@/hooks/tanstack/mutations/useCreateComment";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 import { useForm, type FieldValues } from "react-hook-form";
 
 interface CommentInputProps {
