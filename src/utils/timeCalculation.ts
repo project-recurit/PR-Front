@@ -1,4 +1,5 @@
-export const getRelativeTime = (dateString: string) => {
+/** 날짜를 상대적인 시간으로 변환 */
+export const formatTimeAgo = (dateString: string) => {
   const date = new Date(dateString);
   const now = new Date();
   const diffInMs = now.getTime() - date.getTime();

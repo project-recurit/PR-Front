@@ -1,19 +1,19 @@
 "use client";
 
 import type { Comment } from "@/types/commentTypes";
-import { getRelativeTime } from "@/utils/timeUtils";
+import { formatTimeAgo } from "@/utils/timeCalculation";
 
 interface CommentCardProps {
   commentData: Comment;
 }
 
 const CommentCard = ({ commentData }: CommentCardProps) => {
-  const realativeTime = getRelativeTime(commentData.createdAt);
+  const realativeTime = formatTimeAgo(commentData.createdAt);
 
   return (
     <div className="flex flex-row gap-12 border-b border-b-black-200 px-16 py-18">
       <img
-        className="w-40 h-40 rounded-full"
+        className="h-40 w-40 rounded-full"
         src={commentData.profileUrl}
         alt="profile image"
       />

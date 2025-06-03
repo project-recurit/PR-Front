@@ -6,7 +6,7 @@ import type {
   SocialLogInApiParams,
   SocialLogInResponse,
 } from "@/types/authTypes";
-import { handleError } from "@/utils/errorUtills";
+import { handleError } from "@/utils/handleError";
 
 /** 소셜로그인 api */
 export const socialLogInApi = handleError(
