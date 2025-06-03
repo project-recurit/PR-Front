@@ -1,9 +1,9 @@
 "use client";
 
 import { ChevronDown } from "@/assets/svgs/icons";
-import PJLabel from "@/components/home/body/PJLabel";
-import PRLabel from "@/components/home/body/PRLabel";
-import PostInfo from "@/components/layout/PostInfo";
+import PJLabel from "@/components-temp/home/body/PJLabel";
+import PRLabel from "@/components-temp/home/body/PRLabel";
+import PostInfo from "@/components-temp/layout/PostInfo";
 import ROUTES from "@/constants/routes";
 import { useGetPostsQuery } from "@/hooks/tanstack/queries/useGetPosts";
 import type { PostType, PJPost, PRPost } from "@/types/postTypes";

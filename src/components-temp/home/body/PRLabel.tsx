@@ -1,5 +1,5 @@
-import CardLabel from "@/components/ui/CardLabel";
-import TechStackLabel from "@/components/ui/StackLabel";
+import CardLabel from "@/components-temp/ui/CardLabel";
+import TechStackLabel from "@/components-temp/ui/StackLabel";
 import type { PRPost } from "@/types/postTypes";
 
 interface PRLabelProps {
