@@ -2,8 +2,8 @@
 
 import PJPostBody from "./PJPostBody";
 import PRPostBody from "./PRPostBody";
-import Engagement from "@/components/layout/Engagement";
-import PostProfile from "@/components/layout/PostProfile";
+import Engagement from "@/components-temp/layout/Engagement";
+import PostProfile from "@/components-temp/layout/PostProfile";
 import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
 import type { PostType } from "@/types/postTypes";
 

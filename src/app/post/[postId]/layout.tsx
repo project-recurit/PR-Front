@@ -1,5 +1,5 @@
-import Header from "@/components/layout/Header";
-import PostDetailBottomBar from "@/components/post-detail/PostDetailBottomBar";
+import Header from "@/components-temp/layout/Header";
+import PostDetailBottomBar from "@/components-temp/post-detail/PostDetailBottomBar";
 import type { ReactNode } from "react";
 
 interface PostDetailLayoutProps {
