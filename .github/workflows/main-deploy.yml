@@ -13,24 +13,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install mustache (to update the date)
-        run: apk add ruby && gem install mustache
-
-      - name: Install OpenSSH (Alpine Linux)
-        run: apk add --no-cache openssh-client
+      - name: Install dependencies
+        run: apk add --no-cache ruby openssh-client && gem install mustache
 
       - name: Configure SSH Key
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_DEPLOY_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          eval $(ssh-agent)
+          ssh-add ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-      - name: creates output
+      - name: Build project
         run: sh ./build.sh
 
-      - name: Pushes to another repository
-        id: push_directory
+      - name: Push to another repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
@@ -41,6 +39,3 @@ jobs:
           user-email: ${{ secrets.DEPLOY_EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
-
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
