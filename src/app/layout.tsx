@@ -4,8 +4,6 @@ import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { getToken } from "next-auth/jwt";
-import { cookies } from "next/headers";
 
 //TODO - 수정
 export const metadata: Metadata = {
