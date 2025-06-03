@@ -1,7 +1,7 @@
 "use client";
 
 import DropDown from "@/components/ui/DropDown";
-import { POSITION_OPTIONS } from "@/data/authData";
+import { POSITIONS } from "@/data/authData";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 
 const PositionStep = ({ position, setPosition }: { position: string; setPosition: (position: string) => void }) => {
@@ -17,7 +17,7 @@ const PositionStep = ({ position, setPosition }: { position: string; setPosition
       <DropDown
         setValue={setPosition}
         value={position}
-        options={POSITION_OPTIONS}
+        options={POSITIONS}
         isDropDownOpen={isDropDownOpen}
         openDropDown={openDropDown}
         closeDropDown={closeDropDown}

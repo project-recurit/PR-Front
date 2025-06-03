@@ -42,11 +42,11 @@ const ReactHookFormSearchBar = ({
 
   return (
     <form
-      className="group border-1 border-black-400 flex h-fit w-full flex-row items-center rounded-8 p-16"
+      className="group flex h-fit w-full flex-row items-center rounded-8 border-1 border-black-400 p-16"
       onSubmit={handleSubmit(onSubmit)}
     >
       <input
-        className="w-full h-full caption-16-r focus:outline-none"
+        className="caption-16-r h-full w-full focus:outline-none"
         type="text"
         placeholder={placeholder}
         {...register(inputName, {

@@ -1,14 +1,16 @@
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
 import SelectChip from "@/components/ui/SelectChip";
-import { FILTER_MENU } from "@/data/categoryData";
+import { createFilterMenus } from "@/constants/options";
+import type { TechStack } from "@/types/commonTypes";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface FilterMenuProps {
-  selectedFilter: Set<string>;
-  setSelectedFilter: Dispatch<SetStateAction<Set<string>>>;
+  allTechStacks: TechStack[];
+  selectedFilter: TechStack[];
+  setSelectedFilter: Dispatch<SetStateAction<TechStack[]>>;
 }
 
-const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
+const FilterMenu = ({ allTechStacks, selectedFilter, setSelectedFilter }: FilterMenuProps) => {
   const [isShowChips, setIsShowChips] = useState<Record<string, boolean>>({
     포지션: true,
     "기술 스택": true,
@@ -26,7 +28,7 @@ const FilterMenu = ({ selectedFilter, setSelectedFilter }: FilterMenuProps) => {
 
   return (
     <div className="overflow-y-auto">
-      {FILTER_MENU.map(({ category, chips }) => (
+      {createFilterMenus(allTechStacks).map(({ category, chips }) => (
         <div key={category}>
           <button
             className="flex w-full justify-between border-y-[0.5px] p-16"

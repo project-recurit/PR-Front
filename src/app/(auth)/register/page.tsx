@@ -1,8 +1,8 @@
-import { getTeckStacksApi } from "@/apis/techStacksApis";
+import { getTechStacksApi } from "@/apis/techStacksApis";
 import RegisterForm from "@/components/auth/register/RegisterFrom";
 
 const RegisterPage = async () => {
-  const allTechStacks = await getTeckStacksApi();
+  const allTechStacks = await getTechStacksApi();
 
   return <RegisterForm allTechStacks={allTechStacks} />;
 };

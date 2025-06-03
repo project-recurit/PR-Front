@@ -1,6 +1,6 @@
 "use client";
 
-import { MAIN_CATEGORY } from "@/data/categoryData";
+import { MAIN_CATEGORY } from "@/constants/options";
 import { useCategoryStore } from "@/hooks/state/useZustandStore";
 
 const CategoryTab = () => {
