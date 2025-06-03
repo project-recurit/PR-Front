@@ -1,6 +1,6 @@
 import CommentSection from "@/components/post-detail/comment/CommentSection";
 import PostSection from "@/components/post-detail/post/PostSection";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 import { use } from "react";
 
 interface PostDetailPageProps {

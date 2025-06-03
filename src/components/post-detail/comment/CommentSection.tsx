@@ -2,7 +2,7 @@
 
 import CommentInput from "./CommentInput";
 import CommentList from "./CommentList";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 
 interface CommentSectionProps {
   postType: PostType;

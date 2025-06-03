@@ -2,10 +2,11 @@
 
 import useLockBodyScroll from "@/hooks/useLockBodyScroll";
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 interface ModalProps {
-  children: React.ReactNode;
+  children: ReactNode;
   isModalOpen: boolean;
 }
 

@@ -1,6 +1,6 @@
 import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { POST_API_URL } from "@/constants/apiEndpoints";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 import type { PJPost, PRPost } from "@/types/postTypes";
 import { handleError } from "@/utils/handleError";
 

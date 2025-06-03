@@ -1,6 +1,6 @@
 import POST_QUERY_KEYS from "../queryKeys/postQueryKeys";
 import { getPostDetailApi, getPostsApi } from "@/apis/postApis";
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 import { useQuery } from "@tanstack/react-query";
 
 /** 게시물 리스트 요청 쿼리 */

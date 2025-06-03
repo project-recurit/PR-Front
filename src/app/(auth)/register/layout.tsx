@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 interface RegisterLatoutProps {
-  children: Readonly<React.ReactNode>;
+  children: Readonly<ReactNode>;
 }
 
 const RegisterLatout = ({ children }: RegisterLatoutProps) => {

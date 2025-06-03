@@ -1,7 +1,7 @@
 "use client";
 
 import DropDown from "@/components/ui/DropDown";
-import { POSITIONS } from "@/data/authData";
+import { POSITIONS } from "@/constants/filterOptions";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 
 const PositionStep = ({ position, setPosition }: { position: string; setPosition: (position: string) => void }) => {

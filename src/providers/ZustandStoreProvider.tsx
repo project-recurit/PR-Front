@@ -9,9 +9,10 @@ import { createRegisterStore } from "@/stores/registerStore";
 import type { RegisterStoreApi } from "@/types/authTypes";
 import type { CategoryStoreApi, PostSearchStoreApi } from "@/types/filterTypes";
 import { useRef } from "react";
+import type { ReactNode } from "react";
 
 interface ZustandStoreProviderProps {
-  children: Readonly<React.ReactNode>;
+  children: Readonly<ReactNode>;
 }
 
 export const ZustandStoreProvider = ({ children }: ZustandStoreProviderProps) => {

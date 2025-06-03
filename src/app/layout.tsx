@@ -6,6 +6,7 @@ import AuthSession from "@/providers/SessionProvider";
 import { ZustandStoreProvider } from "@/providers/ZustandStoreProvider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 //TODO - 수정
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 interface RootLayoutProps {
-  children: Readonly<React.ReactNode>;
+  children: Readonly<ReactNode>;
 }
 
 const RootLayout = async ({ children }: RootLayoutProps) => {

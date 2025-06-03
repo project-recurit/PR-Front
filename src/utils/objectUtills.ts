@@ -6,5 +6,4 @@ export const createObjectKeySetter = <T>(setState: Dispatch<SetStateAction<T>>) 
     (value: T[K]) => {
       setState((prev) => ({ ...prev, [key]: value }));
     };
-}
-  
+};

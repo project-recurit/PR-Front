@@ -1,6 +1,7 @@
 import MainHeader from "@/components/main/layout/MainHeader";
 import NavigationBar from "@/components/main/layout/NavigationBar";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 interface MainLayoutProps {
-  children: Readonly<React.ReactNode>;
+  children: Readonly<ReactNode>;
 }
 
 const MainLayout = ({ children }: MainLayoutProps) => {

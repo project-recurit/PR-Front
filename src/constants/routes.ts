@@ -1,4 +1,4 @@
-import type { PostType } from "@/types/filterTypes";
+import type { PostType } from "@/types/postTypes";
 
 const ROUTES = {
   home: "/",

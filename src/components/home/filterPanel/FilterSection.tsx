@@ -35,7 +35,10 @@ const FilterSection = ({ appliedFilters }: FilterSectionProps) => {
         </button>
       </div>
       <Modal isModalOpen={isModalOpen}>
-        <FilterSheet closeModal={closeModal} appliedFilters={appliedFilters}/>
+        <FilterSheet
+          closeModal={closeModal}
+          appliedFilters={appliedFilters}
+        />
       </Modal>
     </>
   );
