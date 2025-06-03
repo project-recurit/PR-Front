@@ -1,2 +1,0 @@
-export const tempAccessToken =
-  "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMiLCJhdXRoIjoiVVNFUiIsInN0YXR1cyI6IkFDVElWRV9VU0VSIiwiZXhwIjozNTM4Mzg2MDAxLCJpYXQiOjE3MzgzODYwMDF9.51cif7fTuSNUeVNGsKLwcA5QPg-iIfnfc4zF5JLPaSU";
