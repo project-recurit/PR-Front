@@ -2,7 +2,7 @@
 
 import NotificationSheet from "./NotificationSheet";
 import { Bell } from "@/assets/svgs/icons";
-import Modal from "@/components-temp/ui/Modal";
+import Modal from "@/components/ui/Modal";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
 
 const NotificationButton = () => {
