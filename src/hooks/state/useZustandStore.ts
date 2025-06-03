@@ -1,4 +1,6 @@
-import { CategoryStoreContext, PostSearchStoreContext, RegisterStoreContext } from "@/providers/ZustandStoreProvider";
+import { CategoryStoreContext } from "@/contexts/CategoryStoreContext";
+import { PostSearchStoreContext } from "@/contexts/PostSearchStoreContext";
+import { RegisterStoreContext } from "@/contexts/RegisterStoreContext";
 import type { RegisterStore } from "@/types/authTypes";
 import type { CategoryStore, PostSearchStore } from "@/types/filterTypes";
 import { useContext } from "react";

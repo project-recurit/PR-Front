@@ -1,4 +1,4 @@
-import PostContainer from "@/components/home/PostContainer";
+import PostContainer from "@/components/home/body/PostContainer";
 import FloatingButton from "@/components/ui/FloatingButton";
 
 const HomePage = () => {

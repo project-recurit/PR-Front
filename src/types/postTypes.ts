@@ -1,5 +1,7 @@
 import type { TechStack } from "./commonTypes";
 
+export type PostType = "PJ" | "PR";
+
 export type Post = {
   id: number;
   nickname: string;

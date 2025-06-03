@@ -5,10 +5,10 @@ import PRPostBody from "./PRPostBody";
 import Engagement from "@/components/layout/Engagement";
 import PostProfile from "@/components/layout/PostProfile";
 import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 
 interface PostSectionProps {
-  postType: MainCategory;
+  postType: PostType;
   postId: string;
   isPJPost: boolean;
 }

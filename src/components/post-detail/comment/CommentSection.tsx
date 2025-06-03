@@ -2,10 +2,10 @@
 
 import CommentInput from "./CommentInput";
 import CommentList from "./CommentList";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 
 interface CommentSectionProps {
-  postType: MainCategory;
+  postType: PostType;
   postId: string;
 }
 

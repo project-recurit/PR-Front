@@ -2,10 +2,10 @@
 
 import CommentCard from "./CommentCard";
 import { useGetComments } from "@/hooks/tanstack/queries/useGetComments";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 
 interface CommentProps {
-  postType: MainCategory;
+  postType: PostType;
   postId: string;
 }
 

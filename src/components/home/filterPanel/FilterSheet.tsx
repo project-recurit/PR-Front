@@ -3,17 +3,15 @@
 import FilterActionBar from "./FilterActionBar";
 import FilterMenu from "./FilterMenu";
 import Header from "@/components/layout/Header";
-import { useCategoryStore } from "@/hooks/state/useZustandStore";
-import type { TechStack } from "@/types/commonTypes";
 import { useState } from "react";
 
 interface FilterSheetProps {
   closeModal: () => void;
+  appliedFilters: Set<string>;
 }
 
-const FilterSheet = ({ closeModal }: FilterSheetProps) => {
-  const { activeFilters } = useCategoryStore((state) => state);
-  const [selectedFilter, setSelectedFilter] = useState<TechStack[]>(activeFilters);
+const FilterSheet = ({ closeModal, appliedFilters }: FilterSheetProps) => {
+  const [selectedFilters, setSelectedFilter] = useState<Set<string>>(appliedFilters);
 
   return (
     <div className="flex h-screen w-screen flex-col">
@@ -22,12 +20,13 @@ const FilterSheet = ({ closeModal }: FilterSheetProps) => {
         backButtonEvent={closeModal}
       />
       <FilterMenu
-        selectedFilter={selectedFilter}
+        selectedFilter={selectedFilters}
         setSelectedFilter={setSelectedFilter}
       />
       <FilterActionBar
         closeModal={closeModal}
-        selectedFilter={selectedFilter}
+        appliedFilters={appliedFilters}
+        setSelectedFilter={setSelectedFilter}
       />
     </div>
   );

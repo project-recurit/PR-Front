@@ -9,11 +9,10 @@ const initialState: RegisterState = {
 };
 
 export const createRegisterStore = () => {
-  return createStore<RegisterStore>()((set, get) => ({
+  return createStore<RegisterStore>()((set) => ({
     ...initialState,
     setMembershipInfo: ({ target, info }) => {
-      const currentState = get();
-      return set({ ...currentState, [target]: info });
+      return set({ [target]: info });
     },
     resetMembershipInfo: () => set(initialState),
   }));

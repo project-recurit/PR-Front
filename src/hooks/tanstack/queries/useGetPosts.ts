@@ -1,10 +1,10 @@
 import POST_QUERY_KEYS from "../queryKeys/postQueryKeys";
 import { getPostDetailApi, getPostsApi } from "@/apis/postApis";
-import type { MainCategory } from "@/types/filterTypes";
+import type { PostType } from "@/types/filterTypes";
 import { useQuery } from "@tanstack/react-query";
 
 /** 게시물 리스트 요청 쿼리 */
-export const useGetPostsQuery = ({ postType }: { postType: MainCategory }) => {
+export const useGetPostsQuery = ({ postType }: { postType: PostType }) => {
   return useQuery({
     queryKey: POST_QUERY_KEYS[postType],
     queryFn: () => getPostsApi({ postType }),
@@ -12,7 +12,7 @@ export const useGetPostsQuery = ({ postType }: { postType: MainCategory }) => {
 };
 
 /** 게시물 상세 요청 쿼리 */
-export const useGetPostDetailQuery = ({ postType, postId }: { postType: MainCategory; postId: string }) => {
+export const useGetPostDetailQuery = ({ postType, postId }: { postType: PostType; postId: string }) => {
   return useQuery({
     queryKey: POST_QUERY_KEYS.detail[postType](postId),
     queryFn: () => getPostDetailApi({ postType, postId }),
