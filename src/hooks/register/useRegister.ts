@@ -2,9 +2,9 @@ import { registerAction } from "@/app/actions/authActions";
 import ROUTES from "@/constants/routes";
 import type { RegisterFormData } from "@/types/authTypes";
 import type { TechStack } from "@/types/commonTypes";
-import { createObjectKeySetter } from "@/utils/objectUtills";
+import { createObjectKeySetter } from "@/utils/stateUtills";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 /** 회원가입 훅 */
 export const useRegister = () => {
@@ -16,64 +16,73 @@ export const useRegister = () => {
     nickname: "",
   });
 
-  const createRegisterDataHandler = createObjectKeySetter(setRegisterData);
-
-  const nextStep = async () => {
-    if (step < 2) {
-      setStep(step + 1);
+  /** 다음 단계로 이동 및 최종 등록 처리 */
+  const nextStep = useCallback(async () => {
+    if (step < 3) {
+      setStep((prev) => prev + 1);
       return;
     }
-
     const res = await registerAction(registerData);
-
     if (res?.status === "USER_INFO_UPDATE") {
       router.push(ROUTES.home);
     }
-  };
+  }, [step, registerData, router]);
 
-  const prevStep = () => {
-    if (step === 0) {
-      return;
-    }
-    setStep(step - 1);
-  };
-
-  const controlDisabled = () => {
-    if (step === 1 && !!registerData.position) {
-      return false;
-    }
-    if (step === 2 && registerData.techStacks.length === 0) {
-      return false;
-    }
-    if (step === 3 && !!registerData.nickname) {
-      return false;
-    }
-    return true;
-  };
-
-  const addTechStack = (newTechStack: TechStack) => {
-    if (registerData.techStacks.some((selectedTechStack) => selectedTechStack.id === newTechStack.id)) {
+  /** 이전 단계로 이동 */
+  const prevStep = useCallback(() => {
+    if (step === 1) {
       return;
     }
 
-    setRegisterData({ ...registerData, techStacks: [...registerData.techStacks, newTechStack] });
-  };
+    setStep((prev) => (prev > 0 ? prev - 1 : prev));
+  }, [step]);
 
-  const removeTechStack = (newTechStack: TechStack) => {
-    if (!registerData.techStacks.some((selectedTechStack) => selectedTechStack.id === newTechStack.id)) {
-      return;
+  /** 버튼 비활성화 조건 */
+  const controlDisabled = useCallback(() => {
+    switch (step) {
+      case 1:
+        return !registerData.position;
+      case 2:
+        return registerData.techStacks.length === 0;
+      case 3:
+        return !registerData.nickname;
+      default:
+        return true;
     }
+  }, [step, registerData]);
 
-    const updatedTechStackIds = registerData.techStacks.filter(
-      (selectedTechStack) => selectedTechStack.id !== newTechStack.id,
-    );
-    setRegisterData({ ...registerData, techStacks: updatedTechStackIds });
-  };
+  /** 기술스택 추가 */
+  const addTechStack = useCallback(
+    (newTechStack: TechStack) => {
+      if (registerData.techStacks.some((stack) => stack.id === newTechStack.id)) {
+        return;
+      }
+
+      setRegisterData((prev) => ({ ...prev, techStacks: [...prev.techStacks, newTechStack] }));
+    },
+    [registerData],
+  );
+
+  /** 기술스택 삭제 */
+  const removeTechStack = useCallback(
+    (targetTechStack: TechStack) => {
+      if (!registerData.techStacks.some((stack) => stack.id === targetTechStack.id)) {
+        return;
+      }
+
+      setRegisterData((prev) => ({
+        ...prev,
+        techStacks: prev.techStacks.filter((stack) => stack.id !== targetTechStack.id),
+      }));
+    },
+    [registerData],
+  );
 
   return {
     step,
     registerData,
-    createRegisterDataHandler,
+    setPosition: useMemo(() => createObjectKeySetter(setRegisterData)("position"), []),
+    setNickname: useMemo(() => createObjectKeySetter(setRegisterData)("nickname"), []),
     nextStep,
     prevStep,
     controlDisabled,
