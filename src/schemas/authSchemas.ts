@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const signUpSchema = z.object({
+export const registerSchema = z.object({
   socialId: z.number(),
   position: z.string().nonempty({ message: "포지션을 선택해주세요." }),
   techStackIds: z.array(z.number()).min(1, { message: "기술 스택을 최소 한가지 이상 선택해주세요." }),
