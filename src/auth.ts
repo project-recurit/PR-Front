@@ -41,10 +41,10 @@ export const {
         throw new Error("유저 정보를 불러오지 못 했습니다.");
       }
 
-      const data = await socialLogInApi({ user, account });
-      if (data.status === "USER_INFO_UPDATE" || data.status === "LOGIN_SUCCESS") {
-        user.accessToken = data.data.accessToken;
-        user.status = data.status;
+      const logInResponse = await socialLogInApi({ user, account });
+      if (logInResponse.status === "USER_INFO_UPDATE" || logInResponse.status === "LOGIN_SUCCESS") {
+        user.accessToken = logInResponse.data.accessToken;
+        user.status = logInResponse.status;
         return true;
       }
 
@@ -55,10 +55,13 @@ export const {
       if (user && account) {
         return { ...token, accessToken: user.accessToken, status: user.status, socialId: account.providerAccountId };
       }
-      return token;
+      throw new Error("유저 정보를 불러오지 못 했습니다.");
     },
 
     async session({ session, token }) {
+      if (!token) {
+        throw new Error("토큰 정보를 불러오지 못 했습니다.");
+      }
       return {
         ...session,
         user: { ...session.user, socialId: token.socialId },
