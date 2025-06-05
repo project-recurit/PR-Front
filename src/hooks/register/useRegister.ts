@@ -5,6 +5,7 @@ import type { TechStack } from "@/types/commonTypes";
 import { createObjectKeySetter } from "@/utils/stateUtills";
 import { useRouter } from "next/navigation";
 import { useState, useCallback, useMemo } from "react";
+import { positionSchema, techStackSchema, nicknameSchema } from "@/schemas/authSchema";
 
 /** 회원가입 훅 */
 export const useRegister = () => {
@@ -38,14 +39,14 @@ export const useRegister = () => {
   }, [step]);
 
   /** 버튼 비활성화 조건 */
-  const controlDisabled = useCallback(() => {
+  const isNextButtonDisabled = useMemo(() => {
     switch (step) {
       case 1:
-        return !registerData.position;
+        return !positionSchema.safeParse(registerData.position).success;
       case 2:
-        return registerData.techStacks.length === 0;
+        return !techStackSchema.safeParse(registerData.techStacks).success;
       case 3:
-        return !registerData.nickname;
+        return !nicknameSchema.safeParse(registerData.nickname).success;
       default:
         return true;
     }
@@ -85,7 +86,7 @@ export const useRegister = () => {
     setNickname: useMemo(() => createObjectKeySetter(setRegisterData)("nickname"), []),
     nextStep,
     prevStep,
-    controlDisabled,
+    isNextButtonDisabled,
     addTechStack,
     removeTechStack,
   };

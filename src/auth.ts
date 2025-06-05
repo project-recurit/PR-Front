@@ -50,12 +50,14 @@ export const {
 
       return false;
     },
+
     async jwt({ token, user, account }) {
       if (user && account) {
         return { ...token, accessToken: user.accessToken, status: user.status, socialId: account.providerAccountId };
       }
       return token;
     },
+
     async session({ session, token }) {
       return {
         ...session,

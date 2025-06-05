@@ -18,7 +18,7 @@ const RegisterPage = () => {
     setNickname,
     addTechStack,
     removeTechStack,
-    controlDisabled,
+    isNextButtonDisabled,
   } = useRegister();
 
   return (
@@ -51,7 +51,7 @@ const RegisterPage = () => {
           size="large"
           onClick={nextStep}
           type="button"
-          disabled={controlDisabled()}
+          disabled={isNextButtonDisabled}
         >
           {step === 3 ? "시작하기" : "계속"}
         </Botton>
