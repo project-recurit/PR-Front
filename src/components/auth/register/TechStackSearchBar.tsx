@@ -2,7 +2,7 @@
 
 import { Search } from "@/assets/svgs/icons";
 import { useTechStacksContext } from "@/hooks/state/useContext";
-import type { TechStack } from "@/types/commonTypes";
+import type { TechStack } from "@/types/techStackTypes";
 import { useMemo, useRef, useState } from "react";
 
 interface TechStackSearchBarProps {

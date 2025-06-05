@@ -2,7 +2,7 @@
 
 import SkillBadge from "./SkillBadge";
 import TechStackSearchBar from "./TechStackSearchBar";
-import type { TechStack } from "@/types/commonTypes";
+import type { TechStack } from "@/types/techStackTypes";
 
 interface TechStackStepProps {
   selectedStacks: TechStack[];

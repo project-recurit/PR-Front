@@ -1,11 +1,11 @@
 import { registerAction } from "@/app/actions/authActions";
 import ROUTES from "@/constants/routes";
+import { registerSchema } from "@/schemas/authSchemas";
 import type { RegisterFormData } from "@/types/authTypes";
-import type { TechStack } from "@/types/commonTypes";
+import type { TechStack } from "@/types/techStackTypes";
 import { createObjectKeySetter } from "@/utils/stateUtills";
 import { useRouter } from "next/navigation";
 import { useState, useCallback, useMemo } from "react";
-import { positionSchema, techStackSchema, nicknameSchema } from "@/schemas/authSchema";
 
 /** 회원가입 훅 */
 export const useRegister = () => {
@@ -42,11 +42,11 @@ export const useRegister = () => {
   const isNextButtonDisabled = useMemo(() => {
     switch (step) {
       case 1:
-        return !positionSchema.safeParse(registerData.position).success;
+        return !registerSchema.position.safeParse(registerData.position).success;
       case 2:
-        return !techStackSchema.safeParse(registerData.techStacks).success;
+        return !registerSchema.techStack.safeParse(registerData.techStacks).success;
       case 3:
-        return !nicknameSchema.safeParse(registerData.nickname).success;
+        return !registerSchema.nickname.safeParse(registerData.nickname).success;
       default:
         return true;
     }

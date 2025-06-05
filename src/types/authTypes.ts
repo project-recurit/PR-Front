@@ -1,4 +1,4 @@
-import type { TechStack } from "./commonTypes";
+import type { TechStack } from "./techStackTypes";
 import type { ApiResponse } from "./utils";
 import type { createRegisterStore } from "@/stores/registerStore";
 import type { Account, User } from "next-auth";
