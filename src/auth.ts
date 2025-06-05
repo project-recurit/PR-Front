@@ -38,7 +38,7 @@ export const {
   callbacks: {
     async signIn({ user, account }) {
       if (!user || !account) {
-        return false;
+        throw new Error("유저 정보를 불러오지 못 했습니다.");
       }
 
       const data = await socialLogInApi({ user, account });
@@ -48,7 +48,7 @@ export const {
         return true;
       }
 
-      return false;
+      throw new Error("소셜 로그인에 실패했습니다.");
     },
 
     async jwt({ token, user, account }) {
