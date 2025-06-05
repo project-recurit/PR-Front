@@ -34,6 +34,7 @@ interface RootLayoutProps {
 
 const RootLayout = async ({ children }: RootLayoutProps) => {
   const [session, allTechStacks] = await Promise.all([auth(), getTechStacksApi()]);
+  console.log("[㏒] RootLayout session =>", session);
 
   return (
     <html lang="ko">

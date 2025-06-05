@@ -43,8 +43,8 @@ export const {
 
       const data = await socialLogInApi({ user, account });
       if (data.status === "USER_INFO_UPDATE" || data.status === "LOGIN_SUCCESS") {
-        user.accessToken = data.data.accessToken as string;
-        user.status = data.status as string;
+        user.accessToken = data.data.accessToken;
+        user.status = data.status;
         return true;
       }
 
@@ -59,8 +59,8 @@ export const {
     async session({ session, token }) {
       return {
         ...session,
-        user: { ...session.user, socialId: token.socialId as string },
-        status: token.status as string,
+        user: { ...session.user, socialId: token.socialId },
+        status: token.status,
       };
     },
   },
