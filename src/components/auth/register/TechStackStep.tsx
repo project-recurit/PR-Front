@@ -20,9 +20,7 @@ const TechStackStep = ({ selectedStacks, addTechStack, removeTechStack }: TechSt
           <div>스킬을 등록해주세요.</div>
         </div>
         <span className="caption-16-b mb-12">보유하신 스킬을 등록해주세요</span>
-        <div>
-          <TechStackSearchBar addTechStack={addTechStack} />
-        </div>
+        <TechStackSearchBar addTechStack={addTechStack} />
       </div>
 
       <div className="shrink-0">

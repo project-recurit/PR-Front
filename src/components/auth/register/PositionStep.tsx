@@ -15,15 +15,14 @@ const PositionStep = ({ position, setPosition }: { position: string; setPosition
       </div>
       <span className="body-16-b mb-12">직무를 입력해주세요</span>
       <DropDown
-        setValue={setPosition}
-        value={position}
-        options={POSITIONS}
         isDropDownOpen={isDropDownOpen}
         openDropDown={openDropDown}
         closeDropDown={closeDropDown}
-      >
-        직무 선택
-      </DropDown>
+        defaultValue="직무 선택"
+        value={position}
+        setValue={setPosition}
+        options={POSITIONS}
+      />
     </div>
   );
 };
