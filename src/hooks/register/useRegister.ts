@@ -3,6 +3,7 @@ import ROUTES from "@/constants/routes";
 import { registerSchema } from "@/schemas/authSchemas";
 import type { RegisterFormData } from "@/types/authTypes";
 import type { TechStack } from "@/types/techStackTypes";
+import { createRefObjectSetter } from "@/utils/refUtils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
@@ -15,11 +16,13 @@ export const useRegister = () => {
     techStacks: [],
     nickname: "",
   });
-  const [validateStepError, setValidateStepError] = useState<{ 1: string; 2: string; 3: string }>({
+  console.log("[㏒] registerData =>", registerData.current);
+  const [validateErrorMessage, setValidateErrorMessage] = useState<{ 1: string; 2: string; 3: string }>({
     1: "",
     2: "",
     3: "",
   });
+  console.log("[㏒] validateErrorMessage =>", validateErrorMessage);
 
   /** 유효성 검사 */
   const validateStep = () => {
@@ -37,16 +40,19 @@ export const useRegister = () => {
 
   /** 다음 단계로 이동 및 최종 등록 처리 */
   const nextStep = async () => {
+    console.log("[㏒] registerData =>", registerData.current);
     const { success: validateSuccess, error: validateError } = validateStep();
     if (!validateSuccess) {
-      setValidateStepError((prev) => ({ ...prev, [step]: validateError?.issues[0].message || "" }));
+      setValidateErrorMessage((prev) => ({ ...prev, [step]: validateError?.issues[0].message || "유효성 오류" }));
       return;
     }
+    setValidateErrorMessage((prev) => ({ ...prev, [step]: "" }));
 
     if (step < 3) {
       setStep((prev) => prev + 1);
       return;
     }
+
     const res = await registerAction(registerData.current);
     if (res?.status === "USER_INFO_UPDATE") {
       router.push(ROUTES.home);
@@ -82,11 +88,12 @@ export const useRegister = () => {
 
   return {
     step,
-    registerData,
+    registerData: registerData.current,
+    registerDataHandler: createRefObjectSetter(registerData),
     nextStep,
     prevStep,
     addTechStack,
     removeTechStack,
-    validateStepError,
+    validateErrorMessage,
   };
 };

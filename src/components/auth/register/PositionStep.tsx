@@ -3,8 +3,15 @@
 import DropDown from "@/components/ui/DropDown";
 import { POSITIONS } from "@/constants/filterOptions";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
+import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles";
 
-const PositionStep = ({ position, setPosition }: { position: string; setPosition: (position: string) => void }) => {
+interface PositionStepProps {
+  position: string;
+  setPosition: (value: string) => void;
+  validateErrorMessage: string;
+}
+
+const PositionStep = ({ position, setPosition, validateErrorMessage }: PositionStepProps) => {
   const { isOpen: isDropDownOpen, open: openDropDown, close: closeDropDown } = useDisclosure();
 
   return (
@@ -23,6 +30,7 @@ const PositionStep = ({ position, setPosition }: { position: string; setPosition
         setValue={setPosition}
         options={POSITIONS}
       />
+      {validateErrorMessage && <span className={REGISTER_ERROR_MESSAGE_STYLE}>{validateErrorMessage}</span>}
     </div>
   );
 };

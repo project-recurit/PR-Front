@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 interface DropDownProps {
   defaultValue: string;
@@ -9,7 +9,7 @@ interface DropDownProps {
   openDropDown: () => void;
   closeDropDown: () => void;
   options: Readonly<string[]>;
-  value?: string;
+  value: string;
   setValue: (v: string) => void;
 }
 
@@ -22,12 +22,16 @@ const DropDown = ({
   setValue,
   options,
 }: DropDownProps) => {
+  //TODO - value와 selectedValue 동기화
+  const [selectedValue, setSelectedValue] = useState<string>(value);
+
   const handleValue = useCallback(
-    (value: string) => {
-      setValue(value);
+    (option: string) => {
+      setValue(option);
+      setSelectedValue(option);
       closeDropDown();
     },
-    [closeDropDown, setValue],
+    [setValue, closeDropDown],
   );
 
   return (
@@ -59,10 +63,10 @@ const DropDown = ({
         <button
           onClick={openDropDown}
           className={`body-16-r flex h-52 w-full items-center justify-between rounded-8 border-1 border-black-400 px-16 ${
-            isDropDownOpen || value ? "text-black-1000" : "text-black-400"
+            isDropDownOpen || !!selectedValue ? "text-black-1000" : "text-black-400"
           }`}
         >
-          {value ? value : defaultValue}
+          {selectedValue || defaultValue}
           <ChevronDown className="h-24 w-24" />
         </button>
       )}
