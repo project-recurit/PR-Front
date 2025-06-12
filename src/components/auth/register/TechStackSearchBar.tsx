@@ -2,8 +2,8 @@
 
 import { Search } from "@/assets/svgs/icons";
 import { useTechStacksContext } from "@/hooks/state/useContext";
-import type { TechStack } from "@/types/commonTypes";
-import { useMemo, useRef, useState } from "react";
+import type { TechStack } from "@/types/techStackTypes";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 interface TechStackSearchBarProps {
   addTechStack: (techStack: TechStack) => void;
@@ -18,14 +18,16 @@ const TechStackSearchBar = ({ addTechStack }: TechStackSearchBarProps) => {
     return allTechStacks.filter((techStack) => techStack.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }, [allTechStacks, searchTerm]);
 
-  const focusInput = () => {
+  const focusInput = useCallback(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
-  };
+  }, []);
 
   return (
-    <div className="w-full rounded-8 border-1 border-black-400">
+    <div
+      className={`${!!searchTerm ? "rounded-tl-8 rounded-tr-8 border-x border-t" : "rounded-8 border"} relative box-border w-full border-black-400`}
+    >
       <form
         className="body-16-r group flex w-full flex-row items-center p-16"
         onSubmit={(e) => e.preventDefault()}
@@ -43,22 +45,27 @@ const TechStackSearchBar = ({ addTechStack }: TechStackSearchBarProps) => {
         />
       </form>
 
-      <ol className="flex max-h-[312px] w-full flex-col overflow-y-scroll">
-        {searchTerm &&
-          (suggestions.length > 0 ? (
+      {!!searchTerm && (
+        <ol className="absolute left-1 top-full z-10 -ml-2 box-border flex max-h-[312px] w-[calc(100%+2px)] flex-col overflow-y-auto rounded-bl-8 rounded-br-8 border-x border-b border-black-400 bg-white">
+          {suggestions.length > 0 ? (
             suggestions.map((suggestion) => (
               <li
                 className="px-16 py-14"
                 key={suggestion.id}
-                onClick={() => addTechStack(suggestion)}
+                onClick={() => {
+                  addTechStack(suggestion);
+                  setSearchTerm("");
+                  focusInput();
+                }}
               >
                 {suggestion.name}
               </li>
             ))
           ) : (
             <li className="px-16 py-14">결과가 없습니다.</li>
-          ))}
-      </ol>
+          )}
+        </ol>
+      )}
     </div>
   );
 };

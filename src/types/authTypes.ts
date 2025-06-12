@@ -1,12 +1,8 @@
-import type { TechStack } from "./commonTypes";
+import type { TechStack } from "./techStackTypes";
 import type { ApiResponse } from "./utils";
-import type { signUpSchema } from "@/schemas/authSchema";
 import type { createRegisterStore } from "@/stores/registerStore";
 import type { Account, User } from "next-auth";
 import type { AdapterUser } from "next-auth/adapters";
-import type { z } from "zod";
-
-export type SignupForm = z.infer<typeof signUpSchema>;
 
 export type SocialLogInApiParams = { user: User | AdapterUser; account: Account };
 

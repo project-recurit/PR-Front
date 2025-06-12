@@ -1,5 +1,5 @@
-import type { TechStack } from "./commonTypes";
 import type { PostType } from "./postTypes";
+import type { TechStack } from "./techStackTypes";
 import type { createCategoryStore } from "@/stores/categoryStore";
 import type { createPostSearchStore } from "@/stores/postSearchStore";
 

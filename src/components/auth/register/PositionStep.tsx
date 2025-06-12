@@ -3,8 +3,15 @@
 import DropDown from "@/components/ui/DropDown";
 import { POSITIONS } from "@/constants/filterOptions";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
+import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles";
 
-const PositionStep = ({ position, setPosition }: { position: string; setPosition: (position: string) => void }) => {
+interface PositionStepProps {
+  position: string;
+  setPosition: (value: string) => void;
+  validateErrorMessage: string;
+}
+
+const PositionStep = ({ position, setPosition, validateErrorMessage }: PositionStepProps) => {
   const { isOpen: isDropDownOpen, open: openDropDown, close: closeDropDown } = useDisclosure();
 
   return (
@@ -15,15 +22,15 @@ const PositionStep = ({ position, setPosition }: { position: string; setPosition
       </div>
       <span className="body-16-b mb-12">직무를 입력해주세요</span>
       <DropDown
-        setValue={setPosition}
-        value={position}
-        options={POSITIONS}
         isDropDownOpen={isDropDownOpen}
         openDropDown={openDropDown}
         closeDropDown={closeDropDown}
-      >
-        직무 선택
-      </DropDown>
+        defaultValue="직무 선택"
+        value={position}
+        setValue={setPosition}
+        options={POSITIONS}
+      />
+      {validateErrorMessage && <span className={REGISTER_ERROR_MESSAGE_STYLE}>{validateErrorMessage}</span>}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import type { ApiErrorResponse } from "./commonTypes";
+import type { ApiErrorResponse } from "./apiTypes";
 
 export type ValueOf<T> = T[keyof T];
 

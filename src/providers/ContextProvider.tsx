@@ -1,7 +1,7 @@
 "use client";
 
 import { TechStacksContext } from "@/contexts/TechStacksContext";
-import type { TechStack } from "@/types/commonTypes";
+import type { TechStack } from "@/types/techStackTypes";
 import type { ReactNode } from "react";
 
 interface ContextProviderProps {

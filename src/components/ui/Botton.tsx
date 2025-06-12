@@ -12,7 +12,15 @@ interface Botton {
   onClick: () => void;
 }
 
-const Botton = ({ children, size = "small", color = "black", className = "", type, disabled, onClick }: Botton) => {
+const Botton = ({
+  children,
+  size = "small",
+  color = "black",
+  className = "",
+  type,
+  disabled = false,
+  onClick,
+}: Botton) => {
   const buttonSize = {
     small: "w-128",
     medium: "w-164",
@@ -26,7 +34,7 @@ const Botton = ({ children, size = "small", color = "black", className = "", typ
 
   return (
     <button
-      className={`${buttonSize[size]} ${buttonColor[color]} h-52 rounded-12 p-10 ${className}`}
+      className={`${buttonSize[size]} ${buttonColor[color]} h-52 rounded-12 p-10 ${className} ${disabled ? "opacity-50" : ""}`}
       type={type}
       disabled={disabled}
       onClick={onClick}

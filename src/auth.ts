@@ -38,29 +38,34 @@ export const {
   callbacks: {
     async signIn({ user, account }) {
       if (!user || !account) {
-        return false;
+        throw new Error("유저 정보를 불러오지 못 했습니다.");
       }
 
-      const data = await socialLogInApi({ user, account });
-      if (data.status === "USER_INFO_UPDATE" || data.status === "LOGIN_SUCCESS") {
-        user.accessToken = data.data.accessToken as string;
-        user.status = data.status as string;
+      const logInResponse = await socialLogInApi({ user, account });
+      if (logInResponse.status === "USER_INFO_UPDATE" || logInResponse.status === "LOGIN_SUCCESS") {
+        user.accessToken = logInResponse.data.accessToken;
+        user.status = logInResponse.status;
         return true;
       }
 
-      return false;
+      throw new Error("소셜 로그인에 실패했습니다.");
     },
+
     async jwt({ token, user, account }) {
       if (user && account) {
         return { ...token, accessToken: user.accessToken, status: user.status, socialId: account.providerAccountId };
       }
-      return token;
+      throw new Error("유저 정보를 불러오지 못 했습니다.");
     },
+
     async session({ session, token }) {
+      if (!token) {
+        throw new Error("토큰 정보를 불러오지 못 했습니다.");
+      }
       return {
         ...session,
-        user: { ...session.user, socialId: token.socialId as string },
-        status: token.status as string,
+        user: { ...session.user, socialId: token.socialId },
+        status: token.status,
       };
     },
   },

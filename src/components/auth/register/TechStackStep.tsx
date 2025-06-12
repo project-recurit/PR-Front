@@ -2,15 +2,17 @@
 
 import SkillBadge from "./SkillBadge";
 import TechStackSearchBar from "./TechStackSearchBar";
-import type { TechStack } from "@/types/commonTypes";
+import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles";
+import type { TechStack } from "@/types/techStackTypes";
 
 interface TechStackStepProps {
   selectedStacks: TechStack[];
   addTechStack: (techStack: TechStack) => void;
   removeTechStack: (techStack: TechStack) => void;
+  validateErrorMessage: string;
 }
 
-const TechStackStep = ({ selectedStacks, addTechStack, removeTechStack }: TechStackStepProps) => {
+const TechStackStep = ({ selectedStacks, addTechStack, removeTechStack, validateErrorMessage }: TechStackStepProps) => {
   console.count("lender");
   return (
     <div className="mt-18 flex h-full flex-col">
@@ -20,9 +22,8 @@ const TechStackStep = ({ selectedStacks, addTechStack, removeTechStack }: TechSt
           <div>스킬을 등록해주세요.</div>
         </div>
         <span className="caption-16-b mb-12">보유하신 스킬을 등록해주세요</span>
-        <div>
-          <TechStackSearchBar addTechStack={addTechStack} />
-        </div>
+        <TechStackSearchBar addTechStack={addTechStack} />
+        {validateErrorMessage && <span className={REGISTER_ERROR_MESSAGE_STYLE}>{validateErrorMessage}</span>}
       </div>
 
       <div className="shrink-0">
