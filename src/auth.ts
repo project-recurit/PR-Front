@@ -1,3 +1,4 @@
+import { ONE_DAY_FOR_SESSION } from "./constants/timeConstants";
 import { socialLogInApi } from "@/apis/authApis";
 import {
   GITHUB_CLIENT_ID,
@@ -34,38 +35,56 @@ export const {
       clientSecret: KAKAO_CLIENT_SECRET,
     }),
   ],
-  session: { strategy: "jwt" },
+  session: {
+    strategy: "jwt",
+    maxAge: ONE_DAY_FOR_SESSION,
+  },
   callbacks: {
-    async signIn({ user, account }) {
+    signIn: async ({ user, account }) => {
       if (!user || !account) {
+        console.error("no signIn user or account", { user, account });
         throw new Error("유저 정보를 불러오지 못 했습니다.");
       }
 
       const logInResponse = await socialLogInApi({ user, account });
-      if (logInResponse.status === "USER_INFO_UPDATE" || logInResponse.status === "LOGIN_SUCCESS") {
+
+      if (logInResponse.status === "LOGIN_SUCCESS") {
+        return true;
+      }
+
+      if (logInResponse.status === "USER_INFO_UPDATE") {
         user.accessToken = logInResponse.data.accessToken;
+        user.refreshToken = logInResponse.data.refreshToken;
         user.status = logInResponse.status;
         return true;
       }
 
       throw new Error("소셜 로그인에 실패했습니다.");
     },
-
-    async jwt({ token, user, account }) {
+    jwt: ({ token, user, account }) => {
       if (user && account) {
-        return { ...token, accessToken: user.accessToken, status: user.status, socialId: account.providerAccountId };
+        return {
+          ...token,
+          status: user.status,
+          socialId: account.providerAccountId,
+          accessToken: user.accessToken,
+          refreshToken: user.refreshToken,
+        };
       }
-      throw new Error("유저 정보를 불러오지 못 했습니다.");
+      return token;
     },
-
-    async session({ session, token }) {
+    session: ({ session, token }) => {
       if (!token) {
         throw new Error("토큰 정보를 불러오지 못 했습니다.");
       }
       return {
         ...session,
-        user: { ...session.user, socialId: token.socialId },
         status: token.status,
+        accessToken: token.accessToken,
+        user: {
+          ...session.user,
+          socialId: token.socialId,
+        },
       };
     },
   },
