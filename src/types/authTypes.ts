@@ -1,12 +1,11 @@
 import type { TechStack } from "./techStackTypes";
-import type { ApiResponse } from "./utils";
 import type { createRegisterStore } from "@/stores/registerStore";
 import type { Account, User } from "next-auth";
 import type { AdapterUser } from "next-auth/adapters";
 
 export type SocialLogInApiParams = { user: User | AdapterUser; account: Account };
 
-export type SocialLogInResponse = ApiResponse<{
+export type SocialLogInResponse = {
   status: "LOGIN_SUCCESS" | "USER_INFO_UPDATE";
   data: {
     id: string;
@@ -14,7 +13,7 @@ export type SocialLogInResponse = ApiResponse<{
     refreshToken: string;
     isSignUpSuccess: boolean;
   };
-}>;
+};
 
 type RegisterData = {
   position: string;
@@ -30,8 +29,8 @@ export type RegisterApiParams = RegisterData & {
   techStackIds: number[];
 };
 
-export type RegisterApiResponse = ApiResponse<{
-  status: "USER_INFO_UPDATE";
+export type RegisterApiResponse = {
+  status: "LOGIN_SUCCESS";
   data: {
     nickname: string;
     position: string;
@@ -39,7 +38,7 @@ export type RegisterApiResponse = ApiResponse<{
     accessToken: string;
     refreshToken: string;
   };
-}>;
+};
 
 export type RegisterState = {
   socialId: string;
