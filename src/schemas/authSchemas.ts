@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const registerSchema = {
   position: z.string().min(1, { message: "포지션을 선택해주세요." }),
-  techStack: z.array(z.object({ id: z.number(), name: z.string() })).min(1, {
+  techStacks: z.array(z.object({ id: z.number(), name: z.string() })).min(1, {
     message: "기술 스택을 최소 한가지 이상 선택해주세요.",
   }),
   nickname: z

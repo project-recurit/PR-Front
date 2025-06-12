@@ -12,7 +12,8 @@ const RegisterPage = () => {
   const {
     step,
     registerData,
-    registerDataHandler,
+    setPosition,
+    setNickname,
     nextStep,
     prevStep,
     addTechStack,
@@ -29,7 +30,7 @@ const RegisterPage = () => {
         {step === 1 ? (
           <PositionStep
             position={registerData.position}
-            setPosition={registerDataHandler("position")}
+            setPosition={setPosition}
             validateErrorMessage={validateErrorMessage[1]}
           />
         ) : step === 2 ? (
@@ -42,7 +43,7 @@ const RegisterPage = () => {
         ) : (
           <NicknameStep
             nickname={registerData.nickname}
-            setNickname={registerDataHandler("nickname")}
+            setNickname={setNickname}
             nextStep={nextStep}
             validateErrorMessage={validateErrorMessage[3]}
           />
