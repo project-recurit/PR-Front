@@ -1,6 +1,6 @@
 "use client";
 
-import { ONE_HOUR_FOR_TANSTACK } from "@/constants/time";
+import { ONE_HOUR_FOR_TANSTACK } from "@/constants/timeConstants";
 import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { ReactNode } from "react";
