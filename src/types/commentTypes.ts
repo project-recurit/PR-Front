@@ -1,3 +1,4 @@
+import type { PostTargetParams } from "./api/paramsTypes";
 import type { PostType } from "./postTypes";
 
 export type Comment = {
@@ -10,9 +11,7 @@ export type Comment = {
   replyCount: number;
 };
 
-export type CreateCommentParams = {
-  postType: PostType;
-  postId: string;
+export type CreateCommentParams<T extends PostType = PostType> = PostTargetParams<T> & {
   comment: string;
   parentId?: number;
 };
