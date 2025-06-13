@@ -11,6 +11,7 @@ interface CommentProps {
 
 const CommentList = ({ postType, postId }: CommentProps) => {
   const { data: commentsData, isPending, isError, error } = useGetComments({ postType, postId });
+  console.log("[㏒] commentsData =>", commentsData);
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>댓글을 불러오는 중입니다.</div>;

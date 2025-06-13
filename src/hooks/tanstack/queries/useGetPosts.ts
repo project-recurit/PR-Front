@@ -1,5 +1,5 @@
 import POST_QUERY_KEYS from "../queryKeys/postQueryKeys";
-import { getPostDetailApi, getPostsApi } from "@/apis/postApis";
+import { getPostDetailApi, getPostListApi } from "@/apis/postApis";
 import type { PostType } from "@/types/postTypes";
 import { useQuery } from "@tanstack/react-query";
 
@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 export const useGetPostsQuery = ({ postType }: { postType: PostType }) => {
   return useQuery({
     queryKey: POST_QUERY_KEYS[postType],
-    queryFn: () => getPostsApi({ postType }),
+    queryFn: () => getPostListApi({ postType }),
   });
 };
 
