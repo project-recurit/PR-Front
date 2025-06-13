@@ -23,12 +23,3 @@ export type PRPost = Post & {
   workType: string;
   position: string;
 };
-
-export type GetPostListParams<T extends PostType = PostType> = {
-  postType: T;
-};
-
-export type GetPostDetailParams<T extends PostType = PostType> = {
-  postType: T;
-  postId: string;
-};

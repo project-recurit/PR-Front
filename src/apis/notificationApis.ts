@@ -1,7 +1,7 @@
 import { AUTHORIZATION_HEADERS } from "@/config/httpRequestHeaders";
 import { NOTIFICATION_API_URL } from "@/constants/apiEndpoints";
 import { tempAccessToken } from "@/constants/tempAccessToken";
-import { Notification } from "@/types/notificationTypes";
+import { Notification } from "@/types";
 import { handleError } from "@/utils/handleError";
 
 /** 알림 요청 api */

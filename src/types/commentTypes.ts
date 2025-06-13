@@ -10,16 +10,6 @@ export type Comment = {
   replyCount: number;
 };
 
-export type GetCommentListParams = {
-  postType: PostType;
-  postId: string;
-};
-
-export type GetReplyCommentsParams = {
-  postType: PostType;
-  postId: string;
-};
-
 export type CreateCommentParams = {
   postType: PostType;
   postId: string;

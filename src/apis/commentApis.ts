@@ -1,11 +1,11 @@
 import { AUTHORIZATION_HEADERS, COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { COMMENT_API_URL } from "@/constants/apiEndpoints";
 import { tempAccessToken } from "@/constants/tempAccessToken";
-import type { Comment, CreateCommentParams, GetCommentListParams, GetReplyCommentsParams } from "@/types/commentTypes";
+import type { Comment, CreateCommentParams, PostTargetParams } from "@/types";
 import { handleError } from "@/utils/handleError";
 
 /** 댓글 요청 api */
-export const getCommentListApi = handleError(async ({ postType, postId }: GetCommentListParams): Promise<Comment[]> => {
+export const getCommentListApi = handleError(async ({ postType, postId }: PostTargetParams): Promise<Comment[]> => {
   const res = await fetch(COMMENT_API_URL[postType](postId), {
     method: "GET",
     headers: COMMON_HEADERS,
@@ -18,19 +18,17 @@ export const getCommentListApi = handleError(async ({ postType, postId }: GetCom
 });
 
 /** 대댓글 요청 api */
-export const getReplyCommentsApi = handleError(
-  async ({ postType, postId }: GetReplyCommentsParams): Promise<Comment[]> => {
-    const res = await fetch(COMMENT_API_URL.reply[postType](postId), {
-      method: "GET",
-      headers: COMMON_HEADERS,
-      cache: "no-store",
-    });
-    const {
-      data: { content },
-    } = await res.json();
-    return content;
-  },
-);
+export const getReplyCommentsApi = handleError(async ({ postType, postId }: PostTargetParams): Promise<Comment[]> => {
+  const res = await fetch(COMMENT_API_URL.reply[postType](postId), {
+    method: "GET",
+    headers: COMMON_HEADERS,
+    cache: "no-store",
+  });
+  const {
+    data: { content },
+  } = await res.json();
+  return content;
+});
 
 /** 댓글 작성 api */
 export const createCommentApi = handleError(async ({ postType, postId, comment, parentId }: CreateCommentParams) => {
@@ -38,6 +36,8 @@ export const createCommentApi = handleError(async ({ postType, postId, comment, 
     content: comment,
     ...(parentId && { parentId }),
   });
+
+  //TODO - useSession 사용
 
   return await fetch(COMMENT_API_URL.create[postType](postId), {
     method: "POST",

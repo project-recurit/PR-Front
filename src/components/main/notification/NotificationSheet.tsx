@@ -1,14 +1,14 @@
 "use client";
 
 import Header from "@/components/layout/Header";
-import { useGetNotifications } from "@/hooks/tanstack/queries/useGetNotifications";
+import { useGetNotificationsQuery } from "@/hooks/tanstack/queries/useGetNotifications";
 
 interface NotificationSheetProps {
   closeModal: () => void;
 }
 
 const NotificationSheet = ({ closeModal }: NotificationSheetProps) => {
-  const { data: notificationData } = useGetNotifications();
+  const { data: notificationData } = useGetNotificationsQuery();
   console.log(" notificationData => ", notificationData);
 
   return (
