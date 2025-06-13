@@ -55,7 +55,7 @@ export const useRegister = () => {
     }
 
     const res = await registerAction(registerData);
-    if (res?.status === "USER_INFO_UPDATE") {
+    if (res.status === "LOGIN_SUCCESS") {
       router.push(ROUTES.home);
     }
   };

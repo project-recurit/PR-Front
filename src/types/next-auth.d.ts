@@ -7,9 +7,10 @@ declare module "next-auth" {
     status: string;
   }
   interface User {
+    status: string;
     socialId: string;
     accessToken: string;
-    status: string;
+    refreshToken: string;
   }
 }
 

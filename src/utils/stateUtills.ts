@@ -10,9 +10,9 @@ import type { Dispatch, SetStateAction } from "react";
  * setUserKey('name')('이소미');// setUser(prev => ({ ...prev, name: '이소미' }))
  * setUserKey('age')(30);// setUser(prev => ({ ...prev, age: 30 }))
  */
-export const createStateKeySetter = <T>(setState: Dispatch<SetStateAction<T>>) => {
+export function createStateKeySetter<T>(setState: Dispatch<SetStateAction<T>>) {
   return <K extends keyof T>(key: K) =>
     (value: T[K]) => {
       setState((prev) => ({ ...prev, [key]: value }));
     };
-};
+}
