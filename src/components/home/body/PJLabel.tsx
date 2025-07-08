@@ -9,7 +9,7 @@ interface PJLabelProps {
 const PJLabel = ({ post }: PJLabelProps) => {
   return (
     <>
-      <h3 className="body-16-s overflow-line2">{post.title}</h3>
+      <h3 className="body-16-s">{post.title}</h3>
       <div className="caption-12-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="모집 인원"
