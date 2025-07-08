@@ -1,6 +1,6 @@
 "use client";
 
-import CommentCard from "./CommentCard";
+import CommentItem from "./CommentItem";
 import { useGetCommentListQuery } from "@/hooks/tanstack/queries/useGetComments";
 import type { PostType } from "@/types/postTypes";
 
@@ -23,7 +23,7 @@ const CommentList = ({ postType, postId }: CommentProps) => {
         <div>댓글이 없습니다.</div>
       ) : (
         commentListData.map((comment) => (
-          <CommentCard
+          <CommentItem
             key={comment.commentId}
             commentData={comment}
           />
