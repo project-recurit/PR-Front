@@ -11,7 +11,7 @@ interface CategoryTabProps {
 
 const CategoryTab = ({ selectedMenu, setSelectedMenu }: CategoryTabProps) => {
   return (
-    <div className="sticky flex gap-x-20 border-b-1 border-black-300 px-20 pt-13">
+    <div className="sticky top-48 flex gap-x-20 border-b-1 border-black-300 bg-white px-20 pt-13">
       {POST_TYPES.map((category) => (
         <button
           onClick={() => setSelectedMenu(category)}
