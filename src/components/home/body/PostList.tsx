@@ -24,7 +24,7 @@ const PostList = ({ selectedMenu, appliedFilters }: PostListProps) => {
   if (isError) throw new Error(error.message);
 
   return (
-    <div className="flex w-full flex-col bg-black-100 px-16">
+    <div className="flex w-full flex-col bg-black-100 px-16 pb-12">
       <div className="my-12 flex justify-end px-16 py-12">
         <button className="flex items-center gap-4 px-8 py-4">
           <span className="caption-12-s">최신순</span>

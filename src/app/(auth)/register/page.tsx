@@ -12,12 +12,13 @@ const RegisterPage = () => {
   const {
     step,
     registerData,
+    setPosition,
+    setNickname,
     nextStep,
     prevStep,
-    createRegisterDataHandler,
     addTechStack,
     removeTechStack,
-    controlDisabled,
+    validateErrorMessage,
   } = useRegister();
 
   return (
@@ -29,19 +30,22 @@ const RegisterPage = () => {
         {step === 1 ? (
           <PositionStep
             position={registerData.position}
-            setPosition={createRegisterDataHandler("position")}
+            setPosition={setPosition}
+            validateErrorMessage={validateErrorMessage[1]}
           />
         ) : step === 2 ? (
           <TechStackStep
             selectedStacks={registerData.techStacks}
             addTechStack={addTechStack}
             removeTechStack={removeTechStack}
+            validateErrorMessage={validateErrorMessage[2]}
           />
         ) : (
           <NicknameStep
             nickname={registerData.nickname}
-            setNickname={createRegisterDataHandler("nickname")}
+            setNickname={setNickname}
             nextStep={nextStep}
+            validateErrorMessage={validateErrorMessage[3]}
           />
         )}
       </main>
@@ -50,7 +54,6 @@ const RegisterPage = () => {
           size="large"
           onClick={nextStep}
           type="button"
-          disabled={controlDisabled()}
         >
           {step === 3 ? "시작하기" : "계속"}
         </Botton>

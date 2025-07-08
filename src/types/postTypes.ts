@@ -1,4 +1,4 @@
-import type { TechStack } from "./commonTypes";
+import type { TechStack } from "./techStackTypes";
 
 export type PostType = "PJ" | "PR";
 

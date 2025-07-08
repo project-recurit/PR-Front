@@ -1,5 +1,5 @@
-import type { TechStack } from "@/types/commonTypes";
 import type { PostType } from "@/types/postTypes";
+import type { TechStack } from "@/types/techStackTypes";
 
 export const POST_TYPES: PostType[] = ["PJ", "PR"] as const;
 

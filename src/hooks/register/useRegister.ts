@@ -1,8 +1,12 @@
 import { registerAction } from "@/app/actions/authActions";
+import { REGISTER_STEP_FIELD_MAP } from "@/constants/registerConstants";
+import { REGISTER_FIELDS } from "@/constants/registerConstants";
 import ROUTES from "@/constants/routes";
+import { registerSchema } from "@/schemas/authSchemas";
 import type { RegisterFormData } from "@/types/authTypes";
-import type { TechStack } from "@/types/commonTypes";
-import { createObjectKeySetter } from "@/utils/objectUtills";
+import type { TechStack } from "@/types/techStackTypes";
+import { ValueOf } from "@/types/typeUtils";
+import { createStateKeySetter } from "@/utils/stateUtills";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -15,69 +19,84 @@ export const useRegister = () => {
     techStacks: [],
     nickname: "",
   });
+  const [validateErrorMessage, setValidateErrorMessage] = useState<Record<number, string>>({
+    1: "",
+    2: "",
+    3: "",
+  });
 
-  const createRegisterDataHandler = createObjectKeySetter(setRegisterData);
+  /** 유효성 검사 */
+  const validateStep = (value: ValueOf<RegisterFormData>) => {
+    const fieldKey = REGISTER_STEP_FIELD_MAP[step];
+    const schema = registerSchema[fieldKey];
+    const { success, error } = schema.safeParse(value);
+    setValidateErrorMessage((prev) =>
+      success ? { ...prev, [step]: "" } : { ...prev, [step]: error?.issues[0].message || "유효성 오류" },
+    );
+    return success;
+  };
 
+  const createFieldSetter = (fieldKey: keyof RegisterFormData) => {
+    return (value: ValueOf<RegisterFormData>) => {
+      createStateKeySetter(setRegisterData)(fieldKey)(value);
+      validateStep(value);
+    };
+  };
+
+  /** 다음 단계로 이동 및 최종 등록 처리 */
   const nextStep = async () => {
-    if (step < 2) {
-      setStep(step + 1);
+    if (!validateStep(registerData[REGISTER_STEP_FIELD_MAP[step]])) {
+      return;
+    }
+
+    if (step < 3) {
+      setStep((prev) => prev + 1);
       return;
     }
 
     const res = await registerAction(registerData);
-
-    if (res?.status === "USER_INFO_UPDATE") {
+    if (res.status === "LOGIN_SUCCESS") {
       router.push(ROUTES.home);
     }
   };
 
+  /** 이전 단계로 이동 */
   const prevStep = () => {
-    if (step === 0) {
-      return;
+    if (step !== 1) {
+      setStep((prev) => prev - 1);
     }
-    setStep(step - 1);
   };
 
-  const controlDisabled = () => {
-    if (step === 1 && !!registerData.position) {
-      return false;
-    }
-    if (step === 2 && registerData.techStacks.length === 0) {
-      return false;
-    }
-    if (step === 3 && !!registerData.nickname) {
-      return false;
-    }
-    return true;
-  };
-
+  /** 기술스택 추가 */
   const addTechStack = (newTechStack: TechStack) => {
-    if (registerData.techStacks.some((selectedTechStack) => selectedTechStack.id === newTechStack.id)) {
+    if (registerData.techStacks.some((stack) => stack.id === newTechStack.id)) {
       return;
     }
 
-    setRegisterData({ ...registerData, techStacks: [...registerData.techStacks, newTechStack] });
+    setRegisterData((prev) => ({ ...prev, techStacks: [...prev.techStacks, newTechStack] }));
   };
 
-  const removeTechStack = (newTechStack: TechStack) => {
-    if (!registerData.techStacks.some((selectedTechStack) => selectedTechStack.id === newTechStack.id)) {
+  /** 기술스택 삭제 */
+  const removeTechStack = (targetTechStack: TechStack) => {
+    if (!registerData.techStacks.some((stack) => stack.id === targetTechStack.id)) {
       return;
     }
 
-    const updatedTechStackIds = registerData.techStacks.filter(
-      (selectedTechStack) => selectedTechStack.id !== newTechStack.id,
-    );
-    setRegisterData({ ...registerData, techStacks: updatedTechStackIds });
+    setRegisterData((prev) => ({
+      ...prev,
+      techStacks: prev.techStacks.filter((stack) => stack.id !== targetTechStack.id),
+    }));
   };
 
   return {
     step,
     registerData,
-    createRegisterDataHandler,
+    setPosition: createFieldSetter(REGISTER_FIELDS.position),
+    setNickname: createFieldSetter(REGISTER_FIELDS.nickname),
     nextStep,
     prevStep,
-    controlDisabled,
     addTechStack,
     removeTechStack,
+    validateErrorMessage,
   };
 };

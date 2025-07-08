@@ -4,30 +4,30 @@ import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
 import { useCallback } from "react";
 
 interface DropDownProps {
-  children: string;
+  defaultValue: string;
   isDropDownOpen: boolean;
   openDropDown: () => void;
   closeDropDown: () => void;
   options: Readonly<string[]>;
-  value?: string;
+  value: string;
   setValue: (v: string) => void;
 }
 
 const DropDown = ({
-  children,
   isDropDownOpen,
   openDropDown,
   closeDropDown,
-  options,
+  defaultValue,
   value,
   setValue,
+  options,
 }: DropDownProps) => {
   const handleValue = useCallback(
-    (value: string) => {
-      setValue(value);
+    (option: string) => {
+      setValue(option);
       closeDropDown();
     },
-    [closeDropDown, setValue],
+    [setValue, closeDropDown],
   );
 
   return (
@@ -41,7 +41,7 @@ const DropDown = ({
               onClick={() => handleValue("")}
               className="flex w-full justify-between"
             >
-              {children}
+              {defaultValue}
               <ChevronUp />
             </button>
           </li>
@@ -59,10 +59,10 @@ const DropDown = ({
         <button
           onClick={openDropDown}
           className={`body-16-r flex h-52 w-full items-center justify-between rounded-8 border-1 border-black-400 px-16 ${
-            isDropDownOpen || value ? "text-black-1000" : "text-black-400"
+            isDropDownOpen || !!value ? "text-black-1000" : "text-black-400"
           }`}
         >
-          {value ? value : children}
+          {value || defaultValue}
           <ChevronDown className="h-24 w-24" />
         </button>
       )}

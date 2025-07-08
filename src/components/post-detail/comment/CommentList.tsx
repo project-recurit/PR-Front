@@ -1,7 +1,7 @@
 "use client";
 
-import CommentCard from "./CommentCard";
-import { useGetComments } from "@/hooks/tanstack/queries/useGetComments";
+import CommentItem from "./CommentItem";
+import { useGetCommentListQuery } from "@/hooks/tanstack/queries/useGetComments";
 import type { PostType } from "@/types/postTypes";
 
 interface CommentProps {
@@ -10,7 +10,7 @@ interface CommentProps {
 }
 
 const CommentList = ({ postType, postId }: CommentProps) => {
-  const { data: commentsData, isPending, isError, error } = useGetComments({ postType, postId });
+  const { data: commentListData, isPending, isError, error } = useGetCommentListQuery({ postType, postId });
 
   //TODO - 로딩 컴포넌트 완성 시 변경
   if (isPending) return <div>댓글을 불러오는 중입니다.</div>;
@@ -19,12 +19,13 @@ const CommentList = ({ postType, postId }: CommentProps) => {
 
   return (
     <>
-      {commentsData.length === 0 ? (
+      {commentListData.length === 0 ? (
         <div>댓글이 없습니다.</div>
       ) : (
-        commentsData.map((comment) => (
-          <CommentCard
+        commentListData.map((comment) => (
+          <CommentItem
             key={comment.commentId}
+            postType={postType}
             commentData={comment}
           />
         ))

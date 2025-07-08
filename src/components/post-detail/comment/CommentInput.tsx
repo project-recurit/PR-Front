@@ -1,6 +1,6 @@
 "use client";
 
-import { useCreateComment } from "@/hooks/tanstack/mutations/useCreateComment";
+import { useCreateCommentMutation } from "@/hooks/tanstack/mutations/useCreateComment";
 import type { PostType } from "@/types/postTypes";
 import { useForm, type FieldValues } from "react-hook-form";
 
@@ -11,7 +11,7 @@ interface CommentInputProps {
 
 const CommentInput = ({ postType, postId }: CommentInputProps) => {
   const { register, setValue, handleSubmit, resetField } = useForm();
-  const { mutate: createCommentMutate } = useCreateComment({ postType, postId });
+  const { mutate: createCommentMutate } = useCreateCommentMutation({ postType, postId });
 
   const onSubmit = ({ comment }: FieldValues) => {
     if (!comment.trim()) {

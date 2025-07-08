@@ -2,8 +2,8 @@ const COMMENT_QUERY_KEYS = {
   PJ: (postId: string) => ["PJcomments", postId],
   PR: (postId: string) => ["PRcomments", postId],
   reply: {
-    PJ: (parentId: string) => ["PJreply", parentId],
-    PR: (parentId: string) => ["PRreply", parentId],
+    PJ: (parentId: number) => ["PJreplyComments", parentId],
+    PR: (parentId: number) => ["PRreplyComments", parentId],
   },
 } as const;
 

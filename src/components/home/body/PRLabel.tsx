@@ -9,7 +9,7 @@ interface PRLabelProps {
 const PRLabel = ({ post }: PRLabelProps) => {
   return (
     <>
-      <p className="body-16-s overflow-line2">{post.title}</p>
+      <span className="body-16-s">{post.title}</span>
       <div className="caption-12-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="포지션"

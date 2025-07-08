@@ -69,6 +69,16 @@ export default {
         "black-800": "#404040",
         "black-900": "#262626",
         "black-1000": "#121212",
+        "orange": "#ED9016",
+      },
+      keyframes: {
+        fadeout: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        fadeout: "fadeout 1.5s forwards",
       },
     },
   },

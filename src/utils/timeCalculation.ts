@@ -1,5 +1,5 @@
 /** 날짜를 상대적인 시간으로 변환 */
-export const formatTimeAgo = (dateString: string) => {
+export function formatTimeAgo(dateString: string): string {
   const date = new Date(dateString);
   const now = new Date();
   const diffInMs = now.getTime() - date.getTime();
@@ -16,4 +16,4 @@ export const formatTimeAgo = (dateString: string) => {
 
   const diffInDays = Math.floor(diffInHours / 24);
   return `${diffInDays}일 전`;
-};
+}
