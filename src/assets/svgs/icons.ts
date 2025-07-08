@@ -1,4 +1,5 @@
 import Bell from "./bell.svg";
+import BentArrow from "./bent-arrow.svg";
 import Chat from "./chat.svg";
 import ChevronDown from "./chevron-down.svg";
 import ChevronLeft from "./chevron-left.svg";
@@ -46,4 +47,5 @@ export {
   FaceNeutral,
   FaceSmile,
   Plus,
+  BentArrow,
 };

@@ -5,7 +5,7 @@ import ROUTES from "@/constants/routes";
 import { registerSchema } from "@/schemas/authSchemas";
 import type { RegisterFormData } from "@/types/authTypes";
 import type { TechStack } from "@/types/techStackTypes";
-import { ValueOf } from "@/types/utils";
+import { ValueOf } from "@/types/typeUtils";
 import { createStateKeySetter } from "@/utils/stateUtills";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

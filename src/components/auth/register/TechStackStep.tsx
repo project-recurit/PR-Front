@@ -2,7 +2,7 @@
 
 import SkillBadge from "./SkillBadge";
 import TechStackSearchBar from "./TechStackSearchBar";
-import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles";
+import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles/registerStyles";
 import type { TechStack } from "@/types/techStackTypes";
 
 interface TechStackStepProps {

@@ -1,11 +1,6 @@
 import { COMMON_HEADERS } from "@/config/httpRequestHeaders";
 import { AUTH_API_URL } from "@/constants/apiEndpoints";
-import type {
-  RegisterApiParams,
-  RegisterApiResponse,
-  SocialLogInApiParams,
-  SocialLogInResponse,
-} from "@/types/authTypes";
+import type { RegisterApiParams, RegisterApiResponse, SocialLogInApiParams, SocialLogInResponse } from "@/types";
 import { handleError } from "@/utils/handleError";
 
 /** 소셜로그인 api */
