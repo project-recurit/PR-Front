@@ -18,17 +18,24 @@ const CommentItem = ({ commentData }: CommentItemProps) => {
         />
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-8">
-            <h4>{commentData.nickname}</h4>
-            <span>{formatTimeAgo(commentData.createdAt)}</span>
+            <h4 className="caption-14-b">{commentData.nickname}</h4>
+            <span className="caption-12-r text-black-400">{formatTimeAgo(commentData.createdAt)}</span>
           </div>
-          <div>{commentData.content}</div>
+          <div className="caption-14-m">{commentData.content}</div>
           <button
-            className="flex"
+            className="caption-12-r flex text-black-400"
             type="button"
           >
             답글
           </button>
-          {commentData.replyCount > 0 && <button type="button">댓글 {commentData.replyCount}개 더보기</button>}
+          {commentData.replyCount > 0 && (
+            <button
+              className="caption-12-m text-orange"
+              type="button"
+            >
+              댓글 {commentData.replyCount}개 더보기
+            </button>
+          )}
         </div>
       </div>
     </>

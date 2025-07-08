@@ -6,6 +6,7 @@
 
 /* HTML 태그 등 전역 스타일 */
 @layer base {
+
   /* 색상 변수 */
   :root {
     --background: #ffffff;
@@ -50,6 +51,7 @@
 
 /* 재사용할 구조적 스타일링 */
 @layer components {
+
   /* 제목 스타일 */
   .title-32-b {
     @apply text-32 font-bold leading-[1.2];
@@ -139,6 +141,11 @@
 
   .caption-16-b {
     @apply text-16 font-bold leading-[1];
+
+  }
+
+  .caption-14-b {
+    @apply text-14 font-bold leading-[1];
   }
 
   .caption-12-s {
@@ -147,6 +154,14 @@
 
   .caption-10-s {
     @apply text-10 font-semibold leading-[1];
+  }
+
+  .caption-14-m {
+    @apply text-14 font-medium leading-[1];
+  }
+
+  .caption-12-m {
+    @apply text-12 font-medium leading-[1];
   }
 
   .caption-16-r {
@@ -163,5 +178,4 @@
 }
 
 /* 유틸리티 클래스 */
-@layer utilities {
-}
+@layer utilities {}
