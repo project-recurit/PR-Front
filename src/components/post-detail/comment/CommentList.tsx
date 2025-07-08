@@ -25,6 +25,7 @@ const CommentList = ({ postType, postId }: CommentProps) => {
         commentListData.map((comment) => (
           <CommentItem
             key={comment.commentId}
+            postType={postType}
             commentData={comment}
           />
         ))

@@ -1,6 +1,6 @@
 "use client";
 
-import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles";
+import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles/registerStyles";
 import { useState } from "react";
 
 interface NicknameStepProps {

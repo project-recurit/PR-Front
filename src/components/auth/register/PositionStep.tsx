@@ -3,7 +3,7 @@
 import DropDown from "@/components/ui/DropDown";
 import { POSITIONS } from "@/constants/filterOptions";
 import { useDisclosure } from "@/hooks/disclosure/useDisclosure";
-import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles";
+import { REGISTER_ERROR_MESSAGE_STYLE } from "@/styles/tailwindStyles/registerStyles";
 
 interface PositionStepProps {
   position: string;
