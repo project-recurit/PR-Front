@@ -2,12 +2,12 @@ importScripts("https://www.gstatic.com/firebasejs/11.10.0/firebase-app-compat.js
 importScripts("https://www.gstatic.com/firebasejs/11.10.0/firebase-messaging-compat.js");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyALAcOiiSXk19Yks93iYGmvUq0f2AMWn3g",
-  authDomain: "damo-6e1e3.firebaseapp.com",
-  projectId: "damo-6e1e3",
-  messagingSenderId: "736665105063",
-  appId: "1:736665105063:web:0d26bc24aa1be0d4d16182",
-  measurementId: "G-956S3XF8N5",
+  apiKey: "NEXT_PUBLIC_FIREBASE_API_KEY",
+  authDomain: "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN",
+  projectId: "NEXT_PUBLIC_FIREBASE_PROJECT_ID",
+  messagingSenderId: "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID",
+  appId: "NEXT_PUBLIC_FIREBASE_APP_ID",
+  measurementId: "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID",
 };
 
 // 모든 설정이 제대로 로드되었는지 확인
