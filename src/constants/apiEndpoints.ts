@@ -33,7 +33,7 @@ export const COMMENT_API_URL = {
 } as const;
 
 export const NOTIFICATION_API_URL = (notificationId?: string) =>
-  notificationId
+  !!notificationId
     ? (`${BASE_URL_V1}/notifications/${notificationId}` as const)
     : (`${BASE_URL_V1}/notifications` as const);
 

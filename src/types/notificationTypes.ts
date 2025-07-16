@@ -4,4 +4,5 @@ export type Notification = {
   relatedId: number;
   type: string;
   userId: number;
+  isRead: boolean;
 };

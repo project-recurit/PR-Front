@@ -4,7 +4,6 @@ import { NOTIFICATION_TEMPLATE } from "@/constants/notificationTemplates";
 
 interface NotificationCardProps {
   notificationType: keyof typeof NOTIFICATION_TEMPLATE;
-  read?: boolean;
   subject: string;
   receivedAt: string;
 }
