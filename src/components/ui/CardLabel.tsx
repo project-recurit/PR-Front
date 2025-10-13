@@ -6,7 +6,7 @@ interface CardLabelProps {
 const CardLabel = ({ title, value }: CardLabelProps) => {
   return (
     <>
-      <p className="caption-12-r text-black-400">{title}</p>
+      <p className="caption-12-r text-black-700">{title}</p>
       <p className="caption-12-r">{value}</p>
     </>
   );

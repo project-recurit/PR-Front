@@ -12,7 +12,7 @@ interface ReplyCommentItemProps {
 const ReplyCommentItem = ({ replyCommentData }: ReplyCommentItemProps) => {
   return (
     <div className="flex flex-row gap-4">
-      <BentArrow />
+      <BentArrow className={"shrink-0"} />
       <div className="flex flex-row gap-12">
         <img
           className="h-40 w-40 rounded-full"

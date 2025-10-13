@@ -9,7 +9,6 @@ interface NotificationSheetProps {
 
 const NotificationSheet = ({ closeModal }: NotificationSheetProps) => {
   const { data: notificationData } = useGetNotificationsQuery();
-  console.log(" notificationData => ", notificationData);
 
   return (
     <div className="h-screen w-screen bg-white">

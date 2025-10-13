@@ -6,19 +6,15 @@ interface PRLabelProps {
   post: PRPost;
 }
 
-const PRLabel = ({ post }: PRLabelProps) => {
+const PRPostLabel = ({ post }: PRLabelProps) => {
   return (
     <>
-      <span className="body-16-s">{post.title}</span>
       <div className="caption-12-r grid grid-cols-[70px_1fr] items-center gap-y-10">
         <CardLabel
           title="포지션"
           value={POSITION_LABEL[post.position]}
         />
-        <TechStackLabel
-          stacks={post.techStacks}
-          visibleCount={3}
-        />
+        <TechStackLabel stacks={post.techStacks} />
         <CardLabel
           title="선호 방식"
           value={WORK_TYPE_LABEL[post.workType]}
@@ -28,4 +24,4 @@ const PRLabel = ({ post }: PRLabelProps) => {
   );
 };
 
-export default PRLabel;
+export default PRPostLabel;

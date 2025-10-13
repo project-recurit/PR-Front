@@ -32,7 +32,7 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
           src={commentData.profileUrl}
           alt="profile image"
         />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col items-start gap-4">
           <div className="flex flex-row gap-8">
             <h4 className={COMMENT_NICKNAME_STYLE}>{commentData.nickname}</h4>
             <span className={COMMENT_CREATED_AT_STYLE}>{formatTimeAgo(commentData.createdAt)}</span>
@@ -46,7 +46,7 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
           </button>
           {commentData.replyCount > 0 && !isReplyCommentsOpen && (
             <button
-              className="caption-12-m text-orange"
+              className="caption-12-m mt-8 text-orange"
               type="button"
               onClick={() => {
                 refetch();
@@ -72,7 +72,7 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
             </div>
             <div>
               <button
-                className="caption-14-m ml-96 text-black-800"
+                className="caption-12-r ml-96 text-black-800"
                 type="button"
                 onClick={() => setIsReplyCommentsOpen(false)}
               >

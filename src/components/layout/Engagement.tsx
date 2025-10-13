@@ -10,7 +10,7 @@ const Engagement = ({ viewCount, commentCount, favoriteCount }: EngagementProps)
   const engagementData = [
     { icon: <Eye />, count: viewCount },
     { icon: <Comment />, count: commentCount },
-    { icon: <Heart />, count: favoriteCount },
+    { icon: <Heart className="h-16 w-16 stroke-black-500" />, count: favoriteCount },
   ];
 
   return (

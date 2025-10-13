@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header";
-import PostDetailBottomBar from "@/components/post-detail/PostDetailBottomBar";
+import PRPostBottomBar from "@/components/post-detail/post/prPost/PRPostBottomBar";
 import type { ReactNode } from "react";
 
 interface PostDetailLayoutProps {
@@ -11,7 +11,7 @@ const PostDetailLayout = ({ children }: PostDetailLayoutProps) => {
     <>
       <Header />
       {children}
-      <PostDetailBottomBar />
+      <PRPostBottomBar />
     </>
   );
 };

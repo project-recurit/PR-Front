@@ -14,9 +14,7 @@ export const POST_SEARCH = "postSearch";
 const PostContainer = () => {
   const [selectedMenu, setSelectedMenu] = useState<PostType>("PJ");
   const appliedFilters = useRef(new Set<string>());
-  const { register, setValue, handleSubmit, resetField, setFocus, getValues } = useForm();
-  const searchTerm = getValues(POST_SEARCH);
-  console.log("searchTerm =", searchTerm);
+  const { register, setValue, handleSubmit, resetField, setFocus } = useForm();
   return (
     <>
       <CategoryTab
@@ -30,13 +28,9 @@ const PostContainer = () => {
         handleSubmit={handleSubmit}
         resetField={resetField}
         setFocus={setFocus}
-        searchEvent={(query) => console.log(query)}
       />
       <FilterSection appliedFilters={appliedFilters.current} />
-      <PostList
-        selectedMenu={selectedMenu}
-        appliedFilters={appliedFilters.current}
-      />
+      <PostList selectedMenu={selectedMenu} />
     </>
   );
 };

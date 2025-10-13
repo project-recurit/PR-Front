@@ -19,7 +19,10 @@ const PJLabel = ({ post }: PJLabelProps) => {
           title="포지션"
           value={"데이터 안 넘어옴"}
         />
-        <TechStackLabel stacks={post.techStacks} />
+        <TechStackLabel
+          stacks={post.techStacks}
+          visibleCount={3}
+        />
         <CardLabel
           title="진행 방식"
           value={"데이터 안 넘어옴"}
