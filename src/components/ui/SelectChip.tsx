@@ -11,7 +11,7 @@ interface FilterChipProps {
 const SelectChip = ({ size, active, onClick, content, activeColor }: FilterChipProps) => {
   const chipSize: Record<string, string> = {
     m: "h-30 rounded-8 border-1 border-black px-16 py-8 gap-8",
-    s: "h-18 rounded-12 px-8 py-2 gap-2",
+    s: "h-18 rounded-xl px-8 py-2 gap-2",
   };
 
   return (

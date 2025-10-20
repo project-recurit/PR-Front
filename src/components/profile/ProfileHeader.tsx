@@ -1,5 +1,7 @@
 import ProfileImage from "../ui/ProfileImage";
 import TechStackLabel from "../ui/StackLabel";
+import ROUTES from "@/constants/routes";
+import Link from "next/link";
 
 const ProfileHeader = () => {
   return (
@@ -30,9 +32,12 @@ const ProfileHeader = () => {
         />
       </section>
 
-      <button className="flex h-40 w-full items-center justify-center rounded-8 border-1 border-black-400 bg-black-50">
+      <Link
+        href={ROUTES.myResume}
+        className="flex h-40 w-full items-center justify-center rounded-8 border-1 border-black-400 bg-black-50"
+      >
         <span className="body-14-s text-black-1000">내 이력</span>
-      </button>
+      </Link>
     </div>
   );
 };

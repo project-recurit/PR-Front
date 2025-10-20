@@ -7,6 +7,7 @@ const ROUTES = {
   pjDetail: (postId: number) => `/pj/${postId}`,
   chat: "/chat",
   myPage: "/my-page",
+  myResume: "my-resume",
   profile: (userId: number) => `/profile/${userId}`,
 } as const;
 

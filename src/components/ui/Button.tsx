@@ -34,7 +34,7 @@ const Button = ({
 
   return (
     <button
-      className={`${buttonSize[size]} ${buttonColor[color]} h-52 rounded-12 p-10 ${className} ${disabled ? "opacity-50" : ""}`}
+      className={`${buttonSize[size]} ${buttonColor[color]} h-52 rounded-xl p-10 ${className} ${disabled ? "opacity-50" : ""}`}
       type={type}
       disabled={disabled}
       onClick={onClick}

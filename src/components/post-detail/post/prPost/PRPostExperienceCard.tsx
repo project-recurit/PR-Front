@@ -17,7 +17,7 @@ const PRPostExperienceCard = ({ experience }: PRPostExperienceCardProps) => {
   };
 
   return (
-    <div className="rounded-12 border-[0.5px] border-black-400 bg-white px-16 py-8">
+    <div className="rounded-xl border-[0.5px] border-black-400 bg-white px-16 py-8">
       <section
         className="header flex items-center"
         onClick={toggleCardOpen}
