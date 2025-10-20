@@ -1,6 +1,7 @@
 "use client";
 
 import ReplyCommentItem from "./ReplyCommentItem";
+import ProfileImage from "@/components/ui/ProfileImage";
 import { useGetReplyCommentsQuery } from "@/hooks/tanstack/queries/useGetComments";
 import { COMMENT_NICKNAME_STYLE, COMMENT_CREATED_AT_STYLE, REPLY_BUTTON_STYLE } from "@/styles/tailwindStyles";
 import type { Comment } from "@/types";
@@ -27,10 +28,9 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
   return (
     <div className="flex flex-col gap-24 border-b border-b-black-200 px-16 py-24">
       <div className="flex flex-row gap-12">
-        <img
-          className="h-40 w-40 rounded-full"
+        <ProfileImage
+          size="sm"
           src={commentData.profileUrl}
-          alt="profile image"
         />
         <div className="flex flex-col items-start gap-4">
           <div className="flex flex-row gap-8">

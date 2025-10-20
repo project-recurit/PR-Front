@@ -5,17 +5,18 @@ import { getTechStackColor } from "@/utils/techStackColor";
 interface StackLabelProps {
   stacks: Post["techStacks"];
   visibleCount?: number;
+  showTitle?: boolean;
 }
 
-const TechStackLabel = ({ stacks, visibleCount }: StackLabelProps) => {
+const TechStackLabel = ({ stacks, visibleCount, showTitle = true }: StackLabelProps) => {
   return (
     <>
-      <p className="text-black-700">기술 스택</p>
+      {showTitle && <p className="text-black-700">기술 스택</p>}
       <div className="flex items-center gap-x-4">
         <div className="flex gap-x-4">
           {stacks.slice(0, visibleCount).map(({ id, name }) => (
             <div
-              className={`rounded-full px-8 py-2`}
+              className={`caption-12-r rounded-full px-8 py-2`}
               style={{ backgroundColor: getTechStackColor(id) }}
               key={id}
             >
@@ -24,7 +25,7 @@ const TechStackLabel = ({ stacks, visibleCount }: StackLabelProps) => {
           ))}
         </div>
         {!!visibleCount && stacks.length - visibleCount > 0 && (
-          <div className={`flex items-center rounded-full bg-black-100 px-8 py-2`}>
+          <div className={`caption-12-r flex items-center rounded-full bg-black-100 px-8 py-2`}>
             <Plus className={"h-10 w-10 stroke-black-1000"} />
             {" α"}
           </div>

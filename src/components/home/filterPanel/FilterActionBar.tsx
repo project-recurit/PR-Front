@@ -1,4 +1,4 @@
-import Botton from "@/components/ui/Botton";
+import Button from "@/components/ui/Button";
 import { Dispatch, SetStateAction } from "react";
 
 interface FilterActionBarProps {
@@ -19,7 +19,7 @@ const FilterActionBar = ({ closeModal, appliedFilters, setSelectedFilter }: Filt
       >
         선택 초기화
       </button>
-      <Botton
+      <Button
         size="large"
         className="h-52 bg-black p-10 text-18 text-white"
         onClick={() => {
@@ -28,7 +28,7 @@ const FilterActionBar = ({ closeModal, appliedFilters, setSelectedFilter }: Filt
         }}
       >
         적용하기
-      </Botton>
+      </Button>
     </div>
   );
 };

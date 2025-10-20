@@ -14,7 +14,10 @@ const NotificationButton = () => {
         <Bell />
       </button>
 
-      <Modal isModalOpen={isModalOpen}>
+      <Modal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+      >
         <NotificationSheet closeModal={closeModal} />
       </Modal>
     </>

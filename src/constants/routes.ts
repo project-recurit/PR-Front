@@ -7,6 +7,7 @@ const ROUTES = {
   pjDetail: (postId: number) => `/pj/${postId}`,
   chat: "/chat",
   myPage: "/my-page",
+  profile: (userId: number) => `/profile/${userId}`,
 } as const;
 
 export default ROUTES;
