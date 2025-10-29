@@ -14,7 +14,7 @@ const FilterSheet = ({ closeModal, appliedFilters }: FilterSheetProps) => {
   const [selectedFilters, setSelectedFilter] = useState<Set<string>>(appliedFilters);
 
   return (
-    <div className="flex h-screen w-screen flex-col">
+    <div className="flex h-screen w-screen flex-col bg-white">
       <Header
         heading="필터"
         backButtonEvent={closeModal}

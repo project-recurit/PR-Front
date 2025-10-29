@@ -34,7 +34,10 @@ const FilterSection = ({ appliedFilters }: FilterSectionProps) => {
           <FilterFunnel />
         </button>
       </div>
-      <Modal isModalOpen={isModalOpen}>
+      <Modal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+      >
         <FilterSheet
           closeModal={closeModal}
           appliedFilters={appliedFilters}

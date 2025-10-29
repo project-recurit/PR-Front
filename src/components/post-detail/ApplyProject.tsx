@@ -1,22 +1,31 @@
 "use client";
 
-import Botton from "../ui/Botton";
-// import { applayProjectApi } from "@/apis/applyProjectApis";
+import { applayProjectApi } from "@/apis/applyProjectApis";
 import { ChevronDown } from "@/assets/svgs/icons";
+import Button from "@/components/ui/Button";
+import { POSITIONS } from "@/constants/filterOptions";
+import { FilterChip } from "@/types";
 import { useState } from "react";
 
 interface ApplyProjectProps {
+  pjId: number;
   closeModal: () => void;
 }
 
-const ApplyProject = ({ closeModal }: ApplyProjectProps) => {
+const ApplyProject = ({ pjId, closeModal }: ApplyProjectProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selectedPostion, setSelectedPosition] = useState<FilterChip | null>(null);
 
-  const options = ["게임", "기획", "디자이너", "모바일/APP", "백엔드", "프론트엔드"];
+  const onClickApplyProject = async () => {
+    // 로그인 안돼있으면 막기
+    if (!selectedPostion) {
+      return;
+    }
+    await applayProjectApi({ pjId, position: selectedPostion });
+  };
 
   return (
-    <div className="gap-10 rounded-6 p-24">
+    <div className="gap-10 rounded-6 bg-white p-24">
       <div className="flex flex-col items-center gap-8">
         <h2>저장된 지원서로 지원할까요?</h2>
         <div>지원하시는 직무를 선택해주세요!</div>
@@ -27,42 +36,36 @@ const ApplyProject = ({ closeModal }: ApplyProjectProps) => {
           className="flex w-full justify-between"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          <span className={selected ? "text-black" : isDropdownOpen ? "text-black" : "text-black-400"}>
-            {selected ?? "직무 선택"}
+          <span className={selectedPostion ? "text-black" : isDropdownOpen ? "text-black" : "text-black-400"}>
+            {selectedPostion?.title ?? "직무 선택"}
           </span>
           <ChevronDown className="h-24 w-24" />
         </button>
         {isDropdownOpen && (
           <ul>
-            {options.map((option) => (
+            {POSITIONS.map((option) => (
               <li
-                key={option}
+                key={option.type}
                 onClick={() => {
-                  setSelected(option);
+                  setSelectedPosition(option);
                   setIsDropdownOpen(false);
                 }}
                 className="px-4 py-2 hover:bg-gray-100"
               >
-                {option}
+                {option.title}
               </li>
             ))}
           </ul>
         )}
       </div>
       <div className="mt-24 flex gap-16">
-        <Botton
+        <Button
           color="white"
           onClick={closeModal}
         >
           취소하기
-        </Botton>
-        <Botton
-          onClick={() => {
-            // applayProjectApi(selected)
-          }}
-        >
-          지원하기
-        </Botton>
+        </Button>
+        <Button onClick={onClickApplyProject}>지원하기</Button>
       </div>
     </div>
   );

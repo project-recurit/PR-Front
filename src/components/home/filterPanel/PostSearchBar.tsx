@@ -12,7 +12,7 @@ import {
 
 interface PostSearchBarProps {
   inputName: string;
-  searchEvent: (query: string) => void;
+  searchEvent?: (query: string) => void;
   register: UseFormRegister<FieldValues>;
   setValue: UseFormSetValue<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues, FieldValues>;
@@ -34,7 +34,7 @@ const PostSearchBar = ({
       setValue(inputName, "");
       return;
     }
-    searchEvent(searchTerm.trim());
+    searchEvent?.(searchTerm.trim());
     resetField(inputName);
   };
 

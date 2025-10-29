@@ -11,11 +11,9 @@ import Link from "next/link";
 
 interface PostListProps {
   selectedMenu: PostType;
-  appliedFilters: Set<string>;
 }
 
-const PostList = ({ selectedMenu, appliedFilters }: PostListProps) => {
-  console.log("[㏒] appliedFilters =>", appliedFilters);
+const PostList = ({ selectedMenu }: PostListProps) => {
   const { data: postData, isPending, isError, error } = useGetPostsQuery({ postType: selectedMenu });
 
   //TODO - 로딩 컴포넌트 완성 시 변경
@@ -42,7 +40,7 @@ const PostList = ({ selectedMenu, appliedFilters }: PostListProps) => {
           };
           return (
             <Link
-              href={ROUTES.postDetail(post.id, selectedMenu)}
+              href={selectedMenu === "PJ" ? ROUTES.pjDetail(post.id) : ROUTES.prDetail(post.id)}
               key={post.id}
             >
               <PostInfo {...postInfo}>

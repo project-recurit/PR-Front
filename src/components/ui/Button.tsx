@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 
-interface Botton {
+interface Button {
   children: string | ReactNode;
   size?: "small" | "medium" | "large";
   color?: "black" | "white";
@@ -12,7 +12,7 @@ interface Botton {
   onClick: () => void;
 }
 
-const Botton = ({
+const Button = ({
   children,
   size = "small",
   color = "black",
@@ -20,7 +20,7 @@ const Botton = ({
   type,
   disabled = false,
   onClick,
-}: Botton) => {
+}: Button) => {
   const buttonSize = {
     small: "w-128",
     medium: "w-164",
@@ -34,7 +34,7 @@ const Botton = ({
 
   return (
     <button
-      className={`${buttonSize[size]} ${buttonColor[color]} h-52 rounded-12 p-10 ${className} ${disabled ? "opacity-50" : ""}`}
+      className={`${buttonSize[size]} ${buttonColor[color]} h-52 rounded-xl p-10 ${className} ${disabled ? "opacity-50" : ""}`}
       type={type}
       disabled={disabled}
       onClick={onClick}
@@ -44,4 +44,4 @@ const Botton = ({
   );
 };
 
-export default Botton;
+export default Button;

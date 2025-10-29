@@ -1,6 +1,7 @@
 "use client";
 
 import ReplyCommentItem from "./ReplyCommentItem";
+import ProfileImage from "@/components/ui/ProfileImage";
 import { useGetReplyCommentsQuery } from "@/hooks/tanstack/queries/useGetComments";
 import { COMMENT_NICKNAME_STYLE, COMMENT_CREATED_AT_STYLE, REPLY_BUTTON_STYLE } from "@/styles/tailwindStyles";
 import type { Comment } from "@/types";
@@ -27,12 +28,11 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
   return (
     <div className="flex flex-col gap-24 border-b border-b-black-200 px-16 py-24">
       <div className="flex flex-row gap-12">
-        <img
-          className="h-40 w-40 rounded-full"
+        <ProfileImage
+          size="sm"
           src={commentData.profileUrl}
-          alt="profile image"
         />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col items-start gap-4">
           <div className="flex flex-row gap-8">
             <h4 className={COMMENT_NICKNAME_STYLE}>{commentData.nickname}</h4>
             <span className={COMMENT_CREATED_AT_STYLE}>{formatTimeAgo(commentData.createdAt)}</span>
@@ -46,7 +46,7 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
           </button>
           {commentData.replyCount > 0 && !isReplyCommentsOpen && (
             <button
-              className="caption-12-m text-orange"
+              className="caption-12-m mt-8 text-orange"
               type="button"
               onClick={() => {
                 refetch();
@@ -72,7 +72,7 @@ const CommentItem = ({ postType, commentData }: CommentItemProps) => {
             </div>
             <div>
               <button
-                className="caption-14-m ml-96 text-black-800"
+                className="caption-12-r ml-96 text-black-800"
                 type="button"
                 onClick={() => setIsReplyCommentsOpen(false)}
               >

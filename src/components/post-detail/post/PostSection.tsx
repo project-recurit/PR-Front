@@ -1,40 +1,39 @@
 "use client";
 
-import PJPostBody from "./PJPostBody";
-import PRPostBody from "./PRPostBody";
+import { Heart } from "@/assets/svgs/icons";
 import Engagement from "@/components/layout/Engagement";
 import PostProfile from "@/components/layout/PostProfile";
-import { useGetPostDetailQuery } from "@/hooks/tanstack/queries/useGetPosts";
-import type { PostType } from "@/types/postTypes";
+import type { PJPost, PRPost } from "@/types/postTypes";
 
-interface PostSectionProps {
-  postType: PostType;
-  postId: string;
-  isPJPost: boolean;
+interface PostSectionProps extends React.PropsWithChildren {
+  postData: PJPost | PRPost;
 }
 
-const PostSection = ({ postType, postId, isPJPost }: PostSectionProps) => {
-  const { data: postData, isPending, isError, error } = useGetPostDetailQuery({ postType, postId });
-  console.log(" postData => ", postData);
-
-  //TODO - 로딩 컴포넌트 완성 시 변경
-  if (isPending) return <div>게시물을 불러오고 있습니다.</div>;
-
-  if (isError) throw new Error(error.message);
-
+const PostSection = ({ children, postData }: PostSectionProps) => {
   return (
     <section className="px-16">
-      <PostProfile
-        nickname={postData.nickname}
-        modifiedAt={postData.modifiedAt}
-      />
-      <h2>{postData.title}</h2>
+      <div className="flex">
+        <PostProfile
+          nickname={postData.nickname}
+          modifiedAt={postData.modifiedAt}
+        />
+        {/* <button className="ml-auto">
+          <Heart className="h-24 w-24 fill-orange stroke-orange" />
+          <Heart className="h-24 w-24 stroke-black-1000" />
+        </button> */}
+      </div>
+
+      <h2 className="title-18-s mb-18 mt-16">{postData.title}</h2>
       <Engagement
         viewCount={postData.viewCount}
         commentCount={postData.commentCount}
         favoriteCount={postData.favoriteCount}
       />
-      <div>{isPJPost ? <PJPostBody /> : <PRPostBody />}</div>
+
+      {/* body */}
+      <hr className="-mx-16 mt-9 border-black-200" />
+      {children}
+
       <hr className="-mx-16 border-black-200" />
       <div className="py-24">댓글 {postData.commentCount}</div>
     </section>

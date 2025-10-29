@@ -10,6 +10,17 @@ export type PostFilter = {
   durations: string[];
 };
 
+export type FilterChip = {
+  type: string | number;
+  title: string;
+};
+
+export type FilterCategory = {
+  key: string;
+  title: string;
+  chips: FilterChip[];
+};
+
 export type CategoryState = {
   selectedMenu: PostType;
   activeFilters: TechStack[];

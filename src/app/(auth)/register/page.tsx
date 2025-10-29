@@ -5,7 +5,7 @@ import PositionStep from "@/components/auth/register/PositionStep";
 import StepLabel from "@/components/auth/register/StepLabel";
 import TechStackStep from "@/components/auth/register/TechStackStep";
 import Header from "@/components/layout/Header";
-import Botton from "@/components/ui/Botton";
+import Button from "@/components/ui/Button";
 import { useRegister } from "@/hooks/register/useRegister";
 
 const RegisterPage = () => {
@@ -50,13 +50,13 @@ const RegisterPage = () => {
         )}
       </main>
       <div className="fixed bottom-0 w-full px-16">
-        <Botton
+        <Button
           size="large"
           onClick={nextStep}
           type="button"
         >
           {step === 3 ? "시작하기" : "계속"}
-        </Botton>
+        </Button>
       </div>
     </div>
   );

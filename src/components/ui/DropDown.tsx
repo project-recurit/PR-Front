@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp } from "@/assets/svgs/icons";
+import { FilterChip } from "@/types/filterTypes";
 import { useCallback } from "react";
 
 interface DropDownProps {
@@ -8,7 +9,7 @@ interface DropDownProps {
   isDropDownOpen: boolean;
   openDropDown: () => void;
   closeDropDown: () => void;
-  options: Readonly<string[]>;
+  options: FilterChip[];
   value: string;
   setValue: (v: string) => void;
 }
@@ -48,10 +49,10 @@ const DropDown = ({
 
           {options.map((option) => (
             <li
-              key={option}
-              onClick={() => handleValue(option)}
+              key={option.type}
+              onClick={() => handleValue(option.title)}
             >
-              {option}
+              {option.title}
             </li>
           ))}
         </ol>

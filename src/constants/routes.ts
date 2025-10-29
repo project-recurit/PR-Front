@@ -1,13 +1,14 @@
-import type { PostType } from "@/types/postTypes";
-
 const ROUTES = {
   home: "/",
   register: "/register",
   logIn: "/log-in",
   dashboard: "/dashboard",
-  postDetail: (postId: number, postType: PostType) => `/post/${postId}?type=${postType}`,
+  prDetail: (postId: number) => `/pr/${postId}`,
+  pjDetail: (postId: number) => `/pj/${postId}`,
   chat: "/chat",
   myPage: "/my-page",
+  myResume: "my-resume",
+  profile: (userId: number) => `/profile/${userId}`,
 } as const;
 
 export default ROUTES;

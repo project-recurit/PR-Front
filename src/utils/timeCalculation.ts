@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 /** 날짜를 상대적인 시간으로 변환 */
 export function formatTimeAgo(dateString: string): string {
   const date = new Date(dateString);
@@ -17,3 +19,13 @@ export function formatTimeAgo(dateString: string): string {
   const diffInDays = Math.floor(diffInHours / 24);
   return `${diffInDays}일 전`;
 }
+
+/** 날짜를 원하는 형식으로 변환 */
+export const getFormattedDate = (date?: string | number, dateFormat: string = "yyyy-MM-dd HH:mm:ss"): string => {
+  try {
+    return format(date ? new Date(date) : new Date(), dateFormat);
+  } catch (error) {
+    console.error("[formatted date error] date: " + date + ", dateFormat: " + dateFormat, error);
+    return "";
+  }
+};

@@ -18,7 +18,7 @@ const SocialLogInButton = ({ provider }: SocialLogInButtonProps) => {
             // { callbackUrl: "/", redirect: false }
           )
         }
-        className={`body-16-b flex w-full items-center justify-center rounded-12 px-20 py-8 ${style}`}
+        className={`body-16-b flex w-full items-center justify-center rounded-xl px-20 py-8 ${style}`}
       >
         <Icon />
         <span>{label} 로그인</span>
