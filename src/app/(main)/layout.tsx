@@ -14,11 +14,11 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <>
+    <div className="flex h-screen flex-col">
       <MainHeader />
       {children}
       <NavigationBar />
-    </>
+    </div>
   );
 };
 
